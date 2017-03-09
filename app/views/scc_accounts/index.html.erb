@@ -1,0 +1,40 @@
+<%= javascript_include_tag 'scc_accounts.js' %>
+<% title _("SUSE Customer Center accounts") %>
+<% title_actions new_link(_("Create new SCC account")) %>
+
+<table class="<%= table_css_classes 'table-two-pane table_fixed' %>">
+  <thead>
+    <tr>
+      <th class="col-md-2"><%= sort :login %></th>
+      <th class="col-md-2"><%= _("Products") %></th>
+      <th class="col-md-4"><%= _("Base url") %></th>
+      <th class="col-md-2"><%= _("Last synced") %></th>
+      <th class="col-md-2"><%= _("Actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scc_accounts.each do |scc_account| %>
+      <tr>
+        <td class="display-two-pane ellipsis">
+          <%= link_to_if_authorized(scc_account.login, hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer)) %>
+          <%= link_to_if_authorized('', hash_for_edit_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer), {visible: false, class: 'edit_deferree'}) %>
+        </td>
+        <td><%= scc_account.scc_products.count.to_s %></td>
+        <td><%= scc_account.base_url %></td>
+        <td><%= scc_account.synced %></td>
+        <td>
+          <%= action_buttons(
+            display_link_if_authorized(_("Sync"), hash_for_sync_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer),
+            :method => :put),
+            display_link_if_authorized(_("Edit"), hash_for_edit_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer),
+                                      class: 'edit_deferrer'),
+            display_delete_if_authorized(hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer),
+            :data => { :confirm => _("Delete %s?") % scc_account.to_s })
+          ) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate_with_info @scc_accounts %>

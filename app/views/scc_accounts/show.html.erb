@@ -1,0 +1,37 @@
+<%= javascript_include_tag 'scc_accounts.js' %>
+<%= form_for([:bulk_subscribe, @scc_account], method: :put) do |f| %>
+<% def render_list_node(f, scc_product, parent_id = nil) %>
+<li>
+  <span class="scc_product_checkbox" id="<%= "scc_product_span_#{scc_product.id}" %>" <%= "data-parent=scc_product_span_#{parent_id}" if parent_id %>>
+<% if scc_product.product %>
+    <%= check_box_tag("scc_account[scc_unsubscribe_product_ids][]", scc_product.id, true, disabled: true) %>
+<% else %>
+    <%= check_box_tag("scc_account[scc_subscribe_product_ids][]", scc_product.id, false) %>
+<% end %>
+  </span>
+  <%= scc_product.friendly_name %>
+<% if scc_product.scc_extensions.any? %>
+  <ul>
+<% scc_product.scc_extensions.each do |scc_extension| %>
+  <% render_list_node(f, scc_extension, scc_product.id) %>
+<% end %>
+  </ul>
+<% end %>
+</li>
+<% end %>
+  <%= f.hidden_field :prevent_missing, value: 1 %>
+  <ul class="nav nav-tabs" data-tabs="tabs">
+    <li class="active"><a href="#primary" data-toggle="tab"><%= _("SUSE Customer Center") %></a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active pre-scrollable" id="primary">
+      <ul>
+<% @scc_account.scc_products.where(product_type: 'base').each do |scc_product| %>
+  <% render_list_node(f, scc_product) %>
+<% end %>
+      </ul>
+    </div>
+    <%= submit_or_cancel f %>
+  </div>
+<% end %>

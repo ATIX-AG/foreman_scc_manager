@@ -1,0 +1,2 @@
+module SccAccountsHelper
+end
