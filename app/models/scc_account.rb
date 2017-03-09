@@ -4,6 +4,7 @@
 
 class SccAccount < ActiveRecord::Base
   include Authorizable
+  include ForemanTasks::Concerns::ActionSubject
 
   self.include_root_in_json = false
 
@@ -19,6 +20,10 @@ class SccAccount < ActiveRecord::Base
   scoped_search on: :login, complete_value: true
 
   def to_s
+    'SUSE customer center account ' + login
+  end
+
+  def name
     'SUSE customer center account ' + login
   end
 
