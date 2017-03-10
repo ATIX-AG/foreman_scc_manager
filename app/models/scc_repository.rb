@@ -1,4 +1,6 @@
 class SccRepository < ActiveRecord::Base
+  after_save :token_changed_callback, if: :token_changed?
+
   self.include_root_in_json = false
 
   belongs_to :scc_account
@@ -7,6 +9,11 @@ class SccRepository < ActiveRecord::Base
 
   def full_url
     token.blank? ? url : url + '?' + token
+  end
+
+  def token_changed_callback
+    # TODO implement
+    puts "token changed: Update derived repositories"
   end
 
 end
