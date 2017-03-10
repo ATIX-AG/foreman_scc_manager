@@ -27,37 +27,8 @@ class SccAccount < ActiveRecord::Base
     'SUSE customer center account ' + login
   end
 
-  # adapted from https://github.com/SUSE/connect
-  def get_scc_data(rest_url)
-    url = base_url + rest_url
-    auth_header = { Authorization: 'Basic ' + Base64.encode64("#{login}:#{password}").chomp }
-    results = []
-    loop do
-      response = RestClient.get url, auth_header
-      raise "Connection to SUSE costomer center failed." unless response.code == 200
-      links = (response.headers[:link] || '').split(', ').map do |link|
-        href, rel = /<(.*?)>; rel="(\w+)"/.match(link).captures
-        [rel.to_sym, href]
-      end
-      links = Hash[*links.flatten]
-      results += JSON.parse response
-      url = links[:next]
-      break unless url
-    end
-    results
-  end
-
-  def get_scc_upstream_repositories
-    get_scc_data '/connect/organizations/repositories'
-  end
-
-  def get_scc_upstream_products
-    get_scc_data '/connect/organizations/products'
-  end
-
-  def sync_scc_repositories
+  def update_scc_repositories(upstream_repositories)
     upstream_repo_ids = []
-    upstream_repositories = get_scc_upstream_repositories
     SccProduct.transaction do
       # import repositories
       upstream_repositories.each do |ur|
@@ -77,9 +48,8 @@ class SccAccount < ActiveRecord::Base
     end
   end
 
-  def sync_scc_products
+  def update_scc_products(upstream_products)
     upstream_product_ids = []
-    upstream_products = get_scc_upstream_products
     SccProduct.transaction do
       # import products
       upstream_products.each do |up|

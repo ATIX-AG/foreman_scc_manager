@@ -48,7 +48,7 @@ class SccAccountsController < ApplicationController
 
   # PUT /scc_accounts/1/sync
   def sync
-    ForemanTasks::sync_task(::Actions::SccManager::Sync, @scc_account)
+    ForemanTasks::async_task(::Actions::SccManager::Sync, @scc_account)
     redirect_to scc_accounts_path
   end
 

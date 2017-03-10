@@ -6,9 +6,17 @@ module Actions
         sequence do
           plan_action(::Actions::SccManager::SyncRepositories, scc_account)
           plan_action(::Actions::SccManager::SyncProducts, scc_account)
-          scc_account.synced = DateTime.now
-          scc_account.save!
+          plan_self(id: scc_account.id)
         end
+      end
+
+      def run
+      end
+
+      def finalize
+        scc_account = SccAccount.find(input.fetch(:id))
+        scc_account.synced = DateTime.now
+        scc_account.save!
       end
 
       def humanized_name
