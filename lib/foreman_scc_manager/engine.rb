@@ -42,6 +42,12 @@ module ForemanSccManager
       end
     end
 
+    initializer 'foreman_scc_manager.register_actions', :before => :finisher_hook do |_app|
+      ForemanTasks.dynflow.require!
+      action_paths = %W(#{ForemanSccManager::Engine.root}/app/lib/actions)
+      ForemanTasks.dynflow.config.eager_load_paths.concat(action_paths)
+    end
+
     # Precompile any JS or CSS files under app/assets/
     # If requiring files from each other, list them explicitly here to avoid precompiling the same
     # content twice.

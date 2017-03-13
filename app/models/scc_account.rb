@@ -4,6 +4,7 @@
 
 class SccAccount < ActiveRecord::Base
   include Authorizable
+  include ForemanTasks::Concerns::ActionSubject
 
   self.include_root_in_json = false
 
@@ -22,41 +23,12 @@ class SccAccount < ActiveRecord::Base
     'SUSE customer center account ' + login
   end
 
-  # adapted from https://github.com/SUSE/connect
-  def get_scc_data(rest_url)
-    url = base_url + rest_url
-    auth_header = { Authorization: 'Basic ' + Base64.encode64("#{login}:#{password}").chomp }
-    results = []
-    loop do
-      response = RestClient.get url, auth_header
-      raise "Connection to SUSE costomer center failed." unless response.code == 200
-      links = (response.headers[:link] || '').split(', ').map do |link|
-        href, rel = /<(.*?)>; rel="(\w+)"/.match(link).captures
-        [rel.to_sym, href]
-      end
-      links = Hash[*links.flatten]
-      results += JSON.parse response
-      url = links[:next]
-      break unless url
-    end
-    results
+  def name
+    'SUSE customer center account ' + login
   end
 
-  def get_scc_upstream_repositories
-    get_scc_data '/connect/organizations/repositories'
-  end
-
-  def get_scc_upstream_products
-    get_scc_data '/connect/organizations/products'
-  end
-
-  def sync_scc_products
-    new_records = 0
-    updated_records = 0
-    deleted_records = 0
-    upstream_ids = []
-    upstream_repositories = get_scc_upstream_repositories
-    upstream_products = get_scc_upstream_products
+  def update_scc_repositories(upstream_repositories)
+    upstream_repo_ids = []
     SccProduct.transaction do
       # import repositories
       upstream_repositories.each do |ur|
@@ -69,7 +41,16 @@ class SccAccount < ActiveRecord::Base
         cached_repository.autorefresh = ur['autorefresh']
         cached_repository.installer_updates = ur['installer_updates']
         cached_repository.save!
+        upstream_repo_ids << cached_repository.id
       end
+      # delete repositories beeing removed upstream
+      deleted_records = scc_repositories.where(id: scc_repository_ids - upstream_repo_ids).destroy_all.count
+    end
+  end
+
+  def update_scc_products(upstream_products)
+    upstream_product_ids = []
+    SccProduct.transaction do
       # import products
       upstream_products.each do |up|
         cached_product = scc_products.find_or_initialize_by(scc_id: up['id'])
@@ -80,22 +61,17 @@ class SccAccount < ActiveRecord::Base
         cached_product.friendly_name = up['friendly_name']
         cached_product.product_type = up['product_type']
         cached_product.scc_repositories = scc_repositories.where(scc_id: up['repositories'].map { |repo| repo['id'] })
-        new_records += 1 if cached_product.new_record?
-        updated_records += 1 if cached_product.changed? and not cached_product.new_record?
         cached_product.save!
-        upstream_ids << cached_product.id
+        upstream_product_ids << cached_product.id
       end
       # delete products beeing removed upstream
-      deleted_records = scc_products.where(id: scc_product_ids - upstream_ids).destroy_all.count
+      scc_products.where(id: scc_product_ids - upstream_product_ids).destroy_all.count
       # rewire product to product relationships
       upstream_products.each do |up|
         extensions = scc_products.where(scc_id: up['extensions'].map { |ext| ext['id'] })
         scc_products.find_by!(scc_id: up['id']).update!(scc_extensions: extensions)
       end
     end
-    self.synced = DateTime.now
-    save!
-    return new_records, updated_records, deleted_records
   end
 
 end

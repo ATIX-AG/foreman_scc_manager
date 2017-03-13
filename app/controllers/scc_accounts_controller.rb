@@ -48,8 +48,8 @@ class SccAccountsController < ApplicationController
 
   # PUT /scc_accounts/1/sync
   def sync
-    new_records, updated_records, deleted_records = @scc_account.sync_scc_products
-    redirect_to scc_accounts_path, notice: "Product list has been synced. #{new_records} created, #{updated_records} updated, #{deleted_records} deleted."
+    ForemanTasks::async_task(::Actions::SccManager::Sync, @scc_account)
+    redirect_to scc_accounts_path
   end
 
   def bulk_subscribe
