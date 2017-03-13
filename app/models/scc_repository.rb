@@ -12,8 +12,10 @@ class SccRepository < ActiveRecord::Base
   end
 
   def token_changed_callback
-    # TODO implement
-    puts "token changed: Update derived repositories"
+    scc_products.where.not(product: nil).each do |sp|
+      repository = sp.product.repositories.find_by(name: sp.friendly_name + ' ' + description)
+      ForemanTasks::sync_task(::Actions::Katello::Repository::Update, repository, {url: full_url})
+    end
   end
 
 end
