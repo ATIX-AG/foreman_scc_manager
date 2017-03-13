@@ -8,15 +8,15 @@ Gem::Specification.new do |s|
   s.license     = 'GPL-3.0'
   s.authors     = ['Matthias Dellweg']
   s.email       = ['dellweg@atix.de']
-  s.homepage    = ''
+  s.homepage    = 'https://www.orcharhino.com/'
   s.summary     = 'ForemanSccManager.'
   # also update locale/gemspec.rb
-  s.description = 'Description of ForemanSccManager.'
+  s.description = 'Foreman plugin to sync SUSE Customer Center products and repositories into Katello.'
 
   s.files = Dir['{app,config,db,lib,locale}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
-  s.add_development_dependency 'rails'
-  s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'rdoc'
+  s.add_development_dependency 'rails', '~> 4'
+  s.add_development_dependency 'rubocop', '~> 0'
+  s.add_development_dependency 'rdoc', '~> 4'
 end
