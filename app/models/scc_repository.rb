@@ -14,8 +14,10 @@ class SccRepository < ActiveRecord::Base
   def token_changed_callback
     User.current = User.anonymous_admin unless User.current
     scc_products.where.not(product: nil).each do |sp|
-      repository = sp.product.repositories.find_by(name: sp.friendly_name + ' ' + description)
-      ForemanTasks::sync_task(::Actions::Katello::Repository::Update, repository, {url: full_url})
+      reponame = sp.friendly_name + ' ' + description
+      repository = sp.product.repositories.find_by(name: reponame)
+      ::Foreman::Logging::logger('foreman_scc_manager').info "Update URL-token for repository '#{reponame}'."
+      ForemanTasks::async_task(::Actions::Katello::Repository::Update, repository, {url: full_url})
     end
   end
 

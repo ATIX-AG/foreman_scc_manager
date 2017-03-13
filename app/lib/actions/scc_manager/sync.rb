@@ -2,6 +2,7 @@ module Actions
   module SccManager
     class Sync < Actions::EntryAction
       def plan(scc_account)
+        ::Foreman::Logging.logger('foreman_scc_manager').info "Initiating 'sync' for SccAccount '#{scc_account.login}'."
         action_subject(scc_account)
         sequence do
           plan_action(::Actions::SccManager::SyncRepositories, scc_account)
