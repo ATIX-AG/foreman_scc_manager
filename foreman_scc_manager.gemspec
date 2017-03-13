@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = ForemanSccManager::VERSION
   s.date        = Date.today.to_s
   s.license     = 'GPL-3.0'
-  s.authors     = ['Matthisa Dellweg']
+  s.authors     = ['Matthias Dellweg']
   s.email       = ['dellweg@atix.de']
   s.homepage    = ''
   s.summary     = 'ForemanSccManager.'
