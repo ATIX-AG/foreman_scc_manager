@@ -1,5 +1,6 @@
 class SccProduct < ActiveRecord::Base
   include Authorizable
+  include ForemanTasks::Concerns::ActionSubject
 
   self.include_root_in_json = false
 
