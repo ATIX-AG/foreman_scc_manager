@@ -1,5 +1,5 @@
 class SccRepository < ActiveRecord::Base
-  after_save :token_changed_callback, if: :token_changed?
+  after_commit :token_changed_callback
 
   self.include_root_in_json = false
 
@@ -16,8 +16,10 @@ class SccRepository < ActiveRecord::Base
     scc_products.where.not(product: nil).each do |sp|
       reponame = sp.friendly_name + ' ' + description
       repository = sp.product.repositories.find_by(name: reponame)
-      ::Foreman::Logging::logger('foreman_scc_manager').info "Update URL-token for repository '#{reponame}'."
-      ForemanTasks::async_task(::Actions::Katello::Repository::Update, repository, {url: full_url})
+      unless repository.url == full_url
+        ::Foreman::Logging::logger('foreman_scc_manager').info "Update URL-token for repository '#{reponame}'."
+        ForemanTasks::async_task(::Actions::Katello::Repository::Update, repository, {url: full_url})
+      end
     end
   end
 
