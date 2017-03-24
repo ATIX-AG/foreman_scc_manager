@@ -77,7 +77,8 @@ GEMFILE
 install -m 755 -d %{buildroot}%{_bindir}
 
 %posttrans
-scl enable tfm "cd /usr/share/foreman && rake db:migrate && rake plugin:assets:precompile['%{gem_name}']" >/dev/null 2>&1
+foreman-rake db:migrate >/dev/null 2>&1
+scl enable tfm "cd /usr/share/foreman && rake plugin:assets:precompile['%{gem_name}']" >/dev/null 2>&1
 (/bin/katello-service status && /bin/katello-service restart) >/dev/null 2>&1
 
 exit 0
