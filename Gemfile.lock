@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foreman_scc_manager (0.0.1)
+    foreman_scc_manager (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -119,9 +119,9 @@ PLATFORMS
 
 DEPENDENCIES
   foreman_scc_manager!
-  rails
-  rdoc
-  rubocop
+  rails (~> 4)
+  rdoc (~> 4)
+  rubocop (~> 0)
 
 BUNDLED WITH
    1.14.5

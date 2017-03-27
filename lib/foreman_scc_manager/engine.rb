@@ -20,13 +20,13 @@ module ForemanSccManager
 
         # Add permissions
         security_block :foreman_scc_manager do
-          permission :view_scc, { :scc_account => [:index, :show] }
-          permission :use_scc, { :scc_account => [:bulk_subscribe] }
-          # permission :use_scc, { :scc_product => [:subscribe, :unsubscribe] }
-          permission :new_scc, { :scc_account => [:new, :create] }
-          permission :edit_scc, { :scc_account => [:edit, :update] }
-          permission :delete_scc, { :scc_account => [:destroy] }
-          permission :sync_scc, { :scc_account => [:sync] }
+          permission :view_scc, :scc_account => [:index, :show]
+          permission :use_scc, :scc_account => [:bulk_subscribe]
+          # permission :use_scc, :scc_product => [:subscribe, :unsubscribe]
+          permission :new_scc, :scc_account => [:new, :create]
+          permission :edit_scc, :scc_account => [:edit, :update]
+          permission :delete_scc, :scc_account => [:destroy]
+          permission :sync_scc, :scc_account => [:sync]
         end
 
         # Add a new role called 'Discovery' if it doesn't exist
@@ -34,11 +34,10 @@ module ForemanSccManager
 
         # add menu entry
         menu :top_menu, :scc_manager,
-             url_hash: { controller: :'scc_accounts', action: :index },
+             url_hash: { controller: :scc_accounts, action: :index },
              caption: 'SCC Manager',
              parent: :content_menu,
              after: :red_hat_subscriptions
-
       end
     end
 
@@ -54,13 +53,14 @@ module ForemanSccManager
     assets_to_precompile =
       Dir.chdir(root) do
         Dir['app/assets/javascripts/**/*', 'app/assets/stylesheets/**/*'].map do |f|
-          f.split(File::SEPARATOR, 4).last.sub(/\.coffee$/, '.js')
+          f.split(File::SEPARATOR, 4).last.sub(/\.coffee\Z/, '')
         end
       end
 
     initializer 'foreman_scc_manager.assets.precompile' do |app|
       app.config.assets.precompile += assets_to_precompile
     end
+
     initializer 'foreman_scc_manager.configure_assets', group: :assets do
       SETTINGS[:foreman_scc_manager] = { assets: { precompile: assets_to_precompile } }
     end

@@ -1,6 +1,3 @@
-#require 'rest-client'
-#require 'json'
-
 module SccManager
   # adapted from https://github.com/SUSE/connect
   def self.get_scc_data(base_url, rest_url, login, password)
