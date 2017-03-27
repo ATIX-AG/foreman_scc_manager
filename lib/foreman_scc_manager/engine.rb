@@ -16,7 +16,7 @@ module ForemanSccManager
 
     initializer 'foreman_scc_manager.register_plugin', :before => :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_scc_manager do
-        requires_foreman '>= 1.4'
+        requires_foreman '>= 1.13'
 
         # Add permissions
         security_block :foreman_scc_manager do
