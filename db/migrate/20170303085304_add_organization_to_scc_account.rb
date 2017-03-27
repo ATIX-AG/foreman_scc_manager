@@ -15,6 +15,7 @@ class AddOrganizationToSccAccount < ActiveRecord::Migration
     end
     change_column :scc_accounts, :organization_id, :integer, null: false, index: true
   end
+
   def down
     remove_column :scc_accounts, :organization_id, :integer
   end

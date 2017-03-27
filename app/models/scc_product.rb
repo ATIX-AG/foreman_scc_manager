@@ -16,7 +16,7 @@ class SccProduct < ActiveRecord::Base
   scoped_search on: :name, complete_value: true
 
   def subscribe
-    raise "Product already subscribed!" if product
+    raise 'Product already subscribed!' if product
     new_product = Katello::Product.new
     new_product.name = friendly_name
     new_product.description = description
