@@ -53,7 +53,7 @@ module ForemanSccManager
     assets_to_precompile =
       Dir.chdir(root) do
         Dir['app/assets/javascripts/**/*', 'app/assets/stylesheets/**/*'].map do |f|
-          f.split(File::SEPARATOR, 4).last.sub(/\.coffee\Z/, '')
+          f.split(File::SEPARATOR, 4).last.gsub(/\.coffee\Z/, '')
         end
       end
 
