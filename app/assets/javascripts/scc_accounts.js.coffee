@@ -12,12 +12,12 @@ scc_products_after_unchecked = (target) ->
       scc_products_after_unchecked(child)
 
 $ ->
-  $("span.scc_product_checkbox input").on "change", (event) ->
+  $("div#content").on "change", "span.scc_product_checkbox input", (event) ->
     target = event.target
     if target.checked
       scc_products_after_checked target
     else
       scc_products_after_unchecked target
-  $("a.edit_deferrer").on "click", (event) ->
+  $("div#content").on "click", "a.edit_deferrer", (event) ->
     event.preventDefault()
     $("a.edit_deferree", $(event.target).parents("tr")[0])[0].click()
