@@ -34,6 +34,9 @@ Requires: foreman >= 1.13
 # katello
 Requires: katello >= 3.2.0
 
+# BuildRequires: foreman-plugin >= 1.9.0
+# BuildRequires: foreman-assets
+
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -51,7 +54,6 @@ Summary:    Documentation for rubygem-%{gem_name}
 This package contains documentation for %{gem_name}.
 
 %prep
-# %setup -n %{pkg_name}-%{version} -q -c -T
 %setup -q -c
 
 %build
@@ -73,12 +75,23 @@ cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
 GEMFILE
 
+# TODO This should be done on the new build environment
+#  - Adjust BuildRequires accordingly
+#  (normal comments did not deactivate this macro)
+true || ( %foreman_precompile_plugin -s
+)
+# Just copy the compiled assets for now
+mkdir %{buildroot}/%{gem_instdir}/public
+cp -a public/assets %{buildroot}/%{gem_instdir}/public
+
 # Install other stuff extra to the gem
 install -m 755 -d %{buildroot}%{_bindir}
 
 %posttrans
-scl enable tfm "cd /usr/share/foreman && rake db:migrate && rake plugin:assets:precompile['%{gem_name}']" >/dev/null 2>&1
-(/bin/katello-service status && /bin/katello-service restart) >/dev/null 2>&1
+foreman-rake db:migrate >/dev/null 2>&1
+# scl enable tfm "cd /usr/share/foreman && rake plugin:assets:precompile['%{gem_name}']" >/dev/null 2>&1
+# (/bin/katello-service status && /bin/katello-service restart) >/dev/null 2>&1
+touch ~foreman/tmp/restart.txt
 
 exit 0
 

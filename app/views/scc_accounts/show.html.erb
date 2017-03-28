@@ -1,4 +1,6 @@
-<%= javascript_include_tag 'scc_accounts.js' %>
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'scc_accounts' %>
+<% end %>
 <%= form_for([:bulk_subscribe, @scc_account], method: :put) do |f| %>
 <% def render_list_node(f, scc_product, parent_id = nil) %>
 <li>

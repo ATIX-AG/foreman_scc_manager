@@ -18,7 +18,7 @@ module Actions
       end
 
       def humanized_name
-        _("Sync SCC Account")
+        _('Sync SCC Account')
       end
     end
   end

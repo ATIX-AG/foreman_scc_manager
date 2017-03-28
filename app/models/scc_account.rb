@@ -1,7 +1,3 @@
-#require 'rest-client'
-#require 'json'
-#require 'base64'
-
 class SccAccount < ActiveRecord::Base
   include Authorizable
   include ForemanTasks::Concerns::ActionSubject
@@ -15,7 +11,7 @@ class SccAccount < ActiveRecord::Base
   validates_lengths_from_database
   validates :organization, presence: true
 
-  default_scope -> {order(:login)}
+  default_scope -> { order(:login) }
 
   scoped_search on: :login, complete_value: true
 
@@ -44,7 +40,7 @@ class SccAccount < ActiveRecord::Base
         upstream_repo_ids << cached_repository.id
       end
       # delete repositories beeing removed upstream
-      deleted_records = scc_repositories.where(id: scc_repository_ids - upstream_repo_ids).destroy_all.count
+      scc_repositories.where(id: scc_repository_ids - upstream_repo_ids).destroy_all.count
     end
   end
 
@@ -73,5 +69,4 @@ class SccAccount < ActiveRecord::Base
       end
     end
   end
-
 end

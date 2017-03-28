@@ -7,7 +7,7 @@ module Actions
       end
 
       def run
-        output[:data] = ::SccManager::get_scc_data(input.fetch(:base_url), '/connect/organizations/products', input.fetch(:login), input.fetch(:password))
+        output[:data] = ::SccManager.get_scc_data(input.fetch(:base_url), '/connect/organizations/products', input.fetch(:login), input.fetch(:password))
       end
 
       def finalize
@@ -15,7 +15,7 @@ module Actions
       end
 
       def humanized_name
-        _("Sync SCC Accounts Products")
+        _('Sync SCC Accounts Products')
       end
 
       def humanized_output

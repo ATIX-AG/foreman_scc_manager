@@ -7,7 +7,7 @@ module Actions
       end
 
       def run
-        output[:data] = ::SccManager::get_scc_data(input[:base_url], '/connect/organizations/repositories', input[:login], input[:password])
+        output[:data] = ::SccManager.get_scc_data(input[:base_url], '/connect/organizations/repositories', input[:login], input[:password])
       end
 
       def finalize
@@ -15,7 +15,7 @@ module Actions
       end
 
       def humanized_name
-        _("Sync SCC Accounts Repositories")
+        _('Sync SCC Accounts Repositories')
       end
 
       def humanized_output

@@ -1,5 +1,5 @@
 class SccAccountsController < ApplicationController
-  before_action :find_resource, only: [:show, :edit, :update, :destroy, :sync, :bulk_subscribe]
+  before_filter :find_resource, only: [:show, :edit, :update, :destroy, :sync, :bulk_subscribe]
   include Api::TaxonomyScope
   include Foreman::Controller::AutoCompleteSearch
 
@@ -25,8 +25,7 @@ class SccAccountsController < ApplicationController
   end
 
   # GET /scc_accounts/1/edit
-  def edit
-  end
+  def edit; end
 
   # PATCH/PUT /scc_accounts/1
   def update
@@ -48,35 +47,36 @@ class SccAccountsController < ApplicationController
 
   # PUT /scc_accounts/1/sync
   def sync
-    ForemanTasks::async_task(::Actions::SccManager::Sync, @scc_account)
+    ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
     redirect_to scc_accounts_path
   end
 
   def bulk_subscribe
-    @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids]).each { |scc_product| scc_product.subscribe }
+    @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids]).each(&:subscribe)
     redirect_to scc_accounts_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # Only allow a trusted parameter "white list" through.
-    def scc_account_params
-      params[:scc_account].delete(:password) if params[:scc_account][:password].blank?
-      params.require(:scc_account).permit(:login, :password, :base_url, :organization_id)
-    end
 
-    def scc_bulk_subscribe_params
-      params.require(:scc_account).permit(:scc_subscribe_product_ids => [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  # Only allow a trusted parameter "white list" through.
+  def scc_account_params
+    params[:scc_account].delete(:password) if params[:scc_account][:password].blank?
+    params.require(:scc_account).permit(:login, :password, :base_url, :organization_id)
+  end
 
-    def action_permission
-      case params[:action]
-      when 'sync'
-        :sync
-      when 'bulk_subscribe'
-        :bulk_subscribe
-      else
-        super
-      end
+  def scc_bulk_subscribe_params
+    params.require(:scc_account).permit(:scc_subscribe_product_ids => [])
+  end
+
+  def action_permission
+    case params[:action]
+    when 'sync'
+      :sync
+    when 'bulk_subscribe'
+      :bulk_subscribe
+    else
+      super
     end
+  end
 end

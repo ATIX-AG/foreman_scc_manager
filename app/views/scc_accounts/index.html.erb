@@ -1,4 +1,6 @@
-<%= javascript_include_tag 'scc_accounts.js' %>
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'scc_accounts' %>
+<% end %>
 <% title _("SUSE Customer Center accounts") %>
 <% title_actions new_link(_("Create new SCC account")) %>
 

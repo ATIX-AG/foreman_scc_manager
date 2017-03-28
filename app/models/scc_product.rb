@@ -12,11 +12,11 @@ class SccProduct < ActiveRecord::Base
   has_many :inverse_scc_extendings, dependent: :destroy, class_name: :SccExtending, foreign_key: :scc_extension_id
   has_many :inverse_scc_extensions, through: :inverse_scc_extendings, source: :scc_product
 
-  default_scope -> {order(:name)}
+  default_scope -> { order(:name) }
   scoped_search on: :name, complete_value: true
 
   def subscribe
-    raise "Product already subscribed!" if product
+    raise 'Product already subscribed!' if product
     new_product = Katello::Product.new
     new_product.name = friendly_name
     new_product.description = description
