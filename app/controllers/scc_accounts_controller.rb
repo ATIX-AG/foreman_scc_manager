@@ -52,7 +52,8 @@ class SccAccountsController < ApplicationController
   end
 
   def bulk_subscribe
-    @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids]).each(&:subscribe)
+    scc_products_to_subscribe = @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids])
+    ForemanTasks::async_task(::Actions::BulkAction, ::Actions::SccManager::SubscribeProduct, scc_products_to_subscribe)
     redirect_to scc_accounts_path
   end
 
