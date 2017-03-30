@@ -35,7 +35,7 @@ module ForemanSccManager
         # add menu entry
         menu :top_menu, :scc_manager,
              url_hash: { controller: :scc_accounts, action: :index },
-             caption: 'SCC Manager',
+             caption: 'SUSE Subscriptions',
              parent: :content_menu,
              after: :red_hat_subscriptions
       end
