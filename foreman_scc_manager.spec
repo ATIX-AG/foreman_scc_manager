@@ -34,6 +34,8 @@ Requires: foreman >= 1.13
 # katello
 Requires: katello >= 3.2.0
 
+BuildRequires: rubygems-devel
+BuildRequires: scl-utils-build
 # BuildRequires: foreman-plugin >= 1.9.0
 # BuildRequires: foreman-assets
 
