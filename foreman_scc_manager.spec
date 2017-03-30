@@ -9,11 +9,12 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global scl_ruby ror42
-%global scl_prefix_ruby sclo-ror42-
+%global scl_ruby ruby193
+%global scl_prefix_ruby ruby193-
 
 %global gem_name foreman_scc_manager
 
+%define rubyabi 1.9.1
 %global foreman_dir /usr/share/foreman
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
@@ -34,8 +35,48 @@ Requires: foreman >= 1.13
 # katello
 Requires: katello >= 3.2.0
 
-BuildRequires: rubygems-devel
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix_ruby}ruby(release)
+%else
+Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
+%endif
+Requires: %{?scl_prefix_ruby}rubygems
+
+# Additional requirements
+#########################
+# tfm-rubygem(nokogiri) = 1.6.6.2-1.el6
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6.6.2
+# tfm-rubygem(bootstrap-sass) = 3.0.3.0
+Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.0.3.0
+# tfm-rubygem(sass) = 3.4.9
+Requires: %{?scl_prefix}rubygem(sass) >= 3.4.9
+# ruby193-rubygem(sass-rails) = 3.2.5
+Requires: %{?scl_prefix_ruby}rubygem(sass-rails) >= 3.2.5
+# ruby193-rubygem(coffee-rails) = 3.2.2
+Requires: %{?scl_prefix_ruby}rubygem(coffee-rails) >= 3.2.2
+
+# Build requirements
+####################
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+%else
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
+%endif
+# ruby193-rubygems = 1.8.23-49.el6
+BuildRequires: %{?scl_prefix_ruby}rubygems
+# ruby193-rubygems-devel = 1.8.23-49.el6
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+# ruby193-ruby-devel = 1.9.3.484-49.el6
+BuildRequires: %{?scl_prefix_ruby}ruby-devel
+# tfm-runtime = 1.1-1.el6
+BuildRequires: tfm-runtime
+# tfm-scldevel = 1.1-1.el6
+BuildRequires: tfm-scldevel
+# scl-utils = 20120927-27.el6_6
+BuildRequires: scl-utils
+# scl-utils-build = 20120927-27.el6_6
 BuildRequires: scl-utils-build
+
 # BuildRequires: foreman-plugin >= 1.9.0
 # BuildRequires: foreman-assets
 
