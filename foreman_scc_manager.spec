@@ -44,14 +44,6 @@ Requires: %{?scl_prefix_ruby}rubygems
 
 # Additional requirements
 #########################
-# tfm-rubygem(nokogiri) = 1.6.6.2-1.el6
-Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6.6.2
-# tfm-rubygem(bootstrap-sass) = 3.0.3.0
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.0.3.0
-# tfm-rubygem(sass) = 3.4.9
-Requires: %{?scl_prefix}rubygem(sass) >= 3.4.9
-# ruby193-rubygem(sass-rails) = 3.2.5
-Requires: %{?scl_prefix_ruby}rubygem(sass-rails) >= 3.2.5
 # ruby193-rubygem(coffee-rails) = 3.2.2
 Requires: %{?scl_prefix_ruby}rubygem(coffee-rails) >= 3.2.2
 
