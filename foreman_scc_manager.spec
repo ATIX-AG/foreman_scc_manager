@@ -9,8 +9,8 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global scl_ruby ruby193
-%global scl_prefix_ruby ruby193-
+%global scl_ruby ror42
+%global scl_prefix_ruby ror42-
 
 %global gem_name foreman_scc_manager
 
