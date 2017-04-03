@@ -9,8 +9,8 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global scl_ruby ror42
-%global scl_prefix_ruby ror42-
+%global scl_ruby rh-ruby22
+%global scl_prefix_ruby rh-ruby22-
 
 %global gem_name foreman_scc_manager
 
@@ -21,7 +21,7 @@
 Summary:    Suse Customer Center plugin for foreman
 Name:       %{gem_name}
 Version:    1.0.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://orcharhino.com
@@ -31,9 +31,9 @@ Packager:   ATIX AG <info@atix.de>
 # Global requirements
 #####################
 # foreman
-Requires: foreman >= 1.13
+Requires: foreman >= 1.14
 # katello
-Requires: katello >= 3.2.0
+Requires: katello >= 3.3.0
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -49,28 +49,14 @@ Requires: %{?scl_prefix_ruby}rubygem(coffee-rails) >= 3.2.2
 
 # Build requirements
 ####################
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
-# ruby193-rubygems = 1.8.23-49.el6
 BuildRequires: %{?scl_prefix_ruby}rubygems
-# ruby193-rubygems-devel = 1.8.23-49.el6
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-# ruby193-ruby-devel = 1.9.3.484-49.el6
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
-# tfm-runtime = 1.1-1.el6
 BuildRequires: tfm-runtime
-# tfm-scldevel = 1.1-1.el6
 BuildRequires: tfm-scldevel
-# scl-utils = 20120927-27.el6_6
 BuildRequires: scl-utils
-# scl-utils-build = 20120927-27.el6_6
 BuildRequires: scl-utils-build
-
-# BuildRequires: foreman-plugin >= 1.9.0
-# BuildRequires: foreman-assets
 
 BuildArch: noarch
 
@@ -143,5 +129,8 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 03 2017 Bernhard Suttner <suttner@atix.de> 1.0.0-2
+- Set correct ruby build requirements
+
 * Tue Mar 21 2017 Matthias Dellweg <dellweg@atix.de> 1.0.0-1
 - First release
