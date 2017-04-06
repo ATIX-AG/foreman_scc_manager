@@ -30,22 +30,11 @@ Packager:   ATIX AG <info@atix.de>
 
 # Global requirements
 #####################
-# foreman
 Requires: foreman >= 1.14
-# katello
 Requires: katello >= 3.3.0
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}rubygems
-
-# Additional requirements
-#########################
-# ruby193-rubygem(coffee-rails) = 3.2.2
-Requires: %{?scl_prefix_ruby}rubygem(coffee-rails) >= 3.2.2
 
 # Build requirements
 ####################
