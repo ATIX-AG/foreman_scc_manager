@@ -3,14 +3,22 @@ module Actions
     class SubscribeProduct < Actions::EntryAction
       def plan(scc_product)
         raise 'Product already subscribed!' if scc_product.product
-        ::Foreman::Logging.logger('foreman_scc_manager').info "Initiating subscription for SccProduct '#{scc_product.friendly_name}'."
+        ::Foreman::Logging.logger('foreman_scc_manager')
+                          .info("Initiating subscription for SccProduct '#{scc_product.friendly_name}'.")
         sequence do
-          product_create_action = plan_action(CreateProduct, product_name: scc_product.friendly_name, product_description: scc_product.description, organization_id: scc_product.organization.id)
+          product_create_action = plan_action(CreateProduct,
+                                              product_name: scc_product.friendly_name,
+                                              product_description: scc_product.description,
+                                              organization_id: scc_product.organization.id)
           concurrence do
             scc_product.scc_repositories.each do |repo|
               uniq_name = scc_product.friendly_name + ' ' + repo.description
               arch = scc_product.arch || 'noarch'
-              plan_action(CreateRepository, :product_id => product_create_action.output[:product_id], :uniq_name => uniq_name, :url => repo.full_url, :arch => arch)
+              plan_action(CreateRepository,
+                          :product_id => product_create_action.output[:product_id],
+                          :uniq_name => uniq_name,
+                          :url => repo.full_url,
+                          :arch => arch)
             end
           end
           action_subject(scc_product, product_id: product_create_action.output[:product_id])
@@ -37,7 +45,9 @@ module Actions
         product = ::Katello::Product.new
         product.name = input[:product_name]
         product.description = input[:product_description]
-        trigger(::Actions::Katello::Product::Create, product, Organization.find(input[:organization_id])).tap do
+        trigger(::Actions::Katello::Product::Create,
+                product,
+                Organization.find(input[:organization_id])).tap do
           output[:product_id] = product.id
         end
       end
