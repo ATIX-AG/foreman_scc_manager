@@ -56,7 +56,8 @@ class SccAccount < ActiveRecord::Base
         cached_product.description = up['description']
         cached_product.friendly_name = up['friendly_name']
         cached_product.product_type = up['product_type']
-        cached_product.scc_repositories = scc_repositories.where(scc_id: up['repositories'].map { |repo| repo['id'] })
+        cached_product.scc_repositories =
+          scc_repositories.where(scc_id: up['repositories'].map { |repo| repo['id'] })
         cached_product.save!
         upstream_product_ids << cached_product.id
       end

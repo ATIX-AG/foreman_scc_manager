@@ -10,7 +10,10 @@ class SccProduct < ActiveRecord::Base
   has_and_belongs_to_many :scc_repositories
   has_many :scc_extendings, dependent: :destroy
   has_many :scc_extensions, through: :scc_extendings
-  has_many :inverse_scc_extendings, dependent: :destroy, class_name: :SccExtending, foreign_key: :scc_extension_id
+  has_many :inverse_scc_extendings,
+           dependent: :destroy,
+           class_name: :SccExtending,
+           foreign_key: :scc_extension_id
   has_many :inverse_scc_extensions, through: :inverse_scc_extendings, source: :scc_product
 
   default_scope -> { order(:name) }
