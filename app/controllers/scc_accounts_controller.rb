@@ -5,7 +5,8 @@ class SccAccountsController < ApplicationController
 
   # GET /scc_accounts
   def index
-    @scc_accounts = resource_base.search_for(params[:search], order: params[:order]).paginate(page: params[:page])
+    @scc_accounts = resource_base.search_for(params[:search], order: params[:order])
+                                 .paginate(page: params[:page])
   end
 
   # GET /scc_accounts/new
@@ -52,8 +53,11 @@ class SccAccountsController < ApplicationController
   end
 
   def bulk_subscribe
-    scc_products_to_subscribe = @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids])
-    ForemanTasks::async_task(::Actions::BulkAction, ::Actions::SccManager::SubscribeProduct, scc_products_to_subscribe)
+    scc_products_to_subscribe =
+      @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids])
+    ForemanTasks.async_task(::Actions::BulkAction,
+                            ::Actions::SccManager::SubscribeProduct,
+                            scc_products_to_subscribe)
     redirect_to scc_accounts_path
   end
 

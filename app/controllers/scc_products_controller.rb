@@ -21,8 +21,4 @@ class SccProductsController < ApplicationController
     @scc_product.subscribe
     redirect_to @scc_product.scc_account
   end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
 end

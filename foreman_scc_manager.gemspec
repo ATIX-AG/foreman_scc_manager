@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.version     = ForemanSccManager::VERSION
   s.date        = Date.today.to_s
   s.license     = 'GPL-3.0'
-  s.authors     = ['Matthias Dellweg']
-  s.email       = ['dellweg@atix.de']
+  s.authors     = ['ATIX AG']
+  s.email       = ['info@atix.de']
   s.homepage    = 'https://www.orcharhino.com/'
   s.summary     = 'ForemanSccManager.'
   # also update locale/gemspec.rb
