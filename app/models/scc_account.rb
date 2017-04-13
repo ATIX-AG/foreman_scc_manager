@@ -10,6 +10,9 @@ class SccAccount < ActiveRecord::Base
 
   validates_lengths_from_database
   validates :organization, presence: true
+  validates :login, presence: true
+  validates :password, presence: true
+  validates :base_url, presence: true
 
   default_scope -> { order(:login) }
 
