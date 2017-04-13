@@ -28,6 +28,18 @@ class SccAccountsController < ApplicationController
   # GET /scc_accounts/1/edit
   def edit; end
 
+  # POST /scc_accounts/test_connection
+  def test_connection
+    @scc_account = SccAccount.new(scc_account_params)
+    respond_to do |format|
+      if @scc_account.test_connection
+        format.json { render json: nil, status: :ok }
+      else
+        format.json { render json: nil, status: 400 }
+      end
+    end
+  end
+
   # PATCH/PUT /scc_accounts/1
   def update
     if @scc_account.update(scc_account_params)
@@ -76,7 +88,7 @@ class SccAccountsController < ApplicationController
 
   def action_permission
     case params[:action]
-    when 'sync'
+    when 'sync', 'test_connection'
       :sync
     when 'bulk_subscribe'
       :bulk_subscribe

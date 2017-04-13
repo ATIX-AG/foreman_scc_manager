@@ -26,6 +26,15 @@ class SccAccount < ActiveRecord::Base
     'SUSE customer center account ' + login
   end
 
+  def test_connection
+    begin
+      SccManager::get_scc_data(base_url, '/connect/organizations/subscriptions', login, password)
+      true
+    rescue
+      false
+    end
+  end
+
   def update_scc_repositories(upstream_repositories)
     upstream_repo_ids = []
     SccProduct.transaction do

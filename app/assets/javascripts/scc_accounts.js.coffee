@@ -21,3 +21,21 @@ $ ->
   $("div#content").on "click", "a.edit_deferrer", (event) ->
     event.preventDefault()
     $("a.edit_deferree", $(event.target).parents("tr")[0])[0].click()
+  $("body").on "click", "#test_scc_connection_btn", (event) ->
+    console.log event.target.parentNode.dataset['url']
+    $('.tab-error').removeClass('tab-error')
+    $('#test_scc_connection_indicator').show()
+    $.ajax event.target.parentNode.dataset['url'],
+      type: 'PUT'
+      dataType: 'JSON'
+      data: $('form').serialize()
+      success: (result) ->
+        $('#test_scc_connection_btn').addClass('btn-success')
+        $('#test_scc_connection_btn').removeClass('btn-default')
+        $('#test_scc_connection_btn').removeClass('btn-danger')
+      error: (result) ->
+        $('#test_scc_connection_btn').addClass('btn-danger')
+        $('#test_scc_connection_btn').removeClass('btn-default')
+        $('#test_scc_connection_btn').removeClass('btn-success')
+      complete: (result) ->
+        $('#test_scc_connection_indicator').hide()

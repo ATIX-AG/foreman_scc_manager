@@ -1,3 +1,7 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'scc_accounts' %>
+<% end %>
+
 <%= form_for(@scc_account) do |f| %>
   <%= base_errors_for @scc_account %>
   <ul class="nav nav-tabs" data-tabs="tabs">
@@ -10,6 +14,11 @@
         <%= text_f f, :login %>
         <%= password_f f, :password %>
         <%= text_f f, :base_url %>
+        <%= spinner_button_f(f, _('Test Connection'), '',
+                             id: 'test_scc_connection_btn',
+                             spinner_id: 'test_scc_connection_indicator',
+                             class: 'btn-default',
+                             'data-url': test_connection_scc_accounts_path()) %>
         <%= f.hidden_field :organization_id %>
         <%= submit_or_cancel f %>
       </div>
