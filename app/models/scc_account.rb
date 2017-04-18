@@ -9,6 +9,7 @@ class SccAccount < ActiveRecord::Base
   has_many :scc_repositories, dependent: :destroy
 
   validates_lengths_from_database
+  validates :name, presence: true
   validates :organization, presence: true
   validates :login, presence: true
   validates :password, presence: true
@@ -19,11 +20,7 @@ class SccAccount < ActiveRecord::Base
   scoped_search on: :login, complete_value: true
 
   def to_s
-    'SUSE customer center account ' + login
-  end
-
-  def name
-    'SUSE customer center account ' + login
+    name
   end
 
   def test_connection
