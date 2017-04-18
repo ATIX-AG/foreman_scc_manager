@@ -10,6 +10,9 @@ class SccAccount < ActiveRecord::Base
 
   validates_lengths_from_database
   validates :organization, presence: true
+  validates :login, presence: true
+  validates :password, presence: true
+  validates :base_url, presence: true
 
   default_scope -> { order(:login) }
 
@@ -21,6 +24,15 @@ class SccAccount < ActiveRecord::Base
 
   def name
     'SUSE customer center account ' + login
+  end
+
+  def test_connection
+    begin
+      SccManager::get_scc_data(base_url, '/connect/organizations/subscriptions', login, password)
+      true
+    rescue
+      false
+    end
   end
 
   def update_scc_repositories(upstream_repositories)

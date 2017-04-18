@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :scc_accounts do
+    collection do
+      put 'test_connection'
+    end
     member do
       put 'sync'
       put 'bulk_subscribe'
