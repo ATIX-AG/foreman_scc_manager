@@ -31,11 +31,14 @@ class SccAccountsController < ApplicationController
   # POST /scc_accounts/test_connection
   def test_connection
     @scc_account = SccAccount.new(scc_account_params)
+    if params[:scc_account_id].present? && scc_account_params[:password].empty?
+      @scc_account.password = SccAccount.find_by!(id: params[:scc_account_id]).password
+    end
     respond_to do |format|
       if @scc_account.test_connection
         format.json { render json: nil, status: :ok }
       else
-        format.json { render json: nil, status: 400 }
+        format.json { render json: nil, status: 404 }
       end
     end
   end

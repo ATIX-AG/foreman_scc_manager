@@ -14,11 +14,21 @@
         <%= text_f f, :login %>
         <%= password_f f, :password %>
         <%= text_f f, :base_url %>
-        <%= spinner_button_f(f, _('Test Connection'), '',
-                             id: 'test_scc_connection_btn',
-                             spinner_id: 'test_scc_connection_indicator',
-                             class: 'btn-default',
-                             'data-url': test_connection_scc_accounts_path()) %>
+        <div class='clearfix'>
+          <div class='form-group'>
+            <div class='col-md-2'></div>
+            <div class='col-md-4'>
+              <%= spinner_button_f(f, _('Test Connection'), '',
+                                   id: 'test_scc_connection_btn',
+                                   spinner_id: 'test_scc_connection_indicator',
+                                   class: 'btn-default',
+                                   'data-url': test_connection_scc_accounts_path(scc_account_id: @scc_account)) %>
+            </div>
+            <div class='col-md-2'>
+              <span id='connection_test_result'></span>
+            </div>
+          </div>
+        </div>
         <%= f.hidden_field :organization_id %>
         <%= submit_or_cancel f %>
       </div>
