@@ -82,7 +82,7 @@ class SccAccountsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def scc_account_params
     params[:scc_account].delete(:password) if params[:scc_account][:password].blank?
-    params.require(:scc_account).permit(:login, :password, :base_url, :organization_id)
+    params.require(:scc_account).permit(:name, :login, :password, :base_url, :organization_id)
   end
 
   def scc_bulk_subscribe_params

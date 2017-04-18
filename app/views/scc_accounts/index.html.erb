@@ -1,16 +1,15 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag 'scc_accounts' %>
 <% end %>
-<% title _("SUSE Customer Center accounts") %>
-<% title_actions new_link(_("Create new SCC account")) %>
+<% title _("SUSE subscriptions") %>
+<% title_actions new_link(_("Add SCC account")) %>
 
 <table class="<%= table_css_classes 'table-two-pane table_fixed' %>">
   <thead>
     <tr>
-      <th class="col-md-2"><%= sort :login %></th>
-      <th class="col-md-2"><%= _("Products") %></th>
-      <th class="col-md-4"><%= _("Base url") %></th>
-      <th class="col-md-2"><%= _("Last synced") %></th>
+      <th class="col-md-4"><%= sort :name %></th>
+      <th class="col-md-3"><%= _("Products") %></th>
+      <th class="col-md-3"><%= _("Last synced") %></th>
       <th class="col-md-2"><%= _("Actions") %></th>
     </tr>
   </thead>
@@ -18,11 +17,10 @@
     <% @scc_accounts.each do |scc_account| %>
       <tr>
         <td class="display-two-pane ellipsis">
-          <%= link_to_if_authorized(scc_account.login, hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer)) %>
+          <%= link_to_if_authorized(scc_account.name, hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer)) %>
           <%= link_to_if_authorized('', hash_for_edit_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer), {visible: false, class: 'edit_deferree'}) %>
         </td>
         <td><%= scc_account.scc_products.count.to_s %></td>
-        <td><%= scc_account.base_url %></td>
         <td><%= scc_account.synced %></td>
         <td>
           <%= action_buttons(

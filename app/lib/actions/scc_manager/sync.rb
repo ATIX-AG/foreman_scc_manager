@@ -3,7 +3,7 @@ module Actions
     class Sync < Actions::EntryAction
       def plan(scc_account)
         ::Foreman::Logging.logger('foreman_scc_manager')
-                          .info("Initiating 'sync' for SccAccount '#{scc_account.login}'.")
+                          .info("Initiating 'sync' for SccAccount '#{scc_account.name}'.")
         action_subject(scc_account)
         sequence do
           plan_action(::Actions::SccManager::SyncRepositories, scc_account)
@@ -19,7 +19,7 @@ module Actions
       end
 
       def humanized_name
-        _('Sync SCC Account')
+        _('Sync SUSE subscriptions')
       end
     end
   end
