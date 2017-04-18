@@ -12,12 +12,35 @@ scc_products_after_unchecked = (target) ->
       scc_products_after_unchecked(child)
 
 $ ->
-  $("div#content").on "change", "span.scc_product_checkbox input", (event) ->
+  $("body").on "change", "span.scc_product_checkbox input", (event) ->
     target = event.target
     if target.checked
       scc_products_after_checked target
     else
       scc_products_after_unchecked target
-  $("div#content").on "click", "a.edit_deferrer", (event) ->
+  $("body").on "click", "a.edit_deferrer", (event) ->
     event.preventDefault()
-    $("a.edit_deferree", $(event.target).parents("tr")[0])[0].click()
+    $("a.edit_deferree", $(event.target).closest("tr"))[0].click()
+  $("body").on "click", "#test_scc_connection_btn", (event) ->
+    $('.tab-error').removeClass('tab-error')
+    $('#connection_test_result')[0].innerHTML = ''
+    $('#test_scc_connection_indicator').show()
+    $.ajax event.target.parentNode.dataset['url'],
+      type: 'PUT'
+      dataType: 'JSON'
+      data: $('form').serialize()
+      success: (result) ->
+        $('#test_scc_connection_btn').addClass('btn-success')
+        $('#test_scc_connection_btn').removeClass('btn-default')
+        $('#test_scc_connection_btn').removeClass('btn-danger')
+      error: (result) ->
+        $('#test_scc_connection_btn').addClass('btn-danger')
+        $('#test_scc_connection_btn').removeClass('btn-default')
+        $('#test_scc_connection_btn').removeClass('btn-success')
+        $('#scc_account_login').closest('.form-group').addClass('tab-error')
+        $('#scc_account_password').closest('.form-group').addClass('tab-error')
+        $('#scc_account_base_url').closest('.form-group').addClass('tab-error')
+        $('#connection_test_result')[0].innerHTML = 'Connection test failed!'
+        $('#scc_account_login').focus()
+      complete: (result) ->
+        $('#test_scc_connection_indicator').hide()

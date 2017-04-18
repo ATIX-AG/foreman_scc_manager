@@ -21,7 +21,7 @@ module Actions
       end
 
       def humanized_name
-        _('Sync SCC Accounts Products')
+        _('Sync SUSE subscriptions (Products)')
       end
 
       def humanized_output

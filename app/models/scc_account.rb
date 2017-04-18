@@ -9,18 +9,27 @@ class SccAccount < ActiveRecord::Base
   has_many :scc_repositories, dependent: :destroy
 
   validates_lengths_from_database
+  validates :name, presence: true
   validates :organization, presence: true
+  validates :login, presence: true
+  validates :password, presence: true
+  validates :base_url, presence: true
 
   default_scope -> { order(:login) }
 
   scoped_search on: :login, complete_value: true
 
   def to_s
-    'SUSE customer center account ' + login
+    name
   end
 
-  def name
-    'SUSE customer center account ' + login
+  def test_connection
+    begin
+      SccManager::get_scc_data(base_url, '/connect/organizations/subscriptions', login, password)
+      true
+    rescue
+      false
+    end
   end
 
   def update_scc_repositories(upstream_repositories)

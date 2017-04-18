@@ -28,6 +28,21 @@ class SccAccountsController < ApplicationController
   # GET /scc_accounts/1/edit
   def edit; end
 
+  # POST /scc_accounts/test_connection
+  def test_connection
+    @scc_account = SccAccount.new(scc_account_params)
+    if params[:scc_account_id].present? && scc_account_params[:password].empty?
+      @scc_account.password = SccAccount.find_by!(id: params[:scc_account_id]).password
+    end
+    respond_to do |format|
+      if @scc_account.test_connection
+        format.json { render json: nil, status: :ok }
+      else
+        format.json { render json: nil, status: 404 }
+      end
+    end
+  end
+
   # PATCH/PUT /scc_accounts/1
   def update
     if @scc_account.update(scc_account_params)
@@ -67,7 +82,7 @@ class SccAccountsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def scc_account_params
     params[:scc_account].delete(:password) if params[:scc_account][:password].blank?
-    params.require(:scc_account).permit(:login, :password, :base_url, :organization_id)
+    params.require(:scc_account).permit(:name, :login, :password, :base_url, :organization_id)
   end
 
   def scc_bulk_subscribe_params
@@ -76,7 +91,7 @@ class SccAccountsController < ApplicationController
 
   def action_permission
     case params[:action]
-    when 'sync'
+    when 'sync', 'test_connection'
       :sync
     when 'bulk_subscribe'
       :bulk_subscribe
