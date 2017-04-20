@@ -63,8 +63,16 @@ class SccAccountsController < ApplicationController
 
   # PUT /scc_accounts/1/sync
   def sync
-    ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
-    redirect_to scc_accounts_path
+    begin
+      sync_task = ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
+      notice _("Sync task started.")
+    rescue ::Foreman::Exception => e
+      error _("Failed to add task to queue: %s") % e.to_s
+    rescue ForemanTasks::Lock::LockConflict => e
+      error _("Lock on SCC account already taken: %s") % e.to_s
+    ensure
+      redirect_to scc_accounts_path
+    end
   end
 
   def bulk_subscribe
