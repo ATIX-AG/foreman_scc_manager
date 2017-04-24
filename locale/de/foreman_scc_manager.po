@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2017-04-24 12:30+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: ATIX AG <info@atix.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -27,10 +27,10 @@ msgid "Actions"
 msgstr ""
 
 msgid "Add SCC account"
-msgstr ""
+msgstr "SCC Zugang hinzufügen"
 
 msgid "Add SUSE Customer Center Account"
-msgstr ""
+msgstr "SUSE Customer Center hinzufügen"
 
 msgid "Add Sync Plan Products"
 msgstr ""
@@ -45,7 +45,7 @@ msgid "Auto-attach subscriptions"
 msgstr ""
 
 msgid "Base URL"
-msgstr ""
+msgstr "Basis URL"
 
 msgid "Configure capsule"
 msgstr ""
@@ -98,8 +98,12 @@ msgstr ""
 msgid "Filtered index content"
 msgstr ""
 
-msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
+msgid ""
+"Foreman plugin to sync SUSE Customer Center products and repositories into "
+"Katello."
 msgstr ""
+"Foreman plugin um SUSE Customer Center Producte and Repositories in Katello "
+"zu synchronisieren."
 
 msgid "Hypervisors"
 msgstr ""
@@ -141,7 +145,7 @@ msgid "Install package group"
 msgstr ""
 
 msgid "Last synced"
-msgstr ""
+msgstr "Zuletzt synchronisiert"
 
 msgid "Package Profile Update"
 msgstr ""
@@ -150,7 +154,7 @@ msgid "Product Create"
 msgstr ""
 
 msgid "Product already subscribed!"
-msgstr ""
+msgstr "Produkt bereits abonniert!"
 
 msgid "Products"
 msgstr ""
@@ -189,31 +193,31 @@ msgid "Remove subscriptions"
 msgstr ""
 
 msgid "SUSE Customer Center"
-msgstr ""
+msgstr "SUSE Customer Center"
 
 msgid "SUSE Customer Center account"
-msgstr ""
+msgstr "SUSE Customer Center Zugang"
 
 msgid "SUSE Subscriptions"
-msgstr ""
+msgstr "SUSE Abonnements"
 
 msgid "SUSE subscriptions"
-msgstr ""
+msgstr "SUSE Abonnements"
 
 msgid "Subscribe SCC Product"
-msgstr ""
+msgstr "SCC Produkt abonnieren"
 
 msgid "Sync"
-msgstr ""
+msgstr "Aktualisieren"
 
 msgid "Sync SUSE subscriptions"
-msgstr ""
+msgstr "SUSE Abonnements aktualisieren"
 
 msgid "Sync SUSE subscriptions (Products)"
-msgstr ""
+msgstr "SUSE Abonnements aktualisieren (Produkte)"
 
 msgid "Sync SUSE subscriptions (Repositories)"
-msgstr ""
+msgstr "SUSE Abonnements aktualisieren (Repositories)"
 
 msgid "Synchronize"
 msgstr ""
@@ -222,7 +226,7 @@ msgid "Synchronize capsule content"
 msgstr ""
 
 msgid "Test Connection"
-msgstr ""
+msgstr "Verbindung testen"
 
 msgid "Unregister Host"
 msgstr ""

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2017-04-24 12:30+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: ATIX AG <info@atix.de>\n"
 "Language-Team: English\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -27,10 +27,10 @@ msgid "Actions"
 msgstr ""
 
 msgid "Add SCC account"
-msgstr ""
+msgstr "Add SCC account"
 
 msgid "Add SUSE Customer Center Account"
-msgstr ""
+msgstr "Add SUSE Customer Center Account"
 
 msgid "Add Sync Plan Products"
 msgstr ""
@@ -45,7 +45,7 @@ msgid "Auto-attach subscriptions"
 msgstr ""
 
 msgid "Base URL"
-msgstr ""
+msgstr "Base URL"
 
 msgid "Configure capsule"
 msgstr ""
@@ -98,8 +98,12 @@ msgstr ""
 msgid "Filtered index content"
 msgstr ""
 
-msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
+msgid ""
+"Foreman plugin to sync SUSE Customer Center products and repositories into "
+"Katello."
 msgstr ""
+"Foreman plugin to sync SUSE Customer Center products and repositories into "
+"Katello."
 
 msgid "Hypervisors"
 msgstr ""
@@ -141,7 +145,7 @@ msgid "Install package group"
 msgstr ""
 
 msgid "Last synced"
-msgstr ""
+msgstr "Last synced"
 
 msgid "Package Profile Update"
 msgstr ""
@@ -189,40 +193,40 @@ msgid "Remove subscriptions"
 msgstr ""
 
 msgid "SUSE Customer Center"
-msgstr ""
+msgstr "SUSE Customer Center"
 
 msgid "SUSE Customer Center account"
-msgstr ""
+msgstr "SUSE Customer Center account"
 
 msgid "SUSE Subscriptions"
-msgstr ""
+msgstr "SUSE Subscriptions"
 
 msgid "SUSE subscriptions"
-msgstr ""
+msgstr "SUSE subscriptions"
 
 msgid "Subscribe SCC Product"
-msgstr ""
+msgstr "Subscribe SCC Product"
 
 msgid "Sync"
-msgstr ""
+msgstr "Sync"
 
 msgid "Sync SUSE subscriptions"
-msgstr ""
+msgstr "Sync SUSE subscriptions"
 
 msgid "Sync SUSE subscriptions (Products)"
-msgstr ""
+msgstr "Sync SUSE subscriptions (Products)"
 
 msgid "Sync SUSE subscriptions (Repositories)"
-msgstr ""
+msgstr "Sync SUSE subscriptions (Repositories)"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Synchronize"
 
 msgid "Synchronize capsule content"
 msgstr ""
 
 msgid "Test Connection"
-msgstr ""
+msgstr "Test Connection"
 
 msgid "Unregister Host"
 msgstr ""
