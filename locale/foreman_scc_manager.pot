@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-21 11:41+0000\n"
-"PO-Revision-Date: 2017-04-21 11:41+0000\n"
+"POT-Creation-Date: 2017-04-24 12:33+0000\n"
+"PO-Revision-Date: 2017-04-24 12:33+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -22,19 +22,19 @@ msgstr ""
 msgid "Product already subscribed!"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/subscribe_product.rb:36 action_names.rb:61
+#: ../app/lib/actions/scc_manager/subscribe_product.rb:36 action_names.rb:31
 msgid "Subscribe SCC Product"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync.rb:22 action_names.rb:60
+#: ../app/lib/actions/scc_manager/sync.rb:22 action_names.rb:34
 msgid "Sync SUSE subscriptions"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_products.rb:24 action_names.rb:57
+#: ../app/lib/actions/scc_manager/sync_products.rb:24 action_names.rb:32
 msgid "Sync SUSE subscriptions (Products)"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_repositories.rb:23 action_names.rb:56
+#: ../app/lib/actions/scc_manager/sync_repositories.rb:23 action_names.rb:33
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr ""
 
@@ -99,31 +99,31 @@ msgid "SUSE Subscriptions"
 msgstr ""
 
 #: action_names.rb:2
-msgid "Enable"
+msgid "Synchronize"
 msgstr ""
 
 #: action_names.rb:3
-msgid "Disable"
+msgid "Index package groups"
 msgstr ""
 
 #: action_names.rb:4
-msgid "Upload errata into"
+msgid "Export"
 msgstr ""
 
 #: action_names.rb:5
-msgid "Update"
+msgid "Errata mail"
 msgstr ""
 
 #: action_names.rb:6
-msgid "Index errata"
+msgid "Create"
 msgstr ""
 
 #: action_names.rb:7
-msgid "Filtered index content"
+msgid "Delete"
 msgstr ""
 
 #: action_names.rb:8
-msgid "Errata mail"
+msgid "Update"
 msgstr ""
 
 #: action_names.rb:9
@@ -131,71 +131,71 @@ msgid "Reindex subscriptions"
 msgstr ""
 
 #: action_names.rb:10
-msgid "Delete Product"
-msgstr ""
-
-#: action_names.rb:11
 msgid "Product Create"
 msgstr ""
 
-#: action_names.rb:12
+#: action_names.rb:11
 msgid "Auto-attach subscriptions"
 msgstr ""
 
-#: action_names.rb:13
+#: action_names.rb:12
 msgid "Package Profile Update"
 msgstr ""
 
-#: action_names.rb:14
+#: action_names.rb:13
 msgid "Update for host"
 msgstr ""
 
+#: action_names.rb:14
+msgid "Unregister Host"
+msgstr ""
+
 #: action_names.rb:15
-msgid "Register Host"
+msgid "Remove subscriptions"
 msgstr ""
 
 #: action_names.rb:16
-msgid "Remove package group"
+msgid "Register Host"
 msgstr ""
 
 #: action_names.rb:17
-msgid "Install package group"
+msgid "Remove package group"
 msgstr ""
 
 #: action_names.rb:18
-msgid "Remove package"
+msgid "Install package group"
 msgstr ""
 
 #: action_names.rb:19
-msgid "Install package"
+msgid "Update package"
 msgstr ""
 
 #: action_names.rb:20
-msgid "Hypervisors update"
+msgid "Remove package"
 msgstr ""
 
 #: action_names.rb:21
-msgid "Hypervisors"
+msgid "Install package"
 msgstr ""
 
 #: action_names.rb:22
-msgid "Install erratum"
+msgid "Hypervisors"
 msgstr ""
 
 #: action_names.rb:23
-msgid "Install Applicable Errata"
+msgid "Install erratum"
 msgstr ""
 
 #: action_names.rb:24
-msgid "Destroy Content Host"
+msgid "Install Applicable Errata"
 msgstr ""
 
 #: action_names.rb:25
-msgid "Auto attach subscriptions"
+msgid "Destroy Content Host"
 msgstr ""
 
 #: action_names.rb:26
-msgid "Attach subscriptions"
+msgid "Auto attach subscriptions"
 msgstr ""
 
 #: action_names.rb:27
@@ -203,35 +203,19 @@ msgid "Delete Lifecycle Environment"
 msgstr ""
 
 #: action_names.rb:28
-msgid "Delete"
-msgstr ""
-
-#: action_names.rb:29
-msgid "Incremental Update of 0 Content View Version(s) "
-msgstr ""
-
-#: action_names.rb:30
 msgid "Incremental Update"
 msgstr ""
 
-#: action_names.rb:31
-msgid "Export"
+#: action_names.rb:29
+msgid "Create repos"
 msgstr ""
 
-#: action_names.rb:32
-msgid "Promotion"
-msgstr ""
-
-#: action_names.rb:33
-msgid "Publish"
-msgstr ""
-
-#: action_names.rb:34
-msgid "Remove Versions and Associations"
+#: action_names.rb:30
+msgid "Synchronize capsule content"
 msgstr ""
 
 #: action_names.rb:35
-msgid "Remove from Environment"
+msgid "Incremental Update of 0 Content View Version(s) "
 msgstr ""
 
 #: action_names.rb:36
@@ -239,87 +223,103 @@ msgid "Abstract async task"
 msgstr ""
 
 #: action_names.rb:37
-msgid "Remove Version"
+msgid "Promotion"
 msgstr ""
 
 #: action_names.rb:38
-msgid "Import facts"
+msgid "Publish"
 msgstr ""
 
 #: action_names.rb:39
-msgid "Action with sub plans"
-msgstr ""
-
-#: action_names.rb:40
-msgid "Create"
-msgstr ""
-
-#: action_names.rb:41
 msgid "Import Puppet classes"
 msgstr ""
 
+#: action_names.rb:40
+msgid "Import facts"
+msgstr ""
+
+#: action_names.rb:41
+msgid "Remove Versions and Associations"
+msgstr ""
+
 #: action_names.rb:42
-msgid "Update package"
+msgid "Remove from Environment"
 msgstr ""
 
 #: action_names.rb:43
-msgid "Remove subscriptions"
+msgid "Action with sub plans"
 msgstr ""
 
 #: action_names.rb:44
-msgid "Unregister Host"
+msgid "Remove Version"
 msgstr ""
 
 #: action_names.rb:45
-msgid "Destroy"
+msgid "Attach subscriptions"
 msgstr ""
 
 #: action_names.rb:46
-msgid "Upload into"
+msgid "Hypervisors update"
 msgstr ""
 
 #: action_names.rb:47
-msgid "Index content"
+msgid "Destroy"
 msgstr ""
 
 #: action_names.rb:48
-msgid "Index package groups"
+msgid "Delete Product"
 msgstr ""
 
 #: action_names.rb:49
-msgid "Remove Content"
+msgid "Filtered index content"
 msgstr ""
 
 #: action_names.rb:50
-msgid "Synchronize"
+msgid "Upload into"
 msgstr ""
 
 #: action_names.rb:51
-msgid "Add Sync Plan Products"
+msgid "Index content"
 msgstr ""
 
 #: action_names.rb:52
-msgid "Create repos"
+msgid "Index errata"
 msgstr ""
 
 #: action_names.rb:53
-msgid "Configure capsule"
+msgid "Remove Content"
 msgstr ""
 
 #: action_names.rb:54
-msgid "Synchronize capsule content"
-msgstr ""
-
-#: action_names.rb:55
 msgid "Delete Activation Key"
 msgstr ""
 
-#: action_names.rb:58
+#: action_names.rb:55
+msgid "Configure capsule"
+msgstr ""
+
+#: action_names.rb:56
 msgid "Update Sync Plan"
 msgstr ""
 
-#: action_names.rb:59
+#: action_names.rb:57
 msgid "Update Sync Plan Products"
+msgstr ""
+
+#: action_names.rb:58
+msgid "Add Sync Plan Products"
+msgstr ""
+
+#: action_names.rb:59
+msgid "Enable"
+msgstr ""
+
+#: action_names.rb:60
+msgid "Disable"
+msgstr ""
+
+#: action_names.rb:61
+msgid "Upload errata into"
 msgstr ""
 
 #: gemspec.rb:2
