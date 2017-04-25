@@ -23,14 +23,6 @@ module Actions
       def humanized_name
         _('Sync SUSE subscriptions (Products)')
       end
-
-      def humanized_output
-        if task_output.blank?
-          ''
-        else
-          'Trimmed...'
-        end
-      end
     end
   end
 end

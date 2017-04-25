@@ -29,13 +29,13 @@ module ForemanSccManager
           permission :sync_scc, :scc_account => [:sync]
         end
 
-        # Add a new role called 'Discovery' if it doesn't exist
+        # Add a new role called 'SccManager' if it doesn't exist
         role 'SccManager', [:view_scc, :use_scc, :new_scc, :edit_scc, :delete_scc, :sync_scc]
 
         # add menu entry
         menu :top_menu, :scc_manager,
              url_hash: { controller: :scc_accounts, action: :index },
-             caption: 'SUSE Subscriptions',
+             caption: _('SUSE Subscriptions'),
              parent: :content_menu,
              after: :red_hat_subscriptions
       end
