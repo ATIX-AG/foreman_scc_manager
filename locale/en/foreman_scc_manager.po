@@ -95,6 +95,9 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
+msgid "Failed to add task to queue: %s"
+msgstr "Failed to add task to queue: %s"
+
 msgid "Filtered index content"
 msgstr ""
 
@@ -147,14 +150,20 @@ msgstr ""
 msgid "Last synced"
 msgstr "Last synced"
 
+msgid "Lock on SCC account already taken: %s"
+msgstr "Lock on SCC account already taken: %s"
+
 msgid "Package Profile Update"
 msgstr ""
+
+msgid "Please sync your SUSE subscriptions first."
+msgstr "Please sync your SUSE subscriptions first."
 
 msgid "Product Create"
 msgstr ""
 
 msgid "Product already subscribed!"
-msgstr ""
+msgstr "Product already subscribed!"
 
 msgid "Products"
 msgstr ""
@@ -218,6 +227,9 @@ msgstr "Sync SUSE subscriptions (Products)"
 
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr "Sync SUSE subscriptions (Repositories)"
+
+msgid "Sync task started."
+msgstr "Sync task started."
 
 msgid "Synchronize"
 msgstr "Synchronize"

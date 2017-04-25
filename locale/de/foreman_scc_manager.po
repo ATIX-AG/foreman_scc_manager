@@ -95,6 +95,9 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
+msgid "Failed to add task to queue: %s"
+msgstr "Task konnte nicht in die Warteschlange eingereiht werden: %s"
+
 msgid "Filtered index content"
 msgstr ""
 
@@ -147,8 +150,14 @@ msgstr ""
 msgid "Last synced"
 msgstr "Zuletzt synchronisiert"
 
+msgid "Lock on SCC account already taken: %s"
+msgstr "Lock für SCC Zugang bereits vergeben: %s"
+
 msgid "Package Profile Update"
 msgstr ""
+
+msgid "Please sync your SUSE subscriptions first."
+msgstr "Bitte synchronisieren Sie zuerst Ihre SUSE Abonnements."
 
 msgid "Product Create"
 msgstr ""
@@ -219,8 +228,11 @@ msgstr "SUSE Abonnements aktualisieren (Produkte)"
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr "SUSE Abonnements aktualisieren (Repositories)"
 
+msgid "Sync task started."
+msgstr "Sync task gestartet."
+
 msgid "Synchronize"
-msgstr ""
+msgstr "Synchronisieren"
 
 msgid "Synchronize capsule content"
 msgstr ""
