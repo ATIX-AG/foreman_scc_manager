@@ -1,19 +1,345 @@
-# foreman_scc_manager
-#
-# This file is distributed under the same license as foreman_scc_manager.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_scc_manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: version 0.0.1\n"
+"Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 08:46+0100\n"
-"PO-Revision-Date: 2014-08-20 08:46+0100\n"
-"Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
+"POT-Creation-Date: 2017-04-25 08:29+0000\n"
+"PO-Revision-Date: 2017-04-25 08:29+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+#: ../app/controllers/scc_accounts_controller.rb:68
+msgid "Sync task started."
+msgstr ""
+
+#: ../app/controllers/scc_accounts_controller.rb:70
+msgid "Failed to add task to queue: %s"
+msgstr ""
+
+#: ../app/controllers/scc_accounts_controller.rb:72
+msgid "Lock on SCC account already taken: %s"
+msgstr ""
+
+#: ../app/lib/actions/scc_manager/subscribe_product.rb:5
+msgid "Product already subscribed!"
+msgstr ""
+
+#: ../app/lib/actions/scc_manager/subscribe_product.rb:36 action_names.rb:55
+msgid "Subscribe SCC Product"
+msgstr ""
+
+#: ../app/lib/actions/scc_manager/sync.rb:26 action_names.rb:44
+msgid "Sync SUSE subscriptions"
+msgstr ""
+
+#: ../app/lib/actions/scc_manager/sync_products.rb:28 action_names.rb:50
+msgid "Sync SUSE subscriptions (Products)"
+msgstr ""
+
+#: ../app/lib/actions/scc_manager/sync_repositories.rb:27 action_names.rb:54
+msgid "Sync SUSE subscriptions (Repositories)"
+msgstr ""
+
+#: ../app/views/scc_accounts/_form.html.erb:8
+msgid "SUSE Customer Center account"
+msgstr ""
+
+#: ../app/views/scc_accounts/_form.html.erb:17
+msgid "Base URL"
+msgstr ""
+
+#: ../app/views/scc_accounts/_form.html.erb:22
+msgid "Test Connection"
+msgstr ""
+
+#: ../app/views/scc_accounts/edit.html.erb:1
+msgid "Edit %s"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:4
+msgid "SUSE subscriptions"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:5
+msgid "Add SCC account"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:11
+msgid "Products"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:12
+msgid "Last synced"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:13
+msgid "Actions"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:27
+msgid "Sync"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:29
+msgid "Edit"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:32
+msgid "Delete %s?"
+msgstr ""
+
+#: ../app/views/scc_accounts/new.html.erb:1
+msgid "Add SUSE Customer Center Account"
+msgstr ""
+
+#: ../app/views/scc_accounts/show.html.erb:26
+msgid "SUSE Customer Center"
+msgstr ""
+
+#: ../app/views/scc_accounts/show.html.erb:37
+msgid "Please sync your SUSE subscriptions first."
+msgstr ""
+
+#: ../lib/foreman_scc_manager/engine.rb:38
+msgid "SUSE Subscriptions"
+msgstr ""
+
+#: action_names.rb:2
+msgid "Delete Lifecycle Environment"
+msgstr ""
+
+#: action_names.rb:3
+msgid "Destroy Content Host"
+msgstr ""
+
+#: action_names.rb:4
+msgid "Hypervisors"
+msgstr ""
+
+#: action_names.rb:5
+msgid "Hypervisors update"
+msgstr ""
+
+#: action_names.rb:6
+msgid "Install package"
+msgstr ""
+
+#: action_names.rb:7
+msgid "Remove package"
+msgstr ""
+
+#: action_names.rb:8
+msgid "Update for host"
+msgstr ""
+
+#: action_names.rb:9
+msgid "Install Applicable Errata"
+msgstr ""
+
+#: action_names.rb:10
+msgid "Update package"
+msgstr ""
+
+#: action_names.rb:11
+msgid "Update"
+msgstr ""
+
+#: action_names.rb:12
+msgid "Install package group"
+msgstr ""
+
+#: action_names.rb:13
+msgid "Package Profile Update"
+msgstr ""
+
+#: action_names.rb:14
+msgid "Configure capsule"
+msgstr ""
+
+#: action_names.rb:15
+msgid "Auto-attach subscriptions"
+msgstr ""
+
+#: action_names.rb:16
+msgid "Create repos"
+msgstr ""
+
+#: action_names.rb:17
+msgid "Create"
+msgstr ""
+
+#: action_names.rb:18
+msgid "Remove package group"
+msgstr ""
+
+#: action_names.rb:19
+msgid "Install erratum"
+msgstr ""
+
+#: action_names.rb:20
+msgid "Register Host"
+msgstr ""
+
+#: action_names.rb:21
+msgid "Remove subscriptions"
+msgstr ""
+
+#: action_names.rb:22
+msgid "Unregister Host"
+msgstr ""
+
+#: action_names.rb:23
+msgid "Delete Activation Key"
+msgstr ""
+
+#: action_names.rb:24
+msgid "Abstract async task"
+msgstr ""
+
+#: action_names.rb:25
+msgid "Incremental Update"
+msgstr ""
+
+#: action_names.rb:26
+msgid "Destroy"
+msgstr ""
+
+#: action_names.rb:27
+msgid "Synchronize capsule content"
+msgstr ""
+
+#: action_names.rb:28
+msgid "Product Create"
+msgstr ""
+
+#: action_names.rb:29
+msgid "Export"
+msgstr ""
+
+#: action_names.rb:30
+msgid "Delete Product"
+msgstr ""
+
+#: action_names.rb:31
+msgid "Delete"
+msgstr ""
+
+#: action_names.rb:32
+msgid "Auto attach subscriptions"
+msgstr ""
+
+#: action_names.rb:33
+msgid "Reindex subscriptions"
+msgstr ""
+
+#: action_names.rb:34
+msgid "Errata mail"
+msgstr ""
+
+#: action_names.rb:35
+msgid "Attach subscriptions"
+msgstr ""
+
+#: action_names.rb:36
+msgid "Incremental Update of 0 Content View Version(s) "
+msgstr ""
+
+#: action_names.rb:37
+msgid "Import Puppet classes"
+msgstr ""
+
+#: action_names.rb:38
+msgid "Import facts"
+msgstr ""
+
+#: action_names.rb:39
+msgid "Filtered index content"
+msgstr ""
+
+#: action_names.rb:40
+msgid "Upload into"
+msgstr ""
+
+#: action_names.rb:41
+msgid "Action with sub plans"
+msgstr ""
+
+#: action_names.rb:42
+msgid "Upload errata into"
+msgstr ""
+
+#: action_names.rb:43
+msgid "Remove from Environment"
+msgstr ""
+
+#: action_names.rb:45
+msgid "Enable"
+msgstr ""
+
+#: action_names.rb:46
+msgid "Index errata"
+msgstr ""
+
+#: action_names.rb:47
+msgid "Remove Version"
+msgstr ""
+
+#: action_names.rb:48
+msgid "Index package groups"
+msgstr ""
+
+#: action_names.rb:49
+msgid "Add Sync Plan Products"
+msgstr ""
+
+#: action_names.rb:51
+msgid "Remove Content"
+msgstr ""
+
+#: action_names.rb:52
+msgid "Index content"
+msgstr ""
+
+#: action_names.rb:53
+msgid "Disable"
+msgstr ""
+
+#: action_names.rb:56
+msgid "Remove Versions and Associations"
+msgstr ""
+
+#: action_names.rb:57
+msgid "Synchronize"
+msgstr ""
+
+#: action_names.rb:58
+msgid "Publish"
+msgstr ""
+
+#: action_names.rb:59
+msgid "Update Sync Plan Products"
+msgstr ""
+
+#: action_names.rb:60
+msgid "Promotion"
+msgstr ""
+
+#: action_names.rb:61
+msgid "Update Sync Plan"
+msgstr ""
+
+#: gemspec.rb:2
+msgid ""
+"Foreman plugin to sync SUSE Customer Center products and repositories into Kat"
+"ello."
+msgstr ""

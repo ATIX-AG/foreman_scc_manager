@@ -2,7 +2,7 @@ module Actions
   module SccManager
     class SubscribeProduct < Actions::EntryAction
       def plan(scc_product)
-        raise 'Product already subscribed!' if scc_product.product
+        raise _('Product already subscribed!') if scc_product.product
         ::Foreman::Logging.logger('foreman_scc_manager')
                           .info("Initiating subscription for SccProduct '#{scc_product.friendly_name}'.")
         sequence do

@@ -19,16 +19,12 @@ module Actions
         SccAccount.find(input[:scc_account][:id]).update_scc_repositories(output[:data])
       end
 
-      def humanized_name
-        _('Sync SUSE subscriptions (Repositories)')
+      def rescue_strategy
+        Dynflow::Action::Rescue::Fail
       end
 
-      def humanized_output
-        if task_output.blank?
-          ''
-        else
-          'Trimmed...'
-        end
+      def humanized_name
+        _('Sync SUSE subscriptions (Repositories)')
       end
     end
   end

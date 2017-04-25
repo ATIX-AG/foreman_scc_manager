@@ -20,16 +20,12 @@ module Actions
         SccAccount.find(input.fetch(:id)).update_scc_products(output.fetch(:data))
       end
 
-      def humanized_name
-        _('Sync SUSE subscriptions (Products)')
+      def rescue_strategy
+        Dynflow::Action::Rescue::Fail
       end
 
-      def humanized_output
-        if task_output.blank?
-          ''
-        else
-          'Trimmed...'
-        end
+      def humanized_name
+        _('Sync SUSE subscriptions (Products)')
       end
     end
   end

@@ -18,6 +18,10 @@ module Actions
         scc_account.save!
       end
 
+      def rescue_strategy
+        Dynflow::Action::Rescue::Fail
+      end
+
       def humanized_name
         _('Sync SUSE subscriptions')
       end
