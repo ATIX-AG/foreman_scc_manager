@@ -19,4 +19,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rails', '~> 4'
   s.add_development_dependency 'rubocop', '~> 0'
   s.add_development_dependency 'rdoc', '~> 4'
+
+  s.add_dependency 'foreman-tasks'
 end

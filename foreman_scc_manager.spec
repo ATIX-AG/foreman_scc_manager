@@ -21,7 +21,7 @@
 Summary:    Suse Customer Center plugin for foreman
 Name:       %{gem_name}
 Version:    1.0.0
-Release:    2%{?dist}
+Release:    3%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://orcharhino.com
@@ -32,6 +32,7 @@ Packager:   ATIX AG <info@atix.de>
 #####################
 Requires: foreman >= 1.14
 Requires: katello >= 3.3.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks)
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -118,6 +119,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 27 2017 Matthias Dellweg <dellweg@atix.de> 1.0.0-3
+- Add dependency foreman-tasks
+
 * Mon Apr 03 2017 Bernhard Suttner <suttner@atix.de> 1.0.0-2
 - Set correct ruby build requirements
 
