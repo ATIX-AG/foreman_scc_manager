@@ -14,7 +14,7 @@
   <%= scc_product.friendly_name %>
 <% if scc_product.scc_extensions.any? %>
   <ul>
-<% scc_product.scc_extensions.each do |scc_extension| %>
+<% scc_product.scc_extensions.order(:friendly_name).each do |scc_extension| %>
   <% render_list_node(f, scc_extension, scc_product.id) %>
 <% end %>
   </ul>
@@ -30,7 +30,7 @@
     <div class="tab-pane active pre-scrollable" id="primary">
       <ul>
 <% if @scc_account.synced %>
-<% @scc_account.scc_products.where(product_type: 'base').each do |scc_product| %>
+<% @scc_account.scc_products.where(product_type: 'base').order(:friendly_name).each do |scc_product| %>
   <% render_list_node(f, scc_product) %>
 <% end %>
 <% else %>
