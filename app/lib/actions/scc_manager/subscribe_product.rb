@@ -10,16 +10,14 @@ module Actions
                                               product_name: scc_product.friendly_name,
                                               product_description: scc_product.description,
                                               organization_id: scc_product.organization.id)
-          concurrence do
-            scc_product.scc_repositories.each do |repo|
-              uniq_name = scc_product.friendly_name + ' ' + repo.description
-              arch = scc_product.arch || 'noarch'
-              plan_action(CreateRepository,
-                          :product_id => product_create_action.output[:product_id],
-                          :uniq_name => uniq_name,
-                          :url => repo.full_url,
-                          :arch => arch)
-            end
+          scc_product.scc_repositories.each do |repo|
+            uniq_name = scc_product.friendly_name + ' ' + repo.description
+            arch = scc_product.arch || 'noarch'
+            plan_action(CreateRepository,
+                        :product_id => product_create_action.output[:product_id],
+                        :uniq_name => uniq_name,
+                        :url => repo.full_url,
+                        :arch => arch)
           end
           action_subject(scc_product, product_id: product_create_action.output[:product_id])
           plan_self
