@@ -7,12 +7,12 @@ module Actions
                           .info("Initiating subscription for SccProduct '#{scc_product.friendly_name}'.")
         sequence do
           product_create_action = plan_action(CreateProduct,
-                                              product_name: scc_product.friendly_name,
+                                              product_name: scc_product.uniq_name,
                                               product_description: scc_product.description,
                                               organization_id: scc_product.organization.id)
           concurrence do
             scc_product.scc_repositories.each do |repo|
-              uniq_name = scc_product.friendly_name + ' ' + repo.description
+              uniq_name = scc_product.uniq_name + ' ' + repo.description
               arch = scc_product.arch || 'noarch'
               plan_action(CreateRepository,
                           :product_id => product_create_action.output[:product_id],
