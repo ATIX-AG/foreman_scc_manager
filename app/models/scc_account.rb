@@ -2,6 +2,8 @@ class SccAccount < ActiveRecord::Base
   include Authorizable
   include ForemanTasks::Concerns::ActionSubject
 
+  SYNC_STATI = [ nil, 'running', 'successful', 'failed' ]
+
   self.include_root_in_json = false
 
   belongs_to :organization
@@ -14,6 +16,7 @@ class SccAccount < ActiveRecord::Base
   validates :login, presence: true
   validates :password, presence: true
   validates :base_url, presence: true
+  validates_inclusion_of :sync_status, in: SYNC_STATI
 
   default_scope -> { order(:login) }
 
