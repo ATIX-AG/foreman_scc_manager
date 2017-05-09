@@ -9,14 +9,19 @@ module Actions
       end
 
       def run
-        output[:data] = ::SccManager.get_scc_data(input[:base_url],
-                                                  '/connect/organizations/repositories',
-                                                  input[:login],
-                                                  input[:password])
+        output[:status] = 'SUCCESS'
+        begin
+          output[:data] = ::SccManager.get_scc_data(input[:base_url],
+                                                    '/connect/organizations/repositories',
+                                                    input[:login],
+                                                    input[:password])
+        rescue
+          output[:status] = 'FAILURE'
+        end
       end
 
       def finalize
-        SccAccount.find(input[:scc_account][:id]).update_scc_repositories(output[:data])
+        SccAccount.find(input[:scc_account][:id]).update_scc_repositories(output[:data]) if output[:status] == 'SUCCESS'
       end
 
       def rescue_strategy

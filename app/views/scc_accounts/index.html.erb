@@ -21,7 +21,7 @@
           <%= link_to_if_authorized('', hash_for_edit_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer), {visible: false, class: 'edit_deferree'}) %>
         </td>
         <td><%= scc_account.scc_products.count.to_s %></td>
-        <td><%= scc_account.synced %></td>
+        <td><%= scc_account.get_sync_status %></td>
         <td>
           <%= action_buttons(
             display_link_if_authorized(_("Sync"), hash_for_sync_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer),
