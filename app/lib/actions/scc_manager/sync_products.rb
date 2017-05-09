@@ -10,14 +10,19 @@ module Actions
       end
 
       def run
-        output[:data] = ::SccManager.get_scc_data(input.fetch(:base_url),
-                                                  '/connect/organizations/products',
-                                                  input.fetch(:login),
-                                                  input.fetch(:password))
+        output[:status] = 'SUCCESS'
+        begin
+          output[:data] = ::SccManager.get_scc_data(input.fetch(:base_url),
+                                                    '/connect/organizations/products',
+                                                    input.fetch(:login),
+                                                    input.fetch(:password))
+        rescue
+          output[:status] = 'FAILURE'
+        end
       end
 
       def finalize
-        SccAccount.find(input.fetch(:id)).update_scc_products(output.fetch(:data))
+        SccAccount.find(input.fetch(:id)).update_scc_products(output.fetch(:data)) if output[:status] == 'SUCCESS'
       end
 
       def rescue_strategy
