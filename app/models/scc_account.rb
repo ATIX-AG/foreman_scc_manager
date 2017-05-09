@@ -26,6 +26,19 @@ class SccAccount < ActiveRecord::Base
     name
   end
 
+  def get_sync_status
+    if sync_status == nil
+      return _('never synced')
+    elsif sync_status == 'running'
+      return _('sync in progress')
+    elsif sync_status == 'successful'
+      return synced
+    elsif sync_status == 'failed'
+      return _('last sync failed')
+    end
+    ''
+  end
+
   def test_connection
     begin
       SccManager::get_scc_data(base_url, '/connect/organizations/subscriptions', login, password)
