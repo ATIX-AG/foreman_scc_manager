@@ -1,6 +1,19 @@
 module SccManager
   # adapted from https://github.com/SUSE/connect
   def self.get_scc_data(base_url, rest_url, login, password)
+    if SETTINGS[:katello][:cdn_proxy] && SETTINGS[:katello][:cdn_proxy][:host]
+      proxy_config = SETTINGS[:katello][:cdn_proxy]
+      uri = URI('')
+
+      uri.scheme = URI.parse(proxy_config[:host]).scheme
+      uri.host = URI.parse(proxy_config[:host]).host
+      uri.port = proxy_config[:port].try(:to_s)
+      uri.user = proxy_config[:user].try(:to_s)
+      uri.password = proxy_config[:password].try(:to_s)
+
+      RestClient.proxy = uri.to_s
+    end
+
     url = base_url + rest_url
     auth_header = { Authorization: 'Basic ' + Base64.encode64("#{login}:#{password}").chomp,
                     Accept: 'application/vnd.scc.suse.com.v4+json' }
