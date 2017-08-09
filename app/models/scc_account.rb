@@ -1,6 +1,8 @@
 class SccAccount < ActiveRecord::Base
   include Authorizable
+  include Encryptable
   include ForemanTasks::Concerns::ActionSubject
+  encrypts :password
 
   SYNC_STATI = [ nil, 'running', 'successful', 'failed' ]
 
