@@ -31,5 +31,7 @@ module SccManager
       break unless url
     end
     results
+  ensure
+    RestClient.proxy = ''
   end
 end
