@@ -1,6 +1,4 @@
-<% content_for :javascripts do %>
-  <%= javascript_include_tag 'scc_accounts' %>
-<% end %>
+<% javascript 'foreman_scc_manager/scc_accounts'  %>
 
 <%= form_for(@scc_account) do |f| %>
   <%= base_errors_for @scc_account %>
