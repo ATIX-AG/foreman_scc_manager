@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ['ATIX AG']
   s.email       = ['info@atix.de']
   s.homepage    = 'https://www.orcharhino.com/'
-  s.summary     = 'ForemanSccManager.'
+  s.summary     = 'Suse Customer Center plugin for Foreman'
   # also update locale/gemspec.rb
   s.description = 'Foreman plugin to sync SUSE Customer Center products and repositories into Katello.'
 
