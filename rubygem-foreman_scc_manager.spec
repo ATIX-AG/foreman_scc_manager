@@ -5,8 +5,8 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 3%{?foremandist}%{?dist}
+Version: 1.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPL-3.0
@@ -98,6 +98,12 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Aug 16 2017 Matthias Dellweg <dellweg@atix.de> 1.0.1-1
+- specfile from gem2spec
+- fix asset compilation
+- encrypted passwords
+- use katello_proxy
+
 * Thu Apr 27 2017 Matthias Dellweg <dellweg@atix.de> 1.0.0-3
 - Add dependency foreman-tasks
 
