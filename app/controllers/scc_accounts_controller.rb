@@ -1,5 +1,5 @@
 class SccAccountsController < ApplicationController
-  before_filter :find_resource, only: [:show, :edit, :update, :destroy, :sync, :bulk_subscribe]
+  before_filter :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
   include Api::TaxonomyScope
   include Foreman::Controller::AutoCompleteSearch
 
@@ -63,33 +63,29 @@ class SccAccountsController < ApplicationController
 
   # PUT /scc_accounts/1/sync
   def sync
-    begin
-      sync_task = ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
-      notice _("Sync task started.")
-    rescue ::Foreman::Exception => e
-      error _("Failed to add task to queue: %s") % e.to_s
-    rescue ForemanTasks::Lock::LockConflict => e
-      error _("Lock on SCC account already taken: %s") % e.to_s
-    ensure
-      redirect_to scc_accounts_path
-    end
+    sync_task = ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
+    notice _('Sync task started.')
+  rescue ::Foreman::Exception => e
+    error _('Failed to add task to queue: %s') % e.to_s
+  rescue ForemanTasks::Lock::LockConflict => e
+    error _('Lock on SCC account already taken: %s') % e.to_s
+  ensure
+    redirect_to scc_accounts_path
   end
 
   def bulk_subscribe
-    begin
-      scc_products_to_subscribe =
-        @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids])
-      ForemanTasks.async_task(::Actions::BulkAction,
-                              ::Actions::SccManager::SubscribeProduct,
-                              scc_products_to_subscribe)
-      notice _("Task to subscribe products started.")
-    rescue ::Foreman::Exception => e
-      error _("Failed to add task to queue: %s") % e.to_s
-    rescue ForemanTasks::Lock::LockConflict => e
-      error _("Lock on SCC account already taken: %s") % e.to_s
-    ensure
-      redirect_to scc_accounts_path
-    end
+    scc_products_to_subscribe =
+      @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids])
+    ForemanTasks.async_task(::Actions::BulkAction,
+                            ::Actions::SccManager::SubscribeProduct,
+                            scc_products_to_subscribe)
+    notice _('Task to subscribe products started.')
+  rescue ::Foreman::Exception => e
+    error _('Failed to add task to queue: %s') % e.to_s
+  rescue ForemanTasks::Lock::LockConflict => e
+    error _('Lock on SCC account already taken: %s') % e.to_s
+  ensure
+    redirect_to scc_accounts_path
   end
 
   private

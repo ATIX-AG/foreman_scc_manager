@@ -15,7 +15,7 @@ module Actions
 
       def finalize
         scc_account = SccAccount.find(input[:scc_account][:id])
-        if input[:repo_status] == 'SUCCESS' and input[:prod_status] == 'SUCCESS'
+        if input[:repo_status] == 'SUCCESS' && input[:prod_status] == 'SUCCESS'
           scc_account.sync_status = 'successful'
           scc_account.synced = DateTime.current
         else

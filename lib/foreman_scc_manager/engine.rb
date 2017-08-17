@@ -20,17 +20,17 @@ module ForemanSccManager
 
         # Add permissions
         security_block :foreman_scc_manager do
-          permission :view_scc, :scc_account => [:index, :show]
+          permission :view_scc, :scc_account => %i[index show]
           permission :use_scc, :scc_account => [:bulk_subscribe]
           # permission :use_scc, :scc_product => [:subscribe, :unsubscribe]
-          permission :new_scc, :scc_account => [:new, :create]
-          permission :edit_scc, :scc_account => [:edit, :update]
+          permission :new_scc, :scc_account => %i[new create]
+          permission :edit_scc, :scc_account => %i[edit update]
           permission :delete_scc, :scc_account => [:destroy]
           permission :sync_scc, :scc_account => [:sync]
         end
 
         # Add a new role called 'SccManager' if it doesn't exist
-        role 'SccManager', [:view_scc, :use_scc, :new_scc, :edit_scc, :delete_scc, :sync_scc]
+        role 'SccManager', %i[view_scc use_scc new_scc edit_scc delete_scc sync_scc]
 
         # add menu entry
         menu :top_menu, :scc_manager,
@@ -43,7 +43,7 @@ module ForemanSccManager
 
     initializer 'foreman_scc_manager.register_actions', :before => :finisher_hook do |_app|
       ForemanTasks.dynflow.require!
-      action_paths = %W(#{ForemanSccManager::Engine.root}/app/lib/actions)
+      action_paths = %W[#{ForemanSccManager::Engine.root}/app/lib/actions]
       ForemanTasks.dynflow.config.eager_load_paths.concat(action_paths)
     end
 

@@ -1,9 +1,9 @@
 class AddOrganizationToSccAccount < ActiveRecord::Migration
-  class SccAccount < ActiveRecord::Base
+  class SccAccount < ApplicationRecord
     belongs_to :organization
   end
 
-  class Organization < ActiveRecord::Base
+  class Organization < ApplicationRecord
   end
 
   def up

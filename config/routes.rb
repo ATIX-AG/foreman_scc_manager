@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       put 'bulk_subscribe'
     end
   end
-  resources :scc_products, only: [:index, :show] do
+  resources :scc_products, only: %i[index show] do
     member do
       put 'subscribe'
       put 'unsubscribe'

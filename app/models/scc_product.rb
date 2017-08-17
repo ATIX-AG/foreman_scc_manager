@@ -1,4 +1,4 @@
-class SccProduct < ActiveRecord::Base
+class SccProduct < ApplicationRecord
   include Authorizable
   include ForemanTasks::Concerns::ActionSubject
 
@@ -20,7 +20,7 @@ class SccProduct < ActiveRecord::Base
   scoped_search on: :name, complete_value: true
 
   def uniq_name
-    return "#{scc_id} " + friendly_name;
+    "#{scc_id} " + friendly_name
   end
 
   def subscribe

@@ -1,10 +1,10 @@
-class SccAccount < ActiveRecord::Base
+class SccAccount < ApplicationRecord
   include Authorizable
   include Encryptable
   include ForemanTasks::Concerns::ActionSubject
   encrypts :password
 
-  SYNC_STATI = [ nil, 'running', 'successful', 'failed' ]
+  SYNC_STATI = [nil, 'running', 'successful', 'failed'].freeze
 
   self.include_root_in_json = false
 
@@ -18,7 +18,7 @@ class SccAccount < ActiveRecord::Base
   validates :login, presence: true
   validates :password, presence: true
   validates :base_url, presence: true
-  validates_inclusion_of :sync_status, in: SYNC_STATI
+  validates :sync_status, inclusion: { in: SYNC_STATI }
 
   default_scope -> { order(:login) }
 
@@ -29,7 +29,7 @@ class SccAccount < ActiveRecord::Base
   end
 
   def get_sync_status
-    if sync_status == nil
+    if sync_status.nil?
       return _('never synced')
     elsif sync_status == 'running'
       return _('sync in progress')
@@ -42,12 +42,10 @@ class SccAccount < ActiveRecord::Base
   end
 
   def test_connection
-    begin
-      SccManager::get_scc_data(base_url, '/connect/organizations/subscriptions', login, password)
-      true
-    rescue
-      false
-    end
+    SccManager.get_scc_data(base_url, '/connect/organizations/subscriptions', login, password)
+    true
+  rescue
+    false
   end
 
   def update_scc_repositories(upstream_repositories)
