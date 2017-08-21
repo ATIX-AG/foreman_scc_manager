@@ -21,7 +21,7 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2017 ATIX AG
+Copyright (c) 2017 ATIX AG - http://www.atix.de
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
