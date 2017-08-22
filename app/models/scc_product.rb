@@ -20,7 +20,7 @@ class SccProduct < ActiveRecord::Base
   scoped_search on: :name, complete_value: true
 
   def uniq_name
-    return "#{scc_id} " + friendly_name;
+    return friendly_name
   end
 
   def subscribe
