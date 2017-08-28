@@ -1,4 +1,5 @@
 class SccAccountsController < ApplicationController
+  before_filter :find_organization
   before_filter :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
   include Api::TaxonomyScope
   include Foreman::Controller::AutoCompleteSearch
@@ -12,7 +13,7 @@ class SccAccountsController < ApplicationController
   # GET /scc_accounts/new
   def new
     @scc_account = SccAccount.new
-    @scc_account.organization = Organization.current
+    @scc_account.organization = @organization
   end
 
   # POST /scc_accounts
@@ -89,6 +90,13 @@ class SccAccountsController < ApplicationController
   end
 
   private
+
+  def find_organization
+    @organization = Organization.current
+    unless @organization
+      redirect_to '/select_organization?toState=' + request.path
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   # Only allow a trusted parameter "white list" through.
