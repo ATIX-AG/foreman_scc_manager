@@ -95,6 +95,7 @@ cp -pa .%{gem_dir}/* \
 %posttrans
 %{foreman_db_migrate}
 %{foreman_restart}
+/usr/bin/systemctl restart foreman-tasks
 exit 0
 
 %changelog
