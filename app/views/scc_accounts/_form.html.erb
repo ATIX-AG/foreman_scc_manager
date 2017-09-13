@@ -10,7 +10,7 @@
     <div class="tab-pane active" id="primary">
       <div>
         <%= text_f f, :name %>
-        <%= text_f f, :login %>
+        <%= text_f f, :login, :help_block => _("Use your 'Organization credentials' obtained from the SUSE Customer Center.") %>
         <%= password_f f, :password %>
         <%= text_f f, :base_url, label: _('Base URL') %>
         <div class='clearfix'>
