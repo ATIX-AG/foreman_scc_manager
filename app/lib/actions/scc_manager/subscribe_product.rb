@@ -65,6 +65,7 @@ module Actions
         repository.arch = input[:arch]
         repository.mirror_on_sync = true
         repository.verify_ssl_on_sync = true
+        repository.download_policy = ::Runcible::Models::YumImporter::DOWNLOAD_IMMEDIATE
         trigger(::Actions::Katello::Repository::Create, repository, false, false)
       end
     end
