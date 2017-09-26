@@ -5,7 +5,7 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -99,6 +99,12 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Sep 26 2017 Matthias Dellweg <dellweg@atix.de> 1.1.0-1
+- Set default download policy
+- Force katello to load before scc_manager
+- restart foreman-tasks after installation
+- Added note to use Organization credentials
+- Select organization landing page
 * Wed Aug 16 2017 Matthias Dellweg <dellweg@atix.de> 1.0.1-1
 - specfile from gem2spec
 - fix asset compilation
