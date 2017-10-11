@@ -1,4 +1,4 @@
-class SccAccount < ApplicationRecord
+class SccAccount < ActiveRecord::Base
   include Authorizable
   include Encryptable
   include ForemanTasks::Concerns::ActionSubject

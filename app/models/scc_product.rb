@@ -1,4 +1,4 @@
-class SccProduct < ApplicationRecord
+class SccProduct < ActiveRecord::Base
   include Authorizable
   include ForemanTasks::Concerns::ActionSubject
 

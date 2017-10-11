@@ -1,4 +1,4 @@
-class SccRepository < ApplicationRecord
+class SccRepository < ActiveRecord::Base
   after_commit :token_changed_callback
 
   self.include_root_in_json = false
