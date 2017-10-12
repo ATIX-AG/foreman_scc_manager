@@ -18,7 +18,7 @@ module ForemanSccManager
 
     initializer 'foreman_scc_manager.register_plugin', :before => :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_scc_manager do
-        requires_foreman '>= 1.13'
+        requires_foreman '>= 1.16'
         requires_foreman_plugin 'katello', '>= 3.2.0'
 
         # Add permissions
