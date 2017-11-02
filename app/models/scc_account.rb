@@ -91,7 +91,11 @@ class SccAccount < ActiveRecord::Base
       # rewire product to product relationships
       upstream_products.each do |up|
         extensions = scc_products.where(scc_id: up['extensions'].map { |ext| ext['id'] })
-        scc_products.find_by!(scc_id: up['id']).update!(scc_extensions: extensions)
+        begin
+          scc_products.find_by!(scc_id: up['id']).update!(scc_extensions: extensions)
+        rescue ActiveRecord::RecordNotFound
+          logger.info "Failed to find parent scc_product '#{up['name']}'."
+        end
       end
     end
   end
