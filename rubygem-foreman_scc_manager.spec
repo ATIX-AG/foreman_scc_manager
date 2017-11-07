@@ -5,7 +5,7 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.2
+Version: 1.1.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -99,6 +99,8 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Nov 07 2017 Bernhard Suttner <suttner@atix.de> 1.1.3-1
+- Catch RecordNotFound when assigning extensions and log error 
 * Fri Oct 13 2017 Matthias Dellweg <dellweg@atix.de> 1.1.2-1
 - Fix migration for compatibility to foreman 1.15
 * Thu Oct 12 2017 Matthias Dellweg <dellweg@atix.de> 1.1.1-1
