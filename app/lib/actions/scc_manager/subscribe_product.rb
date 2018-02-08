@@ -61,11 +61,18 @@ module Actions
         label = ::Katello::Util::Model.labelize(uniq_name)
         unprotected = true
         gpg_key = product.gpg_key
-        repository = product.add_repo(label, uniq_name, input[:url], 'yum', unprotected, gpg_key)
-        repository.arch = input[:arch]
+        repo_param = {  :label => label,
+                :name => uniq_name,
+                :url => input[:url],
+                :content_type => 'yum',
+                :unprotected => unprotected,
+                :gpg_key => gpg_key,
+                :arch => input[:arch],
+                :download_policy => ::Runcible::Models::YumImporter::DOWNLOAD_IMMEDIATE
+        }
+        repository = product.add_repo(repo_param)
         repository.mirror_on_sync = true
         repository.verify_ssl_on_sync = true
-        repository.download_policy = ::Runcible::Models::YumImporter::DOWNLOAD_IMMEDIATE
         trigger(::Actions::Katello::Repository::Create, repository, false, false)
       end
     end
