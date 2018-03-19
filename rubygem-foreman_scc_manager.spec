@@ -5,7 +5,7 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -99,6 +99,15 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Mar 19 2018 Matthias Dellweg <dellweg@atix.de> 1.2.0-1
+- Change Edit/Action behaviour to be more user-friendly
+- Do not use transaction to create Products and Repositories
+- Update some dependencies
+- Bump requirement to Katello 3.5
+- Issue #7 by prokhorovva: Fast fix
+- Catch RecordNotFound when assigning extensions
+- disable submit if account was not synced
+- Bump requirement to foreman 1.16
 * Tue Sep 26 2017 Matthias Dellweg <dellweg@atix.de> 1.1.0-1
 - Set default download policy
 - Force katello to load before scc_manager
