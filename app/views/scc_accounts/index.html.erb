@@ -15,19 +15,17 @@
     <% @scc_accounts.each do |scc_account| %>
       <tr>
         <td class="display-two-pane ellipsis">
-          <%= link_to_if_authorized(scc_account.name, hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer)) %>
-          <%= link_to_if_authorized('', hash_for_edit_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer), {visible: false, class: 'edit_deferree'}) %>
+          <%= link_to_if_authorized(scc_account.name, hash_for_edit_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer)) %>
         </td>
         <td><%= scc_account.scc_products.count.to_s %></td>
         <td><%= scc_account.get_sync_status %></td>
         <td>
           <%= action_buttons(
+            display_link_if_authorized(_("Select products"), hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer)),
             display_link_if_authorized(_("Sync"), hash_for_sync_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer),
-            :method => :put),
-            display_link_if_authorized(_("Edit"), hash_for_edit_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer),
-                                      class: 'edit_deferrer'),
+                                       :method => :put),
             display_delete_if_authorized(hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer),
-            :data => { :confirm => _("Delete %s?") % scc_account.to_s })
+                                         :data => { :confirm => _("Delete %s?") % scc_account.to_s })
           ) %>
         </td>
       </tr>
