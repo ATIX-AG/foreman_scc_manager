@@ -4,11 +4,10 @@ class SccAccount < ApplicationRecord
   include ForemanTasks::Concerns::ActionSubject
   encrypts :password
 
-  SYNC_STATI = [nil, 'running', 'successful', 'failed'].freeze
-
   self.include_root_in_json = false
 
   belongs_to :organization
+  belongs_to :sync_task, class_name: ForemanTasks::Task
   has_many :scc_products, dependent: :destroy
   has_many :scc_repositories, dependent: :destroy
 
@@ -18,7 +17,6 @@ class SccAccount < ApplicationRecord
   validates :login, presence: true
   validates :password, presence: true
   validates :base_url, presence: true
-  validates :sync_status, inclusion: { in: SYNC_STATI }
 
   default_scope -> { order(:login) }
 
@@ -29,16 +27,17 @@ class SccAccount < ApplicationRecord
   end
 
   def get_sync_status
-    if sync_status.nil?
+    if sync_task.nil?
       return _('never synced')
-    elsif sync_status == 'running'
-      return _('sync in progress')
-    elsif sync_status == 'successful'
-      return synced
-    elsif sync_status == 'failed'
-      return _('last sync failed')
+    elsif sync_task.state == 'stopped'
+      if sync_task.result == 'success'
+        return synced
+      else
+        return sync_task.result
+      end
+    else
+      return sync_task.state
     end
-    ''
   end
 
   def test_connection

@@ -65,6 +65,7 @@ class SccAccountsController < ApplicationController
   # PUT /scc_accounts/1/sync
   def sync
     sync_task = ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
+    @scc_account.update! sync_task: sync_task
     notice _('Sync task started.')
   rescue ::Foreman::Exception => e
     error _('Failed to add task to queue: %s') % e.to_s
