@@ -1,4 +1,4 @@
-class CreateSccAccounts < ActiveRecord::Migration
+class CreateSccAccounts < ActiveRecord::Migration[4.2]
   def change
     create_table :scc_accounts do |t|
       t.string :login, limit: 255

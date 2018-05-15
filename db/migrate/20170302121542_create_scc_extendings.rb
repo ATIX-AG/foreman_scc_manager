@@ -1,4 +1,4 @@
-class CreateSccExtendings < ActiveRecord::Migration
+class CreateSccExtendings < ActiveRecord::Migration[4.2]
   def change
     create_table :scc_extendings do |t|
       t.references :scc_product, index: true, foreign_key: false, null: false

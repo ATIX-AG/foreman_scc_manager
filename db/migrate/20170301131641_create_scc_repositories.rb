@@ -1,4 +1,4 @@
-class CreateSccRepositories < ActiveRecord::Migration
+class CreateSccRepositories < ActiveRecord::Migration[4.2]
   def change
     create_table :scc_repositories do |t|
       t.references :scc_account, index: true, foreign_key: true
