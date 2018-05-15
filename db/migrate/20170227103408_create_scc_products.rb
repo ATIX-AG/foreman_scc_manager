@@ -1,4 +1,4 @@
-class CreateSccProducts < ActiveRecord::Migration
+class CreateSccProducts < ActiveRecord::Migration[4.2]
   def change
     create_table :scc_products do |t|
       t.references :scc_account, index: true, foreign_key: true
