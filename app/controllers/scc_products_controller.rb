@@ -1,5 +1,5 @@
 class SccProductsController < ApplicationController
-  before_filter :find_resource, only: %i[show subscribe unsubscribe]
+  before_action :find_resource, only: %i[show subscribe unsubscribe]
   include Api::TaxonomyScope
   include Foreman::Controller::AutoCompleteSearch
 
