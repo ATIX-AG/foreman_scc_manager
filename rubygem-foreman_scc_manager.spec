@@ -11,7 +11,7 @@ Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPL-3.0
 URL: https://www.orcharhino.com/
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.16.0
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
