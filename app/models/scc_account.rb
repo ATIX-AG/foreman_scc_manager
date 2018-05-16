@@ -64,8 +64,13 @@ class SccAccount < ApplicationRecord
     end
     # delete repositories beeing removed upstream (Active record seems to be wrong here...)
     # scc_repositories.where.not(scc_id: upstream_repo_ids).delete_all
-    upstream_repo_ids_str = upstream_repo_ids.map{ |id| ActiveRecord::Base.connection.quote(id) }.join(',')
-    ActiveRecord::Base.connection.execute("delete from scc_repositories where scc_repositories.scc_account_id = #{ActiveRecord::Base.connection.quote(id)} and scc_repositories.scc_id not in (#{upstream_repo_ids_str});")
+    if upstream_repo_ids.empty?
+      urid_query_fragment = ''
+    else
+      upstream_repo_ids_str = upstream_repo_ids.map{ |id| ActiveRecord::Base.connection.quote(id) }.join(',')
+      urid_query_fragment = " and scc_repositories.scc_id not in (#{upstream_repo_ids_str})"
+    end
+    ActiveRecord::Base.connection.execute("delete from scc_repositories where scc_repositories.scc_account_id = #{ActiveRecord::Base.connection.quote(id)}#{urid_query_fragment};")
   end
 
   def update_scc_products(upstream_products)
@@ -86,8 +91,13 @@ class SccAccount < ApplicationRecord
     end
     # delete products beeing removed upstream (Active record seems to be wrong here...)
     # scc_products.where.not(scc_id: upstream_product_ids).delete_all
-    upstream_product_ids_str = upstream_product_ids.map{ |id| ActiveRecord::Base.connection.quote(id) }.join(',')
-    ActiveRecord::Base.connection.execute("delete from scc_products where scc_products.scc_account_id = #{ActiveRecord::Base.connection.quote(id)} and scc_products.scc_id not in (#{upstream_product_ids_str});")
+    if upstream_product_ids.empty?
+      upid_query_fragment = ''
+    else
+      upstream_product_ids_str = upstream_product_ids.map{ |id| ActiveRecord::Base.connection.quote(id) }.join(',')
+      upid_query_fragment = " and scc_products.scc_id not in (#{upstream_product_ids_str})"
+    end
+    ActiveRecord::Base.connection.execute("delete from scc_products where scc_products.scc_account_id = #{ActiveRecord::Base.connection.quote(id)}#{upid_query_fragment};")
     # rewire product to product relationships
     upstream_products.each do |up|
       extensions = scc_products.where(scc_id: up['extensions'].map { |ext| ext['id'] })
