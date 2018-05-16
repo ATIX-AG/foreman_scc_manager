@@ -5,7 +5,7 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.0
+Version: 1.3.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -99,6 +99,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed May 16 2018 Matthias Dellweg <dellweg@atix.de> 1.3.1-1
+- Migration to rails 5 by evgeni
+- Fix issue with productless account
 * Tue May 15 2018 Matthias Dellweg <dellweg@atix.de> 1.3.0-1
 - Prevent exception in case no further products were selected
 - Show proper sync status
