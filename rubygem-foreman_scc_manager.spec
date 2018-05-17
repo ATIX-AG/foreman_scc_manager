@@ -12,14 +12,14 @@ Group: Applications/Systems
 License: GPL-3.0
 URL: https://www.orcharhino.com/
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.16.0
+Requires: foreman >= 1.17.0
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks)
-Requires: %{?scl_prefix}rubygem(katello) >= 3.5
+Requires: %{?scl_prefix}rubygem(katello) >= 3.6
 BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.16
-BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.5
+BuildRequires: foreman-plugin >= 1.17
+BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.6
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
