@@ -7,13 +7,13 @@ Foreman plugin to sync SUSE Customer Center products and repositories into Katel
 See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
 for how to install Foreman plugins
 
-## Usage
+## Compatibility
 
-*Usage here*
-
-## TODO
-
-*Todo list here*
+| Foreman Version | Katello Version | Plugin Version |
+| --------------- | --------------- | -------------- |
+| 1.17            | 3.6             | >= 1.3.1       |
+| 1.16            | 3.5             | <= 1.3.0       |
+| 1.15            | 3.4             | ~> 1.1.0       |
 
 ## Contributing
 
