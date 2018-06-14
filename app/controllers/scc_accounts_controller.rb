@@ -1,6 +1,6 @@
 class SccAccountsController < ApplicationController
-  before_action :find_organization
-  before_action :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
+  before_filter :find_organization
+  before_filter :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
   include Api::TaxonomyScope
   include Foreman::Controller::AutoCompleteSearch
 
@@ -32,14 +32,12 @@ class SccAccountsController < ApplicationController
   # POST /scc_accounts/test_connection
   def test_connection
     @scc_account = SccAccount.new(scc_account_params)
-    if params[:scc_account_id].present? && scc_account_params[:password].empty?
-      @scc_account.password = SccAccount.find_by!(id: params[:scc_account_id]).password
-    end
+    @scc_account.password = SccAccount.find_by!(id: params[:scc_account_id]).password if params[:scc_account_id].present? && scc_account_params[:password].empty?
     respond_to do |format|
       if @scc_account.test_connection
         format.json { render json: nil, status: :ok }
       else
-        format.json { render json: nil, status: 404 }
+        format.json { render json: nil, status: :not_found }
       end
     end
   end
@@ -79,7 +77,7 @@ class SccAccountsController < ApplicationController
     scc_products_to_subscribe =
       @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids])
 
-    if (scc_products_to_subscribe.count > 0)
+    if scc_products_to_subscribe.count > 0
       ForemanTasks.async_task(::Actions::BulkAction,
                               ::Actions::SccManager::SubscribeProduct,
                               scc_products_to_subscribe)
@@ -99,9 +97,7 @@ class SccAccountsController < ApplicationController
 
   def find_organization
     @organization = Organization.current
-    unless @organization
-      redirect_to '/select_organization?toState=' + request.path
-    end
+    redirect_to '/select_organization?toState=' + request.path unless @organization
   end
 
   # Use callbacks to share common setup or constraints between actions.

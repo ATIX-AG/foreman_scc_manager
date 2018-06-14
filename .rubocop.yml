@@ -1,5 +1,7 @@
-Rails:
-  Enabled: true
+AllCops:
+  Exclude:
+    - '*.spec'
+    - 'doc/plugins/**'
 
 # Don't enforce documentation
 Style/Documentation:
@@ -7,17 +9,81 @@ Style/Documentation:
 
 # Force before_filter until upgrade to Rails 4
 Rails/ActionFilter:
-  EnforcedStyle: filter
+  EnforcedStyle: action
 
 Metrics/MethodLength:
-  Max: 20
+  Max: 40
 
-Metrics/LineLength:
-  Max: 111 # TODO: discuss and set this
+Style/AccessorMethodName:
+  Enabled: false
 
-Style/Next:
+Style/RedundantSelf:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 500
+
+Style/FileName:
+  Exclude:
+      - 'db/seeds.d/*'
+
+Style/WordArray:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/EachWithObject:
+  Enabled: false
+
+Metrics/ParameterLists:
   Enabled: false
 
 # Support both ruby19 and hash_rockets
 Style/HashSyntax:
+  Enabled: false
+  SupportedStyles:
+    - ruby19
+    - hash_rockets
+
+Metrics/LineLength:
+  Max: 190
+
+# Offense count: 21
+# Configuration parameters: CountComments.
+Metrics/ModuleLength:
+    Max: 400
+
+Style/MethodName:
+  Exclude:
+    - 'app/models/concerns/orchestration/*.rb'
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/CaseEquality:
   Enabled: false

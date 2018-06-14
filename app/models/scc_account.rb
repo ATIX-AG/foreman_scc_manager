@@ -26,24 +26,24 @@ class SccAccount < ApplicationRecord
     name
   end
 
-  def get_sync_status
+  def sync_status
     if sync_task.nil?
-      return _('never synced')
+      _('never synced')
     elsif sync_task.state == 'stopped'
       if sync_task.result == 'success'
-        return synced
+        synced
       else
-        return sync_task.result
+        sync_task.result
       end
     else
-      return sync_task.state
+      sync_task.state
     end
   end
 
   def test_connection
     SccManager.get_scc_data(base_url, '/connect/organizations/subscriptions', login, password)
     true
-  rescue
+  rescue StandardError
     false
   end
 
@@ -67,10 +67,14 @@ class SccAccount < ApplicationRecord
     if upstream_repo_ids.empty?
       urid_query_fragment = ''
     else
-      upstream_repo_ids_str = upstream_repo_ids.map{ |id| ActiveRecord::Base.connection.quote(id) }.join(',')
+      upstream_repo_ids_str = upstream_repo_ids.map do |id|
+        ActiveRecord::Base.connection.quote(id)
+      end.join(',')
       urid_query_fragment = " and scc_repositories.scc_id not in (#{upstream_repo_ids_str})"
     end
-    ActiveRecord::Base.connection.execute("delete from scc_repositories where scc_repositories.scc_account_id = #{ActiveRecord::Base.connection.quote(id)}#{urid_query_fragment};")
+    ActiveRecord::Base.connection.execute(
+      "delete from scc_repositories where scc_repositories.scc_account_id = #{ActiveRecord::Base.connection.quote(id)}#{urid_query_fragment};"
+    )
   end
 
   def update_scc_products(upstream_products)
@@ -94,10 +98,14 @@ class SccAccount < ApplicationRecord
     if upstream_product_ids.empty?
       upid_query_fragment = ''
     else
-      upstream_product_ids_str = upstream_product_ids.map{ |id| ActiveRecord::Base.connection.quote(id) }.join(',')
+      upstream_product_ids_str = upstream_product_ids.map do |id|
+        ActiveRecord::Base.connection.quote(id)
+      end.join(',')
       upid_query_fragment = " and scc_products.scc_id not in (#{upstream_product_ids_str})"
     end
-    ActiveRecord::Base.connection.execute("delete from scc_products where scc_products.scc_account_id = #{ActiveRecord::Base.connection.quote(id)}#{upid_query_fragment};")
+    ActiveRecord::Base.connection.execute(
+      "delete from scc_products where scc_products.scc_account_id = #{ActiveRecord::Base.connection.quote(id)}#{upid_query_fragment};"
+    )
     # rewire product to product relationships
     upstream_products.each do |up|
       extensions = scc_products.where(scc_id: up['extensions'].map { |ext| ext['id'] })

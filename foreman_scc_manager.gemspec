@@ -1,4 +1,4 @@
-require File.expand_path('../lib/foreman_scc_manager/version', __FILE__)
+require File.expand_path('lib/foreman_scc_manager/version', __dir__)
 require 'date'
 
 Gem::Specification.new do |s|
@@ -16,9 +16,9 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib,locale}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
-  s.add_development_dependency 'rubocop', '~> 0.49'
   s.add_development_dependency 'rdoc', '~> 4'
+  s.add_development_dependency 'rubocop', '~> 0.49'
 
-  s.add_dependency 'rails', '~> 5.1'
   s.add_dependency 'foreman-tasks', '~> 0.10'
+  s.add_dependency 'rails', '~> 5.1'
 end

@@ -15,7 +15,7 @@ module Actions
                                                     '/connect/organizations/repositories',
                                                     input[:login],
                                                     input[:password])
-        rescue
+        rescue StandardError
           output[:status] = 'FAILURE'
         end
       end

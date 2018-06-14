@@ -31,7 +31,7 @@ namespace :foreman_scc_manager do
                          "#{ForemanSccManager::Engine.root}/lib/**/*.rb",
                          "#{ForemanSccManager::Engine.root}/test/**/*.rb"]
       end
-    rescue
+    rescue StandardError
       puts 'Rubocop not loaded.'
     end
 
@@ -42,6 +42,4 @@ end
 Rake::Task[:test].enhance ['test:foreman_scc_manager']
 
 load 'tasks/jenkins.rake'
-if Rake::Task.task_defined?(:'jenkins:unit')
-  Rake::Task['jenkins:unit'].enhance ['test:foreman_scc_manager', 'foreman_scc_manager:rubocop']
-end
+Rake::Task['jenkins:unit'].enhance ['test:foreman_scc_manager', 'foreman_scc_manager:rubocop'] if Rake::Task.task_defined?(:'jenkins:unit')
