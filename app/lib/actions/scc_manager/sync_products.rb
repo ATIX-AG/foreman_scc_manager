@@ -16,7 +16,7 @@ module Actions
                                                     '/connect/organizations/products',
                                                     input.fetch(:login),
                                                     input.fetch(:password))
-        rescue
+        rescue StandardError
           output[:status] = 'FAILURE'
         end
       end

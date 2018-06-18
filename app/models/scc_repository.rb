@@ -12,7 +12,7 @@ class SccRepository < ApplicationRecord
   end
 
   def token_changed_callback
-    User.current = User.anonymous_admin unless User.current
+    User.current ||= User.anonymous_admin
     scc_products.where.not(product: nil).find_each do |sp|
       reponame = sp.friendly_name + ' ' + description
       repository = sp.product.repositories.find_by(name: reponame)
