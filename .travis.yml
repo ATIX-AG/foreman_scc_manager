@@ -2,12 +2,11 @@ language: ruby
 rvm:
   # - 2.2
   - 2.3
-gemfile: foreman/Gemfile
-before_install:
+install:
+  - unset BUNDLE_GEMFILE
   - cd ..
   - git clone https://github.com/theforeman/foreman.git -b ${FOREMAN_CORE_BRANCH} --depth 1
   # - git clone https://github.com/katello/katello.git -b ${KATELLO_CORE_BRANCH} --depth 1
-install:
   - cd foreman
   # - echo "gemspec :path => '../katello'" > bundler.d/katello.local.rb
   - echo "gemspec :path => '../foreman_scc_manager'" > bundler.d/foreman_scc_manager.local.rb
