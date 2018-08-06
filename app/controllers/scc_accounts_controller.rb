@@ -1,7 +1,6 @@
 class SccAccountsController < ApplicationController
   before_action :find_organization
   before_action :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
-  include Api::TaxonomyScope
   include Foreman::Controller::AutoCompleteSearch
 
   # GET /scc_accounts

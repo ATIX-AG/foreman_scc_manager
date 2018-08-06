@@ -1,6 +1,5 @@
 class SccProductsController < ApplicationController
   before_action :find_resource, only: %i[show subscribe unsubscribe]
-  include Api::TaxonomyScope
   include Foreman::Controller::AutoCompleteSearch
 
   def index
