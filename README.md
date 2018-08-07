@@ -11,6 +11,7 @@ for how to install Foreman plugins
 
 | Foreman Version | Katello Version | Plugin Version |
 | --------------- | --------------- | -------------- |
+| 1.18            | 3.7             | ~> 1.4.0       |
 | 1.17            | 3.6             | >= 1.3.1       |
 | 1.16            | 3.5             | <= 1.3.0       |
 | 1.15            | 3.4             | ~> 1.1.0       |
