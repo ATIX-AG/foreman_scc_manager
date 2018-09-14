@@ -34,4 +34,15 @@ module SccManager
   ensure
     RestClient.proxy = ''
   end
+
+  # Cope for the very weird structure of SCC output
+  def self.sanitize_products(products, result = {})
+    products.reduce(result) do |res, product|
+      sanitize_products(product['extensions'].tap do |extensions|
+        product['extensions'] = extensions.map { |extension| { 'id' => extension['id'] } }
+        res[product['id']] = product.merge(result.fetch(product['id'], {}))
+        res[product['id']]['extensions'] |= product['extensions']
+      end, res)
+    end
+  end
 end
