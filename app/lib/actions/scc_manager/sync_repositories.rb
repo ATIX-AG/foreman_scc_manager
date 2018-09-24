@@ -31,6 +31,14 @@ module Actions
       def humanized_name
         _('Sync SUSE subscriptions (Repositories)')
       end
+
+      def humanized_input
+        input.dup.update(password: '***')
+      end
+
+      def humanized_output
+        output.dup.update(data: 'Trimmed')
+      end
     end
   end
 end
