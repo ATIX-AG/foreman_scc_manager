@@ -12,10 +12,11 @@ module Actions
       def run
         output[:status] = 'SUCCESS'
         begin
-          output[:data] = ::SccManager.get_scc_data(input.fetch(:base_url),
-                                                    '/connect/organizations/products',
-                                                    input.fetch(:login),
-                                                    input.fetch(:password))
+          products = ::SccManager.get_scc_data(input.fetch(:base_url),
+                                               '/connect/organizations/products',
+                                               input.fetch(:login),
+                                               input.fetch(:password))
+          output[:data] = ::SccManager.sanitize_products(products).values
         rescue StandardError
           output[:status] = 'FAILURE'
         end
