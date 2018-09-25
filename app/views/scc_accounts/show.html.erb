@@ -1,8 +1,8 @@
 <% javascript 'foreman_scc_manager/scc_accounts' %>
 <%= form_for([:bulk_subscribe, @scc_account], method: :put) do |f| %>
-  <% def render_list_node(f, scc_product, parent_id = nil) %>
+  <% def render_list_node(f, scc_product, parent_id = "") %>
     <li>
-      <span class="scc_product_checkbox" id="<%= "scc_product_span_#{scc_product.id}" %>" <%= "data-parent=scc_product_span_#{parent_id}" if parent_id %>>
+      <span class="scc_product_checkbox" id="<%= "scc_product_span_#{parent_id + "_" + scc_product.id.to_s}" %>" <%= "data-parent=scc_product_span_#{parent_id}" if parent_id != "" %>>
         <% if scc_product.product %>
           <%= check_box_tag("scc_account[scc_unsubscribe_product_ids][]", scc_product.id, true, disabled: true) %>
         <% else %>
@@ -13,7 +13,7 @@
       <% if scc_product.scc_extensions.any? %>
         <ul>
           <% scc_product.scc_extensions.order(:friendly_name).each do |scc_extension| %>
-            <% render_list_node(f, scc_extension, scc_product.id) %>
+            <% render_list_node(f, scc_extension, parent_id + "_" + scc_product.id.to_s) %>
           <% end %>
         </ul>
       <% end %>
