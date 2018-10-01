@@ -7,7 +7,7 @@ class SccAccount < ApplicationRecord
   self.include_root_in_json = false
 
   belongs_to :organization
-  belongs_to :sync_task, class_name: ForemanTasks::Task
+  belongs_to :sync_task, class_name: 'ForemanTasks::Task'
   has_many :scc_products, dependent: :destroy
   has_many :scc_repositories, dependent: :destroy
 
