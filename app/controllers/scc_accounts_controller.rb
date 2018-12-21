@@ -63,7 +63,7 @@ class SccAccountsController < ApplicationController
   def sync
     sync_task = ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
     @scc_account.update! sync_task: sync_task
-    notice _('Sync task started.')
+    success _('Sync task started.')
   rescue ::Foreman::Exception => e
     error _('Failed to add task to queue: %s') % e.to_s
   rescue ForemanTasks::Lock::LockConflict => e
@@ -80,9 +80,9 @@ class SccAccountsController < ApplicationController
       ForemanTasks.async_task(::Actions::BulkAction,
                               ::Actions::SccManager::SubscribeProduct,
                               scc_products_to_subscribe)
-      notice _('Task to subscribe products started.')
+      success _('Task to subscribe products started.')
     else
-      notice _('No products selected.')
+      warning _('No products selected.')
     end
   rescue ::Foreman::Exception => e
     error _('Failed to add task to queue: %s') % e.to_s
