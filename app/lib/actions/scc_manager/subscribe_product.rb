@@ -72,7 +72,7 @@ module Actions
         repository = product.add_repo(repo_param)
         repository.mirror_on_sync = true
         repository.verify_ssl_on_sync = true
-        trigger(::Actions::Katello::Repository::Create, repository, false, false)
+        trigger(::Actions::Katello::Repository::CreateRoot, repository)
       end
     end
   end
