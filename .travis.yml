@@ -1,32 +1,22 @@
 language: ruby
 rvm:
-  # - 2.2
-  - 2.3
+  - 2.5
 install:
   - unset BUNDLE_GEMFILE
   - cd ..
   - git clone https://github.com/theforeman/foreman.git -b ${FOREMAN_CORE_BRANCH} --depth 1
-  # - git clone https://github.com/katello/katello.git -b ${KATELLO_CORE_BRANCH} --depth 1
   - cd foreman
-  # - echo "gemspec :path => '../katello'" > bundler.d/katello.local.rb
   - echo "gemspec :path => '../foreman_scc_manager'" > bundler.d/foreman_scc_manager.local.rb
   - ln -s settings.yaml.test config/settings.yaml
   - ln -s database.yml.example config/database.yml
   - bundle install --jobs=3 --retry=3 --without journald development postgresql mysql2 console
-  # - bundle exec rake db:migrate RAILS_ENV=test
 script:
   - bundle exec rubocop ../foreman_scc_manager
-  # - bundle exec rake test:foreman_scc_manager
 env:
   global:
     - TESTOPTS=-v
   matrix:
-    - FOREMAN_CORE_BRANCH=1.18-stable KATELLO_CORE_BRANCH=KATELLO-3.7
-    # - FOREMAN_CORE_BRANCH=1.17-stable KATELLO_CORE_BRANCH=KATELLO-3.6
-matrix:
-  exclude:
-    - rvm: 2.2
-      env: FOREMAN_CORE_BRANCH=1.18-stable KATELLO_CORE_BRANCH=KATELLO-3.7
+    - FOREMAN_CORE_BRANCH=1.20-stable KATELLO_CORE_BRANCH=KATELLO-3.9
 addons:
   apt:
     packages:
@@ -35,7 +25,3 @@ addons:
     - libsqlite3-dev
     - zlib1g-dev
     - libvirt-dev
-    # - libqpidclient2-dev
-    # - libqpidcommon2-dev
-    # - libqpidmessaging2-dev
-    # - libqpidtypes1-dev
