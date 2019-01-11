@@ -101,6 +101,7 @@ exit 0
 %changelog
 * Fri Jan 11 2019 Markus Bucher <bucher@atix.de> 1.6.0-1
 - Fix for foreman 1.20 support
+- Fix repository update
 
 * Wed Dec 12 2018 Markus Bucher <bucher@atix.de> 1.5.1-1
 - Fix belongs_to in scc_account

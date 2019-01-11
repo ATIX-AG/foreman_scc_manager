@@ -32,7 +32,7 @@ class SccProduct < ApplicationRecord
     ForemanTasks.sync_task(::Actions::Katello::Product::Create, new_product, scc_account.organization)
     new_product.reload
     scc_repositories.each do |repo|
-      uniq_repo_name = uniq_name + ' ' + repo.description
+      uniq_repo_name = repo.uniq_name(self)
       label = Katello::Util::Model.labelize(uniq_repo_name)
       unprotected = true
       gpg_key = new_product.gpg_key

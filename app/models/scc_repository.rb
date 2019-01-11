@@ -11,11 +11,15 @@ class SccRepository < ApplicationRecord
     token.blank? ? url : url + '?' + token
   end
 
+  def uniq_name(scc_product)
+    scc_product.uniq_name + ' ' + description
+  end
+
   def token_changed_callback
     User.current ||= User.anonymous_admin
     scc_products.where.not(product: nil).find_each do |sp|
-      reponame = sp.friendly_name + ' ' + description
-      repository = sp.product.repositories.find_by(name: reponame)
+      reponame = uniq_name(sp)
+      repository = sp.product.root_repositories.find_by(name: reponame)
       unless repository.url == full_url
         ::Foreman::Logging.logger('foreman_scc_manager').info "Update URL-token for repository '#{reponame}'."
         ForemanTasks.async_task(::Actions::Katello::Repository::Update, repository, url: full_url)
