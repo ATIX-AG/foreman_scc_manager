@@ -1,0 +1,21 @@
+---
+one:
+  login: oneuser
+  password: onepass
+  base_url: https://scc.example.com
+  name: onename
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:empty_organization) %>
+
+two:
+  login: twouser
+  password: twopass
+  base_url: https://scc.example.com
+  name: twoname
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:empty_organization) %>
+
+account_missing_url:
+  login: fakeuser1
+  password: fakepass1
+  name: fake1
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:empty_organization) %>
+...

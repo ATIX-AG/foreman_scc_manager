@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scc_account_id: test_account1
+  scc_id: 111
+  name: one
+  version: 1
+  arch: x86_128
+  friendly_name: number one
+  description: lorem ipsum dolor sit amet
+  product_type: base
+
+two:
+  scc_account_id: test_account1
+  scc_id: 222
+  name: two
+  version: 2
+  arch: x86_128
+  friendly_name: number two
+  description: lorem ipsum dolor sit amet
+  product_type: extras
