@@ -19,6 +19,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rdoc', '~> 4'
   s.add_development_dependency 'rubocop', '~> 0.59'
 
+  # Testing
+  s.add_development_dependency 'webmock'
+
   s.add_dependency 'foreman-tasks', '~> 0.10'
   s.add_dependency 'rails', '~> 5.1'
 end
