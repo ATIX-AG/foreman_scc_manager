@@ -62,19 +62,11 @@ class SccAccount < ApplicationRecord
       cached_repository.save!
       upstream_repo_ids << ur['id']
     end
-    # delete repositories beeing removed upstream (Active record seems to be wrong here...)
-    # scc_repositories.where.not(scc_id: upstream_repo_ids).delete_all
-    if upstream_repo_ids.empty?
-      urid_query_fragment = ''
-    else
-      upstream_repo_ids_str = upstream_repo_ids.map do |id|
-        ActiveRecord::Base.connection.quote(id)
-      end.join(',')
-      urid_query_fragment = " and scc_repositories.scc_id not in (#{upstream_repo_ids_str})"
-    end
-    ActiveRecord::Base.connection.execute(
-      "delete from scc_repositories where scc_repositories.scc_account_id = #{ActiveRecord::Base.connection.quote(id)}#{urid_query_fragment};"
-    )
+    logger.debug "Found #{upstream_repo_ids.length} repositories"
+    # delete repositories beeing removed upstream
+    to_delete = scc_repositories.where.not(scc_id: upstream_repo_ids)
+    logger.debug "Deleting #{to_delete.count} old repositories"
+    to_delete.destroy_all
   end
 
   def update_scc_products(upstream_products)
@@ -93,19 +85,11 @@ class SccAccount < ApplicationRecord
       cached_product.save!
       upstream_product_ids << up['id']
     end
-    # delete products beeing removed upstream (Active record seems to be wrong here...)
-    # scc_products.where.not(scc_id: upstream_product_ids).delete_all
-    if upstream_product_ids.empty?
-      upid_query_fragment = ''
-    else
-      upstream_product_ids_str = upstream_product_ids.map do |id|
-        ActiveRecord::Base.connection.quote(id)
-      end.join(',')
-      upid_query_fragment = " and scc_products.scc_id not in (#{upstream_product_ids_str})"
-    end
-    ActiveRecord::Base.connection.execute(
-      "delete from scc_products where scc_products.scc_account_id = #{ActiveRecord::Base.connection.quote(id)}#{upid_query_fragment};"
-    )
+    logger.debug "Found #{upstream_product_ids.length} products"
+    # delete products beeing removed upstream
+    to_delete = scc_products.where.not(scc_id: upstream_product_ids)
+    logger.debug "Deleting #{to_delete.count} old products"
+    to_delete.destroy_all
     # rewire product to product relationships
     upstream_products.each do |up|
       extensions = scc_products.where(scc_id: up['extensions'].map { |ext| ext['id'] })
