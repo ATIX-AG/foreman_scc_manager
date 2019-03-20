@@ -1,6 +1,8 @@
 # This calls the main test_helper in Foreman-core
 require 'test_helper'
 
+require 'dynflow/testing'
+Dynflow::Testing.logger_adapter.level = 1
 require 'foreman_tasks/test_helpers'
 require "#{ForemanSccManager::Engine.root}/test/support/fixtures_support"
 
