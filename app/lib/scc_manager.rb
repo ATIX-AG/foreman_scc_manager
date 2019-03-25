@@ -21,6 +21,7 @@ module SccManager
     loop do
       response = RestClient.get url, auth_header
       raise 'Connection to SUSE costomer center failed.' unless response.code == 200
+
       links = (response.headers[:link] || '').split(', ').map do |link|
         href, rel = /<(.*?)>; rel="(\w+)"/.match(link).captures
         [rel.to_sym, href]

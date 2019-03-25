@@ -26,6 +26,7 @@ class SccProduct < ApplicationRecord
 
   def subscribe
     raise 'Product already subscribed!' if product
+
     new_product = Katello::Product.new
     new_product.name = uniq_name
     new_product.description = description

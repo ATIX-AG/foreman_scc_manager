@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "regcode": "0123456789ABCD",
+    "name": "Expired Product number one",
+    "type": "evaluation",
+    "status": "EXPIRED",
+    "starts_at": "2014-11-13T00:00:00.000Z",
+    "expires_at": "2015-01-12T00:00:00.000Z",
+    "system_limit": 1,
+    "systems_count": 3,
+    "virtual_count": null,
+    "product_classes": [
+      "HPC-X86",
+      "7261"
+    ],
+    "product_ids": [
+      1234,
+      5678
+    ],
+    "skus": [],
+    "systems": [
+      {
+        "id": 3,
+        "login": "SCC_0123456789abcdef0123456789abcdef",
+        "password": "fedcba9876543210",
+        "last_seen_at": null
+      },
+      {
+        "id": 4,
+        "login": "SCC_123456789abcdef0123456789abcdef0",
+        "password": "edcba9876543210f",
+        "last_seen_at": null
+      },
+      {
+        "id": 5,
+        "login": "SCC_23456789abcdef0123456789abcdef01",
+        "password": "dcba9876543210fe",
+        "last_seen_at": null
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "regcode": "123456789ABCDE",
+    "name": "Some other Product which is ACTIVE",
+    "type": "full",
+    "status": "ACTIVE",
+    "starts_at": "2014-03-13T00:00:00.000Z",
+    "expires_at": "2020-01-31T00:00:00.000Z",
+    "system_limit": 1,
+    "systems_count": 0,
+    "virtual_count": null,
+    "product_classes": [
+      "VMDP"
+    ],
+    "product_ids": [
+      1337
+    ],
+    "skus": [],
+    "systems": []
+  },
+  {
+    "id": 3,
+    "regcode": "23456789ABCDEF",
+    "name": "Yet Another ACTIVE SUSE Product",
+    "type": "full",
+    "status": "ACTIVE",
+    "starts_at": "2014-03-13T00:00:00.000Z",
+    "expires_at": "2020-01-31T00:00:00.000Z",
+    "system_limit": 1,
+    "systems_count": 0,
+    "virtual_count": null,
+    "product_classes": [
+      "HPC-X86",
+      "SUSE_RT",
+      "7261",
+      "13319"
+    ],
+    "product_ids": [
+      123,
+      456,
+      789
+    ],
+    "skus": [],
+    "systems": []
+  }
+]

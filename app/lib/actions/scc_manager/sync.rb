@@ -15,6 +15,7 @@ module Actions
       def finalize
         scc_account = SccAccount.find(input[:scc_account][:id])
         raise 'Updating failed' unless input[:repo_status] == 'SUCCESS' && input[:prod_status] == 'SUCCESS'
+
         scc_account.update! synced: Time.current
       end
 
