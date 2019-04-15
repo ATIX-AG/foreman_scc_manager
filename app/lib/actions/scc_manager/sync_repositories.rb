@@ -9,12 +9,13 @@ module Actions
       end
 
       def run
-        output[:status] = 'SUCCESS'
+        output[:status] = 'IN PROGRESS'
         begin
           output[:data] = ::SccManager.get_scc_data(input[:base_url],
                                                     '/connect/organizations/repositories',
                                                     input[:login],
                                                     input[:password])
+          output[:status] = 'SUCCESS'
         rescue StandardError
           output[:status] = 'FAILURE'
         end
@@ -37,7 +38,7 @@ module Actions
       end
 
       def humanized_output
-        output.dup.update(data: 'Trimmed')
+        output.dup.update(data: "Trimmed (got #{output[:data]&.length} repositories")
       end
     end
   end

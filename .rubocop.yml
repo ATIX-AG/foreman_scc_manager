@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.3
   Exclude:
     - '*.spec'
     - 'doc/plugins/**'
@@ -71,6 +72,13 @@ Style/FormatString:
   Enabled: false
 
 Style/FormatStringToken:
+  Enabled: false
+
+# Don't enforce frozen string literals
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumericPredicate:
   Enabled: false
 
 Style/RegexpLiteral:
