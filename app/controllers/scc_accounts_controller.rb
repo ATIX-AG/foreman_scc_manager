@@ -18,11 +18,10 @@ class SccAccountsController < ApplicationController
   # POST /scc_accounts
   def create
     @scc_account = SccAccount.new(scc_account_params)
-    if @scc_account.save
-      process_success
-    else
-      process_error
-    end
+    @scc_account.save_with_logic!
+    process_success
+  rescue ActiveRecord::RecordInvalid
+    process_error
   end
 
   # GET /scc_accounts/1/edit
@@ -43,11 +42,10 @@ class SccAccountsController < ApplicationController
 
   # PATCH/PUT /scc_accounts/1
   def update
-    if @scc_account.update(scc_account_params)
-      process_success
-    else
-      process_error
-    end
+    @scc_account.update_attributes_with_logic!(scc_account_params)
+    process_success
+  rescue ActiveRecord::RecordInvalid
+    process_error
   end
 
   # DELETE /scc_accounts/1
@@ -103,7 +101,15 @@ class SccAccountsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def scc_account_params
     params[:scc_account].delete(:password) if params[:scc_account][:password].blank?
-    params.require(:scc_account).permit(:name, :login, :password, :base_url, :organization_id)
+    params.require(:scc_account).permit(
+      :name,
+      :login,
+      :password,
+      :base_url,
+      :interval,
+      :sync_date,
+      :organization_id
+    )
   end
 
   def scc_bulk_subscribe_params

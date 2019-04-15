@@ -9,6 +9,10 @@ module ForemanSccManager
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/overrides"]
 
+    config.to_prepare do
+      ForemanTasks::RecurringLogic.send :include, Concerns::RecurringLogicExtensions
+    end
+
     # Add any db migrations
     initializer 'foreman_scc_manager.load_app_instance_data' do |app|
       ForemanSccManager::Engine.paths['db/migrate'].existent.each do |path|
