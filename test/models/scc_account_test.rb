@@ -37,6 +37,12 @@ class SccAccountCreateTest < ActiveSupport::TestCase
     end
   end
 
+  test 'create wrong interval-value' do
+    account = scc_accounts(:two)
+    account.interval = 'gazillion'
+    assert_not account.save
+  end
+
   test 'password is saved encrypted when updated' do
     assert SccAccount.encrypts? :password
     @account.expects(:encryption_key).at_least_once.returns('25d224dd383e92a7e0c82b8bf7c985e815f34cf5')

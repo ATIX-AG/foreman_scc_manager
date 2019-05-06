@@ -4,12 +4,20 @@ class SccAccount < ApplicationRecord
   include ForemanTasks::Concerns::ActionSubject
   encrypts :password
 
+  NEVER = 'never'.freeze
+  DAILY = 'daily'.freeze
+  WEEKLY = 'weekly'.freeze
+  MONTHLY = 'monthly'.freeze
+  TYPES = [NEVER, DAILY, WEEKLY, MONTHLY].freeze
+
   self.include_root_in_json = false
 
   belongs_to :organization
   belongs_to :sync_task, class_name: 'ForemanTasks::Task'
   has_many :scc_products, dependent: :destroy
   has_many :scc_repositories, dependent: :destroy
+  belongs_to :foreman_tasks_recurring_logic, :inverse_of => :scc_account, :class_name => 'ForemanTasks::RecurringLogic', :dependent => :destroy
+  belongs_to :task_group, :class_name => 'SccAccountSyncPlanTaskGroup', :inverse_of => :scc_account
 
   validates_lengths_from_database
   validates :name, presence: true
@@ -17,10 +25,29 @@ class SccAccount < ApplicationRecord
   validates :login, presence: true
   validates :password, presence: true
   validates :base_url, presence: true
+  validates :interval, :inclusion => { :in => TYPES }, :allow_blank => false
+  validate :sync_date_is_valid_datetime
+
+  after_initialize :init
+  before_destroy :cancel_recurring_logic
 
   default_scope -> { order(:login) }
 
   scoped_search on: :login, complete_value: true
+
+  def init
+    # set default values
+    self.sync_date ||= Time.new if self.new_record?
+  end
+
+  def sync_date_is_valid_datetime
+    errors.add(:sync_date, 'must be a valid datetime') if interval != NEVER &&
+                                                          sync_date.present? &&
+                                                          !sync_date.respond_to?(:min) &&
+                                                          !sync_date.respond_to?(:hour) &&
+                                                          !sync_date.respond_to?(:wday) &&
+                                                          !sync_date.respond_to?(:day)
+  end
 
   def to_s
     name
@@ -40,8 +67,103 @@ class SccAccount < ApplicationRecord
     end
   end
 
+  def use_recurring_logic?
+    self.interval != NEVER
+  end
+
+  def save_with_logic!
+    self.task_group ||= SccAccountSyncPlanTaskGroup.create!
+
+    associate_recurring_logic if self.valid?
+
+    self.save!
+    start_recurring_logic if self.use_recurring_logic?
+
+    true
+  end
+
+  def update_attributes_with_logic!(params)
+    transaction do
+      self.update_attributes!(params)
+      if rec_logic_changed?
+        old_rec_logic = self.foreman_tasks_recurring_logic
+        associate_recurring_logic
+        self.save!
+        old_rec_logic&.cancel
+        # Can/Should we do that???
+        old_rec_logic&.destroy
+        start_recurring_logic
+      end
+      toggle_enabled if enabled_toggle?
+    end
+    true
+  end
+
+  def add_recurring_logic(sync_date, interval)
+    sd = sync_date
+
+    raise _('Interval cannot be nil') if interval.nil?
+
+    cron = case interval.downcase
+           when DAILY   then "#{sd.min} #{sd.hour} * * *"
+           when WEEKLY  then "#{sd.min} #{sd.hour} * * #{sd.wday}"
+           when MONTHLY then "#{sd.min} #{sd.hour} #{sd.day} * *"
+           else
+             raise _('Interval not set correctly')
+           end
+
+    recurring_logic = ForemanTasks::RecurringLogic.new_from_cronline(cron)
+
+    raise _('Cron expression is not valid!') unless recurring_logic.valid_cronline?
+
+    recurring_logic.save!
+    recurring_logic
+  end
+
+  def associate_recurring_logic
+    if self.use_recurring_logic?
+      self.foreman_tasks_recurring_logic = add_recurring_logic(self.sync_date, self.interval)
+    else
+      self.foreman_tasks_recurring_logic = nil
+    end
+  end
+
+  def toggle_enabled
+    self.foreman_tasks_recurring_logic&.enabled = self.enabled
+  end
+
+  def start_recurring_logic
+    # rubocop:disable Style/GuardClause
+    if self.use_recurring_logic?
+      User.as_anonymous_admin do
+        if self.sync_date.to_time < Time.now
+          self.foreman_tasks_recurring_logic.start(::Actions::SccManager::SyncPlanAccountRepositories, self)
+        else
+          self.foreman_tasks_recurring_logic.start_after(::Actions::SccManager::SyncPlanAccountRepositories, self.sync_date, self)
+        end
+      end
+    end
+    # rubocop:enable Style/GuardClause
+  end
+
+  def cancel_recurring_logic
+    self.foreman_tasks_recurring_logic&.cancel
+  end
+
+  def rec_logic_changed?
+    saved_change_to_attribute?(:sync_date) || saved_change_to_attribute?(:interval)
+  end
+
+  def enabled_toggle?
+    saved_change_to_attribute?(:enabled)
+  end
+
+  def get_scc_data(rel_url)
+    SccManager.get_scc_data(base_url, rel_url, login, password)
+  end
+
   def test_connection
-    SccManager.get_scc_data(base_url, '/connect/organizations/subscriptions', login, password)
+    get_scc_data('/connect/organizations/subscriptions')
     true
   rescue StandardError
     false

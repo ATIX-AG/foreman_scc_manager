@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.3
   Exclude:
     - '*.spec'
     - 'doc/plugins/**'
@@ -73,6 +74,13 @@ Style/FormatString:
 Style/FormatStringToken:
   Enabled: false
 
+# Don't enforce frozen string literals
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
 Style/RegexpLiteral:
   Enabled: false
 
@@ -82,8 +90,14 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Enabled: false
 
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
 Metrics/PerceivedComplexity:
   Enabled: false
 
 Style/CaseEquality:
+  Enabled: false
+
+Style/ConditionalAssignment:
   Enabled: false

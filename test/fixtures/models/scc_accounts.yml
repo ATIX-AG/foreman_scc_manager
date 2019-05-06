@@ -4,6 +4,7 @@ one:
   password: onepass
   base_url: https://scc.example.com
   name: onename
+  interval: never
   organization_id: <%= ActiveRecord::FixtureSet.identify(:empty_organization) %>
 
 two:
@@ -11,11 +12,13 @@ two:
   password: twopass
   base_url: https://scc.example.com
   name: twoname
+  interval: never
   organization_id: <%= ActiveRecord::FixtureSet.identify(:empty_organization) %>
 
 account_missing_url:
   login: fakeuser1
   password: fakepass1
   name: fake1
+  interval: never
   organization_id: <%= ActiveRecord::FixtureSet.identify(:empty_organization) %>
 ...
