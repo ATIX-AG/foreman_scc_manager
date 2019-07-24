@@ -20,7 +20,7 @@ class SccRepository < ApplicationRecord
     scc_products.where.not(product: nil).find_each do |sp|
       reponame = uniq_name(sp)
       repository = sp.product.root_repositories.find_by(name: reponame)
-      unless repository.url == full_url
+      unless repository.nil? || repository.url == full_url
         ::Foreman::Logging.logger('foreman_scc_manager').info "Update URL-token for repository '#{reponame}'."
         ForemanTasks.async_task(::Actions::Katello::Repository::Update, repository, url: full_url)
       end
