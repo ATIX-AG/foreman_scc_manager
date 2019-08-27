@@ -25,15 +25,35 @@ module ForemanSccManager
         requires_foreman '>= 1.18'
         requires_foreman_plugin 'katello', '>= 3.7.0'
 
+        apipie_documented_controllers ["#{ForemanSccManager::Engine.root}/app/controllers/api/v2/*.rb"]
+
         # Add permissions
         security_block :foreman_scc_manager do
-          permission :view_scc, :scc_account => %i[index show]
-          permission :use_scc, :scc_account => [:bulk_subscribe]
+          permission :view_scc, {
+            :'foreman_scc_manager/scc_accounts' => [:show, :index],
+            :'api/v2/scc_accounts' => [:show, :index]
+          }
+          permission :use_scc, {
+            :'foreman_scc_manager/scc_accounts' => [:bulk_subscribe],
+            :'api/v2/scc_accounts' => [:bulk_subscribe]
+          }
           # permission :use_scc, :scc_product => [:subscribe, :unsubscribe]
-          permission :new_scc, :scc_account => %i[new create]
-          permission :edit_scc, :scc_account => %i[edit update]
-          permission :delete_scc, :scc_account => [:destroy]
-          permission :sync_scc, :scc_account => [:sync]
+          permission :new_scc, {
+            :'foreman_scc_manager/scc_accounts' => [:new, :create],
+            :'api/v2/scc_accounts' => [:new, :create]
+          }
+          permission :edit_scc, {
+            :'foreman_scc_manager/scc_accounts' => [:edit, :update],
+            :'api/v2/scc_accounts' => [:edit, :update]
+          }
+          permission :delete_scc, {
+            :'foreman_scc_manager/scc_accounts' => [:destroy],
+            :'api/v2/scc_accounts' => [:destroy]
+          }
+          permission :sync_scc, {
+            :'foreman_scc_manager/scc_accounts' => [:sync],
+            :'api/v2/scc_accounts' => [:sync]
+          }
         end
 
         # Add a new role called 'SccManager' if it doesn't exist
