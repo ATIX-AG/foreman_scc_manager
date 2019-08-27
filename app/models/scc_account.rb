@@ -34,6 +34,7 @@ class SccAccount < ApplicationRecord
   default_scope -> { order(:login) }
 
   scoped_search on: :login, complete_value: true
+  scoped_search on: :name
 
   def init
     # set default values

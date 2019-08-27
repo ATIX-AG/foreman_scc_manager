@@ -37,14 +37,13 @@ module ForemanSccManager
             :'foreman_scc_manager/scc_accounts' => [:bulk_subscribe],
             :'api/v2/scc_accounts' => [:bulk_subscribe]
           }
-          # permission :use_scc, :scc_product => [:subscribe, :unsubscribe]
           permission :new_scc, {
-            :'foreman_scc_manager/scc_accounts' => [:new, :create],
-            :'api/v2/scc_accounts' => [:new, :create]
+            :'foreman_scc_manager/scc_accounts' => [:create],
+            :'api/v2/scc_accounts' => [:create]
           }
           permission :edit_scc, {
-            :'foreman_scc_manager/scc_accounts' => [:edit, :update],
-            :'api/v2/scc_accounts' => [:edit, :update]
+            :'foreman_scc_manager/scc_accounts' => [:update],
+            :'api/v2/scc_accounts' => [:update]
           }
           permission :delete_scc, {
             :'foreman_scc_manager/scc_accounts' => [:destroy],

@@ -30,11 +30,12 @@ Rails.application.routes.draw do
           put 'sync'
           put 'bulk_subscribe'
         end
-      end
-      resources :scc_products, only: %i[index show] do
-        member do
-          put 'subscribe'
-          put 'unsubscribe'
+        constraints(:scc_account_id => /[^\/]+/) do
+          resources :scc_products, only: %i[index show] do
+            member do
+              put 'subscribe'
+            end
+          end
         end
       end
     end

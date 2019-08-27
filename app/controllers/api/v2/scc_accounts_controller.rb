@@ -10,132 +10,129 @@ module Api
         api_base_url '/api/v2'
       end
 
-      before_action :find_organization
-      before_action :find_resource, :only => [:show, :edit, :update, :destroy, :sync, :bulk_subscribe]
+      before_action :find_resource, :only => [:show, :update, :destroy, :sync, :bulk_subscribe]
 
       api :GET, '/scc_accounts/', N_('List all scc_accounts')
+      param :organization_id, :identifier, :required => true
       param_group :search_and_pagination, ::Api::V2::BaseController
 
       def index
         scope = resource_scope
         scope = scope.where(:organization => params[:organization_id]) if params[:organization_id].present?
-        @scc_accounts = scope.search_for(params[:search], :order => params[:order])
-                      .paginate(:page => params[:page])
+        @scc_accounts = scope.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page])
       end
 
-      api :GET, '/scc_accounts/:id/', N_('Show an scc_account')
+      api :GET, '/scc_accounts/:id/', N_('Show scc_account')
       param :id, :identifier_dottable, :required => true
+      param :organization_id, :identifier, :required => true
 
       def show; end
 
       def_param_group :scc_account do
         param :scc_account, Hash, :required => true, :action_aware => true do
-          param :name, String, :required => true, :desc => N_('Name of this scc_account')
-          param :login, String, :required => true, :desc => N_('Login id of this scc_account')
-          param :password, String, :required => true, :desc => N_('Password of this scc_account')
-          param :base_url, String, :required => true, :desc => N_('URL of SUSE')
-          param :interval, ['never', 'daily', 'weekly', 'monthy'], :desc => N_('Interval for syncing of this scc_account')
-          param :sync_date, String, :desc => N_('Last Sync Date of this scc_account')
+          param :organization_id, :identifier, :required => true
+          param :name, String, :required => true, :desc => N_('Name of the scc_account')
+          param :login, String, :required => true, :desc => N_('Login id of scc_account')
+          param :password, String, :required => true, :desc => N_('Password of scc_account')
+          param :base_url, String, :required => true, :desc => N_('URL of SUSE for scc_account')
+          param :interval, ['never', 'daily', 'weekly', 'monthy'], :desc => N_('Interval for syncing scc_account')
+          param :sync_date, String, :desc => N_('Last Sync time of scc_account')
         end
-      end
-
-      api :GET, '/scc_accounts/new/', N_('New scc_account form')
-
-      def new
-        @scc_account = resource_class.new
-        @scc_account.organization = @organization
       end
 
       api :POST, '/scc_accounts/', N_('Create an scc_account')
       param_group :scc_account, :as => :create
 
       def create
-        process_response @scc_account.create
         @scc_account = resource_class.new(scc_account_params)
+        process_response @scc_account.save_with_logic!
       end
 
-      api :PUT, '/scc_accounts/:id', N_('Update an scc_account')
+      api :PUT, '/scc_accounts/:id', N_('Update scc_account')
       param :id, :identifier_dottable, :required => true
       param_group :scc_account
 
       def update
-        process_response @scc_account.update_attributes(scc_account_params)
+        process_response @scc_account.update_attributes_with_logic!(scc_account_params)
       end
 
-      api :DELETE, '/scc_account/:id', N_('Delete an scc_account')
+      api :DELETE, '/scc_accounts/:id', N_('Delete scc_account')
       param :id, :identifier_dottable, :required => true
 
       def destroy
         process_response @scc_account.destroy
       end
 
-      api :GET, '/scc_account/:id/edit', N_('Edit an scc_account')
-      param :id, :identifier_dottable, :required => true
-
-      def edit
-      end
-
-
-      api :GET, '/scc_accounts/test_connection', N_('Test connection for an scc_account')
-      param :id, :identifier_dottable, :required => true
+      api :PUT, '/scc_accounts/test_connection', N_('Test connection for scc_account')
 
       def test_connection
-        @scc_account = resource_class.new(scc_account_params)
+        @scc_account = SccAccount.new(scc_account_params)
         @scc_account.password = SccAccount.find_by!(id: params[:scc_account_id]).password if params[:scc_account_id].present? && scc_account_params[:password].empty?
         respond_to do |format|
           if @scc_account.test_connection
-            format.json { render json: nil, status: :OK }
+            format.json { render json: 'Success'.to_json, status: :ok }
           else
-            format.json { render json: nil, status: :Not_found }
+            format.json { render json: 'Failed'.to_json, status: :not_found }
           end
         end
       end
 
-      api :PUT, '/scc_account/:id/sync', N_('Sync an scc_account')
+      api :PUT, '/scc_accounts/:id/sync', N_('Sync scc_account')
       param :id, :identifier_dottable, :required => true
 
       def sync
         sync_task = ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
-        @scc_account.update! sync_task: sync_task
-        success _('Sync task has started.')
-      rescue ::Foreman::Exception => e
-        error _('Failed to add task to queue: %s') % e.to_s
-      rescue ForemanTasks::Lock::LockConflict => e
-        error _('Lock on SCC account already taken: %s') % e.to_s
-      ensure
-        redirect_to scc_accounts_path
-      end
- 
-      def bulk_subscribe
-        scc_products_to_subscribe =
-        @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids])
-        if scc_products_to_subscribe.count > 0
-          ForemanTasks.async_task(::Actions::BulkAction,
-                                  ::Actions::SccManager::SubscribeProduct,
-                                  scc_products_to_subscribe)
-          success _('Task to subscribe scc products started.')
-        else
-          warning _('No scc products selected.')
+        synced = @scc_account.update! sync_task: sync_task
+        respond_to do |format|
+          if synced
+            format.json { render json: sync_task.to_json }
+          end
         end
       rescue ::Foreman::Exception => e
-        error _('Failed to add task to queue: %s') % e.to_s
+        render json: { error: ('Failed to add task to queue: %s' % e).to_s }, status: :unprocessable_entity
       rescue ForemanTasks::Lock::LockConflict => e
-        error _('Lock on SCC account already taken: %s') % e.to_s
-      ensure
-        redirect_to scc_accounts_path
+        render json: { error: ('Lock on SCC account already taken: %s' % e).to_s }, status: :unprocessable_entity
       end
 
-      def scc_bulk_subscribe_params
-        params.require(:scc_account).permit(:scc_subscribe_product_ids => [])
+      api :PUT, '/scc_accounts/:id/bulk_subscribe/', N_('Bulk subscription of scc_products for scc_account')
+      param :id, :identifier_dottable, :required => true
+      param :scc_subscribe_product_ids, Array
+
+      def bulk_subscribe
+        scc_products_to_subscribe = @scc_account.scc_products.where(:id => params[:scc_subscribe_product_ids])
+        respond_to do |format|
+          if scc_products_to_subscribe.count > 0
+            subscribe_task = ForemanTasks.async_task(::Actions::BulkAction,
+                                                     ::Actions::SccManager::SubscribeProduct,
+                                                     scc_products_to_subscribe)
+            format.json { render json: subscribe_task.to_json, status: :ok }
+          else
+            format.json { render json: 'No Product selected'.to_json, status: :expectation_failed }
+          end
+        end
+      rescue ::Foreman::Exception => e
+        render json: { error: ('Failed to add task to queue: %s' % e).to_s }, status: :unprocessable_entity
+      rescue ForemanTasks::Lock::LockConflict => e
+        render json: { error: ('Lock on SCC account already taken: %s' % e).to_s }, status: :unprocessable_entity
+      end
+
+      private
+
+      def scc_account_params
+        params[:scc_account].delete(:password) if params[:scc_account][:password].blank?
+        params.require(:scc_account).permit(
+          :name,
+          :login,
+          :password,
+          :base_url,
+          :interval,
+          :sync_date,
+          :organization_id
+        )
       end
 
       def find_resource
         @scc_account = resource_class.find(params[:id])
-      end
-
-      def find_organization
-        @organization = Organization.current
-        redirect_to '/select_organization?toState=' + request.path unless @organization
       end
 
       def resource_class
