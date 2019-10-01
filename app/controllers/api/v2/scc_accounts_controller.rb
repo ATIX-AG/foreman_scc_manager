@@ -15,7 +15,6 @@ module Api
       api :GET, '/scc_accounts/', N_('List all scc_accounts')
       param :organization_id, :identifier, :required => true
       param_group :search_and_pagination, ::Api::V2::BaseController
-
       def index
         scope = resource_scope
         scope = scope.where(:organization => params[:organization_id]) if params[:organization_id].present?
@@ -25,7 +24,6 @@ module Api
       api :GET, '/scc_accounts/:id/', N_('Show scc_account')
       param :id, :identifier_dottable, :required => true
       param :organization_id, :identifier, :required => true
-
       def show; end
 
       def_param_group :scc_account do
@@ -42,7 +40,6 @@ module Api
 
       api :POST, '/scc_accounts/', N_('Create an scc_account')
       param_group :scc_account, :as => :create
-
       def create
         @scc_account = resource_class.new(scc_account_params)
         process_response @scc_account.save_with_logic!
@@ -51,20 +48,17 @@ module Api
       api :PUT, '/scc_accounts/:id', N_('Update scc_account')
       param :id, :identifier_dottable, :required => true
       param_group :scc_account
-
       def update
         process_response @scc_account.update_attributes_with_logic!(scc_account_params)
       end
 
       api :DELETE, '/scc_accounts/:id', N_('Delete scc_account')
       param :id, :identifier_dottable, :required => true
-
       def destroy
         process_response @scc_account.destroy
       end
 
       api :PUT, '/scc_accounts/test_connection', N_('Test connection for scc_account')
-
       def test_connection
         @scc_account = SccAccount.new(scc_account_params)
         @scc_account.password = SccAccount.find_by!(id: params[:scc_account_id]).password if params[:scc_account_id].present? && scc_account_params[:password].empty?
@@ -79,14 +73,11 @@ module Api
 
       api :PUT, '/scc_accounts/:id/sync', N_('Sync scc_account')
       param :id, :identifier_dottable, :required => true
-
       def sync
         sync_task = ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
         synced = @scc_account.update! sync_task: sync_task
         respond_to do |format|
-          if synced
-            format.json { render json: sync_task.to_json }
-          end
+          format.json { render json: sync_task.to_json } if synced
         end
       rescue ::Foreman::Exception => e
         render json: { error: ('Failed to add task to queue: %s' % e).to_s }, status: :unprocessable_entity
@@ -97,7 +88,6 @@ module Api
       api :PUT, '/scc_accounts/:id/bulk_subscribe/', N_('Bulk subscription of scc_products for scc_account')
       param :id, :identifier_dottable, :required => true
       param :scc_subscribe_product_ids, Array
-
       def bulk_subscribe
         scc_products_to_subscribe = @scc_account.scc_products.where(:id => params[:scc_subscribe_product_ids])
         respond_to do |format|

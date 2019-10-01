@@ -7,14 +7,14 @@ class SccAccountCreateTest < ActiveSupport::TestCase
 
   test 'create' do
     assert @account.save
-    refute_empty SccAccount.where(:id => @account.id)
+    assert_not_empty SccAccount.where(:id => @account.id)
   end
 
   test 'create default url' do
     account = scc_accounts(:account_missing_url)
     assert account.save
     assert_equal account.base_url, 'https://scc.suse.com'
-    refute_empty SccAccount.where(:id => @account.id)
+    assert_not_empty SccAccount.where(:id => @account.id)
   end
 
   test 'create missing value' do
@@ -51,7 +51,7 @@ class SccAccountCreateTest < ActiveSupport::TestCase
       assert @account.save
     end
     assert_equal @account.password, '123456'
-    refute_equal @account.password_in_db, '123456'
+    assert_not_equal @account.password_in_db, '123456'
   end
 end
 
@@ -64,7 +64,7 @@ class SccAccountSearchTest < ActiveSupport::TestCase
     one = scc_accounts(:one)
     accounts = SccAccount.search_for("login = \"#{one.login}\"")
     assert_includes accounts, one
-    refute_includes accounts, scc_accounts(:two)
+    assert_not_includes accounts, scc_accounts(:two)
 
     empty = SccAccount.search_for('login = "nobody"')
     assert_empty empty

@@ -2,4 +2,4 @@
 
 object @scc_account
 extends 'api/v2/scc_accounts/base'
-attributes :organisation_id, :organisation_name, :login, :password, :base_url, :interval, :sync_date
+attributes :organization_id, :organization_name, :login, :base_url, :interval, :sync_date
