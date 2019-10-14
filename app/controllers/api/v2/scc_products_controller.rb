@@ -12,11 +12,13 @@ module Api
 
       before_action :find_resource, :only => [:show, :subscribe]
 
-      api :GET, '/scc_accounts/:scc_account_id/scc_products/', N_('List all scc_account products')
+      api :GET, '/scc_accounts/:scc_account_id/scc_products/', N_('List all products for scc_account')
       param :scc_account_id, :identifier_dottable, :required => true
+      param_group :search_and_pagination, ::Api::V2::BaseController
       def index
-        @scc_account = SccAccount.find_by!(id: params[:scc_account_id])
-        @scc_products = @scc_account.scc_products
+        scope = resource_scope
+        scope = scope.where(:organization => params[:organization_id]) if params[:organization_id].present?
+        @scc_products = scope.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page])
       end
 
       api :GET, '/scc_accounts/:scc_account_id/scc_products/:id/', N_('Show an scc_account product')
