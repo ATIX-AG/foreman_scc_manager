@@ -21,6 +21,7 @@ module FixtureTestCase
     FileUtils.rm_rf(self.fixture_path) if File.directory?(self.fixture_path)
     Dir.mkdir(self.fixture_path)
     FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/models/*"), self.fixture_path)
+    FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/files/*"), self.fixture_path)
     FileUtils.cp(Dir.glob("#{Rails.root}/test/fixtures/*"), self.fixture_path)
     fixtures(:all)
     FIXTURES = load_fixtures(ActiveRecord::Base)
@@ -33,6 +34,7 @@ end
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
+  include ActionDispatch::TestProcess
   include FixtureTestCase
   include ForemanTasks::TestHelpers::WithInThreadExecutor
 

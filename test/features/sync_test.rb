@@ -13,7 +13,7 @@ class SccAccountSyncTest < ActiveSupport::TestCase
         }
       ).to_return(
         status: 200,
-        body: File.read("#{File.dirname(__FILE__)}/data_subscriptions.json"),
+        body: fixture_file_upload('data_subscriptions.json').read,
         headers: {
           server: 'nginx',
           date: 'Tue, 05 Mar 2019 15:07:38 GMT',
@@ -52,7 +52,7 @@ class SccAccountSyncTest < ActiveSupport::TestCase
         }
       ).to_return(
         status: 200,
-        body: File.read("#{File.dirname(__FILE__)}/data_products_page1.json"),
+        body: fixture_file_upload('data_products_page1.json').read,
         headers: {
           server: 'nginx',
           date: 'Mon, 11 Mar 2019 15:37:00 GMT',
@@ -89,7 +89,7 @@ class SccAccountSyncTest < ActiveSupport::TestCase
         }
       ).to_return(
         status: 200,
-        body: File.read("#{File.dirname(__FILE__)}/data_products_page2.json"),
+        body: fixture_file_upload('data_products_page1.json').read,
         headers: {
           server: 'nginx',
           date: 'Mon, 11 Mar 2019 15:37:19 GMT',

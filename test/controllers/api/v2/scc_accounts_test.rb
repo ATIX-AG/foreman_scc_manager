@@ -1,9 +1,12 @@
 require 'test_plugin_helper'
 
 class Api::V2::SccAccountsControllerTest < ActionController::TestCase
+  # rubocop:disable Metrics/MethodLength
   def setup
     @scc_account = scc_accounts(:one)
+  end
 
+  def scc_setup
     # test_connection:
     stub_request(:get, 'https://scc.example.com/connect/organizations/subscriptions')
       .with(
@@ -14,7 +17,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         }
       ).to_return(
         status: 200,
-        body: File.read("#{File.dirname(__FILE__)}/data_subscriptions.json"),
+        body: fixture_file_upload('data_subscriptions.json').read,
         headers: {
           server: 'nginx',
           date: 'Tue, 05 Mar 2019 15:07:38 GMT',
@@ -40,6 +43,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
           content_encoding: 'gzip'
         }
       )
+
     ############
     # Repositories #
     ############
@@ -52,7 +56,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         }
       ).to_return(
         status: 200,
-        body: File.read("#{File.dirname(__FILE__)}/data_repositories.json"),
+        body: fixture_file_upload('data_repositories.json').read,
         headers: {
           server: 'nginx',
           date: 'Mon, 07 Oct 2019 13:14:31 GMT',
@@ -91,7 +95,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         }
       ).to_return(
         status: 200,
-        body: File.read("#{File.dirname(__FILE__)}/data_products_page1.json"),
+        body: fixture_file_upload('data_products_page1.json').read,
         headers: {
           server: 'nginx',
           date: 'Mon, 11 Mar 2019 15:37:00 GMT',
@@ -128,7 +132,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         }
       ).to_return(
         status: 200,
-        body: File.read("#{File.dirname(__FILE__)}/data_products_page2.json"),
+        body: fixture_file_upload('data_products_page2.json').read,
         headers: {
           server: 'nginx',
           date: 'Mon, 11 Mar 2019 15:37:19 GMT',
@@ -156,6 +160,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         }
       )
   end
+  # rubocop:enable Metrics/MethodLength
 
   test 'should get index' do
     get :index, params: {}
@@ -200,23 +205,74 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     account = scc_accounts(:two)
     put :update, params: { id: account.id, :scc_account => { :interval => 'weekly' } }
     assert_equal 'weekly', assigns(:scc_account).interval
-  end
-
-  test 'SCC server connection-test' do
-    account = scc_accounts(:one)
-    assert account
-    put :test_connection, params: { :scc_account => { :login => account.login, :password => account.password, :base_url => account.base_url } }
     assert_response :ok
   end
 
-  test 'SCC server sync products new' do
-    scc_account = scc_accounts(:one)
-    assert scc_account
-    put :sync, params: { :id => scc_account.id }
+  test 'should refuse update scc_account' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :interval => 'yearly' } }
+    assert_equal 'yearly', assigns(:scc_account).interval
+    assert_response :unprocessable_entity
+  end
+
+  test 'new account SCC server connection-test' do
+    scc_setup
+    account = scc_accounts(:one)
+    assert account
+    post :test_connection, params: { :scc_account => { :login => account.login, :password => account.password, :base_url => account.base_url } }
+    assert_response :ok
+  end
+
+  test 'new account SCC server fail connection-test' do
+    stub_request(:get, 'https://scc.example.com/connect/organizations/subscriptions')
+      .with(
+        headers: {
+          'Accept' => 'application/vnd.scc.suse.com.v4+json',
+          'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
+          'Host' => 'scc.example.com'
+        }
+      ).to_return(status: 404)
+    account = scc_accounts(:one)
+    assert account
+    post :test_connection, params: { :scc_account => { :login => account.login, :password => account.password, :base_url => account.base_url } }
+    assert_response :not_found
+    assert_match response.body, '"Failed"'
+  end
+
+  test 'existing account SCC server connection-test' do
+    scc_setup
+    account = scc_accounts(:one)
+    assert account
+    put :test_connection, params: { :id => account.id }
+    assert_response :ok
+  end
+
+  test 'existing account SCC server fail connection-test' do
+    stub_request(:get, 'https://scc.example.com/connect/organizations/subscriptions')
+      .with(
+        headers: {
+          'Accept' => 'application/vnd.scc.suse.com.v4+json',
+          'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
+          'Host' => 'scc.example.com'
+        }
+      ).to_return(status: 404)
+    account = scc_accounts(:one)
+    assert account
+    post :test_connection, params: { :id => account.id }
+    assert_response :not_found
+    assert_match response.body, '"Failed"'
+  end
+
+  test 'SCC server sync products' do
+    scc_setup
+    account = scc_accounts(:one)
+    assert account
+    put :sync, params: { :id => account.id }
     assert_response :ok
   end
 
   test 'SCC server bulk subscribe products' do
+    scc_setup
     account = scc_accounts(:one)
     product1 = scc_products(:one)
     product2 = scc_products(:two)
@@ -226,6 +282,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
   end
 
   test 'SCC server bulk subscribe products fails' do
+    scc_setup
     account = scc_accounts(:one)
     product1 = scc_products(:one)
     product2 = scc_products(:two)
@@ -236,9 +293,9 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
   end
 
   test 'should delete scc_account' do
-    scc_account = scc_accounts(:two)
+    account = scc_accounts(:two)
     assert_difference 'SccAccount.count', -1 do
-      delete :destroy, params: { :id => scc_account.id }
+      delete :destroy, params: { :id => account.id }
     end
     assert_response :ok
   end

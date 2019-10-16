@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   resources :scc_accounts do
     collection do
-      put 'test_connection'
+      post 'test_connection'
       get 'auto_complete_search'
     end
     member do
+      put 'test_connection'
       put 'sync'
       put 'bulk_subscribe'
     end
@@ -23,10 +24,11 @@ Rails.application.routes.draw do
                      :constraints => ApiConstraints.new(:version => 2, :default => true) do
       resources :scc_accounts do
         collection do
-          put 'test_connection'
+          post 'test_connection'
           get 'auto_complete_search'
         end
         member do
+          put 'test_connection'
           put 'sync'
           put 'bulk_subscribe'
         end

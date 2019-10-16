@@ -32,7 +32,7 @@ module Api
           param :name, String, :required => true, :desc => N_('Name of the scc_account')
           param :login, String, :required => true, :desc => N_('Login id of scc_account')
           param :password, String, :required => true, :desc => N_('Password of scc_account')
-          param :base_url, String, :required => true, :desc => N_('URL of SUSE for scc_account')
+          param :base_url, String, :required => false, :desc => N_('URL of SUSE for scc_account')
           param :interval, ['never', 'daily', 'weekly', 'monthy'], :desc => N_('Interval for syncing scc_account')
           param :sync_date, String, :desc => N_('Last Sync time of scc_account')
         end
@@ -58,10 +58,25 @@ module Api
         process_response @scc_account.destroy
       end
 
-      api :PUT, '/scc_accounts/test_connection', N_('Test connection for scc_account')
+      api :POST, '/scc_accounts/test_connection', N_('Test connection for scc_account')
+      api :PUT, '/scc_accounts/:id/test_connection', N_('Test connection for scc_account')
+      param :id, :identifier_dottable, :required => false
+      param :login, String, :required => false, :desc => N_('Login id of scc_account')
+      param :password, String, :required => false, :desc => N_('Password of scc_account')
+      param :base_url, String, :required => false, :desc => N_('URL of SUSE for scc_account')
       def test_connection
-        @scc_account = SccAccount.new(scc_account_params)
-        @scc_account.password = SccAccount.find_by!(id: params[:scc_account_id]).password if params[:scc_account_id].present? && scc_account_params[:password].empty?
+        if params[:id].present?
+          find_resource
+          begin
+            local_scc_account_params = scc_account_params
+          rescue ActionController::ParameterMissing
+            local_scc_account_params = {}
+          end
+          @scc_account.login = local_scc_account_params[:login] unless local_scc_account_params[:login].empty?
+          @scc_account.password = local_scc_account_params[:password] unless local_scc_account_params[:password].empty?
+        else
+          @scc_account = resource_class.new(scc_account_params)
+        end
         respond_to do |format|
           if @scc_account.test_connection
             format.json { render json: 'Success'.to_json, status: :ok }

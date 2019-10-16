@@ -17,13 +17,13 @@ class Api::V2::SccProductsControllerTest < ActionController::TestCase
     assert_not_empty body['results']
   end
 
-  test 'should show scc_account' do
+  test 'should show scc_product' do
     get :show, params: { :id => @scc_product1.id, :scc_account_id => @scc_account.id }
     assert_not_nil assigns(:scc_product)
     assert_response :success
   end
 
-  test 'should 404 for unknown scc_account' do
+  test 'should 404 for unknown scc_product' do
     get :show, params: { :id => 'does-not-exist', :scc_account_id => @scc_account.id }
     assert_response :not_found
   end
