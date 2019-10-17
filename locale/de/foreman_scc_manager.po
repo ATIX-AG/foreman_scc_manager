@@ -1,265 +1,145 @@
-# German translations for foreman_scc_manager package.
-# Copyright (C) 2017 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_scc_manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Wiederoder <stefanwiederoder@googlemail.com>, 2019
+# Hannes Schaller <admin@cyberkov.at>, 2019
+# Bryan Kearney <bryan.kearney@gmail.com>, 2019
+# simon11 <simon.stieger.98@live.de>, 2019
+# Crited <Alexander.Stoll@netways.de>, 2019
+# Markus Bucher <bucher@atix.de>, 2019
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 1.0.0\n"
+"Project-Id-Version: foreman_scc_manager 1.6.3\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-04-24 12:30+0000\n"
-"Last-Translator: ATIX AG <info@atix.de>\n"
-"Language-Team: German\n"
-"Language: de\n"
+"PO-Revision-Date: 2019-10-17 13:28+0000\n"
+"Last-Translator: Markus Bucher <bucher@atix.de>, 2019\n"
+"Language-Team: German (https://www.transifex.com/foreman/teams/114/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"\n"
-
-msgid "Abstract async task"
-msgstr ""
-
-msgid "Action with sub plans"
-msgstr ""
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Actions"
-msgstr ""
+msgstr "Aktionen"
 
 msgid "Add SCC account"
-msgstr "SCC Zugang hinzufügen"
+msgstr "SCC Konto hinzufügen"
 
 msgid "Add SUSE Customer Center Account"
-msgstr "SUSE Customer Center hinzufügen"
-
-msgid "Add Sync Plan Products"
-msgstr ""
-
-msgid "Attach subscriptions"
-msgstr ""
-
-msgid "Auto attach subscriptions"
-msgstr ""
-
-msgid "Auto-attach subscriptions"
-msgstr ""
+msgstr "SUSE Customer Center Konto hinzufügen"
 
 msgid "Base URL"
 msgstr "Basis URL"
 
-msgid "Configure capsule"
-msgstr ""
-
-msgid "Create"
-msgstr ""
-
-msgid "Create repos"
-msgstr ""
-
-msgid "Delete"
+msgid "Cron expression is not valid!"
 msgstr ""
 
 msgid "Delete %s?"
-msgstr ""
-
-msgid "Delete Activation Key"
-msgstr ""
-
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-msgid "Delete Product"
-msgstr ""
-
-msgid "Destroy"
-msgstr ""
-
-msgid "Destroy Content Host"
-msgstr ""
-
-msgid "Disable"
-msgstr ""
-
-msgid "Edit"
-msgstr ""
+msgstr "%s löschen?"
 
 msgid "Edit %s"
-msgstr ""
-
-msgid "Enable"
-msgstr ""
-
-msgid "Errata mail"
-msgstr ""
-
-msgid "Export"
-msgstr ""
+msgstr "%s bearbeiten"
 
 msgid "Failed to add task to queue: %s"
-msgstr "Task konnte nicht in die Warteschlange eingereiht werden: %s"
+msgstr "Aufgabe konnte nicht in die Warteschlange gestellt werden: %s"
 
-msgid "Filtered index content"
+msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
 msgstr ""
 
-msgid ""
-"Foreman plugin to sync SUSE Customer Center products and repositories into "
-"Katello."
-msgstr ""
-"Foreman plugin um SUSE Customer Center Producte and Repositories in Katello "
-"zu synchronisieren."
-
-msgid "Hypervisors"
+msgid "Interval"
 msgstr ""
 
-msgid "Hypervisors update"
+msgid "Interval cannot be nil"
 msgstr ""
 
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
-msgstr ""
-
-msgid "Incremental Update"
-msgstr ""
-
-msgid "Incremental Update of 0 Content View Version(s) "
-msgstr ""
-
-msgid "Index content"
-msgstr ""
-
-msgid "Index errata"
-msgstr ""
-
-msgid "Index package groups"
-msgstr ""
-
-msgid "Install Applicable Errata"
-msgstr ""
-
-msgid "Install erratum"
-msgstr ""
-
-msgid "Install package"
-msgstr ""
-
-msgid "Install package group"
+msgid "Interval not set correctly"
 msgstr ""
 
 msgid "Last synced"
-msgstr "Zuletzt synchronisiert"
+msgstr "Letzte Synchronisation"
 
 msgid "Lock on SCC account already taken: %s"
-msgstr "Lock für SCC Zugang bereits vergeben: %s"
+msgstr ""
 
-msgid "Package Profile Update"
+msgid "No products selected."
 msgstr ""
 
 msgid "Please sync your SUSE subscriptions first."
-msgstr "Bitte synchronisieren Sie zuerst Ihre SUSE Abonnements."
-
-msgid "Product Create"
 msgstr ""
 
 msgid "Product already subscribed!"
-msgstr "Produkt bereits abonniert!"
+msgstr "Produkt wurde bereits abonniert!"
 
 msgid "Products"
-msgstr ""
-
-msgid "Promotion"
-msgstr ""
-
-msgid "Publish"
-msgstr ""
-
-msgid "Register Host"
-msgstr ""
-
-msgid "Reindex subscriptions"
-msgstr ""
-
-msgid "Remove Content"
-msgstr ""
-
-msgid "Remove Version"
-msgstr ""
-
-msgid "Remove Versions and Associations"
-msgstr ""
-
-msgid "Remove from Environment"
-msgstr ""
-
-msgid "Remove package"
-msgstr ""
-
-msgid "Remove package group"
-msgstr ""
-
-msgid "Remove subscriptions"
-msgstr ""
+msgstr "Produkte"
 
 msgid "SUSE Customer Center"
 msgstr "SUSE Customer Center"
 
 msgid "SUSE Customer Center account"
-msgstr "SUSE Customer Center Zugang"
+msgstr "SUSE Customer Center Konto"
+
+msgid "SUSE Subscription"
+msgstr ""
+
+msgid "SUSE Subscription: "
+msgstr ""
 
 msgid "SUSE Subscriptions"
-msgstr "SUSE Abonnements"
+msgstr ""
 
 msgid "SUSE subscriptions"
-msgstr "SUSE Abonnements"
+msgstr ""
+
+msgid "Select products"
+msgstr ""
 
 msgid "Subscribe SCC Product"
 msgstr "SCC Produkt abonnieren"
 
 msgid "Sync"
-msgstr "Aktualisieren"
+msgstr "Synchronisation"
+
+msgid "Sync Date"
+msgstr ""
 
 msgid "Sync SUSE subscriptions"
-msgstr "SUSE Abonnements aktualisieren"
+msgstr ""
 
 msgid "Sync SUSE subscriptions (Products)"
-msgstr "SUSE Abonnements aktualisieren (Produkte)"
+msgstr ""
 
 msgid "Sync SUSE subscriptions (Repositories)"
-msgstr "SUSE Abonnements aktualisieren (Repositories)"
+msgstr ""
 
 msgid "Sync task started."
-msgstr "Sync task gestartet."
+msgstr ""
 
 msgid "Synchronize"
 msgstr "Synchronisieren"
 
-msgid "Synchronize capsule content"
+msgid "Task to subscribe products started."
 msgstr ""
 
 msgid "Test Connection"
 msgstr "Verbindung testen"
 
-msgid "Unregister Host"
+msgid "Unknown"
 msgstr ""
 
-msgid "Update"
+msgid "Update SUSE repositories"
 msgstr ""
 
-msgid "Update Sync Plan"
+msgid "Update SUSE repositories %s"
 msgstr ""
 
-msgid "Update Sync Plan Products"
+msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr ""
 
-msgid "Update for host"
-msgstr ""
-
-msgid "Update package"
-msgstr ""
-
-msgid "Upload errata into"
-msgstr ""
-
-msgid "Upload into"
+msgid "never synced"
 msgstr ""

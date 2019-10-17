@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 1.0.0\n"
+"Project-Id-Version: foreman_scc_manager 1.6.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2017-04-24 12:30+0000\n"
 "Last-Translator: ATIX AG <info@atix.de>\n"
@@ -17,12 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
-msgid "Abstract async task"
-msgstr ""
-
-msgid "Action with sub plans"
-msgstr ""
-
 msgid "Actions"
 msgstr ""
 
@@ -32,119 +26,31 @@ msgstr "Add SCC account"
 msgid "Add SUSE Customer Center Account"
 msgstr "Add SUSE Customer Center Account"
 
-msgid "Add Sync Plan Products"
-msgstr ""
-
-msgid "Attach subscriptions"
-msgstr ""
-
-msgid "Auto attach subscriptions"
-msgstr ""
-
-msgid "Auto-attach subscriptions"
-msgstr ""
-
 msgid "Base URL"
 msgstr "Base URL"
 
-msgid "Configure capsule"
-msgstr ""
-
-msgid "Create"
-msgstr ""
-
-msgid "Create repos"
-msgstr ""
-
-msgid "Delete"
+msgid "Cron expression is not valid!"
 msgstr ""
 
 msgid "Delete %s?"
 msgstr ""
 
-msgid "Delete Activation Key"
-msgstr ""
-
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-msgid "Delete Product"
-msgstr ""
-
-msgid "Destroy"
-msgstr ""
-
-msgid "Destroy Content Host"
-msgstr ""
-
-msgid "Disable"
-msgstr ""
-
-msgid "Edit"
-msgstr ""
-
 msgid "Edit %s"
-msgstr ""
-
-msgid "Enable"
-msgstr ""
-
-msgid "Errata mail"
-msgstr ""
-
-msgid "Export"
 msgstr ""
 
 msgid "Failed to add task to queue: %s"
 msgstr "Failed to add task to queue: %s"
 
-msgid "Filtered index content"
+msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
+msgstr "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
+
+msgid "Interval"
 msgstr ""
 
-msgid ""
-"Foreman plugin to sync SUSE Customer Center products and repositories into "
-"Katello."
-msgstr ""
-"Foreman plugin to sync SUSE Customer Center products and repositories into "
-"Katello."
-
-msgid "Hypervisors"
+msgid "Interval cannot be nil"
 msgstr ""
 
-msgid "Hypervisors update"
-msgstr ""
-
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
-msgstr ""
-
-msgid "Incremental Update"
-msgstr ""
-
-msgid "Incremental Update of 0 Content View Version(s) "
-msgstr ""
-
-msgid "Index content"
-msgstr ""
-
-msgid "Index errata"
-msgstr ""
-
-msgid "Index package groups"
-msgstr ""
-
-msgid "Install Applicable Errata"
-msgstr ""
-
-msgid "Install erratum"
-msgstr ""
-
-msgid "Install package"
-msgstr ""
-
-msgid "Install package group"
+msgid "Interval not set correctly"
 msgstr ""
 
 msgid "Last synced"
@@ -153,52 +59,16 @@ msgstr "Last synced"
 msgid "Lock on SCC account already taken: %s"
 msgstr "Lock on SCC account already taken: %s"
 
-msgid "Package Profile Update"
+msgid "No products selected."
 msgstr ""
 
 msgid "Please sync your SUSE subscriptions first."
 msgstr "Please sync your SUSE subscriptions first."
 
-msgid "Product Create"
-msgstr ""
-
 msgid "Product already subscribed!"
 msgstr "Product already subscribed!"
 
 msgid "Products"
-msgstr ""
-
-msgid "Promotion"
-msgstr ""
-
-msgid "Publish"
-msgstr ""
-
-msgid "Register Host"
-msgstr ""
-
-msgid "Reindex subscriptions"
-msgstr ""
-
-msgid "Remove Content"
-msgstr ""
-
-msgid "Remove Version"
-msgstr ""
-
-msgid "Remove Versions and Associations"
-msgstr ""
-
-msgid "Remove from Environment"
-msgstr ""
-
-msgid "Remove package"
-msgstr ""
-
-msgid "Remove package group"
-msgstr ""
-
-msgid "Remove subscriptions"
 msgstr ""
 
 msgid "SUSE Customer Center"
@@ -207,17 +77,29 @@ msgstr "SUSE Customer Center"
 msgid "SUSE Customer Center account"
 msgstr "SUSE Customer Center account"
 
+msgid "SUSE Subscription"
+msgstr ""
+
+msgid "SUSE Subscription: "
+msgstr ""
+
 msgid "SUSE Subscriptions"
 msgstr "SUSE Subscriptions"
 
 msgid "SUSE subscriptions"
 msgstr "SUSE subscriptions"
 
+msgid "Select products"
+msgstr ""
+
 msgid "Subscribe SCC Product"
 msgstr "Subscribe SCC Product"
 
 msgid "Sync"
 msgstr "Sync"
+
+msgid "Sync Date"
+msgstr ""
 
 msgid "Sync SUSE subscriptions"
 msgstr "Sync SUSE subscriptions"
@@ -234,32 +116,23 @@ msgstr "Sync task started."
 msgid "Synchronize"
 msgstr "Synchronize"
 
-msgid "Synchronize capsule content"
+msgid "Task to subscribe products started."
 msgstr ""
 
 msgid "Test Connection"
 msgstr "Test Connection"
 
-msgid "Unregister Host"
+msgid "Unknown"
 msgstr ""
 
-msgid "Update"
+msgid "Update SUSE repositories"
 msgstr ""
 
-msgid "Update Sync Plan"
+msgid "Update SUSE repositories %s"
 msgstr ""
 
-msgid "Update Sync Plan Products"
+msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr ""
 
-msgid "Update for host"
-msgstr ""
-
-msgid "Update package"
-msgstr ""
-
-msgid "Upload errata into"
-msgstr ""
-
-msgid "Upload into"
+msgid "never synced"
 msgstr ""
