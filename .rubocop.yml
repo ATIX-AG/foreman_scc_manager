@@ -3,6 +3,7 @@ AllCops:
   Exclude:
     - '*.spec'
     - 'doc/plugins/**'
+    - 'locale/**'
 
 # Don't enforce documentation
 Style/Documentation:
