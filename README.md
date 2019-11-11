@@ -1,3 +1,5 @@
+[![Build Status master](https://travis-ci.org/ATIX-AG/foreman_scc_manager.svg?branch=master)](https://travis-ci.org/ATIX-AG/foreman_scc_manager)
+
 # ForemanSccManager
 
 Foreman plugin to sync SUSE Customer Center products and repositories into Katello
