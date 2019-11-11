@@ -1,0 +1,502 @@
+[
+  {
+    "id": 634,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-Debuginfo-Updates/sles-10-ppc/?2GxVS_uuUJOi0Q5ioXaW5cbyAlqo62TM4Aludlc1p1ewCJKm-uY1-FDkkzB3HUYtBmJhI0Xe9pkEvx9vukzvXmiifccBTMApPYnHK2XzJNdSyD-H7cDBSBmYdeF-dX9O9G8_WKZgArqiLBkA",
+    "name": "SLE10-Debuginfo-Updates",
+    "distro_target": "sles-10-ppc",
+    "description": "SLE10-Debuginfo-Updates for sles-10-ppc",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 635,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-Debuginfo-Updates/sles-10-ia64/?jYOyL1Q633K3TJkHOKt_JdnQI3s9mLhBRiyxhoSdNSpLs3kIoKqDOjw2XBvgy8E95thhdqbNiVCy9Cw2TRwJN2pjX8CeIvtNyUTPucvTY2pTYRQ4uHrLK1prIHf3JvXkNqpKb6A5f8NkAYE3zw",
+    "name": "SLE10-Debuginfo-Updates",
+    "distro_target": "sles-10-ia64",
+    "description": "SLE10-Debuginfo-Updates for sles-10-ia64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 638,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-Debuginfo-Updates/sles-10-s390x/?IsG4PjhZ5PxKuK85hL2IWM4xpYA7ChJblga3OqZ6kinOmbTiMjX0K2I9Gz7SD2eHG9KAdQVPB-ZF3sq72iMpTJ6Ma_KKr_RZQ_yyyvFY8sdKdpmpUc12jlyKw8tfp0vP3tCJu56Bdw5ZulsSu2c",
+    "name": "SLE10-Debuginfo-Updates",
+    "distro_target": "sles-10-s390x",
+    "description": "SLE10-Debuginfo-Updates for sles-10-s390x",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 639,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP1-Online/sles-10-i586/?oopg_M76eTSQnNrHWXk5cxxb_sLesHlizPfwe3ZX329C3nqMlGH91RfDu6Tkn3lt0AJFODMep37Nsbt0NTO-Yzo9tXvRMezZisc3uLfQE0dKot6U8wiSHwIZgFIuwuKFzVfzMBdcNA",
+    "name": "SLES10-SP1-Online",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP1-Online for sles-10-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 641,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-SP1-Debuginfo-Updates/sles-10-i586/?zvcYBVEmQnRAED_s_FdisZltMzE7ifmF4MwYonA_S2_fRSNIVQjSa7VHSnVsQIHlTX4vjrHpoWIG7qyMkxVQMsFB2GnmbA_8NuCq7mJc7XQ7oDcokml47aEPVwKgh4K3uc1z1Rg2SI2Z5eSyvFHa5c8",
+    "name": "SLE10-SP1-Debuginfo-Updates",
+    "distro_target": "sles-10-i586",
+    "description": "SLE10-SP1-Debuginfo-Updates for sles-10-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 646,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP1-Updates/sles-10-i586/?4AoQrFQDlod08aJN4MGhwei7TgeQ37TVwJU5CoIcbbC4YkiBsoC4jzNBuVFj979GwokvUo1CeYW43BouB20NvI_oQC3yIpZMX5FHtbJqYOCqZD7WOIhKeFX16dmtdHOI38_vdT-kgT8",
+    "name": "SLES10-SP1-Updates",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP1-Updates for sles-10-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 653,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP2-Pool/sles-10-i586/?foVILCrPi7teungfhA3EH7Gge2Cvp0xky5KlsJkdJGb9gH4UXs_kfq7RdNl7Z_31Qhz8PBXIZl4130mTD3qiNCszSz0xirQ25OepYeXScIcYttubFTzqp2Ma_7b1amNSwHMMVgM",
+    "name": "SLES10-SP2-Pool",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP2-Pool for sles-10-i586",
+    "enabled": true,
+    "autorefresh": false,
+    "installer_updates": false
+  },
+  {
+    "id": 654,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP2-Online/sles-10-i586/?SC4U2S7a2-bwlsIdYP4qlZzf-5K60WvBczwh1-C27JPPF4ajWFlZMGaqAwJGYTrDQgQhzshyhdzkvnTTGFk1K7TEScNlOXBb7zy7bMF14mspN_nD2J62RlTK-BhGQ8DJZbwIXmpJ2Q",
+    "name": "SLES10-SP2-Online",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP2-Online for sles-10-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 655,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP2-Updates/sles-10-i586/?1xSKBv7D9qJpZ1ZJfXDVtc_bSs5cJ2bNi0SdgMKfFW93aUulycVObWyKsIo3WvHVEnBAmdaXRxf0c-D4We32k4jU6AwO_me8pXS9yEdq51P9jjWKuIlOrCk7dl__TGMWRuu-tQDgVqc",
+    "name": "SLES10-SP2-Updates",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP2-Updates for sles-10-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 656,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-SP2-Debuginfo-Updates/sles-10-i586/?1x-mQMn-IGgHnBsHaGIyzRMm9IpV94S322mJdRx-lg3X1KL1v2Omnc6fo3HY7_uXbKe7rNySSNLgjkWoxbcnm5hdUW0D-GL0ZUI62e9wixxuaM8auCZy-eJn2fJS86avNePprbKF7_UwHAr3xpDUCKM",
+    "name": "SLE10-SP2-Debuginfo-Updates",
+    "distro_target": "sles-10-i586",
+    "description": "SLE10-SP2-Debuginfo-Updates for sles-10-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 663,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP3-Online/sles-10-i586/?x7d0xAv2v8Vts95AHH8ieKb8gRL8dJsb98d8fxoa-G9T4wQclR3cbCMKMV1ABZhhNlaMkNTR5sOusXXM_O693LnxwxOFzg093mU08uYgpaYH7g_qAppnC0ZBI48nweyjnGo21zKIGA",
+    "name": "SLES10-SP3-Online",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP3-Online for sles-10-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 664,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-SP3-Debuginfo-Updates/sles-10-i586/?ftIrhMJx2zwXKFqylmELu9lgEFZSPrgcsdHqcudMbkPBXopoJDqP7eTtUOKClUu1qI2Kt2PqVpJZLK1HznJQJnUCOBOcuLJQ-M0SRWpYHRgznKWuCxCjk6oeeXSWGWdClnVUUIDgl4XQUg83YMaeMRY",
+    "name": "SLE10-SP3-Debuginfo-Updates",
+    "distro_target": "sles-10-i586",
+    "description": "SLE10-SP3-Debuginfo-Updates for sles-10-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 665,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-GPLv3-Extras/sles-10-i586/?JuwQCjSRo-wljcPHdCGgFqhwKcAJ-2VqasQvUZQEfDIudGKjT3MkD-yUbWiSYoPJbu_PxG1vKAz8d01NQ1FiJLRE36cfkk3LJZVaDp8CWDbg-IH9EJPfORTbWOlD34LOODxyTirkMV_h",
+    "name": "SLES10-GPLv3-Extras",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-GPLv3-Extras for sles-10-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 667,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-SP3-Debuginfo-Online/sles-10-i586/?dX7D6ynr7bPJqJZhdBpKkjRnWXbEh_uUeuPch1VmilVt9RLg_gV39Se9S5ZjXJIxUs2BNDZ-FnDt0TSV78Ja31QE3EETa2PA6zwx6rywsRIuiDG8WJ-g5uFw9_F9NWIcwM7c1kj2jAZNakNC_js0wQ",
+    "name": "SLE10-SP3-Debuginfo-Online",
+    "distro_target": "sles-10-i586",
+    "description": "SLE10-SP3-Debuginfo-Online for sles-10-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 668,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP3-Pool/sles-10-i586/?XxxkCDYWEokOrfhAv8URNhf8RU5d24vNHkmevgvAZtC2Dj7Ob_TFqkQ00b_fywUJPLgAhaT6UySadMlms8drt8r8TqtTZMfqE9oQdw_x-EIwBx7ejxf67yOVKOUXMFPLD4ZIJoM",
+    "name": "SLES10-SP3-Pool",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP3-Pool for sles-10-i586",
+    "enabled": true,
+    "autorefresh": false,
+    "installer_updates": false
+  },
+  {
+    "id": 669,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-SP3-Debuginfo-Pool/sles-10-i586/?ahAMDo04kvTFnqasS3sMZI9t0RoWXr3NegOulfqkcuN-d8mt3yMFrAhsxefp416DkKXxLgWGhAkP40Yae2i0DHU5x3TP7tpnAgFTaeWrho7AHSM03dpN_Gn90STOvK9x9LcgyA6ff4co0WNWLlo",
+    "name": "SLE10-SP3-Debuginfo-Pool",
+    "distro_target": "sles-10-i586",
+    "description": "SLE10-SP3-Debuginfo-Pool for sles-10-i586",
+    "enabled": false,
+    "autorefresh": false,
+    "installer_updates": false
+  },
+  {
+    "id": 670,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP3-Updates/sles-10-i586/?_5mQUx6CUhpuK4w7YeiKamDOSYOT86t4cjp8sITXhNFDWqfvXOVPaew4UXV5mboDj7wsxAWWo9ndzLhRry4VEhLcYWMIAT-ftY5A5kBT_T3W_QEwxgeqZB1vcc-P13hpEi61JmleF9Y",
+    "name": "SLES10-SP3-Updates",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP3-Updates for sles-10-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 672,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-SP3-Debuginfo-Pool/sles-10-s390x/?QLYxGlJtW-WnN9Y5kPTLx1RCFYKTU-XeZCDsYPAD9t3x05sQQsD9g3yySVEshwWRnKs07EepCG7euHOmwGmSDC_UcO84Sq8Bii5uJf8azcr67JpCN_rKX5vmYw6EiuCAmMCOYVO06eU2zlr_htlf",
+    "name": "SLE10-SP3-Debuginfo-Pool",
+    "distro_target": "sles-10-s390x",
+    "description": "SLE10-SP3-Debuginfo-Pool for sles-10-s390x",
+    "enabled": false,
+    "autorefresh": false,
+    "installer_updates": false
+  },
+  {
+    "id": 675,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-SP3-Debuginfo-Updates/sles-10-s390x/?znwlaJ-I4JI9T2UYF6wHA0XP1bFIA7b1VOUKEqXbnlIUo4W1G-W1F2P-lwLDZbRiswWcaZfcK6rfWs-NH-CtiJobyvjy0hvipGyajNIquQ5FBE107ENZocFCFH9OUuQVXtuLD9WOQdqAu9zGwQFwjOB0",
+    "name": "SLE10-SP3-Debuginfo-Updates",
+    "distro_target": "sles-10-s390x",
+    "description": "SLE10-SP3-Debuginfo-Updates for sles-10-s390x",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 679,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-Extras/sle-11-i586/?Tw6708ICVM4XaWmg7BrOndvs9Uj6VovRhfg3JZ3DZ-t6t-b0LH-pelWKn_c-9QXDeyYskHQQmFzfVuHRMgtNcCwJ_SifNzMVHVh2tnn40aJwR1P_z6oXbKMC7RLHGjQimy0",
+    "name": "SLES11-Extras",
+    "distro_target": "sle-11-i586",
+    "description": "SLES11-Extras for sle-11-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 680,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-SP1-Debuginfo-Pool/sle-11-i586/?sUSw_l43xM-Zee4XM4S-unUvVW8PPiwkNNbHLo3Hb6ctVG7DCv8R9zsjjl6N93xf-e2JkWouqQIRLFFazmyIx8dSRDXkjuzdQRhUXdXWuNp2zSmEKuDK0cwP01oJTyV3-L2csWvTVRvLGP-mQA",
+    "name": "SLE11-SP1-Debuginfo-Pool",
+    "distro_target": "sle-11-i586",
+    "description": "SLE11-SP1-Debuginfo-Pool for sle-11-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 681,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-WebYaST-SP1-Pool/sle-11-i586/?Pl4l5DfR1K1kXXP_qqV_6yR-lyS0B0j8k4LxEBDA9MpiuDdbxNhiQiEqph5sL-lxWQP1cg4TLVi-6iJIRsBcLqLjx5wFKUeJvwSvp7Aspq9TTql-URrD2HsnZDYQhWms0dkDM8cXSkjp8rQ",
+    "name": "SLE11-WebYaST-SP1-Pool",
+    "distro_target": "sle-11-i586",
+    "description": "SLE11-WebYaST-SP1-Pool for sle-11-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 682,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-SP1-Debuginfo-Updates/sle-11-i586/?ojymMmF8GFdtkh43LTxec1MedikceYtaW9MOhHcBUU6bIQfUkcpBDeP38nFgKsEIk3fyfvnu60TIl1fRoFDBgey1R0vchsDJavEMWQktgBCKq9gLWGBp2gbbe1P4k23_6Vv6caGPO5s8Kdv8Rjd0qA",
+    "name": "SLE11-SP1-Debuginfo-Updates",
+    "distro_target": "sle-11-i586",
+    "description": "SLE11-SP1-Debuginfo-Updates for sle-11-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 684,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-SP1-Updates/sle-11-i586/?mEr9IidOuaOKRR53koiI2yg3OH8MWH-RDRyzSSsEA65USCmy0ymmtEbBjULfFU0p4P7qa2YdyoJ53jd7Zhc-AoSzYnDJAu20WFPKA7a_ItP2Dn0KK8oOlshyERDYldNQPibtVv5OVg",
+    "name": "SLES11-SP1-Updates",
+    "distro_target": "sle-11-i586",
+    "description": "SLES11-SP1-Updates for sle-11-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 685,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-WebYaST-SP1-Updates/sle-11-i586/?gMcDfn5cdfsmhbcVsQrP0QVA1JympvolvFlqTcpXVTbjnAzf66TKy5nq-hxhwoiVox8ywH0ZDvLM98YLOHaD6XTt62M6Osxi5H1EHNBPbdMka1V2m4S6tFZwFisqkeVXq3ZKP_5iNh_rztnrwEs",
+    "name": "SLE11-WebYaST-SP1-Updates",
+    "distro_target": "sle-11-i586",
+    "description": "SLE11-WebYaST-SP1-Updates for sle-11-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 686,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-SP1-Pool/sle-11-i586/?RMPic1b1pMjBPJPAU7vYaCH43Hzo1LFQ-5A629SS4lU5PrFMpYF8nzTGjolUGW9qYABn3CoerYxDubVPt_OWii6fopVe38aGCk0N49STYu4qSB0vecIFh5vuAH3DuPVidmcImg",
+    "name": "SLES11-SP1-Pool",
+    "distro_target": "sle-11-i586",
+    "description": "SLES11-SP1-Pool for sle-11-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 687,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-SP1-Pool/sle-11-s390x/?ITmIcr1l7g90wot3n5-9egvGgu2JiuU_JVMIs5aJ-GNWiZfhXPfL22JRofgrQWZnfABcuOrWuBbdBxwLtts-zyFUwwliyKilWWZygQCD6qCAEgk8kyJC5rYWrOFHevkX05VTo_I",
+    "name": "SLES11-SP1-Pool",
+    "distro_target": "sle-11-s390x",
+    "description": "SLES11-SP1-Pool for sle-11-s390x",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 688,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-SP1-Debuginfo-Updates/sle-11-s390x/?Nipg2SeWtnPvOb6nOrIyyXOuMfcfwU0RwZhteHx1eD_I0FPrpkI1A_Fa1LL8Y4D3NERSPUyiLa_lnycyHEmmiFePtkQsmDvEjrhubnickl1ZSK8bsC4kQfOQO7TZFwBZjyDbksiGTFbJ_gmr5y9a-Cg",
+    "name": "SLE11-SP1-Debuginfo-Updates",
+    "distro_target": "sle-11-s390x",
+    "description": "SLE11-SP1-Debuginfo-Updates for sle-11-s390x",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 690,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-WebYaST-SP1-Updates/sle-11-s390x/?5Bb2ilzaMNQByD0Wfp78zc5YPVXxz6bWJkJ27qnseZyo1aL9sOR4Mrr44KF0_UZS0zdL8CbAO7-Uo9dX1NYLTAvtoOLbNw9EM_VbuU3P4UA9D770MqI1DolJmyu5xQdGYV1w2dy71KWOgbLUk5Ba",
+    "name": "SLE11-WebYaST-SP1-Updates",
+    "distro_target": "sle-11-s390x",
+    "description": "SLE11-WebYaST-SP1-Updates for sle-11-s390x",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 691,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-SP1-Updates/sle-11-s390x/?yVQYlvommkinYcYNnOa4JU8JtBWEwHowwbkqmjj78mQc3W43hcOPG4IzjFMlKM19PLXX-HUxcXIscTRxovLMB7qzJYeQBECtKGQi4jreyuK1DjdvX9OjPrqUG-XeF20uzOHYOLSkmzA",
+    "name": "SLES11-SP1-Updates",
+    "distro_target": "sle-11-s390x",
+    "description": "SLES11-SP1-Updates for sle-11-s390x",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 692,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-SP1-Debuginfo-Pool/sle-11-s390x/?q7D1XkyXV2Zgb5AEaLd-SdN4dnDv3TRiHX2UY-N-RSyhqIyzIJ9WsrsGCCEk1fISg2qkvWEK86iTtQSwlZuHeNR5_n1XyQ2XCyPRNhPtKFhU6gUKjD0yHtKyfmC_2sksDbRjvkehFGDjtdWxcR8",
+    "name": "SLE11-SP1-Debuginfo-Pool",
+    "distro_target": "sle-11-s390x",
+    "description": "SLE11-SP1-Debuginfo-Pool for sle-11-s390x",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 693,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-WebYaST-SP1-Pool/sle-11-s390x/?vkQrOkPp_EbPVKI61Td5Mow-ZIXDgSVuWiRXMw2BW-xN_gXIOSoWQdHGMInFho60dSg0kta49nSMK8GOyKYN2_kbbYP33ZiF5W01VfZ4yHMI7aeNIf_U0wy1bd-9wApwmeAYdIK_S8WNRiGf",
+    "name": "SLE11-WebYaST-SP1-Pool",
+    "distro_target": "sle-11-s390x",
+    "description": "SLE11-WebYaST-SP1-Pool for sle-11-s390x",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 694,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP4-Online/sles-10-i586/?PJyXNRxBG9KMqcAG44kPW0MDmmb-8c_Ee8gU54_Qe75ZKQNySqAhQXqrekj69l7GFKqt4cpGJYrGSMw26tnDm77SUvEvZfEitxUcEnMupoTQCIuBNyDNaZ6rrgWtpsEjuYlnINo6dQ",
+    "name": "SLES10-SP4-Online",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP4-Online for sles-10-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 695,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP4-Pool/sles-10-i586/?jO2ei9Qlwd7eSI3HQyaGUGMAQAIiOyFMq3-roPlm1BRBbCjGXTuz-WP5NT25oBn3_eZtf5-r4f_3q8_LhAwxVB81N9-If1Qtkwl9il_sXur53lXMpWwC5NyfjUja62URr75jTIA",
+    "name": "SLES10-SP4-Pool",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP4-Pool for sles-10-i586",
+    "enabled": true,
+    "autorefresh": false,
+    "installer_updates": false
+  },
+  {
+    "id": 696,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-SP4-Debuginfo-Updates/sles-10-i586/?T_ROIBZgwgxyKeY3oZq-u9MkqizINM_sUmmrFTAYmo8Sfzq-CctzmuF4FMxMK9n7K62rGQxJ0s4gqAuFZ53mijbz_5BKuudKSMkFWk-3XEvvVDwOWxmSwh72zU_DoBv6BpTiZtCL0QR8gZ2FxkXYz8A",
+    "name": "SLE10-SP4-Debuginfo-Updates",
+    "distro_target": "sles-10-i586",
+    "description": "SLE10-SP4-Debuginfo-Updates for sles-10-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 698,
+    "url": "https://updates.suse.com/repo/$RCE/SLE10-SP4-Debuginfo-Pool/sles-10-i586/?3e9qgrdy9HiqsRslsD_4pD4KsyWL0fOUkgOpC4XgU2iN2SrimAdpGhNjEmfIBwI4H7xTyf8pO7BvUOS9aRo3-UD5tm6GvqWdbfOZgzjhnl6a1-ZLdq7QSQIikyEfTuWJNZ2aJjHks0Us7Q8Lsco",
+    "name": "SLE10-SP4-Debuginfo-Pool",
+    "distro_target": "sles-10-i586",
+    "description": "SLE10-SP4-Debuginfo-Pool for sles-10-i586",
+    "enabled": false,
+    "autorefresh": false,
+    "installer_updates": false
+  },
+  {
+    "id": 699,
+    "url": "https://updates.suse.com/repo/$RCE/SLES10-SP4-Updates/sles-10-i586/?k0yErKWtS2UFAqUTCKn6IcbBO0JSmHDcMUgVNonnaASdgyihwWBGySR5EQbOcETFUfVL4CwJD_3rPxN8CYtup4dfMGU1jv4sySoQL81v1gMUzFMLvpdPMv1IoT6uQ5ay72WKBcAUge4",
+    "name": "SLES10-SP4-Updates",
+    "distro_target": "sles-10-i586",
+    "description": "SLES10-SP4-Updates for sles-10-i586",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 705,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-SP1-Updates/sle-11-x86_64/?mU-9hfMoiB6j7au6xg4QhbCrEo5GsOso08K3AGVO4zbQwzqWR4-X73vgtvztjcCvokJmWIirRme9awn7QJ0ZbMLKeGju_c_tmZzghbgVILAT8Fo40-T9_WU70gWV3BzLNRfqtKHWP6NJ",
+    "name": "SLES11-SP1-Updates",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLES11-SP1-Updates for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 706,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-WebYaST-SP2-Pool/sle-11-x86_64/?3xy2ogHlAAAAAAAA-ZKhq7_4jYavLwvNq32a426eppkUeqGRru_NmvRR7S5em44De7S2kVvJDU-rADKoJYbHAq_Mz8mWt91nMqBVO23A7wi2Bx8SsTU-IPo2JUX8TikNU7IXNbCu3wydkuOJwA",
+    "name": "SLE11-WebYaST-SP2-Pool",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLE11-WebYaST-SP2-Pool for sle-11-x86_64",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 707,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-SP1-Debuginfo-Pool/sle-11-x86_64/?yAufhA2TjKwovxdtZXAoARQOgaaYaRvBYuWlewhITc36bvKUv_RrUBKEEMZ0i15zEYPw5VpQ8s0BsjKAfgMTVUtgdo3QL9DsSxorki7secgra0Fed2fKEKO6T-gi8pWa8hDSh4CqkRLG7XoczEN0",
+    "name": "SLE11-SP1-Debuginfo-Pool",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLE11-SP1-Debuginfo-Pool for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 708,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-WebYaST-SP2-Updates/sle-11-x86_64/?43gP17s6Ix1O3XvMmxF2hkA7LRnG4z08KRd6j2xpG4rsNAfcAwfi2u9b6OfAvxnZ5PpWvc9QULngDuIJpN2mwTblc1F-xjkMxRc6eE-ZTlYgGuCaOyEs-wEkMafjA08NFNO6td9HlDVcNzk5U5kgGA",
+    "name": "SLE11-WebYaST-SP2-Updates",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLE11-WebYaST-SP2-Updates for sle-11-x86_64",
+    "enabled": true,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 709,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-SP2-Core/sle-11-x86_64/?dF48Nq-BbKczYJ_fUuvYPHGb_Q3ZCwV5NEi0g159z8xsRjs0H3F8Yz32AsFlNhA-z5CY-EYUVh5FMGtPJMzp-pcLgHXZwc-BdETQCSW3Yu6uiJXiVobJ26AGuncxGyjqhaN7_rne",
+    "name": "SLES11-SP2-Core",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLES11-SP2-Core for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 710,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-Extras/sle-11-x86_64/?XoPsNKi7BFSqPRBnsy3ZrLNpvlSP8g-MFfDO9WLVu2PUX-gdGkMlRDKtpYbAce4CGMwd6rmNjCjoU5l7lfxRumbIUYmm0bM_av6f152SQN-MluAl3NfgJT9cRVF10XxURYXbEg",
+    "name": "SLES11-Extras",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLES11-Extras for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 711,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-SP1-Pool/sle-11-x86_64/?ZrlDuUWZmFZNEMi_6SkFGgGc8o0V-oGPn55rcK76idefZcLv0eWQtUKRjhlQcLTwVsPdfMhnEhFcjry84qbkUpGA_He7qrGlPctKhae6eUbKYp2iV6P-7W7tOYOSjWXw57kVqipa",
+    "name": "SLES11-SP1-Pool",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLES11-SP1-Pool for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 712,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-SP2-Debuginfo-Updates/sle-11-x86_64/?pcvHPHsNMOdKyzoAzpPN5sJ6hBDUEkMAyd__WVoHoKe3PLCbT6WH4CG4D2YBkvceiGfqH7qY5aqiyYWps92fHgwvYLUk6oS-Q47jwPdv_qHE-OFJPcC4L5fkWsacir9lk25imd_fiFGTyZiznaJTjqQl",
+    "name": "SLE11-SP2-Debuginfo-Updates",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLE11-SP2-Debuginfo-Updates for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 713,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-SP2-Extension-Store/sle-11-x86_64/?BmKgVuHknySSRO-pefVcuyiO3x-BgKVIYLwJy24FJtyvGvfZntePXHX6Kv62iHrlrz7y4MUEmR-CRgnm0hxD1aKELsYK3HYjxWMa6mPNnDVWyO7qf-1q2rlxb4OyMaNB4GvE_6aoTKC_lbchOX5__eQ",
+    "name": "SLES11-SP2-Extension-Store",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLES11-SP2-Extension-Store for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 714,
+    "url": "https://updates.suse.com/repo/$RCE/SLES11-SP2-Updates/sle-11-x86_64/?Vt4hG19t1P9EFCX0oPxIirJLSCL2bLmGBghjn_6G4IoT2imhMb6Di1ZwKCDuN5NvF8TdXeZfyzssYpda4V6sXXr43PkImum09biR3pOBcfFb3FbocXa9D6I9Rw_Pqg0SkdY_0wrWUIl9",
+    "name": "SLES11-SP2-Updates",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLES11-SP2-Updates for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 715,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-SP1-Debuginfo-Updates/sle-11-x86_64/?V8RgHT9c0qyDE8-q8pdhrBfB-5pyW9WT7U_fH2F5Vheh9iztl61nch2ujLxGHSyZQpx46qNZDKN_PGdfUep1NC7kWBe3BFTsThcGCDJ9IM2I2G3XLs3FaHCCmKBkhBAp52I0Nh2XpsgsEJQUsk4hdCB_",
+    "name": "SLE11-SP1-Debuginfo-Updates",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLE11-SP1-Debuginfo-Updates for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 716,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-SP2-Debuginfo-Core/sle-11-x86_64/?k_VeQyn9COivSRS8ol7d1FwLv8urpGtyXCGEgyRJxV4glpLai4t5BhCY52MuMp3B8rPl1kw9tyt8660cUZIEcXOh7fq2XuHZkeynbjAxnKcP7XwScJwu-q5rZTvKx4mr_b6XMsrTGaVr1OTEIEYX",
+    "name": "SLE11-SP2-Debuginfo-Core",
+    "distro_target": "sle-11-x86_64",
+    "description": "SLE11-SP2-Debuginfo-Core for sle-11-x86_64",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  },
+  {
+    "id": 717,
+    "url": "https://updates.suse.com/repo/$RCE/SLE11-SP2-Debuginfo-Core/sle-11-i586/?Gh9lPJq1OmlBnZKZoczbeu0berbKSmaHv9bTIvK9bVk4i9eIQqGe5VMC4HRNkbRMu2nnVRNOwpJ4Vwds_8KQ4-zspmvf1Rc4klH9RcGPI7B5HKQ6R09-a-w7IeLOtYblnWezewKiWjUB8SF7bQ",
+    "name": "SLE11-SP2-Debuginfo-Core",
+    "distro_target": "sle-11-i586",
+    "description": "SLE11-SP2-Debuginfo-Core for sle-11-i586",
+    "enabled": false,
+    "autorefresh": true,
+    "installer_updates": false
+  }
+]

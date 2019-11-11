@@ -7,7 +7,7 @@ class SccProductCreateTest < ActiveSupport::TestCase
 
   test 'create' do
     assert @product.save
-    refute_empty SccProduct.where(id: @product.id)
+    assert_not_empty SccProduct.where(id: @product.id)
   end
 
   test 'uniq_name' do
@@ -24,7 +24,7 @@ class SccProductSearchTest < ActiveSupport::TestCase
     one = scc_products(:one)
     products = SccProduct.search_for("name = \"#{one.name}\"")
     assert_includes products, one
-    refute_includes products, scc_products(:two)
+    assert_not_includes products, scc_products(:two)
 
     empty = SccProduct.search_for('name = "nothing"')
     assert_empty empty

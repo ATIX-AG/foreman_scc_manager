@@ -19,6 +19,7 @@ class SccProduct < ApplicationRecord
 
   default_scope -> { order(:name) }
   scoped_search on: :name, complete_value: true
+  scoped_search on: :friendly_name
 
   def uniq_name
     "#{scc_id} " + friendly_name

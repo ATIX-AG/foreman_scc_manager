@@ -34,6 +34,7 @@ class SccAccount < ApplicationRecord
   default_scope -> { order(:login) }
 
   scoped_search on: :login, complete_value: true
+  scoped_search on: :name
 
   def init
     # set default values
@@ -84,7 +85,7 @@ class SccAccount < ApplicationRecord
 
   def update_attributes_with_logic!(params)
     transaction do
-      self.update_attributes!(params)
+      self.update!(params)
       if rec_logic_changed?
         old_rec_logic = self.foreman_tasks_recurring_logic
         associate_recurring_logic

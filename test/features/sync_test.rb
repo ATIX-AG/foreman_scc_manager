@@ -8,13 +8,12 @@ class SccAccountSyncTest < ActiveSupport::TestCase
       .with(
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
-          'Accept-Encoding' => 'gzip, deflate',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
           'Host' => 'scc.example.com'
         }
       ).to_return(
         status: 200,
-        body: Zlib.gzip(File.read("#{File.dirname(__FILE__)}/data_subscriptions.json")),
+        body: fixture_file_upload('data_subscriptions.json').read,
         headers: {
           server: 'nginx',
           date: 'Tue, 05 Mar 2019 15:07:38 GMT',
@@ -48,13 +47,12 @@ class SccAccountSyncTest < ActiveSupport::TestCase
       .with(
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
-          'Accept-Encoding' => 'gzip, deflate',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
           'Host' => 'scc.example.com'
         }
       ).to_return(
         status: 200,
-        body: Zlib.gzip(File.read("#{File.dirname(__FILE__)}/data_products_page1.json")),
+        body: fixture_file_upload('data_products_page1.json').read,
         headers: {
           server: 'nginx',
           date: 'Mon, 11 Mar 2019 15:37:00 GMT',
@@ -86,13 +84,12 @@ class SccAccountSyncTest < ActiveSupport::TestCase
       .with(
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
-          'Accept-Encoding' => 'gzip, deflate',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
           'Host' => 'scc.example.com'
         }
       ).to_return(
         status: 200,
-        body: Zlib.gzip(File.read("#{File.dirname(__FILE__)}/data_products_page2.json")),
+        body: fixture_file_upload('data_products_page1.json').read,
         headers: {
           server: 'nginx',
           date: 'Mon, 11 Mar 2019 15:37:19 GMT',
