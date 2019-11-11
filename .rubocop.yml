@@ -1,3 +1,7 @@
+# TODO: remove this file by either moving cops here or fixing code
+inherit_from:
+  - .rubocop_todo.yml
+
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
@@ -5,13 +9,12 @@ AllCops:
     - 'doc/plugins/**'
     - 'locale/**'
 
+Rails:
+  Enabled: true
+
 # Don't enforce documentation
 Style/Documentation:
   Enabled: false
-
-# Force before_filter until upgrade to Rails 4
-Rails/ActionFilter:
-  EnforcedStyle: action
 
 Metrics/MethodLength:
   Max: 40

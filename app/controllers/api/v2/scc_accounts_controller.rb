@@ -49,7 +49,7 @@ module Api
       param :id, :identifier_dottable, :required => true
       param_group :scc_account
       def update
-        process_response @scc_account.update_attributes(scc_account_params)
+        process_response @scc_account.update(scc_account_params)
       end
 
       api :DELETE, '/scc_accounts/:id', N_('Delete scc_account')

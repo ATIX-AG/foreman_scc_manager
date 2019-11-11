@@ -1,0 +1,33 @@
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: strict, flexible
+Rails/Date:
+  Enabled: false
+
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: slashes, arguments
+Rails/FilePath:
+  Enabled: false
+
+# Configuration parameters: Include.
+# Include: app/models/**/*.rb
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+# Configuration parameters: Include.
+# Include: app/models/**/*.rb
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+# Configuration parameters: Include.
+# Include: app/controllers/**/*.rb
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
+Rails/ReflectionClassName:
+  Enabled: false
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: strict, flexible
+Rails/TimeZone:
+  Enabled: false
