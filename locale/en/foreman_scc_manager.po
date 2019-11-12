@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 1.6.3\n"
+"Project-Id-Version: foreman_scc_manager 1.7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2017-04-24 12:30+0000\n"
 "Last-Translator: ATIX AG <info@atix.de>\n"
@@ -17,122 +17,226 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
-msgid "Actions"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:15
+msgid "List all scc_accounts"
 msgstr ""
 
-msgid "Add SCC account"
-msgstr "Add SCC account"
-
-msgid "Add SUSE Customer Center Account"
-msgstr "Add SUSE Customer Center Account"
-
-msgid "Base URL"
-msgstr "Base URL"
-
-msgid "Cron expression is not valid!"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:24
+msgid "Show scc_account"
 msgstr ""
 
-msgid "Delete %s?"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:32
+msgid "Name of the scc_account"
 msgstr ""
 
-msgid "Edit %s"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:33 ../app/controllers/api/v2/scc_accounts_controller.rb:64
+msgid "Login id of scc_account"
 msgstr ""
 
-msgid "Failed to add task to queue: %s"
-msgstr "Failed to add task to queue: %s"
-
-msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
-msgstr "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
-
-msgid "Interval"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:34 ../app/controllers/api/v2/scc_accounts_controller.rb:65
+msgid "Password of scc_account"
 msgstr ""
 
-msgid "Interval cannot be nil"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:35 ../app/controllers/api/v2/scc_accounts_controller.rb:66
+msgid "URL of SUSE for scc_account"
 msgstr ""
 
-msgid "Interval not set correctly"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:36
+msgid "Interval for syncing scc_account"
 msgstr ""
 
-msgid "Last synced"
-msgstr "Last synced"
-
-msgid "Lock on SCC account already taken: %s"
-msgstr "Lock on SCC account already taken: %s"
-
-msgid "No products selected."
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:37
+msgid "Last Sync time of scc_account"
 msgstr ""
 
-msgid "Please sync your SUSE subscriptions first."
-msgstr "Please sync your SUSE subscriptions first."
-
-msgid "Product already subscribed!"
-msgstr "Product already subscribed!"
-
-msgid "Products"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:41
+msgid "Create an scc_account"
 msgstr ""
 
-msgid "SUSE Customer Center"
-msgstr "SUSE Customer Center"
-
-msgid "SUSE Customer Center account"
-msgstr "SUSE Customer Center account"
-
-msgid "SUSE Subscription"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:48
+msgid "Update scc_account"
 msgstr ""
 
-msgid "SUSE Subscription: "
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:55
+msgid "Delete scc_account"
 msgstr ""
 
-msgid "SUSE Subscriptions"
-msgstr "SUSE Subscriptions"
-
-msgid "SUSE subscriptions"
-msgstr "SUSE subscriptions"
-
-msgid "Select products"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:61 ../app/controllers/api/v2/scc_accounts_controller.rb:62
+msgid "Test connection for scc_account"
 msgstr ""
 
-msgid "Subscribe SCC Product"
-msgstr "Subscribe SCC Product"
-
-msgid "Sync"
-msgstr "Sync"
-
-msgid "Sync Date"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:89
+msgid "Sync scc_account"
 msgstr ""
 
-msgid "Sync SUSE subscriptions"
-msgstr "Sync SUSE subscriptions"
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:103
+msgid "Bulk subscription of scc_products for scc_account"
+msgstr ""
 
-msgid "Sync SUSE subscriptions (Products)"
-msgstr "Sync SUSE subscriptions (Products)"
+#: ../app/controllers/api/v2/scc_products_controller.rb:15
+msgid "List all products for scc_account"
+msgstr ""
 
-msgid "Sync SUSE subscriptions (Repositories)"
-msgstr "Sync SUSE subscriptions (Repositories)"
+#: ../app/controllers/api/v2/scc_products_controller.rb:24
+msgid "Show an scc_account product"
+msgstr ""
 
+#: ../app/controllers/api/v2/scc_products_controller.rb:29
+msgid "Subscribe product"
+msgstr ""
+
+#: ../app/controllers/scc_accounts_controller.rb:64
 msgid "Sync task started."
 msgstr "Sync task started."
 
-msgid "Synchronize"
-msgstr "Synchronize"
+#: ../app/controllers/scc_accounts_controller.rb:66 ../app/controllers/scc_accounts_controller.rb:86
+msgid "Failed to add task to queue: %s"
+msgstr "Failed to add task to queue: %s"
 
+#: ../app/controllers/scc_accounts_controller.rb:68 ../app/controllers/scc_accounts_controller.rb:88
+msgid "Lock on SCC account already taken: %s"
+msgstr "Lock on SCC account already taken: %s"
+
+#: ../app/controllers/scc_accounts_controller.rb:81
 msgid "Task to subscribe products started."
 msgstr ""
 
-msgid "Test Connection"
-msgstr "Test Connection"
-
-msgid "Unknown"
+#: ../app/controllers/scc_accounts_controller.rb:83
+msgid "No products selected."
 msgstr ""
 
-msgid "Update SUSE repositories"
-msgstr ""
+#: ../app/lib/actions/scc_manager/subscribe_product.rb:5
+msgid "Product already subscribed!"
+msgstr "Product already subscribed!"
 
+#: ../app/lib/actions/scc_manager/subscribe_product.rb:35 action_names.rb:21
+msgid "Subscribe SCC Product"
+msgstr "Subscribe SCC Product"
+
+#: ../app/lib/actions/scc_manager/sync.rb:27 action_names.rb:22
+msgid "Sync SUSE subscriptions"
+msgstr "Sync SUSE subscriptions"
+
+#: ../app/lib/actions/scc_manager/sync_plan_account_repositories.rb:31
 msgid "Update SUSE repositories %s"
 msgstr ""
 
+#: ../app/lib/actions/scc_manager/sync_plan_account_repositories.rb:31
+msgid "Unknown"
+msgstr ""
+
+#: ../app/lib/actions/scc_manager/sync_plan_account_repositories.rb:33 action_names.rb:71
+msgid "Update SUSE repositories"
+msgstr ""
+
+#: ../app/lib/actions/scc_manager/sync_products.rb:34 action_names.rb:72
+msgid "Sync SUSE subscriptions (Products)"
+msgstr "Sync SUSE subscriptions (Products)"
+
+#: ../app/lib/actions/scc_manager/sync_repositories.rb:33 action_names.rb:73
+msgid "Sync SUSE subscriptions (Repositories)"
+msgstr "Sync SUSE subscriptions (Repositories)"
+
+#: ../app/models/scc_account.rb:59
+msgid "never synced"
+msgstr ""
+
+#: ../app/models/scc_account.rb:106
+msgid "Interval cannot be nil"
+msgstr ""
+
+#: ../app/models/scc_account.rb:113
+msgid "Interval not set correctly"
+msgstr ""
+
+#: ../app/models/scc_account.rb:118
+msgid "Cron expression is not valid!"
+msgstr ""
+
+#: ../app/models/scc_account_sync_plan_task_group.rb:5
+msgid "SUSE Subscription"
+msgstr ""
+
+#: ../app/views/scc_account_sync_plan_task_groups/_scc_account_sync_plan_task_groups.html.erb:1
+msgid "SUSE Subscription: "
+msgstr ""
+
+#: ../app/views/scc_accounts/_form.html.erb:6
+msgid "SUSE Customer Center account"
+msgstr "SUSE Customer Center account"
+
+#: ../app/views/scc_accounts/_form.html.erb:13
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr ""
 
-msgid "never synced"
+#: ../app/views/scc_accounts/_form.html.erb:15
+msgid "Base URL"
+msgstr "Base URL"
+
+#: ../app/views/scc_accounts/_form.html.erb:16
+msgid "Interval"
 msgstr ""
+
+#: ../app/views/scc_accounts/_form.html.erb:17
+msgid "Sync Date"
+msgstr ""
+
+#: ../app/views/scc_accounts/_form.html.erb:24
+msgid "Test Connection"
+msgstr "Test Connection"
+
+#: ../app/views/scc_accounts/edit.html.erb:1
+msgid "Edit %s"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:2
+msgid "SUSE subscriptions"
+msgstr "SUSE subscriptions"
+
+#: ../app/views/scc_accounts/index.html.erb:3
+msgid "Add SCC account"
+msgstr "Add SCC account"
+
+#: ../app/views/scc_accounts/index.html.erb:9
+msgid "Products"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:10
+msgid "Last synced"
+msgstr "Last synced"
+
+#: ../app/views/scc_accounts/index.html.erb:11
+msgid "Actions"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:24
+msgid "Select products"
+msgstr ""
+
+#: ../app/views/scc_accounts/index.html.erb:25
+msgid "Sync"
+msgstr "Sync"
+
+#: ../app/views/scc_accounts/index.html.erb:28
+msgid "Delete %s?"
+msgstr ""
+
+#: ../app/views/scc_accounts/new.html.erb:1
+msgid "Add SUSE Customer Center Account"
+msgstr "Add SUSE Customer Center Account"
+
+#: ../app/views/scc_accounts/show.html.erb:25
+msgid "SUSE Customer Center"
+msgstr "SUSE Customer Center"
+
+#: ../app/views/scc_accounts/show.html.erb:36
+msgid "Please sync your SUSE subscriptions first."
+msgstr "Please sync your SUSE subscriptions first."
+
+#: ../lib/foreman_scc_manager/engine.rb:64
+msgid "SUSE Subscriptions"
+msgstr "SUSE Subscriptions"
+
+#: gemspec.rb:2
+msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
+msgstr "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-22 13:59+0000\n"
-"PO-Revision-Date: 2019-10-22 13:59+0000\n"
+"POT-Creation-Date: 2019-11-12 12:27+0000\n"
+"PO-Revision-Date: 2019-11-12 12:27+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,6 +17,78 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:15
+msgid "List all scc_accounts"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:24
+msgid "Show scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:32
+msgid "Name of the scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:33
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:64
+msgid "Login id of scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:34
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:65
+msgid "Password of scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:35
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:66
+msgid "URL of SUSE for scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:36
+msgid "Interval for syncing scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:37
+msgid "Last Sync time of scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:41
+msgid "Create an scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:48
+msgid "Update scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:55
+msgid "Delete scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:61
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:62
+msgid "Test connection for scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:89
+msgid "Sync scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:103
+msgid "Bulk subscription of scc_products for scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_products_controller.rb:15
+msgid "List all products for scc_account"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_products_controller.rb:24
+msgid "Show an scc_account product"
+msgstr ""
+
+#: ../app/controllers/api/v2/scc_products_controller.rb:29
+msgid "Subscribe product"
+msgstr ""
 
 #: ../app/controllers/scc_accounts_controller.rb:64
 msgid "Sync task started."
@@ -44,11 +116,11 @@ msgstr ""
 msgid "Product already subscribed!"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/subscribe_product.rb:35 action_names.rb:1
+#: ../app/lib/actions/scc_manager/subscribe_product.rb:35 action_names.rb:21
 msgid "Subscribe SCC Product"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync.rb:27 action_names.rb:2
+#: ../app/lib/actions/scc_manager/sync.rb:27 action_names.rb:22
 msgid "Sync SUSE subscriptions"
 msgstr ""
 
@@ -61,31 +133,31 @@ msgid "Unknown"
 msgstr ""
 
 #: ../app/lib/actions/scc_manager/sync_plan_account_repositories.rb:33
-#: action_names.rb:3
+#: action_names.rb:71
 msgid "Update SUSE repositories"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_products.rb:34 action_names.rb:4
+#: ../app/lib/actions/scc_manager/sync_products.rb:34 action_names.rb:72
 msgid "Sync SUSE subscriptions (Products)"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_repositories.rb:33 action_names.rb:5
+#: ../app/lib/actions/scc_manager/sync_repositories.rb:33 action_names.rb:73
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr ""
 
-#: ../app/models/scc_account.rb:58
+#: ../app/models/scc_account.rb:59
 msgid "never synced"
 msgstr ""
 
-#: ../app/models/scc_account.rb:105
+#: ../app/models/scc_account.rb:106
 msgid "Interval cannot be nil"
 msgstr ""
 
-#: ../app/models/scc_account.rb:112
+#: ../app/models/scc_account.rb:113
 msgid "Interval not set correctly"
 msgstr ""
 
-#: ../app/models/scc_account.rb:117
+#: ../app/models/scc_account.rb:118
 msgid "Cron expression is not valid!"
 msgstr ""
 
@@ -170,7 +242,7 @@ msgstr ""
 msgid "Please sync your SUSE subscriptions first."
 msgstr ""
 
-#: ../lib/foreman_scc_manager/engine.rb:45
+#: ../lib/foreman_scc_manager/engine.rb:64
 msgid "SUSE Subscriptions"
 msgstr ""
 
