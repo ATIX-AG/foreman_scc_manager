@@ -22,8 +22,8 @@ module ForemanSccManager
 
     initializer 'foreman_scc_manager.register_plugin', :before => :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_scc_manager do
-        requires_foreman '>= 1.18'
-        requires_foreman_plugin 'katello', '>= 3.7.0'
+        requires_foreman '>= 1.22'
+        requires_foreman_plugin 'katello', '>= 3.12.0'
 
         apipie_documented_controllers ["#{ForemanSccManager::Engine.root}/app/controllers/api/v2/*.rb"]
 

@@ -5,7 +5,7 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.3
+Version: 1.7.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -99,6 +99,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Nov 12 2019 Markus Bucher <bucher@atix.de> - 1.7.0-1
+- Add API
+
 * Wed Aug 07 2019 bucher@atix.de - 1.6.3-1
 - Fix update non-existing repositories
 

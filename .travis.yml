@@ -16,7 +16,8 @@ env:
   global:
     - TESTOPTS=-v
   matrix:
-    - FOREMAN_CORE_BRANCH=1.20-stable KATELLO_CORE_BRANCH=KATELLO-3.9
+    - FOREMAN_CORE_BRANCH=1.22-stable KATELLO_CORE_BRANCH=KATELLO-3.12
+    - FOREMAN_CORE_BRANCH=1.23-stable KATELLO_CORE_BRANCH=KATELLO-3.13
 addons:
   apt:
     packages:
