@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_development_dependency 'rdoc', '~> 4'
-  s.add_development_dependency 'rubocop', '~> 0.59'
+  s.add_development_dependency 'rubocop', '~> 0.75.0'
 
   # Testing
   s.add_development_dependency 'webmock'

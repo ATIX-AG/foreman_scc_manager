@@ -10,7 +10,7 @@ module ForemanSccManager
     config.autoload_paths += Dir["#{config.root}/app/overrides"]
 
     config.to_prepare do
-      ForemanTasks::RecurringLogic.send :include, Concerns::RecurringLogicExtensions
+      ForemanTasks::RecurringLogic.include Concerns::RecurringLogicExtensions
     end
 
     # Add any db migrations
