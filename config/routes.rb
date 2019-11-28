@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get 'auto_complete_search'
     end
     member do
-      put 'test_connection'
+      patch 'test_connection'
       put 'sync'
       put 'bulk_subscribe'
     end
