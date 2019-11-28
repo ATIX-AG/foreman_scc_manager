@@ -26,7 +26,7 @@
                                    id: 'test_scc_connection_btn',
                                    spinner_id: 'test_scc_connection_indicator',
                                    class: 'btn-default',
-                                   'data-url': test_connection_scc_accounts_path(scc_account_id: @scc_account)) %>
+                                   'data-url': @scc_account.id ? test_connection_scc_account_path : test_connection_scc_accounts_path ) %>
             </div>
             <div class='col-md-2'>
               <span id='connection_test_result'></span>
