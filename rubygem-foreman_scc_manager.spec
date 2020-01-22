@@ -5,21 +5,21 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.7.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.8.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPL-3.0
 URL: https://www.orcharhino.com/
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.18.0
+Requires: foreman >= 1.22.0
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks)
-Requires: %{?scl_prefix}rubygem(katello) >= 3.7
+Requires: %{?scl_prefix}rubygem(katello) >= 3.12
 BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.18
-BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.7
+BuildRequires: foreman-plugin >= 1.22
+BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.12
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -102,6 +102,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jan 22 2020 Markus Bucher <bucher@atix.de> - 1.8.0-1
+- Allow foreman-tasks 1.0.0
+- Add product_id in scc_product view
+
 * Tue Nov 19 2019 Markus Bucher <bucher@atix.de> - 1.7.0-2
 - Add apipie-cache generation
 
