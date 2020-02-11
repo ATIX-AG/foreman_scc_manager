@@ -13,7 +13,8 @@
         <%= text_f f, :login, :help_block => _("Use your 'Organization credentials' obtained from the SUSE Customer Center.") %>
         <%= password_f f, :password %>
         <%= text_f f, :base_url, label: _('Base URL') %>
-        <%= selectable_f f, :interval, SccAccount::TYPES, label: _('Interval') %>
+        <%= selectable_f f, :interval, SccAccount::TYPES, {},
+            { :label => _('Sync interval'), :help_block => _("The sync interval is used to periodically update the SCC authentication tokens of any imported products.") } %>
         <%= field f, :sync_date, label: _('Sync Date') do
           f.datetime_field :sync_date, placeholder: Time.now
         end %>
