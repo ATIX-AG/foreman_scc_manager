@@ -56,7 +56,9 @@ module ForemanSccManager
         end
 
         # Add a new role called 'SccManager' if it doesn't exist
-        role 'SccManager', %i[view_scc use_scc new_scc edit_scc delete_scc sync_scc]
+        role 'SccManager',
+             %i[view_scc use_scc new_scc edit_scc delete_scc sync_scc],
+             'Role granting permissons to manage SUSE Subscriptions'
 
         # add menu entry
         menu :top_menu, :scc_manager,
