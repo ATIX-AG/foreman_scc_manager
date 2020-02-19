@@ -1,20 +1,35 @@
+---
 language: ruby
 rvm:
   - 2.5
+services:
+  - postgresql
+before_install:
+  - sudo add-apt-repository -y ppa:qpid/released
+  - sudo apt-get -q update
+  - sudo apt-get install -y libqpidclient-dev libqpidmessaging-dev
 install:
   - unset BUNDLE_GEMFILE
   - cd ..
   - git clone https://github.com/theforeman/foreman.git -b ${FOREMAN_CORE_BRANCH} --depth 1
+  - git clone https://github.com/katello/katello.git -b ${KATELLO_CORE_BRANCH} --depth 1
+    #- sed -i 's/^.*qpid_messaging.*$//' katello/katello.gemspec katello/lib/katello.rb
+  - sed -i 's/foreman-tasks.*$/foreman-tasks", "~> 0.13", ">= 0.14.1", "< 0.17"/' katello/katello.gemspec
   - cd foreman
+  - echo "gemspec :path => '../katello'" > bundler.d/katello.local.rb
   - echo "gemspec :path => '../foreman_scc_manager'" > bundler.d/foreman_scc_manager.local.rb
   - ln -s settings.yaml.test config/settings.yaml
-  - ln -s database.yml.example config/database.yml
-  - bundle install --jobs=3 --retry=3 --without journald development postgresql mysql2 console
+  - "echo -e 'test:\n  adapter: postgresql\n  database: travis_ci_test' > config/database.yml"
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - bundle install --jobs=3 --retry=3 --without journald development mysql2 console qpid_messaging
+  - bundle exec rake db:migrate
 script:
-  - bundle exec rubocop ../foreman_scc_manager
+  - bundle exec rake foreman_scc_manager:rubocop
+  - bundle exec rake test:foreman_scc_manager
 env:
   global:
-    - TESTOPTS=-v
+    - TEST_OPTS=-v
+    - RAILS_ENV=test
   matrix:
     - FOREMAN_CORE_BRANCH=1.22-stable KATELLO_CORE_BRANCH=KATELLO-3.12
     - FOREMAN_CORE_BRANCH=1.23-stable KATELLO_CORE_BRANCH=KATELLO-3.13
@@ -22,8 +37,9 @@ env:
 addons:
   apt:
     packages:
-    - nodejs
-    - git
-    - libsqlite3-dev
-    - zlib1g-dev
-    - libvirt-dev
+      - nodejs
+      - git
+      - libpq-dev
+      - zlib1g-dev
+      - libvirt-dev
+...
