@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-12 12:27+0000\n"
-"PO-Revision-Date: 2019-11-12 12:27+0000\n"
+"POT-Creation-Date: 2020-03-02 13:47+0000\n"
+"PO-Revision-Date: 2020-03-02 13:47+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -116,11 +116,11 @@ msgstr ""
 msgid "Product already subscribed!"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/subscribe_product.rb:35 action_names.rb:21
+#: ../app/lib/actions/scc_manager/subscribe_product.rb:35 action_names.rb:68
 msgid "Subscribe SCC Product"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync.rb:27 action_names.rb:22
+#: ../app/lib/actions/scc_manager/sync.rb:27 action_names.rb:69
 msgid "Sync SUSE subscriptions"
 msgstr ""
 
@@ -133,15 +133,15 @@ msgid "Unknown"
 msgstr ""
 
 #: ../app/lib/actions/scc_manager/sync_plan_account_repositories.rb:33
-#: action_names.rb:71
+#: action_names.rb:70
 msgid "Update SUSE repositories"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_products.rb:34 action_names.rb:72
+#: ../app/lib/actions/scc_manager/sync_products.rb:34 action_names.rb:71
 msgid "Sync SUSE subscriptions (Products)"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_repositories.rb:33 action_names.rb:73
+#: ../app/lib/actions/scc_manager/sync_repositories.rb:33 action_names.rb:72
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr ""
 
@@ -182,15 +182,21 @@ msgstr ""
 msgid "Base URL"
 msgstr ""
 
-#: ../app/views/scc_accounts/_form.html.erb:16
-msgid "Interval"
+#: ../app/views/scc_accounts/_form.html.erb:17
+msgid "Sync interval"
 msgstr ""
 
 #: ../app/views/scc_accounts/_form.html.erb:17
+msgid ""
+"The sync interval is used to periodically update the SCC authentication tokens"
+" of any imported products."
+msgstr ""
+
+#: ../app/views/scc_accounts/_form.html.erb:18
 msgid "Sync Date"
 msgstr ""
 
-#: ../app/views/scc_accounts/_form.html.erb:24
+#: ../app/views/scc_accounts/_form.html.erb:25
 msgid "Test Connection"
 msgstr ""
 
@@ -242,7 +248,7 @@ msgstr ""
 msgid "Please sync your SUSE subscriptions first."
 msgstr ""
 
-#: ../lib/foreman_scc_manager/engine.rb:64
+#: ../lib/foreman_scc_manager/engine.rb:66
 msgid "SUSE Subscriptions"
 msgstr ""
 
