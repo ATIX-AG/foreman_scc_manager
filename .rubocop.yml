@@ -1,9 +1,13 @@
+require:
+  - rubocop-rails
+
 # TODO: remove this file by either moving cops here or fixing code
 inherit_from:
   - .rubocop_todo.yml
 
 AllCops:
   TargetRubyVersion: 2.3
+  TargetRailsVersion: 5.2
   Exclude:
     - '*.spec'
     - 'doc/plugins/**'

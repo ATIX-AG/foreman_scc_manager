@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rdoc', '~> 4'
   s.add_development_dependency 'rubocop', '~> 0.75.0'
+  s.add_development_dependency 'rubocop-rails', '~> 2.0.1'
 
   # Testing
   s.add_development_dependency 'webmock'
