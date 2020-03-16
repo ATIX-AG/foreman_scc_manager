@@ -26,7 +26,7 @@ $ ->
     $('#connection_test_result')[0].innerHTML = ''
     $('#test_scc_connection_indicator').show()
     $.ajax event.target.parentNode.dataset['url'],
-      type: 'PUT'
+      type: 'POST'
       dataType: 'JSON'
       data: $('form').serialize()
       success: (result) ->
