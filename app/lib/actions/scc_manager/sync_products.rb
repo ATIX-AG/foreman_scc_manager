@@ -1,12 +1,15 @@
 module Actions
   module SccManager
     class SyncProducts < Actions::EntryAction
+      include EncryptValue
+
       def plan(scc_account)
         action_subject(scc_account)
+        password = encrypt_field(scc_account.password)
         plan_self(id: scc_account.id,
                   base_url: scc_account.base_url,
                   login: scc_account.login,
-                  password: scc_account.password)
+                  password: password)
       end
 
       def run
@@ -15,7 +18,7 @@ module Actions
           products = ::SccManager.get_scc_data(input.fetch(:base_url),
                                                '/connect/organizations/products',
                                                input.fetch(:login),
-                                               input.fetch(:password))
+                                               decrypt_field(input.fetch(:password)))
           output[:data] = ::SccManager.sanitize_products(products).values
         rescue StandardError
           output[:status] = 'FAILURE'
@@ -32,10 +35,6 @@ module Actions
 
       def humanized_name
         _('Sync SUSE subscriptions (Products)')
-      end
-
-      def humanized_input
-        input.dup.update(password: '***')
       end
 
       def humanized_output
