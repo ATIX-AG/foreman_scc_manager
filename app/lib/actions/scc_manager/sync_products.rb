@@ -20,7 +20,9 @@ module Actions
                                                input.fetch(:login),
                                                decrypt_field(input.fetch(:password)))
           output[:data] = ::SccManager.sanitize_products(products).values
-        rescue StandardError
+        rescue StandardError => e
+          ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Products: #{e}"
+          output[:error] = e.to_s
           output[:status] = 'FAILURE'
         end
       end
