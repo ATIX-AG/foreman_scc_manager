@@ -8,8 +8,8 @@ module SccManager
       uri.scheme = URI.parse(proxy_config[:host]).scheme
       uri.host = URI.parse(proxy_config[:host]).host
       uri.port = proxy_config[:port].try(:to_s)
-      uri.user = proxy_config[:user].try(:to_s)
-      uri.password = proxy_config[:password].try(:to_s)
+      uri.user = proxy_config[:user]
+      uri.password = proxy_config[:password] if uri.user.present?
 
       RestClient.proxy = uri.to_s
     end

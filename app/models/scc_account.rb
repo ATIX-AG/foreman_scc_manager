@@ -166,7 +166,8 @@ class SccAccount < ApplicationRecord
   def test_connection
     get_scc_data('/connect/organizations/subscriptions')
     true
-  rescue StandardError
+  rescue StandardError => e
+    logger.warn "Error occurred while testing SCC-Connection to Account #{self}: #{e}"
     false
   end
 
