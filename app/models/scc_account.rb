@@ -166,7 +166,8 @@ class SccAccount < ApplicationRecord
   def test_connection
     get_scc_data('/connect/organizations/subscriptions')
     true
-  rescue StandardError
+  rescue StandardError => e
+    ::Foreman::Logging.logger('foreman_scc_manager').warn "Error occurred while testing SCC-Connection to Account #{self}: #{e}"
     false
   end
 
@@ -185,10 +186,10 @@ class SccAccount < ApplicationRecord
       cached_repository.save!
       upstream_repo_ids << ur['id']
     end
-    logger.debug "Found #{upstream_repo_ids.length} repositories"
+    ::Foreman::Logging.logger('foreman_scc_manager').debug "Found #{upstream_repo_ids.length} repositories"
     # delete repositories beeing removed upstream
     to_delete = scc_repositories.where.not(scc_id: upstream_repo_ids)
-    logger.debug "Deleting #{to_delete.count} old repositories"
+    ::Foreman::Logging.logger('foreman_scc_manager').debug "Deleting #{to_delete.count} old repositories"
     to_delete.destroy_all
   end
 
@@ -208,10 +209,10 @@ class SccAccount < ApplicationRecord
       cached_product.save!
       upstream_product_ids << up['id']
     end
-    logger.debug "Found #{upstream_product_ids.length} products"
+    ::Foreman::Logging.logger('foreman_scc_manager').debug "Found #{upstream_product_ids.length} products"
     # delete products beeing removed upstream
     to_delete = scc_products.where.not(scc_id: upstream_product_ids)
-    logger.debug "Deleting #{to_delete.count} old products"
+    ::Foreman::Logging.logger('foreman_scc_manager').debug "Deleting #{to_delete.count} old products"
     to_delete.destroy_all
     # rewire product to product relationships
     upstream_products.each do |up|
@@ -219,7 +220,7 @@ class SccAccount < ApplicationRecord
       begin
         scc_products.find_by!(scc_id: up['id']).update!(scc_extensions: extensions)
       rescue ActiveRecord::RecordNotFound
-        logger.info "Failed to find parent scc_product '#{up['name']}'."
+        ::Foreman::Logging.logger('foreman_scc_manager').info "Failed to find parent scc_product '#{up['name']}'."
       end
     end
   end

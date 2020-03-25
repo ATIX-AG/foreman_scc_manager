@@ -19,7 +19,9 @@ module Actions
                                                     input[:login],
                                                     decrypt_field(input[:password]))
           output[:status] = 'SUCCESS'
-        rescue StandardError
+        rescue StandardError => e
+          ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Repositories: #{e}"
+          output[:error] = e.to_s
           output[:status] = 'FAILURE'
         end
       end
