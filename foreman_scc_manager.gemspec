@@ -24,5 +24,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'webmock'
 
   s.add_dependency 'foreman-tasks', '>= 0.10'
-  s.add_dependency 'rails', '~> 5.1'
+  s.add_dependency 'rails', '>= 5.1'
 end
