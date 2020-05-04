@@ -5,7 +5,7 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.3
+Version: 1.8.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -102,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon May 04 2020 Markus Bucher <bucher@atix.de> - 1.8.4-1
+- looser gem dependency on rails
+
 * Wed Mar 25 2020 Markus Bucher <bucher@atix.de> - 1.8.3-1
 - Fix test-connection in http-proxy-scenario
 - Improve logging
