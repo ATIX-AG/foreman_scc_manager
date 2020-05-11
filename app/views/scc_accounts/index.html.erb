@@ -21,11 +21,12 @@
         <td><%= link_to_if(scc_account.sync_task, scc_account.sync_status, scc_account.sync_task) %></td>
         <td>
           <%= action_buttons(
-            display_link_if_authorized(_("Select products"), hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer)),
+            display_link_if_authorized(_("Select products"), hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer, :permission => 'view_scc_accounts')),
             display_link_if_authorized(_("Sync"), hash_for_sync_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer),
                                        :method => :put),
-            display_delete_if_authorized(hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer),
+            display_delete_if_authorized(hash_for_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer, :permission => 'delete_scc_accounts'),
                                          :data => { :confirm => _("Delete %s?") % scc_account.to_s })
+
           ) %>
         </td>
       </tr>

@@ -121,7 +121,7 @@ class SccAccountsController < ApplicationController
     when 'sync', 'test_connection'
       :sync
     when 'bulk_subscribe'
-      :bulk_subscribe
+      :use
     else
       super
     end
