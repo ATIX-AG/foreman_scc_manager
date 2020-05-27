@@ -29,36 +29,47 @@ module ForemanSccManager
 
         # Add permissions
         security_block :foreman_scc_manager do
-          permission :view_scc, {
-            :'foreman_scc_manager/scc_accounts' => [:show, :index],
-            :'api/v2/scc_accounts' => [:show, :index]
-          }
-          permission :use_scc, {
-            :'foreman_scc_manager/scc_accounts' => [:bulk_subscribe],
-            :'api/v2/scc_accounts' => [:bulk_subscribe]
-          }
-          permission :new_scc, {
-            :'foreman_scc_manager/scc_accounts' => [:new, :create],
-            :'api/v2/scc_accounts' => [:create]
-          }
-          permission :edit_scc, {
-            :'foreman_scc_manager/scc_accounts' => [:edit, :update],
-            :'api/v2/scc_accounts' => [:update]
-          }
-          permission :delete_scc, {
-            :'foreman_scc_manager/scc_accounts' => [:destroy],
-            :'api/v2/scc_accounts' => [:destroy]
-          }
-          permission :sync_scc, {
-            :'foreman_scc_manager/scc_accounts' => [:sync],
-            :'api/v2/scc_accounts' => [:sync]
-          }
+          permission :view_scc_accounts,
+                     { :scc_accounts => [:show, :index],
+                       :'api/v2/scc_accounts' => [:show, :index] },
+                     :resource_type => 'SccAccount'
+
+          permission :use_scc_accounts,
+                     { :scc_accounts => [:bulk_subscribe],
+                       :'api/v2/scc_accounts' => [:bulk_subscribe] },
+                     :resource_type => 'SccAccount'
+
+          permission :new_scc_accounts,
+                     { :scc_accounts => [:new, :create],
+                       :'api/v2/scc_accounts' => [:create] },
+                     :resource_type => 'SccAccount'
+
+          permission :edit_scc_accounts,
+                     { :scc_accounts => [:edit, :update],
+                       :'api/v2/scc_accounts' => [:update] },
+                     :resource_type => 'SccAccount'
+
+          permission :delete_scc_accounts,
+                     { :scc_accounts => [:destroy],
+                       :'api/v2/scc_accounts' => [:destroy] },
+                     :resource_type => 'SccAccount'
+
+          permission :sync_scc_accounts,
+                     { :scc_accounts => [:sync],
+                       :'api/v2/scc_accounts' => [:sync] },
+                     :resource_type => 'SccAccount'
         end
 
         # Add a new role called 'SccManager' if it doesn't exist
         role 'SccManager',
-             %i[view_scc use_scc new_scc edit_scc delete_scc sync_scc],
+             %i[view_scc_accounts use_scc_accounts new_scc_accounts edit_scc_accounts delete_scc_accounts sync_scc_accounts],
              'Role granting permissons to manage SUSE Subscriptions'
+
+        role 'SccViewer',
+             %i[view_scc_accounts use_scc_accounts sync_scc_accounts create_products view_products],
+             'Role granting permissons to view and use SUSE Subscriptions'
+
+        add_all_permissions_to_default_roles
 
         # add menu entry
         menu :top_menu, :scc_manager,
