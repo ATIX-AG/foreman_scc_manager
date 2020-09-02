@@ -11,7 +11,7 @@
       </span>
       <%= scc_product.friendly_name %>
       <% if scc_product.scc_extensions.any? %>
-        <ul>
+        <ul style='padding-left: 20px;'>
           <% scc_product.scc_extensions.order(:friendly_name).each do |scc_extension| %>
             <% render_list_node(f, scc_extension, parent_id + "_" + scc_product.id.to_s) %>
           <% end %>
