@@ -24,6 +24,9 @@ for how to install Foreman plugins
 | 1.16            | 3.5             | <= 1.3.0       |
 | 1.15            | 3.4             | ~> 1.1.0       |
 
+## Documentation
+The plugindocumentation can be found at https://docs.orcharhino.com/sources/management_ui/the_content_menu/suse_subscriptions.html.
+
 ## Contributing
 
 Fork and send a Pull Request. Thanks!
