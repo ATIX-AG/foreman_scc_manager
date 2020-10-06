@@ -1,4 +1,5 @@
 class SccAccountsController < ApplicationController
+  helper_method :scc_filtered_products
   before_action :find_organization
   before_action :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
   include Foreman::Controller::AutoCompleteSearch
@@ -132,6 +133,4 @@ class SccAccountsController < ApplicationController
   def scc_filtered_products
     @scc_filtered_products=@scc_account.scc_products.where(product_type: 'base').order(:friendly_name).select{ |prod| not prod.scc_repositories.empty? }	
   end
-  helper_method :scc_filtered_products
-
 end
