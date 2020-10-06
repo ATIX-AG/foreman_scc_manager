@@ -126,4 +126,12 @@ class SccAccountsController < ApplicationController
       super
     end
   end
+
+ 
+  # function filters valid products and removes all top level products without valid repositories
+  def scc_filtered_products
+    @scc_filtered_products=@scc_account.scc_products.where(product_type: 'base').order(:friendly_name).select{ |prod| not prod.scc_repositories.empty? }	
+  end
+  helper_method :scc_filtered_products
+
 end
