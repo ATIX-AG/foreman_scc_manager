@@ -10,6 +10,7 @@
         <% end %>
       </span>
       <%= scc_product.friendly_name %>
+      <%= "(Repositories: #{scc_product.scc_repositories.count().to_s}, id #{scc_product.scc_id})" %>
       <% if scc_product.scc_extensions.any? %>
         <ul style='padding-left: 20px;'>
           <% scc_product.scc_extensions.order(:friendly_name).each do |scc_extension| %>
@@ -24,12 +25,11 @@
   <ul class="nav nav-tabs" data-tabs="tabs">
     <li class="active"><a href="#primary" data-toggle="tab"><%= _("SUSE Customer Center") %></a></li>
   </ul>
-
   <div class="tab-content">
     <div class="tab-pane active" id="primary">
       <ul>
         <% if @scc_account.synced %>
-          <% @scc_account.scc_products.where(product_type: 'base').order(:friendly_name).each do |scc_product| %>
+          <% scc_filtered_products.each do |scc_product| %>
             <% render_list_node(f, scc_product) %>
           <% end %>
         <% else %>
