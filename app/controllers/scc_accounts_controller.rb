@@ -133,6 +133,11 @@ class SccAccountsController < ApplicationController
   # scc.joins (...) does the same as includes, but does not load products with empty repositories, needs 'distict' keyword to avoid producing double entries
   # WARNING: includes and joins also load the repositories entries from the data base  
  def scc_filtered_products
-    @scc_filtered_products=@scc_account.scc_products.joins(:scc_repositories).includes(:scc_extensions).distinct.where(product_type: 'base').order(:friendly_name)
+    @scc_filtered_products=@scc_account.scc_products.joins(:scc_repositories).includes(:scc_extensions).distinct.where(product_type: 'base').order(:friendly_name).to_a
+    @scc_filtered_products.each do |product|
+      reduced_extensions = product.scc_extensions.select {|ext| ext.scc_repositories if ext.scc_repositories.any?} 
+      product.scc_extensions = reduced_extensions
+    end
+    #@scc_filtered_products
   end
 end
