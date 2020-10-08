@@ -8,6 +8,11 @@ class SccAccountsController < ApplicationController
   def index
     @scc_accounts = resource_base.search_for(params[:search], order: params[:order])
                                  .paginate(page: params[:page])
+
+    # overwrite the product list with filtered products that do not include products with empty repositories
+    @scc_accounts.each do |scc_account|
+      scc_account.scc_products = scc_account.scc_products.only_products_with_repos.order(:friendly_name)
+    end
   end
 
   # GET /scc_accounts/new
@@ -128,11 +133,10 @@ class SccAccountsController < ApplicationController
     end
   end
 
-  # Function filters valid products and removes all top level products without valid repositories
-  # scc.products.includes(...) statement makes the SQL database load the repositories in the same query as the product (no additional queries for every repositoriy)
-  # scc.joins (...) does the same as includes, but does not load products with empty repositories, needs 'distict' keyword to avoid producing double entries
-  # WARNING: includes and joins also load the repositories entries from the data base  
- def scc_filtered_products
-    @scc_filtered_products=@scc_account.scc_products.joins(:scc_repositories).includes(:scc_extensions).distinct.where(product_type: 'base').order(:friendly_name)
+  # Function filters valid products and removes all products without valid repositories
+  # The @scc_accounts and their products are set in the index function.
+  # The order call is necessary to apply the ordering to repository that have already been loaded from the database.
+  def scc_filtered_products
+    @scc_filtered_products = @scc_account.scc_products.where(product_type: 'base').order(:friendly_name)
   end
 end
