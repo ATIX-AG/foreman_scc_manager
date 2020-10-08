@@ -1,6 +1,6 @@
 <% javascript 'foreman_scc_manager/scc_accounts' %>
 <%= form_for([:bulk_subscribe, @scc_account], method: :put) do |f| %>
-  <% def render_list_node(f, scc_product, parent_id = "") %>
+  <% def render_list_node(f, scc_product, parent_id = "", index) %>
     <li>
       <span class="scc_product_checkbox" id="<%= "scc_product_span_#{parent_id + "_" + scc_product.id.to_s}" %>" <%= "data-parent=scc_product_span_#{parent_id}" if parent_id != "" %>>
         <% if scc_product.product %>
@@ -9,12 +9,12 @@
           <%= check_box_tag("scc_account[scc_subscribe_product_ids][]", scc_product.id, false) %>
         <% end %>
       </span>
-      <%= scc_product.friendly_name %>
+     <%= index.to_s + ") " + scc_product.friendly_name %>
       <%= "(Repositories: #{scc_product.scc_repositories.count().to_s}, id #{scc_product.scc_id})" %>
       <% if scc_product.scc_extensions.any? %>
         <ul style='padding-left: 20px;'>
-          <% scc_product.scc_extensions.order(:friendly_name).each do |scc_extension| %>
-            <% render_list_node(f, scc_extension, parent_id + "_" + scc_product.id.to_s) %>
+          <% scc_product.scc_extensions.order(:friendly_name).each_with_index do |scc_extension, index_2| %>
+            <% render_list_node(f, scc_extension, parent_id + "_" + scc_product.id.to_s, index.to_s + "." + (index_2+1).to_s) %>
           <% end %>
         </ul>
       <% end %>
@@ -29,8 +29,8 @@
     <div class="tab-pane active" id="primary">
       <ul>
         <% if @scc_account.synced %>
-          <% scc_filtered_products.each do |scc_product| %>
-            <% render_list_node(f, scc_product) %>
+          <% scc_filtered_products.each_with_index do |scc_product, index| %>
+            <% render_list_node(f, scc_product, (index+1).to_s) %>
           <% end %>
         <% else %>
           <%= _('Please sync your SUSE subscriptions first.') %>
