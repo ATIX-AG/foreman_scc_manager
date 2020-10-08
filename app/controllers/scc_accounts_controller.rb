@@ -130,8 +130,9 @@ class SccAccountsController < ApplicationController
 
   # Function filters valid products and removes all top level products without valid repositories
   # scc.products.includes(...) statement makes the SQL database load the repositories in the same query as the product (no additional queries for every repositoriy)
-  # scc.joins (...) does the same as includes, but does not load products with empty repositories
-  def scc_filtered_products
-    @scc_filtered_products=@scc_account.scc_products.joins(:scc_repositories).where(product_type: 'base').order(:friendly_name)	
+  # scc.joins (...) does the same as includes, but does not load products with empty repositories, needs 'distict' keyword to avoid producing double entries
+  # WARNING: includes and joins also load the repositories entries from the data base  
+ def scc_filtered_products
+    @scc_filtered_products=@scc_account.scc_products.joins(:scc_repositories).includes(:scc_extensions).distinct.where(product_type: 'base').order(:friendly_name)
   end
 end
