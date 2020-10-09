@@ -1,6 +1,8 @@
 class SccProduct < ApplicationRecord
   include Authorizable
   include ForemanTasks::Concerns::ActionSubject
+  
+  scope :only_products_with_repos, -> { joins(:scc_repositories).distinct.order(:friendly_name) }
 
   self.include_root_in_json = false
 
