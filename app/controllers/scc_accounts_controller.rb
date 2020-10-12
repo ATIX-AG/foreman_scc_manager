@@ -11,7 +11,7 @@ class SccAccountsController < ApplicationController
 
     # overwrite the product list with filtered products that do not include products with empty repositories
     @scc_accounts.each do |scc_account|
-      scc_account.scc_products = scc_account.scc_products.only_products_with_repos
+      scc_account.scc_products = scc_account.scc_products.only_products_with_repos.order(:friendly_name)
     end
   end
 
@@ -134,8 +134,9 @@ class SccAccountsController < ApplicationController
   end
 
   # Function filters valid products and removes all products without valid repositories
-  # @todo Find out why the connection between scc_products and scc_extensions works out of the box
- def scc_filtered_products
-    @scc_filtered_products=@scc_account.scc_products.only_products_with_repos.where(product_type: 'base')
+  # The @scc_accounts and their products are set in the index function.
+  # The order call is necessary to apply the ordering to repository that have already been loaded from the database.
+  def scc_filtered_products
+    @scc_filtered_products=@scc_account.scc_products.where(product_type: 'base').order(:friendly_name)
   end
 end
