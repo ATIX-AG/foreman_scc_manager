@@ -14,7 +14,7 @@ end
 
 namespace :jenkins do
   desc 'Test ForemanSccManager with XML output for jenkins'
-  task 'foreman_scc_manager' do
+  task 'foreman_scc_manager' => :environment do
     Rake::Task['jenkins:setup:minitest'].invoke
     Rake::Task['rake:test:foreman_scc_manager'].invoke
   end
