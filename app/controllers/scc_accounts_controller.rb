@@ -137,6 +137,6 @@ class SccAccountsController < ApplicationController
   # The @scc_accounts and their products are set in the index function.
   # The order call is necessary to apply the ordering to repository that have already been loaded from the database.
   def scc_filtered_products
-    @scc_filtered_products=@scc_account.scc_products.where(product_type: 'base').order(:friendly_name)
+    @scc_filtered_products = @scc_account.scc_products.where(product_type: 'base').order(:friendly_name)
   end
 end
