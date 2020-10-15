@@ -39,9 +39,6 @@ Naming/FileName:
 Style/WordArray:
   Enabled: false
 
-Style/BracesAroundHashParameters:
-  Enabled: false
-
 Style/RescueModifier:
   Enabled: false
 
@@ -109,3 +106,12 @@ Style/CaseEquality:
 
 Style/ConditionalAssignment:
   Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true

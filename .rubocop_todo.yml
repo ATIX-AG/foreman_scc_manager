@@ -31,3 +31,8 @@ Rails/ReflectionClassName:
 # SupportedStyles: strict, flexible
 Rails/TimeZone:
   Enabled: false
+
+Rails/BulkChangeTable:
+  Exclude: 
+    - db/migrate/20180321000000_change_sync_status_to_sync_task.rb
+    - db/migrate/20190417202427_add_recurring_sync.foreman_scc_manager.rb
