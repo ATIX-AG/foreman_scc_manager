@@ -2,7 +2,8 @@ module ForemanSccManager
   module FixturesSupport
     FIXTURE_CLASSES = {
       scc_accounts: ::SccAccount,
-      scc_products: ::SccProduct
+      scc_products: ::SccProduct,
+      scc_repositories: ::SccRepository
     }.freeze
 
     def self.set_fixture_classes(test_class)

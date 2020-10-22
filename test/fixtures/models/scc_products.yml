@@ -19,3 +19,27 @@ two:
   friendly_name: number two
   description: lorem ipsum dolor sit amet
   product_type: extras
+
+three:
+  scc_account_id: test_account1
+  scc_id: 333
+  name: three
+  version: 3
+  arch: x86_128
+  friendly_name: number three
+  description: lorem ipsum dolor sit amet
+  product_type: base
+
+# create a couple of products as scc_extensions
+<% 1.upto(10) do |i| %>
+p_extension_<%= i %>:
+  scc_account_id: test_account1
+  scc_id: <%= i %>
+  name: p_ext_<%= i%> 
+  version: 3
+  arch: x86_128
+  friendly_name: number <%= i%> 
+  description: lorem ipsum dolor sit amet
+  product_type: extension
+<% end %>
+
