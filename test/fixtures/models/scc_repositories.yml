@@ -1,0 +1,15 @@
+# repositories for testing the empty repository filtering
+<% 1.upto(8) do |i| %>
+repo_<%= i %>:
+  id: <%= i %>
+  scc_account_id: 1
+  scc_id: <%= 63 + i %>
+  name: SLE10-Debuginfo-Updates_<%= i %>
+  distro_target: sles_<%= i %>
+  description: SLE10-Debuginfo-Updates for sles-10-ppc_<%= i %>
+  url: https://updates.suse.com/repo/example_<%= i %>
+  token: token_<%= i %>
+  autorefresh: true
+  installer_updates: false
+<% end %>
+
