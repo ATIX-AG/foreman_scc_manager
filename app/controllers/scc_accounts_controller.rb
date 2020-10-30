@@ -1,4 +1,5 @@
 class SccAccountsController < ApplicationController
+  helper_method :scc_filtered_products
   before_action :find_organization
   before_action :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
   include Foreman::Controller::AutoCompleteSearch
@@ -7,6 +8,11 @@ class SccAccountsController < ApplicationController
   def index
     @scc_accounts = resource_base.search_for(params[:search], order: params[:order])
                                  .paginate(page: params[:page])
+
+    # overwrite the product list with filtered products that do not include products with empty repositories
+    @scc_accounts.each do |scc_account|
+      scc_account.scc_products_with_repos_count = scc_account.scc_products.only_products_with_repos.count
+    end
   end
 
   # GET /scc_accounts/new
@@ -124,6 +130,19 @@ class SccAccountsController < ApplicationController
       :use
     else
       super
+    end
+  end
+
+  # Function filters a product list and removes all products without valid repositories
+  # The .order call is necessary to apply the ordering to repository that have already been loaded from the database.
+  # Input parameters:
+  # product_list: list of SccProduct
+  # product_type: return only base products if type is set (default), else all
+  def scc_filtered_products(product_list, product_type = 'base')
+    if product_type == 'base'
+      product_list.only_products_with_repos.where(product_type: 'base').order(:friendly_name)
+    else
+      product_list.only_products_with_repos.order(:friendly_name)
     end
   end
 end

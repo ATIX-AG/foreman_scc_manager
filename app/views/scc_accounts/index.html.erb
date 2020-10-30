@@ -17,7 +17,7 @@
         <td class="display-two-pane ellipsis">
           <%= link_to_if_authorized(scc_account.name, hash_for_edit_scc_account_path(:id => scc_account).merge(:auth_object => scc_account, :authorizer => authorizer)) %>
         </td>
-        <td><%= scc_account.scc_products.count.to_s %></td>
+        <td><%= scc_account.scc_products_with_repos_count.to_s %></td>
         <td><%= link_to_if(scc_account.sync_task, scc_account.sync_status, scc_account.sync_task) %></td>
         <td>
           <%= action_buttons(

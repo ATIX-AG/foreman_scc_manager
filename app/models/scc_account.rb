@@ -2,6 +2,9 @@ class SccAccount < ApplicationRecord
   include Authorizable
   include Encryptable
   include ForemanTasks::Concerns::ActionSubject
+
+  attr_accessor :scc_products_with_repos_count
+
   encrypts :password
 
   NEVER = 'never'.freeze

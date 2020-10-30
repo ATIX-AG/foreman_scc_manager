@@ -12,7 +12,7 @@
       <%= scc_product.friendly_name %>
       <% if scc_product.scc_extensions.any? %>
         <ul style='padding-left: 20px;'>
-          <% scc_product.scc_extensions.order(:friendly_name).each do |scc_extension| %>
+          <% scc_filtered_products(scc_product.scc_extensions, 'extension').each do |scc_extension| %>
             <% render_list_node(f, scc_extension, parent_id + "_" + scc_product.id.to_s) %>
           <% end %>
         </ul>
@@ -29,7 +29,7 @@
     <div class="tab-pane active" id="primary">
       <ul>
         <% if @scc_account.synced %>
-          <% @scc_account.scc_products.where(product_type: 'base').order(:friendly_name).each do |scc_product| %>
+          <% scc_filtered_products(@scc_account.scc_products).each do |scc_product| %>
             <% render_list_node(f, scc_product) %>
           <% end %>
         <% else %>
