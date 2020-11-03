@@ -13,3 +13,17 @@ repo_<%= i %>:
   installer_updates: false
 <% end %>
 
+repo_9:
+  id: 9
+  scc_account_id: 1
+  scc_id: 63
+  name: SLE10-Debuginfo-Updates_9
+  distro_target: sles_9
+  description: SLE10-Debuginfo-Updates for sles-10-ppc_9
+  url: https://updates.suse.com/repo/example_9
+  token: token_9
+  autorefresh: true
+  installer_updates: false
+
+
+

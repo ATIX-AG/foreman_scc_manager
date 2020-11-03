@@ -15,6 +15,10 @@ class SccRepository < ApplicationRecord
     scc_product.uniq_name + ' ' + description
   end
 
+  def pretty_name
+    description
+  end
+
   def token_changed_callback
     User.current ||= User.anonymous_admin
     scc_products.where.not(product: nil).find_each do |sp|

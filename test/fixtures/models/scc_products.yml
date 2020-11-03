@@ -7,7 +7,7 @@ one:
   version: 1
   arch: x86_128
   friendly_name: number one
-  description: lorem ipsum dolor sit amet
+  description: "<p> lorem ipsum dolor sit amet </p>"
   product_type: base
 
 two:
@@ -17,7 +17,7 @@ two:
   version: 2
   arch: x86_128
   friendly_name: number two
-  description: lorem ipsum dolor sit amet
+  description: "<p> lorem ipsum dolor sit amet </p><p> lorem lorem lorem </p>"
   product_type: extras
 
 three:
