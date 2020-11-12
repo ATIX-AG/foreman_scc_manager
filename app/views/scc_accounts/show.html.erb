@@ -1,3 +1,5 @@
+<% title (_("Product Selection for Account %s") % @scc_account) %>
+
 <% javascript 'foreman_scc_manager/scc_accounts' %>
 <%= form_for([:bulk_subscribe, @scc_account], method: :put) do |f| %>
   <% def render_list_node(f, scc_product, parent_id = "") %>
@@ -41,3 +43,4 @@
     <%= submit_or_cancel f, false, {disabled: submit_disabled || false} %>
   </div>
 <% end %>
+
