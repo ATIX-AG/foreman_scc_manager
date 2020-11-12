@@ -179,13 +179,14 @@ class SccAccount < ApplicationRecord
     # import repositories
     upstream_repositories.each do |ur|
       cached_repository = scc_repositories.find_or_initialize_by(scc_id: ur['id'])
-      cached_repository.name = ur['name']
       cached_repository.distro_target = ur['distro_target']
       cached_repository.description = ur['description']
       cached_repository.url, cached_repository.token = ur['url'].split('?')
       cached_repository.enabled = ur['enabled']
       cached_repository.autorefresh = ur['autorefresh']
       cached_repository.installer_updates = ur['installer_updates']
+      # should be called after all attributes are set in case of dependencies (currently: description)
+      cached_repository.name = cached_repository.pretty_name
       cached_repository.save!
       upstream_repo_ids << ur['id']
     end
@@ -201,7 +202,6 @@ class SccAccount < ApplicationRecord
     # import products
     upstream_products.each do |up|
       cached_product = scc_products.find_or_initialize_by(scc_id: up['id'])
-      cached_product.name = up['name']
       cached_product.version = up['version']
       cached_product.arch = up['arch']
       cached_product.description = up['description']
@@ -209,6 +209,9 @@ class SccAccount < ApplicationRecord
       cached_product.product_type = up['product_type']
       cached_product.scc_repositories =
         scc_repositories.where(scc_id: up['repositories'].map { |repo| repo['id'] })
+      # name should be set after friendly_name because it depends on friendly_name
+      cached_product.name = cached_product.pretty_name
+      cached_product.description = cached_product.pretty_description
       cached_product.save!
       upstream_product_ids << up['id']
     end

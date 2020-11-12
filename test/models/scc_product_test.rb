@@ -3,6 +3,8 @@ require 'test_plugin_helper'
 class SccProductCreateTest < ActiveSupport::TestCase
   def setup
     @product = scc_products(:one)
+    @product_with_ugly_description = scc_products(:two)
+    @product_with_normal_description = scc_products(:three)
   end
 
   test 'create' do
@@ -12,6 +14,17 @@ class SccProductCreateTest < ActiveSupport::TestCase
 
   test 'uniq_name' do
     assert_equal @product.uniq_name, '111 number one'
+  end
+
+  test 'pretty_name' do
+    assert_equal @product.pretty_name, 'number one (id: 111)'
+  end
+
+  test 'pretty_description' do
+    assert_equal @product_with_normal_description.description,
+                 @product_with_normal_description.pretty_description
+    assert_equal @product.pretty_description, 'lorem ipsum dolor sit amet'
+    assert_equal @product_with_ugly_description.pretty_description, 'lorem ipsum dolor sit amet'
   end
 end
 

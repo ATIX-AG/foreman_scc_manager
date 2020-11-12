@@ -27,12 +27,28 @@ class SccProduct < ApplicationRecord
     "#{scc_id} " + friendly_name
   end
 
+  def pretty_name
+    friendly_name + " (id: #{scc_id})"
+  end
+
+  # Remove HTML tags (currently assumed that there are only paragraph tags)
+  # Remove second HTML paragraph if available
+  def pretty_description
+    new_description = Nokogiri::XML(description).xpath('//p')
+    # No tags to remove
+    if new_description.count == 0
+      description
+    else
+      new_description.first.children.first.text.strip
+    end
+  end
+
   def subscribe
     raise 'Product already subscribed!' if product
 
     new_product = Katello::Product.new
-    new_product.name = uniq_name
-    new_product.description = description
+    new_product.name = pretty_name
+    new_product.description = pretty_description
     ForemanTasks.sync_task(::Actions::Katello::Product::Create, new_product, scc_account.organization)
     new_product.reload
     scc_repositories.each do |repo|
