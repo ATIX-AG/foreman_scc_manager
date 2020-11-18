@@ -6,9 +6,9 @@ class SccAccountsController < ApplicationController
 
   # GET /scc_accounts
   def index
-    @scc_accounts = resource_base.search_for(params[:search], order: params[:order])
-                                 .paginate(page: params[:page])
-
+    @scc_accounts = resource_base.where(organization: @organization)
+                                 .search_for(params[:search], order: params[:order])
+                                 .paginate(:page => params[:page], :per_page => params[:per_page])
     # overwrite the product list with filtered products that do not include products with empty repositories
     @scc_accounts.each do |scc_account|
       scc_account.scc_products_with_repos_count = scc_account.scc_products.only_products_with_repos.count
