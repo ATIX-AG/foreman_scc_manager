@@ -11,7 +11,7 @@
           <%= check_box_tag("scc_account[scc_subscribe_product_ids][]", scc_product.id, false) %>
         <% end %>
       </span>
-      <%= scc_product.friendly_name %>
+      <%= scc_product.pretty_name %>
       <% if scc_product.scc_extensions.any? %>
         <ul style='padding-left: 20px;'>
           <% scc_filtered_products(scc_product.scc_extensions, 'extension').each do |scc_extension| %>
