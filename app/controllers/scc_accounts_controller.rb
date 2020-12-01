@@ -19,6 +19,7 @@ class SccAccountsController < ApplicationController
   def new
     @scc_account = SccAccount.new
     @scc_account.organization = @organization
+    find_available_gpg_keys
   end
 
   # POST /scc_accounts
@@ -31,7 +32,9 @@ class SccAccountsController < ApplicationController
   end
 
   # GET /scc_accounts/1/edit
-  def edit; end
+  def edit
+    find_available_gpg_keys
+  end
 
   # POST /scc_accounts/test_connection
   def test_connection
@@ -98,6 +101,10 @@ class SccAccountsController < ApplicationController
 
   private
 
+  def find_available_gpg_keys
+    @selectable_gpg_keys = ::Katello::GpgKey.where(organization: @scc_account.organization).collect { |p| [p.name, p.id] }.unshift ['None', nil]
+  end
+
   def find_organization
     @organization = Organization.current
     redirect_to '/select_organization?toState=' + request.path unless @organization
@@ -114,7 +121,8 @@ class SccAccountsController < ApplicationController
       :base_url,
       :interval,
       :sync_date,
-      :organization_id
+      :organization_id,
+      :katello_gpg_key_id
     )
   end
 

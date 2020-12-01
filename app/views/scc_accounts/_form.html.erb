@@ -1,3 +1,4 @@
+<!-- see foreman/app/helper/form_helper.rb -->
 <% javascript 'foreman_scc_manager/scc_accounts'  %>
 
 <%= form_for(@scc_account) do |f| %>
@@ -18,6 +19,11 @@
         <%= field f, :sync_date, label: _('Sync Date') do
           f.datetime_field :sync_date, placeholder: Time.now
         end %>
+       <%= selectable_f f, :katello_gpg_key_id, @selectable_gpg_keys, {}, 
+                        { :include_blank => _("None"), 
+                          :label => _('Use GPG key for SUSE products'), 
+                          :selected => @scc_account.katello_gpg_key_id, 
+                          :help_block => _("Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later.") } %>
         <div class='clearfix'>
           <div class='form-group'>
             <div class='col-md-2'></div>
