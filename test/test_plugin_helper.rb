@@ -22,6 +22,7 @@ module FixtureTestCase
     Dir.mkdir(self.fixture_path)
     FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/models/*"), self.fixture_path)
     FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/files/*"), self.fixture_path)
+    FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/controllers/*"), self.fixture_path)
     FileUtils.cp(Dir.glob("#{Rails.root}/test/fixtures/*"), self.fixture_path)
     fixtures(:all)
     FIXTURES = load_fixtures(ActiveRecord::Base)
@@ -54,5 +55,13 @@ class ActiveSupport::TestCase
     organization.save!
     User.current = saved_user
     organization
+  end
+end
+
+class ActionController::TestCase
+  def set_session_user(user = :admin, org = :empty_organization)
+    user = user.is_a?(User) ? user : users(user)
+    org = org.is_a?(Organization) ? org : taxonomies(org)
+    { :user => user.id, :expires_at => 5.minutes.from_now, :organization_id => org.id }
   end
 end
