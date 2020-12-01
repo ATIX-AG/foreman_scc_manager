@@ -192,6 +192,14 @@ msgid ""
 " of any imported products."
 msgstr ""
 
+#: ../app/views/scc_accounts/_form.html.erb:22
+msgid "Use GPG key for SUSE products"
+msgstr ""
+
+#: ../app/views/scc_accounts/_form.html.erb:22
+msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
+msgstr ""
+
 #: ../app/views/scc_accounts/_form.html.erb:18
 msgid "Sync Date"
 msgstr ""

@@ -18,7 +18,7 @@ module Api
       def index
         scope = resource_scope
         scope = scope.where(:organization => params[:organization_id]) if params[:organization_id].present?
-        @scc_accounts = scope.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page])
+        @scc_accounts = scope.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page], :per_page => params[:per_page])
       end
 
       api :GET, '/scc_accounts/:id/', N_('Show scc_account')
@@ -35,6 +35,7 @@ module Api
           param :base_url, String, :required => false, :desc => N_('URL of SUSE for scc_account')
           param :interval, ['never', 'daily', 'weekly', 'monthy'], :desc => N_('Interval for syncing scc_account')
           param :sync_date, String, :desc => N_('Last Sync time of scc_account')
+          param :katello_gpg_key_id, :identifier, :required => false, :desc => N_('Associated gpg key of scc_account')
         end
       end
 
@@ -132,7 +133,8 @@ module Api
           :base_url,
           :interval,
           :sync_date,
-          :organization_id
+          :organization_id,
+          :katello_gpg_key_id
         )
       end
 

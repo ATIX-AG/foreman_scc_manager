@@ -10,7 +10,8 @@ module Actions
           product_create_action = plan_action(CreateProduct,
                                               :product_name => scc_product.pretty_name,
                                               :product_description => scc_product.pretty_description,
-                                              :organization_id => scc_product.organization.id)
+                                              :organization_id => scc_product.organization.id,
+                                              :gpg_key => scc_product.scc_account.katello_gpg_key_id)
           scc_product.scc_repositories.each do |repo|
             arch = scc_product.arch || 'noarch'
             plan_action(CreateRepository,
@@ -43,6 +44,7 @@ module Actions
       def create_sub_plans
         product = ::Katello::Product.new
         product.name = input[:product_name]
+        product.gpg_key = ::Katello::GpgKey.find_by(id: input[:gpg_key], organization: input[:organization_id])
         product.description = input[:product_description]
         trigger(::Actions::Katello::Product::Create,
                 product,
