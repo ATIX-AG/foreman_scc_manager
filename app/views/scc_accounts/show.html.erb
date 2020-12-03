@@ -7,11 +7,12 @@
       <span class="scc_product_checkbox" id="<%= "scc_product_span_#{parent_id + "_" + scc_product.id.to_s}" %>" <%= "data-parent=scc_product_span_#{parent_id}" if parent_id != "" %>>
         <% if scc_product.product %>
           <%= check_box_tag("scc_account[scc_unsubscribe_product_ids][]", scc_product.id, true, disabled: true) %>
+          <%= link_to(scc_product.pretty_name, "/products/#{scc_product.product_id}") %>
         <% else %>
           <%= check_box_tag("scc_account[scc_subscribe_product_ids][]", scc_product.id, false) %>
+          <%= scc_product.pretty_name %>
         <% end %>
       </span>
-      <%= scc_product.pretty_name %>
       <% if scc_product.scc_extensions.any? %>
         <ul style='padding-left: 20px;'>
           <% scc_filtered_products(scc_product.scc_extensions, 'extension').each do |scc_extension| %>
