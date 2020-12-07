@@ -2,6 +2,7 @@ class SccAccountsController < ApplicationController
   helper_method :scc_filtered_products
   before_action :find_organization
   before_action :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
+  before_action :find_available_gpg_keys, only: %i[new edit]
   include Foreman::Controller::AutoCompleteSearch
 
   # GET /scc_accounts
@@ -98,6 +99,11 @@ class SccAccountsController < ApplicationController
 
   private
 
+  def find_available_gpg_keys
+    @scc_account ? org = @scc_account.organization : org = @organization
+    @selectable_gpg_keys = ::Katello::GpgKey.where(organization: org).collect { |p| [p.name, p.id] }.unshift ['None', nil]
+  end
+
   def find_organization
     @organization = Organization.current
     redirect_to '/select_organization?toState=' + request.path unless @organization
@@ -114,7 +120,8 @@ class SccAccountsController < ApplicationController
       :base_url,
       :interval,
       :sync_date,
-      :organization_id
+      :organization_id,
+      :katello_gpg_key_id
     )
   end
 
