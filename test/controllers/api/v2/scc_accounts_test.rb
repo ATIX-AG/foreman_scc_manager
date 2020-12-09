@@ -236,7 +236,9 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     assert account
     post :test_connection, params: { :scc_account => { :login => account.login, :password => account.password, :base_url => account.base_url } }
     assert_response :not_found
-    assert_match response.body, '"Failed"'
+    body = ActiveSupport::JSON.decode(@response.body)
+    assert body.key? 'error'
+    assert_equal body['success'], false
   end
 
   test 'existing account SCC server connection-test' do
@@ -260,7 +262,9 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     assert account
     post :test_connection, params: { :id => account.id }
     assert_response :not_found
-    assert_match response.body, '"Failed"'
+    body = ActiveSupport::JSON.decode(@response.body)
+    assert body.key? 'error'
+    assert_equal body['success'], false
   end
 
   test 'SCC server sync products' do
@@ -289,7 +293,9 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     account.scc_products = [product1, product2]
     put :bulk_subscribe, params: { :id => account.id, :scc_subscribe_product_ids => [] }
     assert_response :expectation_failed
-    assert_match response.body, '"No Product selected"'
+    body = ActiveSupport::JSON.decode(@response.body)
+    assert body.key? 'error'
+    assert_match body['error'], 'No Product selected'
   end
 
   test 'should delete scc_account' do

@@ -34,7 +34,7 @@ module Api
           param :password, String, :required => true, :desc => N_('Password of scc_account')
           param :base_url, String, :required => false, :desc => N_('URL of SUSE for scc_account')
           param :interval, ['never', 'daily', 'weekly', 'monthy'], :desc => N_('Interval for syncing scc_account')
-          param :sync_date, String, :desc => N_('Last Sync time of scc_account')
+          param :sync_date, String, :desc => N_('Date and time relative to which the sync interval is run')
           param :katello_gpg_key_id, :identifier, :required => false, :desc => N_('Associated gpg key of scc_account')
         end
       end
@@ -80,9 +80,9 @@ module Api
         end
         respond_to do |format|
           if @scc_account.test_connection
-            format.json { render json: 'Success'.to_json, status: :ok }
+            format.json { render json: { 'success' => true }.to_json, status: :ok }
           else
-            format.json { render json: 'Failed'.to_json, status: :not_found }
+            format.json { render json: { 'success' => false, 'error' => 'Test failed. Check your credentials.' }.to_json, status: :not_found }
           end
         end
       end
@@ -103,7 +103,7 @@ module Api
 
       api :PUT, '/scc_accounts/:id/bulk_subscribe/', N_('Bulk subscription of scc_products for scc_account')
       param :id, :identifier_dottable, :required => true
-      param :scc_subscribe_product_ids, Array
+      param :scc_subscribe_product_ids, Array, :required => true
       def bulk_subscribe
         scc_products_to_subscribe = @scc_account.scc_products.where(:id => params[:scc_subscribe_product_ids])
         respond_to do |format|
@@ -113,7 +113,7 @@ module Api
                                                      scc_products_to_subscribe)
             format.json { render json: subscribe_task.to_json, status: :ok }
           else
-            format.json { render json: 'No Product selected'.to_json, status: :expectation_failed }
+            format.json { render json: { error: 'No Product selected' }, status: :expectation_failed }
           end
         end
       rescue ::Foreman::Exception => e
