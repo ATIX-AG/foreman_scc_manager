@@ -22,8 +22,8 @@ module Actions
           output[:data] = ::SccManager.sanitize_products(products).values
         rescue StandardError => e
           ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Products: #{e}"
-          output[:error] = e.to_s
           output[:status] = 'FAILURE'
+          error! e.to_s
         end
       end
 

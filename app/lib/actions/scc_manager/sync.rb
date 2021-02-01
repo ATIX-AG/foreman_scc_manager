@@ -1,5 +1,6 @@
 module Actions
   module SccManager
+    # for dynflow documentation see here: https://dynflow.github.io/documentation/
     class Sync < Actions::EntryAction
       def plan(scc_account)
         ::Foreman::Logging.logger('foreman_scc_manager')
