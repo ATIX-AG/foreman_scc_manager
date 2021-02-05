@@ -21,8 +21,8 @@ module Actions
           output[:status] = 'SUCCESS'
         rescue StandardError => e
           ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Repositories: #{e}"
-          output[:error] = e.to_s
           output[:status] = 'FAILURE'
+          error! e.to_s
         end
       end
 
