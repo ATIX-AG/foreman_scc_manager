@@ -176,6 +176,8 @@ class SccAccount < ApplicationRecord
 
   def update_scc_repositories(upstream_repositories)
     upstream_repo_ids = []
+    # initially invalidate all repositories and validate them during update
+    invalidated_repos = invalidate_subscription_status(scc_repositories)
     # import repositories
     upstream_repositories.each do |ur|
       cached_repository = scc_repositories.find_or_initialize_by(scc_id: ur['id'])
@@ -187,11 +189,21 @@ class SccAccount < ApplicationRecord
       cached_repository.installer_updates = ur['installer_updates']
       # should be called after all attributes are set in case of dependencies (currently: description)
       cached_repository.name = cached_repository.pretty_name
+      cached_repository.subscription_valid = true
       cached_repository.save!
       upstream_repo_ids << ur['id']
+      # set invalidated record to true, if exists
+      invalidated_repos = revalidate_subscription_status(invalidated_repos, ur[id])
     end
     ::Foreman::Logging.logger('foreman_scc_manager').debug "Found #{upstream_repo_ids.length} repositories"
-    # delete repositories beeing removed upstream
+
+    # all scc repos that are kept but not available upstream need to be marked invalid
+    # subscription_valid can be set to nil
+    to_invalidate = invalidated_repos.select { |ir| !ir.katello_root_repository_id.nil? && !ir.subscription_valid }
+    invalidate_subscription_status(to_invalidate, true)
+    ::Foreman::Logging.logger('foreman_scc_manager').debug "Invalidating #{to_invalidate.count} expired repositories"
+
+    # delete repositories being removed upstream and that are not subscribed to
     to_delete = scc_repositories.where.not(scc_id: upstream_repo_ids)
     ::Foreman::Logging.logger('foreman_scc_manager').debug "Deleting #{to_delete.count} old repositories"
     to_delete.destroy_all
@@ -199,6 +211,8 @@ class SccAccount < ApplicationRecord
 
   def update_scc_products(upstream_products)
     upstream_product_ids = []
+    # initially invalidate all products and validate them during update
+    invalidated_products = invalidate_subscription_status(scc_products)
     # import products
     upstream_products.each do |up|
       cached_product = scc_products.find_or_initialize_by(scc_id: up['id'])
@@ -212,12 +226,22 @@ class SccAccount < ApplicationRecord
       # name should be set after friendly_name because it depends on friendly_name
       cached_product.name = cached_product.pretty_name
       cached_product.description = cached_product.pretty_description
+      cached_product.subscription_valid = true
       cached_product.save!
       upstream_product_ids << up['id']
+      # set invalidated record to true, if exists
+      invalidated_products = revalidate_subscription_status(invalidated_products, up['id'])
     end
     ::Foreman::Logging.logger('foreman_scc_manager').debug "Found #{upstream_product_ids.length} products"
-    # delete products beeing removed upstream
-    to_delete = scc_products.where.not(scc_id: upstream_product_ids)
+
+    # all scc products that are kept but not available upstream need to be marked invalid
+    # subscription_valid can be set to nil
+    to_invalidate = invalidated_products.select { |ip| !ip.product_id.nil? && !ip.subscription_valid }
+    invalidate_subscription_status(to_invalidate, true)
+    ::Foreman::Logging.logger('foreman_scc_manager').debug "Invalidating #{to_invalidate.count} expired products"
+
+    # delete products being removed upstream and that are not subscribed to
+    to_delete = scc_products.where.not(scc_id: upstream_product_ids).where(product_id: nil)
     ::Foreman::Logging.logger('foreman_scc_manager').debug "Deleting #{to_delete.count} old products"
     to_delete.destroy_all
     # rewire product to product relationships
@@ -229,5 +253,33 @@ class SccAccount < ApplicationRecord
         ::Foreman::Logging.logger('foreman_scc_manager').info "Failed to find parent scc_product '#{up['name']}'."
       end
     end
+  end
+
+  # validate the subscription status of a product/repo
+  # no saving to database
+  # params: elements: scc repos or products, Array or ActiveRecord_(*)
+  #         scc_id: scc_id of the element that should be revalidated
+  # return: elements where for the element with scc_id subscription_valid is true
+  def revalidate_subscription_status(elements, scc_id)
+    return if elements.nil?
+
+    revalidate = elements.find { |e| e.scc_id == scc_id }
+    revalidate.subscription_valid = true unless revalidate.nil?
+    # return modified list
+    elements
+  end
+
+  # set all products/repos invalid
+  # params: items_to_invalidate: ActiveRecord_(*)
+  #         save_record: store in database or not (default)
+  # return: ActiveRecord elements with invalidated subscription status
+  def invalidate_subscription_status(items_to_invalidate, save_record = false)
+    unless items_to_invalidate.empty?
+      items_to_invalidate.each do |inv|
+        inv.subscription_valid = false
+        inv.save! if save_record
+      end
+    end
+    items_to_invalidate
   end
 end
