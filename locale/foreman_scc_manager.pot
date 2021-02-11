@@ -248,6 +248,10 @@ msgstr ""
 msgid "Add SUSE Customer Center Account"
 msgstr ""
 
+#: ../app/views/scc_accounts/show.html.erb:17
+msgid "WARNING: Please check your SUSE subscription"
+msgstr ""
+
 #: ../app/views/scc_accounts/show.html.erb:25
 msgid "SUSE Customer Center"
 msgstr ""
