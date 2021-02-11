@@ -12,6 +12,11 @@
           <%= check_box_tag("scc_account[scc_subscribe_product_ids][]", scc_product.id, false) %>
           <%= scc_product.pretty_name %>
         <% end %>
+        <% unless scc_product.subscription_valid? %>
+          <span style="color:red">
+            <%= _('(WARNING: Please check your SUSE subscription)') %>
+          </span>
+        <% end %>
       </span>
       <% if scc_product.scc_extensions.any? %>
         <ul style='padding-left: 20px;'>
