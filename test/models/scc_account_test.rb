@@ -102,6 +102,12 @@ class SccAccountUpdateProductsTest < ActiveSupport::TestCase
     assert_equal @test_product.pretty_name, @updated_product.pretty_name
     assert_equal @test_product.pretty_description, @updated_product.description
     assert_equal @test_product.pretty_description, @updated_product.pretty_description
+
+    assert @updated_product.subscription_valid
+    @invalid_products = @account.scc_products.where.not(scc_id: scc_products(:one).scc_id)
+    @invalid_products.each do |ip|
+      assert_not ip.subscription_valid
+    end
   end
 end
 
