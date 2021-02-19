@@ -13,7 +13,7 @@ class SccRepository < ApplicationRecord
   end
 
   def uniq_name(scc_product)
-    scc_product.uniq_name + ' ' + description
+    scc_product.scc_id.to_s + ' ' + description
   end
 
   def pretty_name
@@ -22,13 +22,10 @@ class SccRepository < ApplicationRecord
 
   def token_changed_callback
     User.current ||= User.anonymous_admin
-    scc_products.where.not(product: nil).find_each do |sp|
-      reponame = uniq_name(sp)
-      repository = sp.product.root_repositories.find_by(name: reponame)
-      unless repository.nil? || repository.url == full_url
-        ::Foreman::Logging.logger('foreman_scc_manager').info "Update URL-token for repository '#{reponame}'."
-        ForemanTasks.async_task(::Actions::Katello::Repository::Update, repository, url: full_url)
-      end
-    end
+    repo = self.katello_root_repository
+    return if repo.nil? || repo.url == full_url
+
+    ::Foreman::Logging.logger('foreman_scc_manager').info "Update URL-token for repository '#{repo.name}'."
+    ForemanTasks.async_task(::Actions::Katello::Repository::Update, repo, url: full_url)
   end
 end
