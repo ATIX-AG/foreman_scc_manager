@@ -12,24 +12,34 @@ module Actions
                                               :product_description => scc_product.pretty_description,
                                               :organization_id => scc_product.organization.id,
                                               :gpg_key => scc_product.scc_account.katello_gpg_key_id)
+          katello_repos = {}
           scc_product.scc_repositories.each do |repo|
             arch = scc_product.arch || 'noarch'
-            plan_action(CreateRepository,
-                        :product_id => product_create_action.output[:product_id],
-                        :uniq_name => repo.uniq_name(scc_product),
-                        :pretty_repo_name => repo.pretty_name,
-                        :url => repo.full_url,
-                        :arch => arch)
+            repo_create_action = plan_action(CreateRepository,
+                                             :product_id => product_create_action.output[:product_id],
+                                             :uniq_name => repo.uniq_name(scc_product),
+                                             :pretty_repo_name => repo.pretty_name,
+                                             :url => repo.full_url,
+                                             :arch => arch)
+            katello_repos[repo.id] = repo_create_action.output[:katello_root_repository_id]
           end
+          # connect action to resource (=> make parameters accessable in input)
           action_subject(scc_product, product_id: product_create_action.output[:product_id])
+          input.update(katello_repos: katello_repos)
           plan_self
         end
       end
 
       def finalize
+        # connect Scc products and Katello products
         scc_product = SccProduct.find(input[:scc_product][:id])
         product = ::Katello::Product.find(input[:product_id])
         scc_product.update!(product: product)
+        # extract Katello repo ids from input hash and store to database
+        input[:katello_repos].each do |scc_repo_id, katello_root_repository_id|
+          scc_repo = SccRepository.find(scc_repo_id)
+          scc_repo.update!(katello_root_repository_id: katello_root_repository_id)
+        end
       end
 
       def humanized_name
@@ -74,7 +84,9 @@ module Actions
         repository = product.add_repo(repo_param)
         repository.mirror_on_sync = true
         repository.verify_ssl_on_sync = true
-        trigger(::Actions::Katello::Repository::CreateRoot, repository)
+        trigger(::Actions::Katello::Repository::CreateRoot, repository).tap do
+          output[:katello_root_repository_id] = repository.id
+        end
       end
     end
   end
