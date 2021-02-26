@@ -12,22 +12,18 @@ module Actions
       end
 
       def run
-        output[:status] = 'IN PROGRESS'
-        begin
-          output[:data] = ::SccManager.get_scc_data(input[:base_url],
-                                                    '/connect/organizations/repositories',
-                                                    input[:login],
-                                                    decrypt_field(input[:password]))
-          output[:status] = 'SUCCESS'
-        rescue StandardError => e
-          ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Repositories: #{e}"
-          output[:status] = 'FAILURE'
-          error! e.to_s
-        end
+        output[:data] = ::SccManager.get_scc_data(input[:base_url],
+                                                  '/connect/organizations/repositories',
+                                                  input[:login],
+                                                  decrypt_field(input[:password]))
+      rescue StandardError => e
+        ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Repositories: #{e}"
+        error! e.to_s
       end
 
       def finalize
-        SccAccount.find(input[:scc_account][:id]).update_scc_repositories(output[:data]) if output[:status] == 'SUCCESS'
+        # this is only executed if 'run' succeeds
+        SccAccount.find(input[:scc_account][:id]).update_scc_repositories(output[:data])
       end
 
       def rescue_strategy

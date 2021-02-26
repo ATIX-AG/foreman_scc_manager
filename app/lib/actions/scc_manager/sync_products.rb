@@ -13,22 +13,19 @@ module Actions
       end
 
       def run
-        output[:status] = 'SUCCESS'
-        begin
-          products = ::SccManager.get_scc_data(input.fetch(:base_url),
-                                               '/connect/organizations/products',
-                                               input.fetch(:login),
-                                               decrypt_field(input.fetch(:password)))
-          output[:data] = ::SccManager.sanitize_products(products).values
-        rescue StandardError => e
-          ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Products: #{e}"
-          output[:status] = 'FAILURE'
-          error! e.to_s
-        end
+        products = ::SccManager.get_scc_data(input.fetch(:base_url),
+                                             '/connect/organizations/products',
+                                             input.fetch(:login),
+                                             decrypt_field(input.fetch(:password)))
+        output[:data] = ::SccManager.sanitize_products(products).values
+      rescue StandardError => e
+        ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Products: #{e}"
+        error! e.to_s
       end
 
       def finalize
-        SccAccount.find(input.fetch(:id)).update_scc_products(output.fetch(:data)) if output[:status] == 'SUCCESS'
+        # this is only executed if 'run' succeeds
+        SccAccount.find(input.fetch(:id)).update_scc_products(output.fetch(:data))
       end
 
       def rescue_strategy
