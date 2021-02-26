@@ -7,16 +7,15 @@ module Actions
                           .info("Initiating 'sync' for SccAccount '#{scc_account.name}'.")
         action_subject(scc_account)
         sequence do
-          sync_repo_action = plan_action(::Actions::SccManager::SyncRepositories, scc_account)
-          sync_prod_action = plan_action(::Actions::SccManager::SyncProducts, scc_account)
-          plan_self(repo_status: sync_repo_action.output[:status], prod_status: sync_prod_action.output[:status])
+          plan_action(::Actions::SccManager::SyncRepositories, scc_account)
+          plan_action(::Actions::SccManager::SyncProducts, scc_account)
+          plan_self
         end
       end
 
       def finalize
+        # this is only executed if run actions of SyncRepositories and SyncProducts were successful
         scc_account = SccAccount.find(input[:scc_account][:id])
-        raise 'Updating failed' unless input[:repo_status] == 'SUCCESS' && input[:prod_status] == 'SUCCESS'
-
         scc_account.update! synced: Time.current
       end
 
