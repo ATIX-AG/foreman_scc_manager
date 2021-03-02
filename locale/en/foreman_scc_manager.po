@@ -17,6 +17,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
+msgid "(WARNING: Please check your SUSE subscription)"
+msgstr ""
+
 msgid "Actions"
 msgstr ""
 
@@ -25,6 +28,9 @@ msgstr "Add SCC account"
 
 msgid "Add SUSE Customer Center Account"
 msgstr "Add SUSE Customer Center Account"
+
+msgid "Associated GPG key of scc_account"
+msgstr ""
 
 msgid "Base URL"
 msgstr "Base URL"
@@ -36,6 +42,12 @@ msgid "Create an scc_account"
 msgstr ""
 
 msgid "Cron expression is not valid!"
+msgstr ""
+
+msgid "Date and time relative to which the sync interval is run"
+msgstr ""
+
+msgid "Delete"
 msgstr ""
 
 msgid "Delete %s?"
@@ -62,9 +74,6 @@ msgstr ""
 msgid "Interval not set correctly"
 msgstr ""
 
-msgid "Last Sync time of scc_account"
-msgstr ""
-
 msgid "Last synced"
 msgstr "Last synced"
 
@@ -84,6 +93,9 @@ msgid "Name of the scc_account"
 msgstr ""
 
 msgid "No products selected."
+msgstr ""
+
+msgid "None"
 msgstr ""
 
 msgid "Password of scc_account"
@@ -180,6 +192,12 @@ msgid "Update SUSE repositories %s"
 msgstr ""
 
 msgid "Update scc_account"
+msgstr ""
+
+msgid "Use GPG key for SUSE products"
+msgstr ""
+
+msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
 msgstr ""
 
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
