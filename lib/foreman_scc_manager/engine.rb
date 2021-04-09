@@ -25,6 +25,8 @@ module ForemanSccManager
         requires_foreman '>= 1.22'
         requires_foreman_plugin 'katello', '>= 3.12.0'
 
+        precompile_assets 'foreman_scc_manager/scc_accounts.js'
+
         apipie_documented_controllers ["#{ForemanSccManager::Engine.root}/app/controllers/api/v2/*.rb"]
 
         # Add permissions
