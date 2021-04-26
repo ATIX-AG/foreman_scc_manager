@@ -13,6 +13,7 @@ for how to install Foreman plugins
 
 | Foreman Version | Katello Version | Plugin Version |
 | --------------- | --------------- | -------------- |
+| 2.3             | 3.18            | ~> 1.8.9       |
 | 2.1             | 3.16            | ~> 1.8.5       |
 | 2.0             | 3.16            | ~> 1.8.4       |
 | 1.24            | 3.14            | ~> 1.8.0       |
@@ -28,13 +29,16 @@ for how to install Foreman plugins
 ## Documentation
 The plugin documentation can be found at https://docs.orcharhino.com/sources/management_ui/the_content_menu/suse_subscriptions.html.
 
+A Hammer CLI extension is available for this plugin:
+https://github.com/ATIX-AG/hammer-cli-foreman-scc-manager
+
 ## Contributing
 
 Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2017 ATIX AG - http://www.atix.de
+Copyright (c) 2021 ATIX AG - http://www.atix.de
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
