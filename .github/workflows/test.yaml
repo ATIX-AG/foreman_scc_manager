@@ -1,0 +1,110 @@
+---
+name: "Test"
+on:
+  - push
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    container: centos:8.3.2011
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - foreman: "2.1-stable"
+            katello: "KATELLO-3.16"
+          - foreman: "2.3-stable"
+            katello: "KATELLO-3.18"
+
+    services:
+      postgres:
+        image: postgres:12.7
+        ports: ['5432:5432']
+        env:
+          POSTGRES_DB: postgres_db
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+
+      - name: "Checkout Foreman SCC Manager"
+        uses: actions/checkout@v2
+
+      - name: "Checkout Foreman"
+        uses: actions/checkout@v2
+        with:
+          repository: theforeman/foreman
+          ref: ${{ matrix.foreman}}
+          path: foreman
+
+      - name: "Checkout Katello"
+        uses: actions/checkout@v2
+        with:
+          repository: katello/katello
+          ref: ${{ matrix.katello}}
+          path: katello
+
+      - name: "Setup ruby and bundle"
+        run: |
+          yum install -y ruby-devel
+          ruby --version  # use ruby 2.5
+          gem --version
+          gem install bundle
+          bundle --version
+
+      - name: "Install dependencies"
+        run: |
+          yum update -y
+          yum install -y epel-release
+          yum install -y automake \
+                         gcc \
+                         gcc-c++ \
+                         kernel-devel \
+                         libcurl-devel \
+                         libpq-devel \
+                         libvirt-devel \
+                         libxml2-devel \
+                         make \
+                         nodejs-devel \
+                         openssl-devel \
+                         postgresql \
+                         qpid-proton-c-devel \
+                         redhat-rpm-config
+
+      - name: "Run tests"
+        env:
+          POSTGRES_DB: postgres_db
+          POSTGRES_HOST: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_PORT: 5432
+          POSTGRES_USER: postgres
+          RAILS_ENV: test
+          TEST_OPTS: -v
+        run: |
+          unset BUNDLE_GEMFILE
+          echo "gemspec :path => '../katello'" > foreman/bundler.d/katello.local.rb
+          echo "gemspec :path => '../'" > foreman/bundler.d/foreman_scc_manager.local.rb
+          ln -s foreman/settings.yaml.test foreman/config/settings.yaml
+          echo -e 'test:\n  adapter: postgresql\n  database: postgres_db\n  host: postgres\n  port: 5432\n  username: postgres\n  password: postgres' > foreman/config/database.yml
+          cat foreman/config/database.yml
+          psql --version
+          echo 'create pq database'
+          PGPASSWORD=postgres psql --host=postgres --port=5432 --username=postgres --command='create database github_actions_db;'
+          cd foreman
+          echo 'bundle install'
+          bundle install --jobs=3 --retry=3 --without journald development mysql2 console qpid_messaging
+          echo 'rake db:load_config'
+          bundle exec rake db:load_config
+          echo 'rake db:migrate'
+          bundle exec rake db:migrate
+          echo 'rake db:test:prepare'
+          bundle exec rake db:test:prepare
+          echo 'rake test:foreman_scc_manager'
+          bundle exec rake test:foreman_scc_manager
+          echo 'test was successful'
+...
