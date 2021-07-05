@@ -12,6 +12,7 @@ AllCops:
     - '*.spec'
     - 'doc/plugins/**'
     - 'locale/**'
+    - 'vendor/bundle/**/*'  # necessary to make github actions linting work, see https://github.com/rubocop/rubocop/issues/9832
 
 Rails:
   Enabled: true
