@@ -6,6 +6,7 @@ one:
   name: onename
   interval: never
   organization_id: <%= ActiveRecord::FixtureSet.identify(:empty_organization) %>
+  sync_date: Time.now
 
 two:
   login: twouser
@@ -14,6 +15,7 @@ two:
   name: twoname
   interval: never
   organization_id: <%= ActiveRecord::FixtureSet.identify(:empty_organization) %>
+  sync_date: 2021-07-05T21:33:49
 
 account_missing_url:
   login: fakeuser1

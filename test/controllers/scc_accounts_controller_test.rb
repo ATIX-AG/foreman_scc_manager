@@ -69,8 +69,58 @@ class SccAccountsControllerTest < ActionController::TestCase
   test 'should update scc_account' do
     account = scc_accounts(:two)
     put :update, params: { id: account.id, :scc_account => { :sync_date => Time.now, :interval => 'weekly' } }, session: set_session_user
+    assert_redirected_to '/scc_accounts'
+    assert_equal 'weekly', SccAccount.find(account.id).interval
+  end
 
-    assert_equal 'weekly', assigns(:scc_account).interval
+  test 'should update scc_account with empty date if interval not set' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :name => 'new_name', :sync_date => '', :interval => 'never' } }, session: set_session_user
+
+    assert_equal 'new_name', SccAccount.find(account.id).name
+  end
+
+  test 'updates scc_account even if the date is invalid' do
+    # @todo reminder to fix this in the future
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :name => 'new_name', :sync_date => 'invalid_date', :interval => 'never' } }, session: set_session_user
+
+    assert_not_equal account.name, SccAccount.find(account.id).name
+  end
+
+  test 'should fail to update scc_account with interval set and empty date' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :sync_date => '', :interval => 'weekly' } }, session: set_session_user
+
+    assert_equal SccAccount.find(account.id).sync_date, account.sync_date
+  end
+
+  test 'should fail to update scc_account with interval set and invalid date' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :sync_date => 'invalid_date', :interval => 'weekly' } }, session: set_session_user
+
+    assert_equal SccAccount.find(account.id).sync_date, account.sync_date
+  end
+
+  test 'should fail to update scc_account with empty name' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :name => '', :sync_date => Time.now, :interval => 'weekly' } }, session: set_session_user
+
+    assert_equal account.name, SccAccount.find(account.id).name
+  end
+
+  test 'should fail to update scc_account with empty login' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :login => '', :sync_date => Time.now, :interval => 'weekly' } }, session: set_session_user
+
+    assert_equal account.login, SccAccount.find(account.id).login
+  end
+
+  test 'should fail to update scc_account with empty base url' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :base_url => '', :sync_date => Time.now, :interval => 'weekly' } }, session: set_session_user
+
+    assert_equal account.base_url, SccAccount.find(account.id).base_url
   end
 
   test 'SCC server sync products' do
