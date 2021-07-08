@@ -2,7 +2,7 @@ class SccAccountsController < ApplicationController
   helper_method :scc_filtered_products
   before_action :find_organization
   before_action :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
-  before_action :find_available_gpg_keys, only: %i[new edit]
+  before_action :find_available_gpg_keys, only: %i[new edit update create]
   include Foreman::Controller::AutoCompleteSearch
 
   # GET /scc_accounts

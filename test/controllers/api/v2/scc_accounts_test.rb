@@ -208,11 +208,50 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     assert_response :ok
   end
 
-  test 'should refuse update scc_account' do
+  test 'should refuse update scc_account with invalid interval' do
     account = scc_accounts(:two)
     put :update, params: { id: account.id, :scc_account => { :interval => 'yearly' } }
     assert_equal 'yearly', assigns(:scc_account).interval
     assert_response :unprocessable_entity
+  end
+
+  test 'should refuse update scc_account with empty date' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :interval => 'weekly', :sync_date => '' } }
+    assert_response :unprocessable_entity
+    assert_error_message 'Sync date must be a valid datetime'
+  end
+
+  test 'should fail to update scc_account with interval set and invalid date' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :sync_date => 'invalid_date', :interval => 'weekly' } }
+
+    assert_response :unprocessable_entity
+    assert_error_message 'Sync date must be a valid datetime'
+  end
+
+  test 'should fail to update scc_account with empty name' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :name => '', :sync_date => Time.now, :interval => 'weekly' } }
+
+    assert_response :unprocessable_entity
+    assert_error_message "Name can't be blank"
+  end
+
+  test 'should fail to update scc_account with empty login' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :login => '', :sync_date => Time.now, :interval => 'weekly' } }
+
+    assert_response :unprocessable_entity
+    assert_error_message "Login can't be blank"
+  end
+
+  test 'should fail to update scc_account with empty base_url' do
+    account = scc_accounts(:two)
+    put :update, params: { id: account.id, :scc_account => { :base_url => '', :sync_date => Time.now, :interval => 'weekly' } }
+
+    assert_response :unprocessable_entity
+    assert_error_message "Base url can't be blank"
   end
 
   test 'new account SCC server connection-test' do
@@ -304,5 +343,11 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
       delete :destroy, params: { :id => account.id }
     end
     assert_response :ok
+  end
+
+  private
+
+  def assert_error_message(message)
+    assert_includes JSON.parse(response.body)['error']['full_messages'], message
   end
 end

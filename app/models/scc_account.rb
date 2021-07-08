@@ -45,12 +45,7 @@ class SccAccount < ApplicationRecord
   end
 
   def sync_date_is_valid_datetime
-    errors.add(:sync_date, 'must be a valid datetime') if interval != NEVER &&
-                                                          sync_date.present? &&
-                                                          !sync_date.respond_to?(:min) &&
-                                                          !sync_date.respond_to?(:hour) &&
-                                                          !sync_date.respond_to?(:wday) &&
-                                                          !sync_date.respond_to?(:day)
+    errors.add(:sync_date, 'must be a valid datetime') if interval != NEVER && sync_date.blank?
   end
 
   def to_s
@@ -104,7 +99,7 @@ class SccAccount < ApplicationRecord
   end
 
   def add_recurring_logic(sync_date, interval)
-    sd = sync_date
+    sd = sync_date.presence || Time.now
 
     raise _('Interval cannot be nil') if interval.nil?
 
