@@ -32,8 +32,8 @@ module ForemanSccManager
         # Add permissions
         security_block :foreman_scc_manager do
           permission :view_scc_accounts,
-                     { :scc_accounts => [:show, :index],
-                       :'api/v2/scc_accounts' => [:show, :index] },
+                     { :scc_accounts => [:show, :index, :auto_complete_search],
+                       :'api/v2/scc_accounts' => [:show, :index, :auto_complete_search] },
                      :resource_type => 'SccAccount'
 
           permission :use_scc_accounts,
@@ -60,15 +60,33 @@ module ForemanSccManager
                      { :scc_accounts => [:sync],
                        :'api/v2/scc_accounts' => [:sync] },
                      :resource_type => 'SccAccount'
+
+          permission :test_connection_scc_accounts,
+                     { :scc_accounts => [:test_connection],
+                       :'api/v2/scc_accounts' => [:test_connection] },
+                     :resource_type => 'SccAccount'
+
+          permission :view_scc_products,
+                     { :scc_products => [:index, :show],
+                       :'api/v2/scc_products' => [:index, :show] },
+                     :resource_type => 'SccProduct'
+
+          permission :subscribe_scc_products,
+                     { :scc_products => [:subscribe, :unsubscribe],
+                       :'api/v2/scc_products' => [:subscribe, :unsibscribe] },
+                     :resource_type => 'SccProduct'
         end
 
         # Add a new role called 'SccManager' if it doesn't exist
         role 'SccManager',
-             %i[view_scc_accounts use_scc_accounts new_scc_accounts edit_scc_accounts delete_scc_accounts sync_scc_accounts],
+             %i[view_scc_accounts use_scc_accounts new_scc_accounts edit_scc_accounts
+                delete_scc_accounts sync_scc_accounts test_connection_scc_accounts
+                view_scc_products subscribe_scc_products],
              'Role granting permissons to manage SUSE Subscriptions'
 
         role 'SccViewer',
-             %i[view_scc_accounts use_scc_accounts sync_scc_accounts create_products view_products],
+             %i[view_scc_accounts use_scc_accounts sync_scc_accounts
+                create_products view_products subscribe_scc_products view_scc_products],
              'Role granting permissons to view and use SUSE Subscriptions'
 
         add_all_permissions_to_default_roles

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
                      :defaults => { :apiv => 'v2' },
                      :apiv => /v1|v2/,
                      :constraints => ApiConstraints.new(:version => 2, :default => true) do
-      resources :scc_accounts do
+      resources :scc_accounts, except: %i[new edit] do
         collection do
           post 'test_connection'
           get 'auto_complete_search'
