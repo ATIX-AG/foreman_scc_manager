@@ -1,0 +1,92 @@
+name: "Unit tests"
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  unit-testing:
+    runs-on: ubuntu-20.04
+    env:
+      RAILS_ENV: test
+      BUNDLE_WITHOUT: journald:development:console:libvirt
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - ruby-version: 2.5
+            foreman: 2.1-stable
+            katello: KATELLO-3.16
+          - ruby-version: 2.5
+            foreman: 2.3-stable
+            katello: KATELLO-3.18
+
+    services:
+      postgres:
+        image: ghcr.io/atix-ag/postgresql12_evr_ext_image:main
+        ports: ['5432:5432']
+        env:
+          POSTGRES_DB: postgres_db
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential \
+                                  libcurl4-openssl-dev \
+                                  libpq-dev \
+                                  libvirt-dev \
+                                  zlib1g-dev
+
+      - name: Checkout Foreman SCC Manager
+        uses: actions/checkout@v2
+        with:
+          path: foreman_scc_manager
+
+      - name: Checkout Foreman
+        uses: actions/checkout@v2
+        with:
+          repository: theforeman/foreman
+          ref: ${{ matrix.foreman}}
+          path: foreman
+
+      - name: Checkout Katello
+        uses: actions/checkout@v2
+        with:
+          repository: katello/katello
+          ref: ${{ matrix.katello}}
+          path: katello
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+
+      - name: Setup bundler
+        working-directory: foreman
+        run: |
+          echo "gemspec :path => '../katello'" > bundler.d/katello.local.rb
+          echo "gemspec :path => '../foreman_scc_manager'" > bundler.d/foreman_scc_manager.local.rb
+          bundle install --jobs=3 --retry=3
+
+      - name: Prepare test env
+        working-directory: foreman
+        run: |
+          ln -s settings.yaml.test config/settings.yaml
+          echo -e "test:\n  adapter: postgresql\n  database: postgres_db\n  user: postgres\n  password: postgres\n  host: localhost" > config/database.yml
+          bundle exec rake db:migrate
+
+      - name: Run tests
+        working-directory: foreman
+        run: |
+          bundle exec rake test:foreman_scc_manager
