@@ -1,14 +1,9 @@
 module SccManager
   # adapted from https://github.com/SUSE/connect
   def self.get_scc_data(base_url, rest_url, login, password)
-    if SETTINGS[:katello][:cdn_proxy] && SETTINGS[:katello][:cdn_proxy][:host]
-      proxy_config = SETTINGS[:katello][:cdn_proxy]
-      uri = URI('')
-
-      uri.scheme = URI.parse(proxy_config[:host]).scheme
-      uri.host = URI.parse(proxy_config[:host]).host
-      uri.port = proxy_config[:port].try(:to_s)
-      uri.user = proxy_config[:user]
+    if (proxy_config = ::HttpProxy.default_global_content_proxy)
+      uri = URI(proxy_config[:url])
+      uri.user = proxy_config[:username]
       uri.password = proxy_config[:password] if uri.user.present?
 
       RestClient.proxy = uri.to_s
