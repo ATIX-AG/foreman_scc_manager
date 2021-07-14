@@ -1,4 +1,4 @@
-name: Ruby Testing
+name: Rubocop
 on:
   pull_request:
   push:
