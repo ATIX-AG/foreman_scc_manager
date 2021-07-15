@@ -72,6 +72,12 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
 
+      - name: Limit smart_proxy_dynflow version for Katello 3.16
+        working-directory: katello
+        if: ${{ matrix.katello == 'KATELLO-3.16' }}
+        run: |
+          sed -i '42igem.add_dependency "smart_proxy_dynflow", "< 0.4.0"' katello.gemspec
+
       - name: Setup bundler
         working-directory: foreman
         run: |
