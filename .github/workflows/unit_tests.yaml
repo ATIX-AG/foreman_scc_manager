@@ -78,6 +78,19 @@ jobs:
         run: |
           sed -i '42igem.add_dependency "smart_proxy_dynflow", "< 0.4.0"' katello.gemspec
 
+      - name: Add katello dependencies that are not automatically loaded
+        working-directory: foreman_scc_manager
+        run: |
+          sed -i '19is.add_development_dependency "factory_bot_rails", "~> 4.5"' foreman_scc_manager.gemspec
+          sed -i '19is.add_development_dependency "mocha", "~> 1.11"' foreman_scc_manager.gemspec
+          sed -i '19is.add_development_dependency "minitest-reporters"' foreman_scc_manager.gemspec
+          sed -i '19is.add_development_dependency "minitest-tags"' foreman_scc_manager.gemspec
+          sed -i '19is.add_development_dependency "robottelo_reporter"' foreman_scc_manager.gemspec
+          sed -i '19is.add_development_dependency "rubocop-checkstyle_formatter"' foreman_scc_manager.gemspec
+          sed -i '19is.add_development_dependency "simplecov"' foreman_scc_manager.gemspec
+          sed -i '19is.add_development_dependency "simplecov-rcov"' foreman_scc_manager.gemspec
+          sed -i '19is.add_development_dependency "vcr", "< 4.0.0"' foreman_scc_manager.gemspec
+
       - name: Setup bundler
         working-directory: foreman
         run: |
