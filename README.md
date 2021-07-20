@@ -1,4 +1,5 @@
-[![Build Status master](https://travis-ci.org/ATIX-AG/foreman_scc_manager.svg?branch=master)](https://travis-ci.org/ATIX-AG/foreman_scc_manager)
+![Rubocop](https://github.com/ATIX-AG/foreman_scc_manager/actions/workflows/rubocop.yaml/badge.svg)
+![Unit Tests](https://github.com/ATIX-AG/foreman_scc_manager/actions/workflows/unit_tests.yaml/badge.svg)
 
 # ForemanSccManager
 
