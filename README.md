@@ -1,13 +1,13 @@
-[![Build Status master](https://travis-ci.org/ATIX-AG/foreman_scc_manager.svg?branch=master)](https://travis-ci.org/ATIX-AG/foreman_scc_manager)
+![Rubocop](https://github.com/ATIX-AG/foreman_scc_manager/actions/workflows/rubocop.yaml/badge.svg)
+![Unit Tests](https://github.com/ATIX-AG/foreman_scc_manager/actions/workflows/unit_tests.yaml/badge.svg)
 
-# ForemanSccManager
+# Foreman SCC Manager
 
-Foreman plugin to sync SUSE Customer Center products and repositories into Katello
+Foreman plugin to sync SUSE Customer Center products and repositories into Katello.
 
 ## Installation
 
-See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
-for how to install Foreman plugins
+See [Foreman Manual](https://theforeman.org/plugins/#2.Installation) on how to install Foreman plugins.
 
 ## Compatibility
 
@@ -27,10 +27,12 @@ for how to install Foreman plugins
 | 1.15            | 3.4             | ~> 1.1.0       |
 
 ## Documentation
-The plugin documentation can be found at https://docs.orcharhino.com/sources/management_ui/the_content_menu/suse_subscriptions.html.
 
-A Hammer CLI extension is available for this plugin:
-https://github.com/ATIX-AG/hammer-cli-foreman-scc-manager
+[Plugin documentation](https://docs.orcharhino.com/sources/management_ui/the_content_menu/suse_subscriptions.html)
+
+## Hammer CLI Extension
+
+[Hammer CLI for Foreman SCC Manager](https://github.com/ATIX-AG/hammer-cli-foreman-scc-manager)
 
 ## Contributing
 
@@ -38,7 +40,7 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2021 ATIX AG - http://www.atix.de
+Copyright (c) 2021 ATIX AG - https://atix.de
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -52,4 +54,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
