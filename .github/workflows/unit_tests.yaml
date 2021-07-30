@@ -66,12 +66,6 @@ jobs:
           ref: ${{ matrix.katello}}
           path: katello
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby-version }}
-          bundler-cache: true
-
       - name: Limit smart_proxy_dynflow version for Katello 3.16
         working-directory: katello
         if: ${{ matrix.katello == 'KATELLO-3.16' }}
@@ -96,7 +90,13 @@ jobs:
         run: |
           echo "gemspec :path => '../katello'" > bundler.d/katello.local.rb
           echo "gemspec :path => '../foreman_scc_manager'" > bundler.d/foreman_scc_manager.local.rb
-          bundle install --jobs=3 --retry=3
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+          working-directory: foreman
 
       - name: Prepare test env
         working-directory: foreman
