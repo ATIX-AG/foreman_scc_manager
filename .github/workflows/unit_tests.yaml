@@ -105,7 +105,12 @@ jobs:
           echo -e "test:\n  adapter: postgresql\n  database: postgres_db\n  user: postgres\n  password: postgres\n  host: localhost" > config/database.yml
           bundle exec rake db:migrate
 
-      - name: Run tests
+      - name: Run unit tests
         working-directory: foreman
         run: |
           bundle exec rake test:foreman_scc_manager
+
+      - name: Run permissions test
+        working-directory: foreman
+        run: |
+          bundle exec rake test TEST="test/unit/foreman/access_permissions_test.rb"
