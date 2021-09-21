@@ -35,13 +35,9 @@ end
 
 task default: :test
 
-begin
-  require 'rubocop/rake_task'
-  RuboCop::RakeTask.new
-rescue StandardError => _e
-  puts 'Rubocop not loaded.'
+class ForemanSccManager::Engine
+  def self.root
+    return File.expand_path('../', __FILE__)
+  end
 end
-
-task :default do
-  Rake::Task['rubocop'].execute
-end
+import 'lib/tasks/rubocop.rake'
