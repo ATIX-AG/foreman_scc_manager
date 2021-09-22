@@ -19,4 +19,4 @@ jobs:
           gem install bundler
       - name: Execute rubocop
         run: |
-          bundle exec rubocop
+          bundle exec rake foreman_scc_manager:rubocop
