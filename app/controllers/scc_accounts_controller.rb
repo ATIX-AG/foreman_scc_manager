@@ -101,7 +101,7 @@ class SccAccountsController < ApplicationController
 
   def find_available_gpg_keys
     @scc_account ? org = @scc_account.organization : org = @organization
-    @selectable_gpg_keys = ::Katello::GpgKey.where(organization: org).collect { |p| [p.name, p.id] }.unshift ['None', nil]
+    @selectable_gpg_keys = ::Katello::ContentCredential.where(organization: org).collect { |p| [p.name, p.id] }.unshift ['None', nil]
   end
 
   def find_organization
