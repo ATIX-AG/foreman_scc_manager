@@ -22,7 +22,12 @@ jobs:
           - ruby-version: 2.5
             foreman: 2.3-stable
             katello: KATELLO-3.18
-
+          - ruby-version: 2.5
+            foreman: 2.5-stable
+            katello: KATELLO-4.1
+          - ruby-version: 2.5
+            foreman: 3.0-stable
+            katello: KATELLO-4.1
     services:
       postgres:
         image: ghcr.io/atix-ag/postgresql12_evr_ext_image:main
