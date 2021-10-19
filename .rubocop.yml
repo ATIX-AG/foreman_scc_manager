@@ -35,3 +35,19 @@ Metrics/AbcSize:
 
 Metrics/CyclomaticComplexity:
   Max: 8
+
+Naming/VariableNumber:
+  Exclude:
+    - 'test/**/*'
+
+Rails/FilePath:
+  Exclude:
+    - 'test/**/*'
+
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - 'test/**/*'
+
+Naming/AccessorMethodName:
+  Exclude:
+    - 'test/**/*'

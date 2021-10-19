@@ -1,0 +1,18 @@
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: strict, flexible
+Rails/Date:
+  Enabled: false
+
+# Configuration parameters: Include.
+# Include: app/models/**/*.rb
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+# Configuration parameters: Include.
+# Include: app/models/**/*.rb
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
