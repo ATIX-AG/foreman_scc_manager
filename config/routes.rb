@@ -18,11 +18,11 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :api, :defaults => { :format => 'json' } do
-    scope '(:apiv)', :module => :v2,
-                     :defaults => { :apiv => 'v2' },
-                     :apiv => /v1|v2/,
-                     :constraints => ApiConstraints.new(:version => 2, :default => true) do
+  namespace :api, defaults: { format: 'json' } do
+    scope '(:apiv)', module: :v2,
+                     defaults: { apiv: 'v2' },
+                     apiv: /v1|v2/,
+                     constraints: ApiConstraints.new(version: 2, default: true) do
       resources :scc_accounts, except: %i[new edit] do
         collection do
           post 'test_connection'
@@ -34,8 +34,8 @@ Rails.application.routes.draw do
           put 'bulk_subscribe'
         end
       end
-      constraints(:scc_account_id => /[^\/]+/) do
-        resources :scc_accounts, :only => [] do
+      constraints(scc_account_id: %r{[^/]+}) do
+        resources :scc_accounts, only: [] do
           resources :scc_products, only: %i[index show] do
             member do
               put 'subscribe'

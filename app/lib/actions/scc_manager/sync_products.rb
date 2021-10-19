@@ -7,16 +7,16 @@ module Actions
         action_subject(scc_account)
         password = encrypt_field(scc_account.password)
         plan_self(id: scc_account.id,
-                  base_url: scc_account.base_url,
-                  login: scc_account.login,
-                  password: password)
+          base_url: scc_account.base_url,
+          login: scc_account.login,
+          password: password)
       end
 
       def run
         products = ::SccManager.get_scc_data(input.fetch(:base_url),
-                                             '/connect/organizations/products',
-                                             input.fetch(:login),
-                                             decrypt_field(input.fetch(:password)))
+          '/connect/organizations/products',
+          input.fetch(:login),
+          decrypt_field(input.fetch(:password)))
         output[:data] = ::SccManager.sanitize_products(products).values
       rescue StandardError => e
         ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Products: #{e}"

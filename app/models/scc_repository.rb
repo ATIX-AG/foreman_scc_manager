@@ -22,7 +22,7 @@ class SccRepository < ApplicationRecord
 
   def token_changed_callback
     User.current ||= User.anonymous_admin
-    repo = self.katello_root_repository
+    repo = katello_root_repository
     return if repo.nil? || repo.url == full_url
 
     ::Foreman::Logging.logger('foreman_scc_manager').info "Update URL-token for repository '#{repo.name}'."

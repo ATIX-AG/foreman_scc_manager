@@ -19,8 +19,9 @@ class SccAccount < ApplicationRecord
   belongs_to :sync_task, class_name: 'ForemanTasks::Task'
   has_many :scc_products, dependent: :destroy
   has_many :scc_repositories, dependent: :destroy
-  belongs_to :foreman_tasks_recurring_logic, :inverse_of => :scc_account, :class_name => 'ForemanTasks::RecurringLogic', :dependent => :destroy
-  belongs_to :task_group, :class_name => 'SccAccountSyncPlanTaskGroup', :inverse_of => :scc_account
+  belongs_to :foreman_tasks_recurring_logic, inverse_of: :scc_account,
+class_name: 'ForemanTasks::RecurringLogic', dependent: :destroy
+  belongs_to :task_group, class_name: 'SccAccountSyncPlanTaskGroup', inverse_of: :scc_account
 
   validates_lengths_from_database
   validates :name, presence: true
@@ -28,7 +29,7 @@ class SccAccount < ApplicationRecord
   validates :login, presence: true
   validates :password, presence: true
   validates :base_url, presence: true
-  validates :interval, :inclusion => { :in => TYPES }, :allow_blank => false
+  validates :interval, inclusion: { in: TYPES }, allow_blank: false
   validate :sync_date_is_valid_datetime
 
   after_initialize :init
@@ -41,7 +42,7 @@ class SccAccount < ApplicationRecord
 
   def init
     # set default values
-    self.sync_date ||= Time.new if self.new_record?
+    self.sync_date ||= Time.new if new_record?
   end
 
   def sync_date_is_valid_datetime
@@ -67,27 +68,27 @@ class SccAccount < ApplicationRecord
   end
 
   def use_recurring_logic?
-    self.interval != NEVER
+    interval != NEVER
   end
 
   def save_with_logic!
     self.task_group ||= SccAccountSyncPlanTaskGroup.create!
 
-    associate_recurring_logic if self.valid?
+    associate_recurring_logic if valid?
 
-    self.save!
-    start_recurring_logic if self.use_recurring_logic?
+    save!
+    start_recurring_logic if use_recurring_logic?
 
     true
   end
 
   def update_attributes_with_logic!(params)
     transaction do
-      self.update!(params)
+      update!(params)
       if rec_logic_changed?
-        old_rec_logic = self.foreman_tasks_recurring_logic
+        old_rec_logic = foreman_tasks_recurring_logic
         associate_recurring_logic
-        self.save!
+        save!
         old_rec_logic&.cancel
         # Can/Should we do that???
         old_rec_logic&.destroy
@@ -120,25 +121,22 @@ class SccAccount < ApplicationRecord
   end
 
   def associate_recurring_logic
-    if self.use_recurring_logic?
-      self.foreman_tasks_recurring_logic = add_recurring_logic(self.sync_date, self.interval)
-    else
-      self.foreman_tasks_recurring_logic = nil
-    end
+    self.foreman_tasks_recurring_logic = (add_recurring_logic(self.sync_date, interval) if use_recurring_logic?)
   end
 
   def toggle_enabled
-    self.foreman_tasks_recurring_logic&.enabled = self.enabled
+    foreman_tasks_recurring_logic&.enabled = enabled
   end
 
   def start_recurring_logic
     # rubocop:disable Style/GuardClause
-    if self.use_recurring_logic?
+    if use_recurring_logic?
       User.as_anonymous_admin do
         if self.sync_date.to_time < Time.now
-          self.foreman_tasks_recurring_logic.start(::Actions::SccManager::SyncPlanAccountRepositories, self)
+          foreman_tasks_recurring_logic.start(::Actions::SccManager::SyncPlanAccountRepositories, self)
         else
-          self.foreman_tasks_recurring_logic.start_after(::Actions::SccManager::SyncPlanAccountRepositories, self.sync_date, self)
+          foreman_tasks_recurring_logic.start_after(::Actions::SccManager::SyncPlanAccountRepositories,
+            self.sync_date, self)
         end
       end
     end
@@ -146,7 +144,7 @@ class SccAccount < ApplicationRecord
   end
 
   def cancel_recurring_logic
-    self.foreman_tasks_recurring_logic&.cancel
+    foreman_tasks_recurring_logic&.cancel
   end
 
   def rec_logic_changed?

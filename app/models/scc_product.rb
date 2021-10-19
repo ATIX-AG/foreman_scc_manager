@@ -13,10 +13,10 @@ class SccProduct < ApplicationRecord
   has_many :scc_extendings, inverse_of: :scc_product, dependent: :destroy
   has_many :scc_extensions, through: :scc_extendings
   has_many :inverse_scc_extendings,
-           inverse_of: :scc_extension,
-           dependent: :destroy,
-           class_name: :SccExtending,
-           foreign_key: :scc_extension_id
+    inverse_of: :scc_extension,
+    dependent: :destroy,
+    class_name: :SccExtending,
+    foreign_key: :scc_extension_id
   has_many :inverse_scc_extensions, through: :inverse_scc_extendings, source: :scc_product
 
   default_scope -> { order(:name) }

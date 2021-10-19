@@ -13,27 +13,27 @@ class SccProductCreateTest < ActiveSupport::TestCase
   end
 
   test 'uniq_name' do
-    assert_equal @product.uniq_name, '111 number one'
+    assert_equal('111 number one', @product.uniq_name)
   end
 
   test 'pretty_name' do
-    assert_equal @product.pretty_name, 'number one (id: 111)'
+    assert_equal('number one (id: 111)', @product.pretty_name)
   end
 
   test 'pretty_description' do
     assert_equal @product_with_normal_description.description,
-                 @product_with_normal_description.pretty_description
-    assert_equal @product.pretty_description, 'lorem ipsum dolor sit amet'
-    assert_equal @product_with_ugly_description.pretty_description, 'lorem ipsum dolor sit amet'
+      @product_with_normal_description.pretty_description
+    assert_equal('lorem ipsum dolor sit amet', @product.pretty_description)
+    assert_equal('lorem ipsum dolor sit amet', @product_with_ugly_description.pretty_description)
   end
 end
 
 class SccProductSearchTest < ActiveSupport::TestCase
   test 'default ordered by name' do
-    product_names = ['one', 'two', 'three',
-                     'p_ext_1', 'p_ext_10', 'p_ext_2', 'p_ext_3',
-                     'p_ext_4', 'p_ext_5', 'p_ext_6', 'p_ext_7',
-                     'p_ext_8', 'p_ext_9']
+    product_names = %w[one two three
+                       p_ext_1 p_ext_10 p_ext_2 p_ext_3
+                       p_ext_4 p_ext_5 p_ext_6 p_ext_7
+                       p_ext_8 p_ext_9]
     assert_equal SccProduct.all.pluck(:name), product_names.sort
   end
 
@@ -60,7 +60,7 @@ class SccProductExtensionsTest < ActiveSupport::TestCase
   end
 
   test 'check product extensions available' do
-    assert_equal @product_with_extensions.scc_extensions.count, 10
+    assert_equal(10, @product_with_extensions.scc_extensions.count)
     assert_not_empty @product_with_extensions.scc_extensions
     assert_empty @product_without_extensions.scc_extensions
   end
@@ -82,8 +82,8 @@ class SccProductEmptyRepoAvailableTest < ActiveSupport::TestCase
 
   test 'products with empty repositories' do
     products_with_repos = SccProduct.only_products_with_repos
-    assert_equal SccProduct.all.count { |prod| !prod.scc_repositories.empty? }, 3
-    assert_equal products_with_repos.count, 3
+    assert_equal(3, SccProduct.all.count { |prod| !prod.scc_repositories.empty? })
+    assert_equal(3, products_with_repos.count)
   end
 end
 

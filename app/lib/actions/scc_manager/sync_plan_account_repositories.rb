@@ -8,7 +8,7 @@ module Actions
 
         User.as_anonymous_admin do
           plan_action(::Actions::SccManager::SyncRepositories, scc_account)
-          plan_self(:sync_plan_name => scc_account.name)
+          plan_self(sync_plan_name: scc_account.name)
         end
       end
 

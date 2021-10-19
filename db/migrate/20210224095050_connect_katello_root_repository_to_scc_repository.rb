@@ -20,7 +20,9 @@ class ConnectKatelloRootRepositoryToSccRepository < ActiveRecord::Migration[5.2]
       # 2) equal to scc product id + scc product name + scc repo name
       scc_p.scc_repositories.each do |scc_r|
         katello_root_repositories.each do |katello_label, katello_id|
-          scc_r.update!(katello_root_repository_id: katello_id) if katello_label.end_with?(::Katello::Util::Model.labelize(scc_r.name))
+          if katello_label.end_with?(::Katello::Util::Model.labelize(scc_r.name))
+            scc_r.update!(katello_root_repository_id: katello_id)
+          end
         end
       end
     end

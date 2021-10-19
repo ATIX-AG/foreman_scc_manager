@@ -31,6 +31,7 @@
   <%= f.hidden_field :prevent_missing, value: 1 %>
   <ul class="nav nav-tabs" data-tabs="tabs">
     <li class="active"><a href="#primary" data-toggle="tab"><%= _("SUSE Customer Center") %></a></li>
+    <li><a href="#new" data-toggle="tab"><%= _("SUSE Customer Center new") %></a></li>
   </ul>
 
   <div class="tab-content">
@@ -45,8 +46,12 @@
           <% submit_disabled = true %>
         <% end %>
       </ul>
+      <%= submit_or_cancel f, false, {disabled: submit_disabled || false} %>
     </div>
-    <%= submit_or_cancel f, false, {disabled: submit_disabled || false} %>
+
+    <div class="tab-pane" id="new">
+      <%= render 'show_new' %>
+    </div>
   </div>
 <% end %>
 

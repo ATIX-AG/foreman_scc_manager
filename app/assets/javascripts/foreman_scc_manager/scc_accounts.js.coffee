@@ -1,3 +1,5 @@
+$(window).on('hashchange', tfm.tools.setTab);
+
 scc_products_after_checked = (target) ->
   if target.parentNode.dataset.parent
     parent = $("#" + target.parentNode.dataset.parent + " input")[0]

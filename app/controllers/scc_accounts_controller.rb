@@ -9,7 +9,7 @@ class SccAccountsController < ApplicationController
   def index
     @scc_accounts = resource_base.where(organization: @organization)
                                  .search_for(params[:search], order: params[:order])
-                                 .paginate(:page => params[:page], :per_page => params[:per_page])
+                                 .paginate(page: params[:page], per_page: params[:per_page])
     # overwrite the product list with filtered products that do not include products with empty repositories
     @scc_accounts.each do |scc_account|
       scc_account.scc_products_with_repos_count = scc_account.scc_products.only_products_with_repos.count
@@ -32,12 +32,15 @@ class SccAccountsController < ApplicationController
   end
 
   # GET /scc_accounts/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /scc_accounts/test_connection
   def test_connection
     @scc_account = SccAccount.new(scc_account_params)
-    @scc_account.password = SccAccount.find_by!(id: params[:scc_account_id]).password if params[:scc_account_id].present? && scc_account_params[:password].empty?
+    if params[:scc_account_id].present? && scc_account_params[:password].empty?
+      @scc_account.password = SccAccount.find(params[:scc_account_id]).password
+    end
     respond_to do |format|
       if @scc_account.test_connection
         format.json { render json: nil, status: :ok }
@@ -83,8 +86,8 @@ class SccAccountsController < ApplicationController
 
     if scc_products_to_subscribe.count > 0
       ForemanTasks.async_task(::Actions::BulkAction,
-                              ::Actions::SccManager::SubscribeProduct,
-                              scc_products_to_subscribe)
+        ::Actions::SccManager::SubscribeProduct,
+        scc_products_to_subscribe)
       success _('Task to subscribe products started.')
     else
       warning _('No products selected.')
@@ -100,8 +103,10 @@ class SccAccountsController < ApplicationController
   private
 
   def find_available_gpg_keys
-    @scc_account ? org = @scc_account.organization : org = @organization
-    @selectable_gpg_keys = ::Katello::GpgKey.where(organization: org).collect { |p| [p.name, p.id] }.unshift ['None', nil]
+    org = @scc_account ? @scc_account.organization : @organization
+    @selectable_gpg_keys = ::Katello::GpgKey.where(organization: org).collect do |p|
+      [p.name, p.id]
+    end.unshift ['None', nil]
   end
 
   def find_organization
@@ -126,7 +131,7 @@ class SccAccountsController < ApplicationController
   end
 
   def scc_bulk_subscribe_params
-    params.require(:scc_account).permit(:scc_subscribe_product_ids => [])
+    params.require(:scc_account).permit(scc_subscribe_product_ids: [])
   end
 
   def action_permission

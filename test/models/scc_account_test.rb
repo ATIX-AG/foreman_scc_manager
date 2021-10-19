@@ -7,14 +7,14 @@ class SccAccountCreateTest < ActiveSupport::TestCase
 
   test 'create' do
     assert @account.save
-    assert_not_empty SccAccount.where(:id => @account.id)
+    assert_not_empty SccAccount.where(id: @account.id)
   end
 
   test 'create default url' do
     account = scc_accounts(:account_missing_url)
     assert account.save
-    assert_equal account.base_url, 'https://scc.suse.com'
-    assert_not_empty SccAccount.where(:id => @account.id)
+    assert_equal('https://scc.suse.com', account.base_url)
+    assert_not_empty SccAccount.where(id: @account.id)
   end
 
   test 'create missing value' do
@@ -24,7 +24,7 @@ class SccAccountCreateTest < ActiveSupport::TestCase
       # base_url has a default value set in DB
       # base_url: 'https://scc.example.org',
       login: 'account1',
-      password: 'secret'
+      password: 'secret',
     }
 
     # for every key in hash try to create account without it set
@@ -50,14 +50,14 @@ class SccAccountCreateTest < ActiveSupport::TestCase
     as_admin do
       assert @account.save
     end
-    assert_equal @account.password, '123456'
+    assert_equal('123456', @account.password)
     assert_not_equal @account.password_in_db, '123456'
   end
 end
 
 class SccAccountSearchTest < ActiveSupport::TestCase
   test 'default ordered by login' do
-    assert_equal SccAccount.all.pluck(:login), ['oneuser', 'twouser', 'fakeuser1'].sort
+    assert_equal SccAccount.all.pluck(:login), %w[oneuser twouser fakeuser1].sort
   end
 
   test 'search login' do

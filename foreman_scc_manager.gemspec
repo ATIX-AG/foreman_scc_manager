@@ -4,7 +4,6 @@ require 'date'
 Gem::Specification.new do |s|
   s.name        = 'foreman_scc_manager'
   s.version     = ForemanSccManager::VERSION
-  s.date        = Date.today.to_s
   s.license     = 'GPL-3.0'
   s.authors     = ['ATIX AG']
   s.email       = ['info@atix.de']
@@ -17,9 +16,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_development_dependency 'rdoc', '~> 6', '>= 6.3.1'
-  s.add_development_dependency 'rubocop', '~> 0.75.0'
-  s.add_development_dependency 'rubocop-rails', '~> 2.0.1'
-
+  s.add_development_dependency 'theforeman-rubocop', '~> 0.1.0.pre'
   # Testing
   s.add_development_dependency 'webmock'
 

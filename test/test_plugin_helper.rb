@@ -20,12 +20,12 @@ module FixtureTestCase
     # Fixtures are copied into a separate path to combine with Foreman fixtures. This directory
     # is kept out of version control.
     self.fixture_path = "#{Rails.root}/tmp/combined_fixtures/"
-    FileUtils.rm_rf(self.fixture_path) if File.directory?(self.fixture_path)
-    Dir.mkdir(self.fixture_path)
-    FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/models/*"), self.fixture_path)
-    FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/files/*"), self.fixture_path)
-    FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/controllers/*"), self.fixture_path)
-    FileUtils.cp(Dir.glob("#{Rails.root}/test/fixtures/*"), self.fixture_path)
+    FileUtils.rm_rf(fixture_path) if File.directory?(fixture_path)
+    Dir.mkdir(fixture_path)
+    FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/models/*"), fixture_path)
+    FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/files/*"), fixture_path)
+    FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/controllers/*"), fixture_path)
+    FileUtils.cp(Dir.glob("#{Rails.root}/test/fixtures/*"), fixture_path)
     fixtures(:all)
     FIXTURES = load_fixtures(ActiveRecord::Base)
 
@@ -48,7 +48,7 @@ class ActiveSupport::TestCase
   def get_organization(org = nil)
     saved_user = User.current
     User.current = User.unscoped.find(users(:admin).id)
-    org = org.nil? ? :empty_organization : org
+    org = :empty_organization if org.nil?
     organization = Organization.find(taxonomies(org.to_sym).id)
     organization.stubs(:label_not_changed).returns(true)
     organization.setup_label_from_name
@@ -64,6 +64,6 @@ class ActionController::TestCase
   def set_session_user(user = :admin, org = :empty_organization)
     user = user.is_a?(User) ? user : users(user)
     org = org.is_a?(Organization) ? org : taxonomies(org)
-    { :user => user.id, :expires_at => 5.minutes.from_now, :organization_id => org.id }
+    { user: user.id, expires_at: 5.minutes.from_now, organization_id: org.id }
   end
 end

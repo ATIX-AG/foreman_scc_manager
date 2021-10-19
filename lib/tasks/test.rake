@@ -23,4 +23,7 @@ end
 Rake::Task[:test].enhance ['test:foreman_scc_manager']
 
 load 'tasks/jenkins.rake'
-Rake::Task['jenkins:unit'].enhance ['test:foreman_scc_manager', 'foreman_scc_manager:rubocop'] if Rake::Task.task_defined?(:'jenkins:unit')
+if Rake::Task.task_defined?(:'jenkins:unit')
+  Rake::Task['jenkins:unit'].enhance ['test:foreman_scc_manager',
+                                      'foreman_scc_manager:rubocop']
+end
