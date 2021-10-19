@@ -71,6 +71,12 @@ jobs:
           ref: ${{ matrix.katello}}
           path: katello
 
+      - name: Limit quid-proton installation for Katello
+        working-directory: katello
+        if: ${{ matrix.katello == 'KATELLO-4.1' }}
+        run: |
+          sed -i '/gem.add_dependency "qpid_proton"/s/$/, "~> 0.34.0"/' katello.gemspec
+
       - name: Limit smart_proxy_dynflow version for Katello 3.16
         working-directory: katello
         if: ${{ matrix.katello == 'KATELLO-3.16' }}
