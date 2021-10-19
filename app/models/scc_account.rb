@@ -268,7 +268,7 @@ class_name: 'ForemanTasks::RecurringLogic', dependent: :destroy
   # params: items_to_invalidate: ActiveRecord_(*)
   #         save_record: store in database or not (default)
   # return: ActiveRecord elements with invalidated subscription status
-  def invalidate_subscription_status(items_to_invalidate, save_record = false)
+  def invalidate_subscription_status(items_to_invalidate, save_record: false)
     if items_to_invalidate.present?
       items_to_invalidate.each do |inv|
         inv.subscription_valid = false

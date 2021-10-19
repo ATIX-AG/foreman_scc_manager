@@ -103,9 +103,9 @@ module Api
           format.json { render json: sync_task.to_json } if synced
         end
       rescue ::Foreman::Exception => e
-        render json: { error: ('Failed to add task to queue: %s' % e).to_s }, status: :unprocessable_entity
+        render json: { error: format('Failed to add task to queue: %s', e).to_s }, status: :unprocessable_entity
       rescue ForemanTasks::Lock::LockConflict => e
-        render json: { error: ('Lock on SCC account already taken: %s' % e).to_s }, status: :unprocessable_entity
+        render json: { error: format('Lock on SCC account already taken: %s', e).to_s }, status: :unprocessable_entity
       end
 
       api :PUT, '/scc_accounts/:id/bulk_subscribe/', N_('Bulk subscription of scc_products for scc_account')
@@ -124,9 +124,9 @@ module Api
           end
         end
       rescue ::Foreman::Exception => e
-        render json: { error: ('Failed to add task to queue: %s' % e).to_s }, status: :unprocessable_entity
+        render json: { error: format('Failed to add task to queue: %s', e).to_s }, status: :unprocessable_entity
       rescue ForemanTasks::Lock::LockConflict => e
-        render json: { error: ('Lock on SCC account already taken: %s' % e).to_s }, status: :unprocessable_entity
+        render json: { error: format('Lock on SCC account already taken: %s', e).to_s }, status: :unprocessable_entity
       end
 
       private
