@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddRootRepositoryIdToSccRepository < ActiveRecord::Migration[5.2]
   def change
     add_column :scc_repositories, :katello_root_repository_id, :integer, index: true, null: true

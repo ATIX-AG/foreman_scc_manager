@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ForemanSccManager
   module FixturesSupport
     FIXTURE_CLASSES = {

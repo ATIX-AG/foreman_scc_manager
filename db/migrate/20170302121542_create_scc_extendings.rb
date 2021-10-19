@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSccExtendings < ActiveRecord::Migration[4.2]
   def change
     create_table :scc_extendings do |t|

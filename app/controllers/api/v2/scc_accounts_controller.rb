@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V2
     class SccAccountsController < ::Api::V2::BaseController
@@ -112,7 +114,7 @@ module Api
       def bulk_subscribe
         scc_products_to_subscribe = @scc_account.scc_products.where(id: params[:scc_subscribe_product_ids])
         respond_to do |format|
-          if scc_products_to_subscribe.count > 0
+          if scc_products_to_subscribe.count.positive?
             subscribe_task = ForemanTasks.async_task(::Actions::BulkAction,
               ::Actions::SccManager::SubscribeProduct,
               scc_products_to_subscribe)

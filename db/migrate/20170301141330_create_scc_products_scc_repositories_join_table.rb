@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSccProductsSccRepositoriesJoinTable < ActiveRecord::Migration[4.2]
   def change
     create_join_table :scc_products, :scc_repositories do |t|

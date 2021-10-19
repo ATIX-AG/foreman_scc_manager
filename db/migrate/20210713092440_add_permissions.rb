@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddPermissions < ActiveRecord::Migration[6.0]
   PRODUCT_PERMISSION_NAMES = %w[
     view_scc_products

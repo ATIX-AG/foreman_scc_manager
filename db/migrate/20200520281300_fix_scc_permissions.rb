@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FixSccPermissions < ActiveRecord::Migration[5.2]
   PERMISSION_NAMES = {
     view_scc: :view_scc_accounts,

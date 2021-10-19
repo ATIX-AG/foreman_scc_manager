@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SccProduct < ApplicationRecord
   include Authorizable
   include ForemanTasks::Concerns::ActionSubject
@@ -36,7 +38,7 @@ class SccProduct < ApplicationRecord
   def pretty_description
     new_description = Nokogiri::XML(description).xpath('//p')
     # No tags to remove
-    if new_description.count == 0
+    if new_description.count.zero?
       description
     else
       new_description.first.children.first.text.strip

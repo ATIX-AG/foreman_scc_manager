@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConnectKatelloRootRepositoryToSccRepository < ActiveRecord::Migration[5.2]
   # add SccRepository class, because original one triggers the token_changed_callback
   # which tried to update Katello root repositories

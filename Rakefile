@@ -1,4 +1,6 @@
 #!/usr/bin/env rake
+# frozen_string_literal: true
+
 begin
   require 'bundler/setup'
 rescue LoadError
@@ -35,9 +37,11 @@ end
 
 task default: :test
 
-class ForemanSccManager::Engine
-  def self.root
-    File.expand_path(__dir__)
+module ForemanSccManager
+  class Engine
+    def self.root
+      File.expand_path(__dir__)
+    end
   end
 end
 import 'lib/tasks/rubocop.rake'

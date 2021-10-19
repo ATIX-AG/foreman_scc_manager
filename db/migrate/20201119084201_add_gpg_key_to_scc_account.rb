@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddGpgKeyToSccAccount < ActiveRecord::Migration[5.2]
   def change
     add_column :scc_accounts, :katello_gpg_key_id, :integer,  null: true

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddProductIdToSccProduct < ActiveRecord::Migration[4.2]
   def change
     add_column :scc_products, :product_id, :integer, index: true, null: true

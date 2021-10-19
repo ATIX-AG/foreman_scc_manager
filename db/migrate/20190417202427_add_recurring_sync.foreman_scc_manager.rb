@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddRecurringSync < ActiveRecord::Migration[5.2]
   class FakeSccAccount < ApplicationRecord
     self.table_name = 'scc_accounts'

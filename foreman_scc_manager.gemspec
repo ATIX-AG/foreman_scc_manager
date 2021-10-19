@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path('lib/foreman_scc_manager/version', __dir__)
 require 'date'
 

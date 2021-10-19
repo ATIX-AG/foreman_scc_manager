@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_plugin_helper'
 
 class SccAccountsControllerTest < ActionController::TestCase
@@ -68,7 +70,7 @@ class SccAccountsControllerTest < ActionController::TestCase
 
   test 'should update scc_account' do
     account = scc_accounts(:two)
-    put :update, params: { id: account.id, scc_account: { sync_date: Time.now, interval: 'weekly' } },
+    put :update, params: { id: account.id, scc_account: { sync_date: Time.zone.now, interval: 'weekly' } },
 session: set_session_user
     assert_redirected_to '/scc_accounts'
     assert_equal 'weekly', SccAccount.find(account.id).interval
@@ -110,7 +112,7 @@ session: set_session_user
   test 'should fail to update scc_account with empty name' do
     account = scc_accounts(:two)
     put :update,
-      params: { id: account.id, scc_account: { name: '', sync_date: Time.now, interval: 'weekly' } }, session: set_session_user
+      params: { id: account.id, scc_account: { name: '', sync_date: Time.zone.now, interval: 'weekly' } }, session: set_session_user
 
     assert_equal account.name, SccAccount.find(account.id).name
   end
@@ -118,7 +120,7 @@ session: set_session_user
   test 'should fail to update scc_account with empty login' do
     account = scc_accounts(:two)
     put :update,
-      params: { id: account.id, scc_account: { login: '', sync_date: Time.now, interval: 'weekly' } }, session: set_session_user
+      params: { id: account.id, scc_account: { login: '', sync_date: Time.zone.now, interval: 'weekly' } }, session: set_session_user
 
     assert_equal account.login, SccAccount.find(account.id).login
   end
@@ -126,7 +128,7 @@ session: set_session_user
   test 'should fail to update scc_account with empty base url' do
     account = scc_accounts(:two)
     put :update,
-      params: { id: account.id, scc_account: { base_url: '', sync_date: Time.now, interval: 'weekly' } }, session: set_session_user
+      params: { id: account.id, scc_account: { base_url: '', sync_date: Time.zone.now, interval: 'weekly' } }, session: set_session_user
 
     assert_equal account.base_url, SccAccount.find(account.id).base_url
   end

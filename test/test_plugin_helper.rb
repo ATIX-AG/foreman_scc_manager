@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This calls the main test_helper in Foreman-core
 require 'test_helper'
 
@@ -35,35 +37,39 @@ module FixtureTestCase
   end
 end
 
-class ActiveSupport::TestCase
-  include FactoryBot::Syntax::Methods
-  include ActionDispatch::TestProcess
-  include FixtureTestCase
-  include ForemanTasks::TestHelpers::WithInThreadExecutor
+module ActiveSupport
+  class TestCase
+    include FactoryBot::Syntax::Methods
+    include ActionDispatch::TestProcess
+    include FixtureTestCase
+    include ForemanTasks::TestHelpers::WithInThreadExecutor
 
-  before do
-    Setting::Content.load_defaults
-  end
+    before do
+      Setting::Content.load_defaults
+    end
 
-  def get_organization(org = nil)
-    saved_user = User.current
-    User.current = User.unscoped.find(users(:admin).id)
-    org = :empty_organization if org.nil?
-    organization = Organization.find(taxonomies(org.to_sym).id)
-    organization.stubs(:label_not_changed).returns(true)
-    organization.setup_label_from_name
-    location = Location.where(name: 'Location 1').first
-    organization.locations << location
-    organization.save!
-    User.current = saved_user
-    organization
+    def get_organization(org = nil)
+      saved_user = User.current
+      User.current = User.unscoped.find(users(:admin).id)
+      org = :empty_organization if org.nil?
+      organization = Organization.find(taxonomies(org.to_sym).id)
+      organization.stubs(:label_not_changed).returns(true)
+      organization.setup_label_from_name
+      location = Location.where(name: 'Location 1').first
+      organization.locations << location
+      organization.save!
+      User.current = saved_user
+      organization
+    end
   end
 end
 
-class ActionController::TestCase
-  def set_session_user(user = :admin, org = :empty_organization)
-    user = user.is_a?(User) ? user : users(user)
-    org = org.is_a?(Organization) ? org : taxonomies(org)
-    { user: user.id, expires_at: 5.minutes.from_now, organization_id: org.id }
+module ActionController
+  class TestCase
+    def set_session_user(user = :admin, org = :empty_organization)
+      user = user.is_a?(User) ? user : users(user)
+      org = org.is_a?(Organization) ? org : taxonomies(org)
+      { user: user.id, expires_at: 5.minutes.from_now, organization_id: org.id }
+    end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SccProductsController < ApplicationController
   before_action :find_resource, only: %i[show subscribe unsubscribe]
   include Foreman::Controller::AutoCompleteSearch

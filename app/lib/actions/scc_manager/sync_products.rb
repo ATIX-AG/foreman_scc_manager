@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Actions
   module SccManager
     class SyncProducts < Actions::EntryAction

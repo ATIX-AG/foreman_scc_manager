@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SccAccountsController < ApplicationController
   helper_method :scc_filtered_products
   before_action :find_organization
@@ -84,7 +86,7 @@ class SccAccountsController < ApplicationController
     scc_products_to_subscribe =
       @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids])
 
-    if scc_products_to_subscribe.count > 0
+    if scc_products_to_subscribe.count.positive?
       ForemanTasks.async_task(::Actions::BulkAction,
         ::Actions::SccManager::SubscribeProduct,
         scc_products_to_subscribe)
@@ -111,7 +113,7 @@ class SccAccountsController < ApplicationController
 
   def find_organization
     @organization = Organization.current
-    redirect_to '/select_organization?toState=' + request.path unless @organization
+    redirect_to "/select_organization?toState=#{request.path}" unless @organization
   end
 
   # Use callbacks to share common setup or constraints between actions.

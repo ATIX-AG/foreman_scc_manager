@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SccAccount < ApplicationRecord
   include Authorizable
   include Encryptable
@@ -7,10 +9,10 @@ class SccAccount < ApplicationRecord
 
   encrypts :password
 
-  NEVER = 'never'.freeze
-  DAILY = 'daily'.freeze
-  WEEKLY = 'weekly'.freeze
-  MONTHLY = 'monthly'.freeze
+  NEVER = 'never'
+  DAILY = 'daily'
+  WEEKLY = 'weekly'
+  MONTHLY = 'monthly'
   TYPES = [NEVER, DAILY, WEEKLY, MONTHLY].freeze
 
   self.include_root_in_json = false
@@ -42,7 +44,7 @@ class_name: 'ForemanTasks::RecurringLogic', dependent: :destroy
 
   def init
     # set default values
-    self.sync_date ||= Time.new if new_record?
+    self.sync_date ||= Time.zone.now if new_record?
   end
 
   def sync_date_is_valid_datetime
@@ -100,7 +102,7 @@ class_name: 'ForemanTasks::RecurringLogic', dependent: :destroy
   end
 
   def add_recurring_logic(sync_date, interval)
-    sd = sync_date.presence || Time.now
+    sd = sync_date.presence || Time.zone.now
 
     raise _('Interval cannot be nil') if interval.nil?
 
@@ -132,7 +134,7 @@ class_name: 'ForemanTasks::RecurringLogic', dependent: :destroy
     # rubocop:disable Style/GuardClause
     if use_recurring_logic?
       User.as_anonymous_admin do
-        if self.sync_date.to_time < Time.now
+        if self.sync_date.to_time < Time.zone.now
           foreman_tasks_recurring_logic.start(::Actions::SccManager::SyncPlanAccountRepositories, self)
         else
           foreman_tasks_recurring_logic.start_after(::Actions::SccManager::SyncPlanAccountRepositories,

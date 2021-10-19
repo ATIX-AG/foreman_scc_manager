@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddOrganizationToSccAccount < ActiveRecord::Migration[4.2]
   class SccAccount < ApplicationRecord
     belongs_to :organization

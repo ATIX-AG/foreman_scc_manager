@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeSyncStatusToSyncTask < ActiveRecord::Migration[4.2]
   def change
     remove_column :scc_accounts, :sync_status, :string

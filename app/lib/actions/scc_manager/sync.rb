@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Actions
   module SccManager
     # for dynflow documentation see here: https://dynflow.github.io/documentation/

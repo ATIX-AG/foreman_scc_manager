@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSccProducts < ActiveRecord::Migration[4.2]
   def change
     create_table :scc_products do |t|

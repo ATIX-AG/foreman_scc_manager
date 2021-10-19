@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SccManager
   # adapted from https://github.com/SUSE/connect
   def self.get_scc_data(base_url, rest_url, login, password)
@@ -10,7 +12,7 @@ module SccManager
     end
 
     url = base_url + rest_url
-    auth_header = { Authorization: 'Basic ' + Base64.encode64("#{login}:#{password}").chomp,
+    auth_header = { Authorization: "Basic #{Base64.encode64("#{login}:#{password}").chomp}",
                     Accept: 'application/vnd.scc.suse.com.v4+json' }
     results = []
     loop do
