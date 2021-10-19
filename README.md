@@ -29,7 +29,7 @@ See [Foreman Manual](https://theforeman.org/plugins/#2.Installation) on how to i
 
 ## Documentation
 
-[Plugin documentation](https://docs.orcharhino.com/sources/management_ui/the_content_menu/suse_subscriptions.html)
+[Plugin documentation](https://docs.orcharhino.com/or/docs/sources/usage_guides/managing_sles_systems_guide.html#mssg_installing_the_scc_manager_plugin)
 
 ## Hammer CLI Extension
 
