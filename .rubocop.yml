@@ -11,3 +11,27 @@ AllCops:
     - 'locale/**'
     - 'vendor/bundle/**/*'  # necessary to make github actions linting work, see https://github.com/rubocop/rubocop/issues/9832
 
+Layout/LineLength:
+  Max: 180
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/foreman_scc_manager/engine.rb'
+    - 'config/routes.rb'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'lib/foreman_scc_manager/engine.rb'
+    - 'test/**/*'
+    - 'app/controllers/api/v2/scc_accounts_controller.rb'
+    - 'app/controllers/scc_accounts_controller.rb'
+    - 'app/models/scc_account.rb'
+
+Metrics/MethodLength:
+  Max: 35
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 8
