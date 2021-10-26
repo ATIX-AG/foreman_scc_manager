@@ -10,7 +10,8 @@ module SccManager
     end
 
     url = base_url + rest_url
-    auth_header = { Authorization: 'Basic ' + Base64.encode64("#{login}:#{password}").chomp,
+    credentials = Base64.encode64("#{login}:#{password}").chomp
+    auth_header = { Authorization: "Basic #{credentials}",
                     Accept: 'application/vnd.scc.suse.com.v4+json' }
     results = []
     loop do

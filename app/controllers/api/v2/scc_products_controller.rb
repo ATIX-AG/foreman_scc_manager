@@ -47,8 +47,8 @@ module Api
       private
 
       def find_resource
-        @scc_account = ::SccAccount.find_by!(id: params[:scc_account_id])
-        @scc_product = @scc_account.scc_products.find_by!(id: params[:id])
+        @scc_account = ::SccAccount.find(params[:scc_account_id])
+        @scc_product = @scc_account.scc_products.find(params[:id])
       end
 
       def action_permission
