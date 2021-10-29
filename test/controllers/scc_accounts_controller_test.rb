@@ -2,6 +2,12 @@ require 'test_plugin_helper'
 
 class SccAccountsControllerTest < ActionController::TestCase
   def setup
+    # rubocop: disable Lint/SuppressedException
+    begin
+      ::Katello::ContentCredential
+    rescue NameError
+    end
+    # rubocop: enable Lint/SuppressedException
     @scc_account = scc_accounts(:one)
   end
 
