@@ -37,7 +37,7 @@ class SccAccountsController < ApplicationController
   # POST /scc_accounts/test_connection
   def test_connection
     @scc_account = SccAccount.new(scc_account_params)
-    @scc_account.password = SccAccount.find_by!(id: params[:scc_account_id]).password if params[:scc_account_id].present? && scc_account_params[:password].empty?
+    @scc_account.password = SccAccount.find(params[:scc_account_id]).password if params[:scc_account_id].present? && scc_account_params[:password].empty?
     respond_to do |format|
       if @scc_account.test_connection
         format.json { render json: nil, status: :ok }
@@ -106,7 +106,7 @@ class SccAccountsController < ApplicationController
 
   def find_organization
     @organization = Organization.current
-    redirect_to '/select_organization?toState=' + request.path unless @organization
+    redirect_to "/select_organization?toState=#{request.path}" unless @organization
   end
 
   # Use callbacks to share common setup or constraints between actions.

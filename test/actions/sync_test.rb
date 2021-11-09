@@ -15,7 +15,7 @@ class SccManagerActions < ActiveSupport::TestCase
     action = create_action(action_class)
     action.stubs(:action_subject).with(@scc_account)
 
-    assert action.respond_to? :phase
+    assert_respond_to(action, :phase)
     plan_action(action, @scc_account)
 
     assert_action_planned_with(action, ::Actions::SccManager::SyncProducts, @scc_account)

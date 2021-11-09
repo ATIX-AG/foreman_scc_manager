@@ -37,7 +37,7 @@ task default: :test
 
 class ForemanSccManager::Engine
   def self.root
-    return File.expand_path('../', __FILE__)
+    File.expand_path('__dir__')
   end
 end
 import 'lib/tasks/rubocop.rake'

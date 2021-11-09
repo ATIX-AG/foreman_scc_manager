@@ -14,9 +14,6 @@ jobs:
         with:
           ruby-version: 2.5
           bundler-cache: true
-      - name: Setup rubocop
-        run: |
-          gem install bundler
       - name: Execute rubocop
         run: |
-          bundle exec rake foreman_scc_manager:rubocop
+          bundle exec rubocop

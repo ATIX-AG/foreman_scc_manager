@@ -9,11 +9,11 @@ class SccRepository < ApplicationRecord
   has_and_belongs_to_many :scc_products
 
   def full_url
-    token.blank? ? url : url + '?' + token
+    token.blank? ? url : "#{url}?#{token}"
   end
 
   def uniq_name(scc_product)
-    scc_product.scc_id.to_s + ' ' + description
+    "#{scc_product.scc_id} #{description}"
   end
 
   def pretty_name
