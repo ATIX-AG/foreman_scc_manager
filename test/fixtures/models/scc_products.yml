@@ -10,6 +10,7 @@ one:
   description: "<p> lorem ipsum dolor sit amet </p>"
   product_type: base
   subscription_valid: nil
+  product_id: nil
 
 two:
   scc_account_id: test_account1
@@ -21,6 +22,7 @@ two:
   description: "<p> lorem ipsum dolor sit amet </p><p> lorem lorem lorem </p>"
   product_type: extras
   subscription_valid: true
+  product_id: nil
 
 three:
   scc_account_id: test_account1
@@ -32,18 +34,31 @@ three:
   description: lorem ipsum dolor sit amet
   product_type: base
   subscription_valid: nil
+  product_id: 1
+
+four:
+  scc_account_id: test_account1
+  scc_id: 444
+  name: four
+  version: 4
+  arch: x86_128
+  friendly_name: number four
+  description: lorem ipsum dolor sit amet
+  product_type: base
+  subscription_valid: nil
+  product_id: 2
 
 # create a couple of products as scc_extensions
 <% 1.upto(10) do |i| %>
 p_extension_<%= i %>:
   scc_account_id: test_account1
   scc_id: <%= i %>
-  name: p_ext_<%= i%> 
+  name: p_ext_<%= i%>
   version: 3
   arch: x86_128
-  friendly_name: number <%= i%> 
+  friendly_name: number <%= i%>
   description: lorem ipsum dolor sit amet
   product_type: extension
   subscription_valid: nil
+  product_id: nil
 <% end %>
-

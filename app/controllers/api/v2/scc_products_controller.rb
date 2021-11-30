@@ -12,11 +12,22 @@ module Api
 
       before_action :find_resource, :only => [:show, :subscribe]
 
-      api :GET, '/scc_accounts/:scc_account_id/scc_products/', N_('List all products for scc_account')
+      def metadata_subtotal
+        if @scc_products.present?
+          @scc_products.count
+        else
+          super
+        end
+      end
+
+      api :GET, '/scc_accounts/:scc_account_id/scc_products/', N_('List products for an scc_account')
       param :scc_account_id, :identifier_dottable, :required => true
+      param :subscribed_only, :bool, :required => false, :desc => N_('Show subscribed products only')
       param_group :search_and_pagination, ::Api::V2::BaseController
+
       def index
         scope = resource_scope
+        scope = scope.where.not(:product_id => nil) if ::Foreman::Cast.to_bool(params[:subscribed_only])
         scope = scope.where(:organization => params[:organization_id]) if params[:organization_id].present?
         @scc_products = scope.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page])
       end

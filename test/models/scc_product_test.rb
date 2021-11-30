@@ -30,7 +30,7 @@ end
 
 class SccProductSearchTest < ActiveSupport::TestCase
   test 'default ordered by name' do
-    product_names = ['one', 'two', 'three',
+    product_names = ['one', 'two', 'three', 'four',
                      'p_ext_1', 'p_ext_10', 'p_ext_2', 'p_ext_3',
                      'p_ext_4', 'p_ext_5', 'p_ext_6', 'p_ext_7',
                      'p_ext_8', 'p_ext_9']

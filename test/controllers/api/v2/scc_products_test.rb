@@ -5,7 +5,9 @@ class Api::V2::SccProductsControllerTest < ActionController::TestCase
     @scc_account = scc_accounts(:one)
     @scc_product1 = scc_products(:one)
     @scc_product2 = scc_products(:two)
-    @scc_account.scc_products = [@scc_product1, @scc_product2]
+    @scc_product3 = scc_products(:three)
+    @scc_product4 = scc_products(:four)
+    @scc_account.scc_products = [@scc_product1, @scc_product2, @scc_product3, @scc_product4]
   end
 
   test 'should get index' do
@@ -36,5 +38,23 @@ class Api::V2::SccProductsControllerTest < ActionController::TestCase
   test 'SCC server subscribe product not found' do
     put :subscribe, params: { :id => 'doest-not-exit', :scc_account_id => @scc_account.id }
     assert_response :not_found
+  end
+
+  test 'show subscribed products only' do
+    get :index, params: { :scc_account_id => @scc_account.id, :subscribed_only => true }
+    assert_response :success
+    body = ActiveSupport::JSON.decode(@response.body)
+    assert_not_empty body
+    assert_equal 2, body['results'].count
+    assert_equal 2, body['subtotal']
+  end
+
+  test 'show all products if subscribed_only flag is set to false' do
+    get :index, params: { :scc_account_id => @scc_account.id, :subscribed_only => false }
+    assert_response :success
+    body = ActiveSupport::JSON.decode(@response.body)
+    assert_not_empty body
+    assert_equal 4, body['results'].count
+    assert_equal 4, body['subtotal']
   end
 end
