@@ -23,7 +23,7 @@ module ForemanSccManager
     initializer 'foreman_scc_manager.register_plugin', :before => :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_scc_manager do
         requires_foreman '>= 2.1'
-        requires_foreman_plugin 'katello', '>= 4.2.0'
+        requires_foreman_plugin 'katello', '>= 3.16.0'
 
         precompile_assets 'foreman_scc_manager/scc_accounts.js'
 
