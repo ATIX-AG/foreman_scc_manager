@@ -41,7 +41,7 @@ module Api
       param :id, :identifier_dottable, :required => true
       param :scc_account_id, :identifier_dottable, :required => true
       def subscribe
-        subcribe_task = ForemanTasks.async_task(::Actions::SccManager::SubscribeProduct, @scc_product) if @scc_product
+        subcribe_task = ForemanTasks.async_task(::Actions::SccManager::SubscribeProduct, @scc_product, {}) if @scc_product
         respond_to do |format|
           if subcribe_task
             format.json { render json: subcribe_task.to_json, status: :ok }

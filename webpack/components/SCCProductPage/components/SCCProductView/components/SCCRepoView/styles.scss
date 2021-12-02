@@ -1,0 +1,14 @@
+.pf-c-button.pf-m-plain {
+  --pf-c-button--PaddingTop: var(--pf-global--spacer--xs);
+  --pf-c-button--PaddingRight: var(--pf-global--spacer--sm);
+  --pf-c-button--PaddingBottom: var(--pf-global--spacer--xs);
+  --pf-c-button--PaddingLeft: var(--pf-global--spacer--sm);
+}
+
+.pf-c-dropdown__toggle::before {
+  --pf-c-button--PaddingTop: var(--pf-global--spacer--xs);
+  --pf-c-button--PaddingRight: var(--pf-global--spacer--xs);
+  --pf-c-button--PaddingBottom: var(--pf-global--spacer--xs);
+  --pf-c-button--PaddingLeft: var(--pf-global--spacer--xs);
+}
+

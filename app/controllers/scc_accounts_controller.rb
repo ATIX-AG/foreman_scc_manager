@@ -1,5 +1,6 @@
 class SccAccountsController < ApplicationController
   helper_method :scc_filtered_products
+  helper_method :create_nested_product_tree
   before_action :find_organization
   before_action :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
   before_action :find_available_gpg_keys, only: %i[new edit update create]
@@ -95,6 +96,52 @@ class SccAccountsController < ApplicationController
     error _('Lock on SCC account already taken: %s') % e.to_s
   ensure
     redirect_to scc_accounts_path
+  end
+
+  def create_nested_product_tree(scc_products, subscribed_only:)
+    if subscribed_only
+      scc_products_base = scc_products.where(:product_type => 'base').where.not(:product_id => nil).includes([:scc_extensions])
+    else
+      scc_products_base = scc_products.where(:product_type => 'base').includes([:scc_extensions])
+    end
+    tree = []
+    scc_products_base.each do |p|
+      tree.push(get_product_tree_hash(p))
+    end
+
+    tree
+  end
+
+  def scc_product_hash(scc_product)
+    scc_product_json = scc_product.as_json(:only => [:scc_id, :id, :arch, :version, :product_id, :subscription_valid],
+                                           include: { :scc_repositories => { :only => [:id, :name, :subscription_valid] } })
+                                  .merge('name' => scc_product.pretty_name, 'product_category' => scc_product.product_category)
+    # find if and which Katello root repository is associated with this SCC product
+    repo_ids_katello = scc_product.product.blank? || scc_product.product.root_repository_ids.blank? ? nil : scc_product.product.root_repository_ids
+    scc_product_json['scc_repositories'].each do |repo|
+      # byebug
+      if repo_ids_katello.blank?
+        repo['katello_root_repository_id'] = nil
+      else
+        repo_ids_scc = scc_product.scc_repositories.find(repo['id']).katello_root_repository_ids
+        repo['katello_root_repository_id'] = repo_ids_scc.blank? ? nil : (repo_ids_scc & repo_ids_katello).first
+      end
+    end
+    scc_product_json
+  end
+
+  def get_product_tree_hash(scc_product_base)
+    if scc_product_base.scc_extensions.blank?
+      scc_product_hash(scc_product_base)
+    else
+      children = []
+      scc_product_base.scc_extensions.each do |ext|
+        children.push(get_product_tree_hash(ext))
+      end
+      scc_product_base_hash = scc_product_hash(scc_product_base)
+      scc_product_base_hash['children'] = children
+      scc_product_base_hash
+    end
   end
 
   private

@@ -1,52 +1,8 @@
 <% title (_("Product Selection for Account %s") % @scc_account) %>
-
-<% javascript 'foreman_scc_manager/scc_accounts' %>
-<%= form_for([:bulk_subscribe, @scc_account], method: :put) do |f| %>
-  <% def render_list_node(f, scc_product, parent_id = "") %>
-    <li>
-      <span class="scc_product_checkbox" id="<%= "scc_product_span_#{parent_id + "_" + scc_product.id.to_s}" %>" <%= "data-parent=scc_product_span_#{parent_id}" if parent_id != "" %>>
-        <% if scc_product.product %>
-          <%= check_box_tag("scc_account[scc_unsubscribe_product_ids][]", scc_product.id, true, disabled: true) %>
-          <%= link_to(scc_product.pretty_name, "/products/#{scc_product.product_id}") %>
-        <% else %>
-          <%= check_box_tag("scc_account[scc_subscribe_product_ids][]", scc_product.id, false) %>
-          <%= scc_product.pretty_name %>
-        <% end %>
-        <% unless scc_product.subscription_valid? %>
-          <span style="color:red">
-            <%= _('(WARNING: Please check your SUSE subscription)') %>
-          </span>
-        <% end %>
-      </span>
-      <% if scc_product.scc_extensions.any? %>
-        <ul style='padding-left: 20px;'>
-          <% scc_filtered_products(scc_product.scc_extensions, 'extension').each do |scc_extension| %>
-            <% render_list_node(f, scc_extension, parent_id + "_" + scc_product.id.to_s) %>
-          <% end %>
-        </ul>
-      <% end %>
-    </li>
-  <% end %>
-
-  <%= f.hidden_field :prevent_missing, value: 1 %>
-  <ul class="nav nav-tabs" data-tabs="tabs">
-    <li class="active"><a href="#primary" data-toggle="tab"><%= _("SUSE Customer Center") %></a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="primary">
-      <ul>
-        <% if @scc_account.synced %>
-          <% scc_filtered_products(@scc_account.scc_products).each do |scc_product| %>
-            <% render_list_node(f, scc_product) %>
-          <% end %>
-        <% else %>
-          <%= _('Please sync your SUSE subscriptions first.') %>
-          <% submit_disabled = true %>
-        <% end %>
-      </ul>
-    </div>
-    <%= submit_or_cancel f, false, {disabled: submit_disabled || false} %>
-  </div>
-<% end %>
-
+<%= webpacked_plugins_js_for :foreman_scc_manager %>
+<%= webpacked_plugins_css_for :foreman_scc_manager %>
+<%= react_component('SCCProductPage', {
+  :canCreate => authorized_for(action: :sync),
+  :sccAccountId => @scc_account.id,
+  :sccProductsInit => create_nested_product_tree(@scc_account.scc_products, subscribed_only: false)
+}) %>
