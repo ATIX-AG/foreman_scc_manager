@@ -54,7 +54,11 @@ module Actions
       def create_sub_plans
         product = ::Katello::Product.new
         product.name = input[:product_name]
-        product.gpg_key = ::Katello::GpgKey.find_by(id: input[:gpg_key], organization: input[:organization_id])
+        if ::Katello.const_defined?(:ContentCredential)
+          product.gpg_key = ::Katello::ContentCredential.find_by(id: input[:gpg_key], organization: input[:organization_id])
+        else
+          product.gpg_key = ::Katello::GpgKey.find_by(id: input[:gpg_key], organization: input[:organization_id])
+        end
         product.description = input[:product_description]
         trigger(::Actions::Katello::Product::Create,
                 product,
