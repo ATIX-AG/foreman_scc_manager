@@ -58,7 +58,11 @@ class SccProduct < ApplicationRecord
       gpg_key = new_product.gpg_key
       new_repo = new_product.add_repo(label, uniq_repo_name, repo.full_url, 'yum', unprotected, gpg_key)
       new_repo.arch = arch || 'noarch'
-      new_repo.mirror_on_sync = true
+      if new_repo.has_attribute?('mirror_on_sync')
+        new_repo.mirror_on_sync = true
+      else
+        new_repo.mirroring_policy = ::Katello::RootRepository::MIRRORING_POLICY_CONTENT
+      end
       new_repo.verify_ssl_on_sync = true
       ForemanTasks.sync_task(::Actions::Katello::Repository::Create, new_repo, false, false)
     end
