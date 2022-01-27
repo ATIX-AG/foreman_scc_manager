@@ -86,7 +86,11 @@ module Actions
                        :arch => input[:arch],
                        :download_policy => ::Runcible::Models::YumImporter::DOWNLOAD_IMMEDIATE }
         repository = product.add_repo(repo_param)
-        repository.mirror_on_sync = true
+        if repository.has_attribute?('mirror_on_sync')
+          repository.mirror_on_sync = true
+        else
+          repository.mirroring_policy = ::Katello::RootRepository::MIRRORING_POLICY_CONTENT
+        end
         repository.verify_ssl_on_sync = true
         trigger(::Actions::Katello::Repository::CreateRoot, repository).tap do
           output[:katello_root_repository_id] = repository.id
