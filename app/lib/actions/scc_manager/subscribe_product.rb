@@ -19,7 +19,8 @@ module Actions
                                              :product_id => product_create_action.output[:product_id],
                                              :uniq_name => repo.uniq_name(scc_product),
                                              :pretty_repo_name => repo.pretty_name,
-                                             :url => repo.full_url,
+                                             :url => repo.url,
+                                             :token => repo.token,
                                              :arch => arch)
             katello_repos[repo.id] = repo_create_action.output[:katello_root_repository_id]
           end
@@ -79,7 +80,6 @@ module Actions
         gpg_key = product.gpg_key
         repo_param = { :label => label,
                        :name => input[:pretty_repo_name],
-                       :url => input[:url],
                        :content_type => 'yum',
                        :unprotected => unprotected,
                        :gpg_key => gpg_key,
@@ -91,6 +91,13 @@ module Actions
         else
           repository.mirroring_policy = ::Katello::RootRepository::MIRRORING_POLICY_CONTENT
         end
+        if repository.has_attribute?('upstream_authentication_token')
+          repository.url = input[:url]
+          repository.upstream_authentication_token = input[:token]
+        else
+          repository.url = input[:token].blank? ? input[:url] : "#{input[:url]}?#{input[:token]}"
+        end
+
         repository.verify_ssl_on_sync = true
         trigger(::Actions::Katello::Repository::CreateRoot, repository).tap do
           output[:katello_root_repository_id] = repository.id
