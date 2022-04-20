@@ -84,7 +84,7 @@ module Actions
                        :unprotected => unprotected,
                        :gpg_key => gpg_key,
                        :arch => input[:arch],
-                       :download_policy => ::Runcible::Models::YumImporter::DOWNLOAD_IMMEDIATE }
+                       :download_policy => Setting[:default_download_policy] }
         repository = product.add_repo(repo_param)
         if repository.has_attribute?('mirror_on_sync')
           repository.mirror_on_sync = true
