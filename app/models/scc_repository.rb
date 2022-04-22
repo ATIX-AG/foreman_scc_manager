@@ -22,10 +22,15 @@ class SccRepository < ApplicationRecord
 
   def token_changed_callback
     User.current ||= User.anonymous_admin
-    repo = self.katello_root_repository
-    return if repo.nil? || repo.url == full_url
 
-    ::Foreman::Logging.logger('foreman_scc_manager').info "Update URL-token for repository '#{repo.name}'."
-    ForemanTasks.async_task(::Actions::Katello::Repository::Update, repo, url: full_url)
+    # get all Katello repos that were derived from this SCC repo
+    # as uniq_name was changed, we need to look for repo labels that end with the repo name
+    katello_repos = Katello::RootRepository.where('label like ?', "%#{::Katello::Util::Model.labelize(self.description)}%")
+    katello_repos.each do |repo|
+      unless repo.url == full_url
+        ::Foreman::Logging.logger('foreman_scc_manager').info "Update URL-token for repository '#{repo.name}'."
+        ForemanTasks.async_task(::Actions::Katello::Repository::Update, repo, url: full_url)
+      end
+    end
   end
 end
