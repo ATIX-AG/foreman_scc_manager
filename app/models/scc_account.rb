@@ -194,12 +194,13 @@ class SccAccount < ApplicationRecord
 
     # all scc repos that are kept but not available upstream need to be marked invalid
     # subscription_valid can be set to nil
-    to_invalidate = invalidated_repos.select { |ir| ir.katello_root_repository_id.present? && !ir.subscription_valid }
+    to_invalidate = invalidated_repos.select { |ir| ir.katello_root_repositories.count > 0 && !ir.subscription_valid }
     ::Foreman::Logging.logger('foreman_scc_manager').debug "Invalidating #{to_invalidate.count} expired repositories"
     invalidate_subscription_status(to_invalidate, save_record: true)
 
     # delete repositories being removed upstream and that are not subscribed to
-    to_delete = scc_repositories.where.not(scc_id: upstream_repo_ids)
+    to_delete = scc_repositories.where.not(scc_id: upstream_repo_ids).includes(:scc_katello_repositories).where(scc_katello_repositories: { id: nil })
+
     ::Foreman::Logging.logger('foreman_scc_manager').debug "Deleting #{to_delete.count} old repositories"
     to_delete.destroy_all
   end

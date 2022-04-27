@@ -37,8 +37,7 @@ module Actions
         scc_product.update!(product: product)
         # extract Katello repo ids from input hash and store to database
         input[:katello_repos].each do |scc_repo_id, katello_root_repository_id|
-          scc_repo = SccRepository.find(scc_repo_id)
-          scc_repo.update!(katello_root_repository_id: katello_root_repository_id)
+          SccKatelloRepository.find_or_create_by(scc_repository_id: scc_repo_id, katello_root_repository_id: katello_root_repository_id)
         end
       end
 
