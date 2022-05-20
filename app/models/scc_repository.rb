@@ -4,7 +4,8 @@ class SccRepository < ApplicationRecord
   self.include_root_in_json = false
 
   belongs_to :scc_account
-  belongs_to :katello_root_repository, class_name: 'Katello::RootRepository'
+  has_many :scc_katello_repositories
+  has_many :katello_root_repositories, through: :scc_katello_repositories
   has_one :organization, through: :scc_account
   has_and_belongs_to_many :scc_products
 

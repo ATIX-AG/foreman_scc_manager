@@ -25,5 +25,39 @@ repo_9:
   autorefresh: true
   installer_updates: false
 
+sles12_updates:
+  id:                   10
+  scc_account_id:       1
+  scc_id:               1
+  name:                 SLES12-SP4-Updates for sle-12-x86_64
+  distro_target:        sles_12
+  description:          SLES12-SP4-Updates for sle-12-x86_64
+  url:                  www.not-valid.com
+  token:                token_10
+  autorefresh:          true
+  installer_updates:    false
 
 
+sles12_installer_updates:
+  id:                   11
+  scc_account_id:       1
+  scc_id:               2
+  name:                 SLES12-SP4-Installer-Updates for sle-12-x86_64
+  distro_target:        sles_12
+  description:          SLES12-SP4-Installer-Updates for sle-12-x86_64
+  url:                  www.not-valid.com
+  token:                token_11
+  autorefresh:          true
+  installer_updates:    false
+
+sles12_installer_updates_2:
+  id:                   12
+  scc_account_id:       1
+  scc_id:               3
+  name:                 SLES12-SP4-Installer-Updates for sle-12-x86_64_2
+  distro_target:        sles_9
+  description:          SLES12-SP4-Installer-Updates for sle-12-x86_64_2
+  url:                  www.not-valid.com
+  token:                token_12
+  autorefresh:          true
+  installer_updates:    false
