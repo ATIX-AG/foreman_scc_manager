@@ -33,7 +33,7 @@ module Api
           param :login, String, :required => true, :desc => N_('Login id of scc_account')
           param :password, String, :required => true, :desc => N_('Password of scc_account')
           param :base_url, String, :required => false, :desc => N_('URL of SUSE for scc_account')
-          param :interval, ['never', 'daily', 'weekly', 'monthy'], :desc => N_('Interval for syncing scc_account')
+          param :interval, ['never', 'daily', 'weekly', 'monthly'], :desc => N_('Interval for syncing scc_account')
           param :sync_date, String, :desc => N_('Date and time relative to which the sync interval is run')
           param :katello_gpg_key_id, :identifier, :required => false, :desc => N_('Associated GPG key of scc_account')
         end
