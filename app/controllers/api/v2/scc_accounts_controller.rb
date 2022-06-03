@@ -10,7 +10,7 @@ module Api
         api_base_url '/api/v2'
       end
 
-      before_action :find_resource, :only => [:show, :update, :destroy, :sync, :bulk_subscribe]
+      before_action :find_resource, :only => [:show, :update, :destroy, :sync, :bulk_subscribe, :bulk_subscribe_with_repos]
 
       api :GET, '/scc_accounts/', N_('List all scc_accounts')
       param :organization_id, :identifier, :required => true
@@ -105,13 +105,54 @@ module Api
       param :id, :identifier_dottable, :required => true
       param :scc_subscribe_product_ids, Array, :required => true
       def bulk_subscribe
-        scc_products_to_subscribe = @scc_account.scc_products.where(:id => params[:scc_subscribe_product_ids])
         respond_to do |format|
-          if scc_products_to_subscribe.count > 0
+          if params[:scc_subscribe_product_ids].count > 0
+            # we need to pass two parameters to the product subscribe task,
+            # the product itself and an array of repo ids
+            # if the id array is empty, all repositories will be subscribed to
+            scc_products = @scc_account.scc_products.where(:id => params[:scc_subscribe_product_ids])
             subscribe_task = ForemanTasks.async_task(::Actions::BulkAction,
                                                      ::Actions::SccManager::SubscribeProduct,
-                                                     scc_products_to_subscribe)
+                                                     scc_products,
+                                                     {})
             format.json { render json: subscribe_task.to_json, status: :ok }
+          else
+            format.json { render json: { error: 'No Product selected' }, status: :expectation_failed }
+          end
+        end
+      rescue ::Foreman::Exception => e
+        render json: { error: ('Failed to add task to queue: %s' % e).to_s }, status: :unprocessable_entity
+      rescue ForemanTasks::Lock::LockConflict => e
+        render json: { error: ('Lock on SCC account already taken: %s' % e).to_s }, status: :unprocessable_entity
+      end
+
+      def_param_group :scc_product_data do
+        param :scc_product_data, Array, :required => true, :desc => 'Array of Hash elements. One hash element contains an scc_product_id and a repository_list.' do
+          param :scc_product_id, Integer, :required => true, :desc => 'Product ID of SCC product'
+          param :repository_list, Array, of: Integer, :required => false,
+                                         :desc => 'List of SCC repositories belonging to the SCC product. If the list is empty, all repositories will be subscribed to.'
+        end
+      end
+
+      api :PUT, '/scc_accounts/:id/bulk_subscribe_with_repos/', N_('Bulk subscription of scc_products with individual repository selection for scc_account.')
+      param :id, :identifier_dottable, :required => true
+      param_group :scc_product_data
+      def bulk_subscribe_with_repos
+        respond_to do |format|
+          # if we want to subscribe to specific repos, we need to pass the product and the
+          # corresponding repository ids instead of scc products only
+          if params[:scc_product_data].count > 0
+            scc_products = @scc_account.scc_products.where(:id => params[:scc_product_data].pluck(:scc_product_id))
+            if scc_products.empty?
+              format.json { render json: { error: _('The selected products cannot be found for this SCC account.') }, status: :unprocessable_entity }
+            else
+              action_args = params[:scc_product_data].map { |p| { p['scc_product_id'] => p['repository_list'] } }.inject(:merge)
+              subscribe_task = ForemanTasks.async_task(::Actions::BulkAction,
+                                                       ::Actions::SccManager::SubscribeProduct,
+                                                       scc_products,
+                                                       action_args)
+              format.json { render json: subscribe_task.to_json, status: :ok }
+            end
           else
             format.json { render json: { error: 'No Product selected' }, status: :expectation_failed }
           end
@@ -152,6 +193,8 @@ module Api
           :sync
         when 'bulk_subscribe'
           :bulk_subscribe
+        when 'bulk_subscribe_with_repos'
+          :bulk_subscribe_with_repos
         else
           super
         end

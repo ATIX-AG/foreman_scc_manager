@@ -32,6 +32,7 @@ Rails.application.routes.draw do
           put 'test_connection'
           put 'sync'
           put 'bulk_subscribe'
+          put 'bulk_subscribe_with_repos'
         end
       end
       constraints(:scc_account_id => /[^\/]+/) do

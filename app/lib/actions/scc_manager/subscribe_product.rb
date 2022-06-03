@@ -1,22 +1,54 @@
 module Actions
   module SccManager
     class SubscribeProduct < Actions::EntryAction
-      def plan(scc_product)
-        raise _('Product already subscribed!') if scc_product.product
+      # scc_product is an ActiveRecord object of Class SccProduct
+      # scc_repos_to_subscribe is a hash with the product id as keys and an array of
+      # repos to subscribe as values
+      # rubocop:disable Metrics/MethodLength
+      def plan(scc_product, scc_repos_to_subscribe)
+        if scc_product.product
+          ::Foreman::Logging.logger('foreman_scc_manager')
+                            .info("SccProduct '#{scc_product.friendly_name}' is already subscribed to.")
+        else
+          ::Foreman::Logging.logger('foreman_scc_manager')
+                            .info("Initiating subscription for SccProduct '#{scc_product.friendly_name}'.")
+        end
 
-        ::Foreman::Logging.logger('foreman_scc_manager')
-                          .info("Initiating subscription for SccProduct '#{scc_product.friendly_name}'.")
         sequence do
-          product_create_action = plan_action(CreateProduct,
-                                              :product_name => scc_product.pretty_name,
-                                              :product_description => scc_product.pretty_description,
-                                              :organization_id => scc_product.organization.id,
-                                              :gpg_key => scc_product.scc_account.katello_gpg_key_id)
+          if scc_product.product_id.nil?
+            product_create_action = plan_action(CreateProduct,
+                                                :product_name => scc_product.pretty_name,
+                                                :product_description => scc_product.pretty_description,
+                                                :organization_id => scc_product.organization.id,
+                                                :gpg_key => scc_product.scc_account.katello_gpg_key_id)
+          end
           katello_repos = {}
-          scc_product.scc_repositories.each do |repo|
+          # we need to set the repositories to subscribe to
+          scc_repos = []
+          if scc_repos_to_subscribe.empty?
+            scc_repos = scc_product.scc_repositories
+          else
+            # at this point, we need to make sure that the repository list is valid
+            # we want to subscribe only to repos that we have not subscribed before
+            repo_ids_katello = scc_product.product.blank? || scc_product.product.root_repository_ids.blank? ? nil : scc_product.product.root_repository_ids
+            scc_repos = scc_product.scc_repositories.where(id: scc_repos_to_subscribe[scc_product.id])
+            unless repo_ids_katello.nil? || scc_repos.empty?
+              # remove repo if Katello repo is already associated
+              scc_repos.reject { |repo| (repo.katello_root_repositories & repo_ids_katello).present? }
+            end
+          end
+          if scc_repos.empty?
+            ::Foreman::Logging.logger('foreman_scc_manager')
+                              .info('The repositories you have selected are either already subscribed to or invalid.')
+          else
+            ::Foreman::Logging.logger('foreman_scc_manager')
+                              .info("Subscribing to SCC repositories '#{scc_repos.pluck(:id)}'.
+                                    If you requested more repositories, please check if those are already subscribed to or invalid.")
+          end
+          scc_repos.each do |repo|
             arch = scc_product.arch || 'noarch'
             repo_create_action = plan_action(CreateRepository,
-                                             :product_id => product_create_action.output[:product_id],
+                                             :product_id => scc_product.product_id || product_create_action.output[:product_id],
                                              :uniq_name => repo.uniq_name(scc_product),
                                              :pretty_repo_name => repo.pretty_name,
                                              :url => repo.url,
@@ -24,18 +56,22 @@ module Actions
                                              :arch => arch)
             katello_repos[repo.id] = repo_create_action.output[:katello_root_repository_id]
           end
+
           # connect action to resource (=> make parameters accessable in input)
-          action_subject(scc_product, product_id: product_create_action.output[:product_id])
+          action_subject(scc_product, product_id: product_create_action.output[:product_id]) if scc_product.product_id.nil?
           input.update(katello_repos: katello_repos)
           plan_self
         end
       end
+      # rubocop:enable Metrics/MethodLength
 
       def finalize
         # connect Scc products and Katello products
-        scc_product = SccProduct.find(input[:scc_product][:id])
-        product = ::Katello::Product.find(input[:product_id])
-        scc_product.update!(product: product)
+        # it may happen that we only append repos to an existing product
+        unless input[:scc_product].nil?
+          scc_product = SccProduct.find(input[:scc_product][:id])
+          scc_product.update!(product_id: input[:product_id])
+        end
         # extract Katello repo ids from input hash and store to database
         input[:katello_repos].each do |scc_repo_id, katello_root_repository_id|
           SccKatelloRepository.find_or_create_by(scc_repository_id: scc_repo_id, katello_root_repository_id: katello_root_repository_id)

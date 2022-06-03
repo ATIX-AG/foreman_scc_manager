@@ -38,7 +38,7 @@ module ForemanSccManager
 
           permission :use_scc_accounts,
                      { :scc_accounts => [:bulk_subscribe],
-                       :'api/v2/scc_accounts' => [:bulk_subscribe] },
+                       :'api/v2/scc_accounts' => [:bulk_subscribe, :bulk_subscribe_with_repos] },
                      :resource_type => 'SccAccount'
 
           permission :new_scc_accounts,
