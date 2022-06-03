@@ -1,116 +1,83 @@
-name: "Unit tests"
+name: Unit tests
 on:
-  pull_request:
   push:
     branches:
       - master
+  pull_request:
+
+defaults:
+  run:
+    working-directory: /projects/foreman
 
 jobs:
-  unit-testing:
-    runs-on: ubuntu-20.04
+  test_ruby:
+    defaults:
+      run:
+        working-directory: /projects/foreman
     env:
+      PGHOST: postgres
+      PGUSER: foreman
+      PGPASS: foreman
       RAILS_ENV: test
-      BUNDLE_WITHOUT: journald:development:console:libvirt
-
+      host: postgres
+      WORKDIR: /projects/foreman
+      BUNDLE_PATH: vendor/bundle
+      GIT_COMMITTER_NAME: "gh_actions"
+      GIT_COMMITTER_EMAIL: "gh_actions@rh_cloud.foreman"
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - ruby-version: 2.5
-            foreman: 2.1-stable
-            katello: KATELLO-3.16
-          - ruby-version: 2.5
-            foreman: 2.3-stable
-            katello: KATELLO-3.18
+        foreman_version: [2_5, 3_1]
+
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/shimshtein/tfm_plugin_test:foreman_${{ matrix.foreman_version }}
 
     services:
       postgres:
-        image: ghcr.io/atix-ag/postgresql12_evr_ext_image:main
-        ports: ['5432:5432']
-        env:
-          POSTGRES_DB: postgres_db
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_USER: postgres
+        image: quay.io/jomitsch/postgres-with-evr
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        env:
+          POSTGRES_USER: foreman
+          POSTGRES_PASSWORD: foreman
 
     steps:
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential \
-                                  libcurl4-openssl-dev \
-                                  libpq-dev \
-                                  libvirt-dev \
-                                  zlib1g-dev
-
-      - name: Checkout Foreman SCC Manager
+      - name: Checkout foreman_scc_manager repo
         uses: actions/checkout@v2
         with:
-          path: foreman_scc_manager
-
-      - name: Checkout Foreman
-        uses: actions/checkout@v2
-        with:
-          repository: theforeman/foreman
-          ref: ${{ matrix.foreman}}
-          path: foreman
-
-      - name: Checkout Katello
-        uses: actions/checkout@v2
-        with:
-          repository: katello/katello
-          ref: ${{ matrix.katello}}
-          path: katello
-
-      - name: Limit smart_proxy_dynflow version for Katello 3.16
-        working-directory: katello
-        if: ${{ matrix.katello == 'KATELLO-3.16' }}
+          path: ${{ github.workspace }}/projects/foreman_scc_manager
+      - name: Fix git config
         run: |
-          sed -i '42igem.add_dependency "smart_proxy_dynflow", "< 0.4.0"' katello.gemspec
-
-      - name: Add katello dependencies that are not automatically loaded
-        working-directory: foreman_scc_manager
-        run: |
-          sed -i '19is.add_development_dependency "factory_bot_rails", "~> 4.5"' foreman_scc_manager.gemspec
-          sed -i '19is.add_development_dependency "mocha", "~> 1.11"' foreman_scc_manager.gemspec
-          sed -i '19is.add_development_dependency "minitest-reporters"' foreman_scc_manager.gemspec
-          sed -i '19is.add_development_dependency "minitest-tags"' foreman_scc_manager.gemspec
-          sed -i '19is.add_development_dependency "robottelo_reporter"' foreman_scc_manager.gemspec
-          sed -i '19is.add_development_dependency "rubocop-checkstyle_formatter"' foreman_scc_manager.gemspec
-          sed -i '19is.add_development_dependency "simplecov"' foreman_scc_manager.gemspec
-          sed -i '19is.add_development_dependency "simplecov-rcov"' foreman_scc_manager.gemspec
-          sed -i '19is.add_development_dependency "vcr", "< 4.0.0"' foreman_scc_manager.gemspec
-
-      - name: Setup bundler
-        working-directory: foreman
-        run: |
-          echo "gemspec :path => '../katello'" > bundler.d/katello.local.rb
+          cp -Rf $GITHUB_WORKSPACE/projects/foreman_scc_manager /projects/
+          cd /projects/foreman
           echo "gemspec :path => '../foreman_scc_manager'" > bundler.d/foreman_scc_manager.local.rb
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby-version }}
-          bundler-cache: true
-          working-directory: foreman
-
-      - name: Prepare test env
-        working-directory: foreman
+          /usr/bin/entrypoint.sh git config --global user.name $GIT_COMMITTER_NAME
+          /usr/bin/entrypoint.sh git config --global user.email $GIT_COMMITTER_EMAIL
+      - name: remove foreman_rh_cloud and dependencies
+        working-directory: /projects/foreman
         run: |
-          ln -s settings.yaml.test config/settings.yaml
-          echo -e "test:\n  adapter: postgresql\n  database: postgres_db\n  user: postgres\n  password: postgres\n  host: localhost" > config/database.yml
-          bundle exec rake db:migrate
-
-      - name: Run unit tests
-        working-directory: foreman
+          rm bundler.d/foreman_rh_cloud.local.rb
+          rm bundler.d/foreman_remote_execution.local.rb
+      - name: remove foremen tasks dependency for Foreman 2.5
+        working-directory: /projects/foreman
+        if: ${{ matrix.foreman_version == '2_5' }}
         run: |
-          bundle exec rake test:foreman_scc_manager
-
-      - name: Run permissions test
-        working-directory: foreman
+          rm bundler.d/foreman-tasks.local.rb
+      - name: Run tests suite
         run: |
-          bundle exec rake test TEST="test/unit/foreman/access_permissions_test.rb"
+          cd /projects/foreman
+          ls -al /usr/bin
+          /usr/bin/entrypoint.sh chmod +rx /usr/bin/run_tests.sh
+          /usr/bin/entrypoint.sh touch /usr/bin/setup_env.sh
+          /usr/bin/entrypoint.sh chmod +rx /usr/bin/setup_env.sh
+          /usr/bin/entrypoint.sh head -n -10 /usr/bin/run_tests.sh > /usr/bin/setup_env.sh
+          /usr/bin/entrypoint.sh /usr/bin/setup_env.sh
+      - name: Run Scc manager tests
+        working-directory: /projects/foreman
+        run: |
+          /usr/bin/entrypoint.sh bundle exec rake test:foreman_scc_manager
+          /usr/bin/entrypoint.sh bundle exec rake test TEST="test/unit/foreman/access_permissions_test.rb"
