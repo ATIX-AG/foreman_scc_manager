@@ -58,11 +58,8 @@ class SccProduct < ApplicationRecord
       gpg_key = new_product.gpg_key
       new_repo = new_product.add_repo(label, uniq_repo_name, repo.url, 'yum', unprotected, gpg_key)
       new_repo.arch = arch || 'noarch'
-      if new_repo.has_attribute?('mirror_on_sync')
-        new_repo.mirror_on_sync = true
-      else
-        new_repo.mirroring_policy = ::Katello::RootRepository::MIRRORING_POLICY_CONTENT
-      end
+      new_repo.mirroring_policy = ::Katello::RootRepository::MIRRORING_POLICY_CONTENT
+
       if new_repo.has_attribute?('upstream_authentication_token')
         new_repo.upstream_authentication_token = repo.token
         new_repo.url = repo.url
