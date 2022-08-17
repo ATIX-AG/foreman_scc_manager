@@ -8,7 +8,13 @@ Foreman plugin to sync SUSE Customer Center products and repositories into Katel
 
 ## Installation
 
-This plugin installation is not supported by foreman-installer and has to be installed manually:
+This plugin installation is supported since Foreman 3.4 / Katello 4.6 by the foreman-installer, but only with the scenario Katello:
+
+```sh
+foreman-install --scenario katello --enable-foreman-plugin-scc-manager
+```
+
+You can also install it manually:
 
 ```sh
 yum install tfm-rubygem-foreman_scc_manager
