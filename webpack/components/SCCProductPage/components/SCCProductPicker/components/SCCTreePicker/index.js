@@ -158,11 +158,13 @@ const SCCTreePicker = ({
       selectedRepos[productId].repoIds = repoIds;
       selectedRepos[productId].productName = productName;
       selectedRepos[productId].repoNames = repoNames;
+      const newSelectedRepos = clone(selectedRepos);
+      setSelectedRepos(newSelectedRepos);
     } else if (selectedRepos !== {} && productId in selectedRepos) {
       delete selectedRepos[productId];
+      const newSelectedRepos = clone(selectedRepos);
+      setSelectedRepos(newSelectedRepos);
     }
-    const newSelectedRepos = clone(selectedRepos);
-    setSelectedRepos(newSelectedRepos);
   };
 
   const [sccProductTree, setSccProductTree] = useState(
