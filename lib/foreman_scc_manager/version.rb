@@ -1,3 +1,3 @@
 module ForemanSccManager
-  VERSION = '1.8.20'.freeze
+  VERSION = '2.0.0'.freeze
 end
