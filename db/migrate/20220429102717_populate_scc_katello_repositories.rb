@@ -3,6 +3,11 @@ class PopulateSccKatelloRepositories < ActiveRecord::Migration[6.0]
     belongs_to :product, class_name: 'Katello::Product'
     has_and_belongs_to_many :scc_repositories
   end
+  class SccRepository < ApplicationRecord
+    has_many :scc_katello_repositories
+    has_many :katello_root_repositories, through: :scc_katello_repositories
+    has_and_belongs_to_many :scc_products
+  end
 
   def up
     SccProduct.where.not(product_id: nil).each do |scc_p|
