@@ -39,7 +39,7 @@ foreman-installer
 
 ## Documentation
 
-[Plugin documentation](https://docs.orcharhino.com/or/docs/sources/usage_guides/managing_sles_systems_guide.html#mssg_installing_the_scc_manager_plugin)
+[Plugin documentation](https://docs.orcharhino.com/or/docs/sources/guides/suse_linux_enterprise_server/managing_content/managing_suse_content.html)
 
 ## Hammer CLI Extension
 
