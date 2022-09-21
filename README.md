@@ -11,7 +11,7 @@ Foreman plugin to sync SUSE Customer Center products and repositories into Katel
 This plugin installation is supported since Foreman 3.4 / Katello 4.6 by the foreman-installer, but only with the scenario Katello:
 
 ```sh
-foreman-install --scenario katello --enable-foreman-plugin-scc-manager
+foreman-installer --scenario katello --enable-foreman-plugin-scc-manager
 ```
 
 You can also install it manually:
