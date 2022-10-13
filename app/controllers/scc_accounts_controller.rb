@@ -170,6 +170,8 @@ class SccAccountsController < ApplicationController
       :password,
       :base_url,
       :interval,
+      :download_policy,
+      :mirroring_policy,
       :sync_date,
       :organization_id,
       :katello_gpg_key_id

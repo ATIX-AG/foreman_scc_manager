@@ -53,7 +53,9 @@ module Actions
                                              :pretty_repo_name => repo.pretty_name,
                                              :url => repo.url,
                                              :token => repo.token,
-                                             :arch => arch)
+                                             :arch => arch,
+                                             :download_policy => scc_product.scc_account.download_policy,
+                                             :mirroring_policy => scc_product.scc_account.mirroring_policy)
             katello_repos[repo.id] = repo_create_action.output[:katello_root_repository_id]
           end
 
@@ -119,13 +121,9 @@ module Actions
                        :unprotected => unprotected,
                        :gpg_key => gpg_key,
                        :arch => input[:arch],
-                       :download_policy => Setting[:default_download_policy] }
+                       :download_policy => input[:download_policy],
+                       :mirroring_policy => input[:mirroring_policy] }
         repository = product.add_repo(repo_param)
-        if repository.has_attribute?('mirror_on_sync')
-          repository.mirror_on_sync = true
-        else
-          repository.mirroring_policy = ::Katello::RootRepository::MIRRORING_POLICY_CONTENT
-        end
         if repository.has_attribute?('upstream_authentication_token')
           repository.url = input[:url]
           repository.upstream_authentication_token = input[:token]

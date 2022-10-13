@@ -5,11 +5,7 @@ sles12_sp4_updates:
   product_id:           <%= ActiveRecord::FixtureSet.identify(:suse) %>
   url:                  www.not-valid.com
   download_policy:      immediate
-<% if ActiveRecord::Base.connection.column_exists? :katello_root_repositories, :mirroring_policy %>
   mirroring_policy:     "mirror_content_only"
-<% else %>
-  mirror_on_sync:       "true"
-<% end %>
   created_at:           <%= Time.now %>
   updated_at:           <%= Time.now %>
 
@@ -20,11 +16,7 @@ sles12_sp4_installer_updates:
   product_id:           <%= ActiveRecord::FixtureSet.identify(:suse) %>
   url:                  www.not-valid.com
   download_policy:      on_demand
-<% if ActiveRecord::Base.connection.column_exists? :katello_root_repositories, :mirroring_policy %>
   mirroring_policy:     "mirror_content_only"
-<% else %>
-  mirror_on_sync:       "true"
-<% end %>
   created_at:           <%= Time.now %>
   updated_at:           <%= Time.now %>
 
@@ -35,10 +27,6 @@ sles12_sp4_installer_updates_2:
   product_id:           <%= ActiveRecord::FixtureSet.identify(:suse) %>
   url:                  www.not-valid.com
   download_policy:      on_demand
-<% if ActiveRecord::Base.connection.column_exists? :katello_root_repositories, :mirroring_policy %>
   mirroring_policy:     "mirror_content_only"
-<% else %>
-  mirror_on_sync:       "true"
-<% end %>
   created_at:           <%= Time.now %>
   updated_at:           <%= Time.now %>
