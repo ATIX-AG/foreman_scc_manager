@@ -121,11 +121,8 @@ module Actions
                        :arch => input[:arch],
                        :download_policy => Setting[:default_download_policy] }
         repository = product.add_repo(repo_param)
-        if repository.has_attribute?('mirror_on_sync')
-          repository.mirror_on_sync = true
-        else
-          repository.mirroring_policy = ::Katello::RootRepository::MIRRORING_POLICY_CONTENT
-        end
+        repository.mirroring_policy = ::Katello::RootRepository::MIRRORING_POLICY_CONTENT
+
         if repository.has_attribute?('upstream_authentication_token')
           repository.url = input[:url]
           repository.upstream_authentication_token = input[:token]
