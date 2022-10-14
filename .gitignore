@@ -11,3 +11,5 @@ locale/*/*.po.time_stamp
 locale/*/*.pox
 *.gem
 Gemfile.lock
+*.swp
+vendor/
