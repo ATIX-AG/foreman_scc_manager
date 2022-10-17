@@ -27,11 +27,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        foreman_version: [2_5, 3_1]
+        image_version: [6.0.43]
 
     runs-on: ubuntu-latest
     container:
-      image: quay.io/shimshtein/tfm_plugin_test:foreman_${{ matrix.foreman_version }}
+      image: ghcr.io/theforeman/tfm_plugin_test:${{ matrix.image_version }}
 
     services:
       postgres:
@@ -62,11 +62,6 @@ jobs:
         run: |
           rm bundler.d/foreman_rh_cloud.local.rb
           rm bundler.d/foreman_remote_execution.local.rb
-      - name: remove foremen tasks dependency for Foreman 2.5
-        working-directory: /projects/foreman
-        if: ${{ matrix.foreman_version == '2_5' }}
-        run: |
-          rm bundler.d/foreman-tasks.local.rb
       - name: Run tests suite
         run: |
           cd /projects/foreman
