@@ -29,8 +29,6 @@ module FixtureTestCase
     fixtures(:all)
     FIXTURES = load_fixtures(ActiveRecord::Base)
 
-    Setting::Content.load_defaults
-
     User.current = ::User.unscoped.find(FIXTURES['users']['admin']['id'])
   end
 end
@@ -40,10 +38,6 @@ class ActiveSupport::TestCase
   include ActionDispatch::TestProcess
   include FixtureTestCase
   include ForemanTasks::TestHelpers::WithInThreadExecutor
-
-  before do
-    Setting::Content.load_defaults
-  end
 
   def get_organization(org = nil)
     saved_user = User.current

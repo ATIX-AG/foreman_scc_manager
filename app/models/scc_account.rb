@@ -13,6 +13,11 @@ class SccAccount < ApplicationRecord
   MONTHLY = 'monthly'.freeze
   TYPES = [NEVER, DAILY, WEEKLY, MONTHLY].freeze
 
+  # MIRRORING_POLICY_COMPLETE doesn't work for suse repository because deltarpm metadata is not supported by pulp3
+  SCC_MIRRORING_POLICIES = ::Katello::RootRepository::MIRRORING_POLICIES.dup
+  SCC_MIRRORING_POLICIES.delete(::Katello::RootRepository::MIRRORING_POLICY_COMPLETE)
+  SCC_MIRRORING_POLICIES.freeze
+
   self.include_root_in_json = false
 
   belongs_to :organization
@@ -29,6 +34,8 @@ class SccAccount < ApplicationRecord
   validates :password, presence: true
   validates :base_url, presence: true
   validates :interval, :inclusion => { :in => TYPES }, :allow_blank => false
+  validates :download_policy, :inclusion => { :in => ::Katello::RootRepository::DOWNLOAD_POLICIES }, :allow_blank => false
+  validates :mirroring_policy, :inclusion => { :in => SCC_MIRRORING_POLICIES }, :allow_blank => false
   validate :sync_date_is_valid_datetime
 
   after_initialize :init
@@ -277,5 +284,19 @@ class SccAccount < ApplicationRecord
       end
     end
     items_to_invalidate
+  end
+
+  def self.download_policy_selection_values
+    names = { 'on_demand' => _('On Demand'), 'immediate' => _('Immediate') }
+    ::Katello::RootRepository::DOWNLOAD_POLICIES.map do |p|
+      names.include?(p) ? [names[p], p] : [p, p]
+    end
+  end
+
+  def self.mirroring_policy_selection_values
+    names = { 'additive' => _('Additive'), 'mirror_content_only' => _('Content Only') }
+    SCC_MIRRORING_POLICIES.map do |p|
+      names.include?(p) ? [names[p], p] : [p, p]
+    end
   end
 end
