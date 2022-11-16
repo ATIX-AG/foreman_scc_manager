@@ -39,7 +39,7 @@ foreman-installer
 
 ## Documentation
 
-[Plugin documentation](https://docs.orcharhino.com/or/docs/sources/guides/suse_linux_enterprise_server/managing_content/managing_suse_content.html)
+[Plugin documentation](https://docs.theforeman.org/nightly/Managing_Content/index-katello.html#Managing_SUSE_Content_content-management)
 
 ## Hammer CLI Extension
 
