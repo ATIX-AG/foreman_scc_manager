@@ -23,6 +23,5 @@ Gem::Specification.new do |s|
   # Testing
   s.add_development_dependency 'webmock'
 
-  s.add_dependency 'foreman-tasks', '>= 0.10'
-  s.add_dependency 'rails', '>= 5.1'
+  s.add_dependency 'katello', '>= 3.16'
 end
