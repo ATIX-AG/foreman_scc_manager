@@ -1,21 +1,26 @@
-# English translations for foreman_scc_manager package.
-# Copyright (C) 2017 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_scc_manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# e93ed3aa97dec2eb31063731872555fc_1460a05 <71305a0095156d8e18373a5b7cfeb79e_8587>, 2019
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
+# Bryan Kearney <bryan.kearney@gmail.com>, 2021
+# Amit Upadhye <aupadhye@redhat.com>, 2022
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 1.7.0\n"
+"Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-04-24 12:30+0000\n"
-"Last-Translator: ATIX AG <info@atix.de>\n"
-"Language-Team: English\n"
-"Language: en\n"
+"PO-Revision-Date: 2019-10-17 13:28+0000\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
+"Language-Team: Japanese (https://www.transifex.com/foreman/teams/114/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " -- Select Architecture --"
 msgstr ""
@@ -42,13 +47,13 @@ msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
-msgstr ""
+msgstr "アクション"
 
 msgid "Add SCC account"
-msgstr "Add SCC account"
+msgstr "SCC アカウントの追加"
 
 msgid "Add SUSE Customer Center Account"
-msgstr "Add SUSE Customer Center Account"
+msgstr "SUSE Customer Center アカウントの追加"
 
 msgid "Add more sub products to Product tree"
 msgstr ""
@@ -63,7 +68,7 @@ msgid "Agent action"
 msgstr ""
 
 msgid "Associated GPG key of scc_account"
-msgstr ""
+msgstr "scc_account の関連付けられた GPG キー"
 
 msgid "Attach subscriptions"
 msgstr ""
@@ -72,13 +77,13 @@ msgid "Auto attach subscriptions"
 msgstr ""
 
 msgid "Base URL"
-msgstr "Base URL"
+msgstr "ベース URL"
 
 msgid "Bulk generate applicability for hosts"
 msgstr ""
 
 msgid "Bulk subscription of scc_products for scc_account"
-msgstr ""
+msgstr "scc_account の scc_products の一括サブスクリプション"
 
 msgid "Bulk subscription of scc_products with individual repository selection for scc_account."
 msgstr ""
@@ -117,13 +122,13 @@ msgid "Create Syncable Export History"
 msgstr ""
 
 msgid "Create an scc_account"
-msgstr ""
+msgstr "scc_account の作成"
 
 msgid "Cron expression is not valid!"
-msgstr ""
+msgstr "cron 式が無効です!"
 
 msgid "Date and time relative to which the sync interval is run"
-msgstr ""
+msgstr "同期の実行関連の日時"
 
 msgid "Delete"
 msgstr ""
@@ -141,7 +146,7 @@ msgid "Delete Product"
 msgstr ""
 
 msgid "Delete scc_account"
-msgstr ""
+msgstr "scc_account の削除"
 
 msgid "Destroy"
 msgstr ""
@@ -162,7 +167,7 @@ msgid "Download Policy"
 msgstr ""
 
 msgid "Edit %s"
-msgstr ""
+msgstr "%s の編集"
 
 msgid "Enable"
 msgstr ""
@@ -186,7 +191,7 @@ msgid "Failed to add task to queue."
 msgstr ""
 
 msgid "Failed to add task to queue: %s"
-msgstr "Failed to add task to queue: %s"
+msgstr "タスクをキューに追加できませんでした: %s"
 
 msgid "Fetch pxe files"
 msgstr ""
@@ -198,7 +203,7 @@ msgid "Filtered index content"
 msgstr ""
 
 msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
-msgstr "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
+msgstr "Foreman プラグインで SUSE Customer Center の製品およびリポジトリーを Katello に同期します。"
 
 msgid "Generate host applicability"
 msgstr ""
@@ -270,40 +275,40 @@ msgid "Instance update"
 msgstr ""
 
 msgid "Interval cannot be nil"
-msgstr ""
+msgstr "間隔を nil にすることはできません"
 
 msgid "Interval for syncing scc_account"
-msgstr ""
+msgstr "scc_account の同期間隔"
 
 msgid "Interval not set correctly"
-msgstr ""
+msgstr "間隔が正しく設定されていません"
 
 msgid "Last synced"
-msgstr "Last synced"
+msgstr "最終同期"
 
 msgid "List all scc_accounts"
-msgstr ""
+msgstr "全 scc_accounts の一覧表示"
 
 msgid "List products for an scc_account"
 msgstr ""
 
 msgid "Lock on SCC account already taken: %s"
-msgstr "Lock on SCC account already taken: %s"
+msgstr "すでに取得されている SCC アカウントのロック: %s"
 
 msgid "Login id of scc_account"
-msgstr ""
+msgstr "scc_account のログイン ID"
 
 msgid "Mirroring Policy"
 msgstr ""
 
 msgid "Name of the scc_account"
-msgstr ""
+msgstr "scc_account の名前"
 
 msgid "No products selected."
-msgstr ""
+msgstr "製品が選択されていません。"
 
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 msgid "On Demand"
 msgstr ""
@@ -312,7 +317,7 @@ msgid "Package Profile Update"
 msgstr ""
 
 msgid "Password of scc_account"
-msgstr ""
+msgstr "scc_account のパスワード"
 
 msgid "Please check your SUSE subscription"
 msgstr ""
@@ -324,10 +329,10 @@ msgid "Product Create"
 msgstr ""
 
 msgid "Product Selection for Account %s"
-msgstr ""
+msgstr "アカウントの製品選択 %s"
 
 msgid "Products"
-msgstr ""
+msgstr "製品"
 
 msgid "Promote"
 msgstr ""
@@ -381,19 +386,19 @@ msgid "SUSE Customer Center"
 msgstr "SUSE Customer Center"
 
 msgid "SUSE Customer Center account"
-msgstr "SUSE Customer Center account"
+msgstr "SUSE Customer Center アカウント"
 
 msgid "SUSE Subscription"
-msgstr ""
+msgstr "SUSE サブスクリプション"
 
 msgid "SUSE Subscription: "
-msgstr ""
+msgstr "SUSE サブスクリプション: "
 
 msgid "SUSE Subscriptions"
-msgstr "SUSE Subscriptions"
+msgstr "SUSE サブスクリプション"
 
 msgid "SUSE subscriptions"
-msgstr "SUSE subscriptions"
+msgstr "SUSE サブスクリプション"
 
 msgid "Search"
 msgstr ""
@@ -402,7 +407,7 @@ msgid "Select SUSE products"
 msgstr ""
 
 msgid "Select products"
-msgstr ""
+msgstr "製品の選択"
 
 msgid "Selected SUSE Products"
 msgstr ""
@@ -414,7 +419,7 @@ msgid "Show all subscription tasks"
 msgstr ""
 
 msgid "Show an scc_account product"
-msgstr ""
+msgstr "scc_account 製品の表示"
 
 msgid "Show currently added repositories"
 msgstr ""
@@ -426,7 +431,7 @@ msgid "Show only subscribed products"
 msgstr ""
 
 msgid "Show scc_account"
-msgstr ""
+msgstr "scc_account の表示"
 
 msgid "Show subscribed products only"
 msgstr ""
@@ -438,40 +443,40 @@ msgid "Starting the subscription task failed."
 msgstr ""
 
 msgid "Subscribe SCC Product"
-msgstr "Subscribe SCC Product"
+msgstr "SCC 製品のサブスクライブ"
 
 msgid "Subscribe product"
-msgstr ""
+msgstr "製品のサブスクライブ"
 
 msgid "Summary of SCC product subscription"
 msgstr ""
 
 msgid "Sync"
-msgstr "Sync"
+msgstr "同期"
 
 msgid "Sync Date"
-msgstr ""
+msgstr "同期日"
 
 msgid "Sync SUSE subscriptions"
-msgstr "Sync SUSE subscriptions"
+msgstr "SUSE サブスクリプションの同期"
 
 msgid "Sync SUSE subscriptions (Products)"
-msgstr "Sync SUSE subscriptions (Products)"
+msgstr "SUSE サブスクリプションの同期 (製品)"
 
 msgid "Sync SUSE subscriptions (Repositories)"
-msgstr "Sync SUSE subscriptions (Repositories)"
+msgstr "SUSE サブスクリプションの同期 (リポジトリー)"
 
 msgid "Sync capsule"
 msgstr ""
 
 msgid "Sync interval"
-msgstr ""
+msgstr "同期間隔"
 
 msgid "Sync scc_account"
-msgstr ""
+msgstr "scc_account の同期"
 
 msgid "Sync task started."
-msgstr "Sync task started."
+msgstr "同期タスクが開始されました。"
 
 msgid "Syncable export"
 msgstr ""
@@ -486,13 +491,13 @@ msgid "Synchronize smart proxy"
 msgstr ""
 
 msgid "Task to subscribe products started."
-msgstr ""
+msgstr "製品サブスクライブのタスクを開始しました。"
 
 msgid "Test Connection"
-msgstr "Test Connection"
+msgstr "テスト接続"
 
 msgid "Test connection for scc_account"
-msgstr ""
+msgstr "scc_account のテスト接続"
 
 msgid "The default download policy for repositories which were created using this SCC Account."
 msgstr ""
@@ -513,13 +518,13 @@ msgid "The subscription task with id "
 msgstr ""
 
 msgid "The sync interval is used to periodically update the SCC authentication tokens of any imported products."
-msgstr ""
+msgstr "同期の間隔は、インポートされた製品の SCC 認証トークンを定期更新するのに使用されます。"
 
 msgid "URL of SUSE for scc_account"
-msgstr ""
+msgstr "scc_account の SUSE の URL"
 
 msgid "Unknown"
-msgstr ""
+msgstr "不明"
 
 msgid "Update"
 msgstr ""
@@ -534,10 +539,10 @@ msgid "Update Content Overrides"
 msgstr ""
 
 msgid "Update SUSE repositories"
-msgstr ""
+msgstr "SUSE リポジトリーの更新"
 
 msgid "Update SUSE repositories %s"
-msgstr ""
+msgstr "SUSE リポジトリー %s の更新"
 
 msgid "Update content urls"
 msgstr ""
@@ -558,7 +563,7 @@ msgid "Update release version for host"
 msgstr ""
 
 msgid "Update scc_account"
-msgstr ""
+msgstr "scc_account の更新"
 
 msgid "Updating System Purpose for host"
 msgstr ""
@@ -567,13 +572,13 @@ msgid "Upload into"
 msgstr ""
 
 msgid "Use GPG key for SUSE products"
-msgstr ""
+msgstr "SUSE 製品に GPG キーを使用する"
 
 msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
-msgstr ""
+msgstr "サブスクリプション時に SUSE 製品に自動追加する場合は、この設定を使用します。この設定は、後で「Content」 >「Products」メニューから変更できます。"
 
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
-msgstr ""
+msgstr "SUSE Customer Center から取得した「組織の認証情報」を使用します。"
 
 msgid "Verify checksum"
 msgstr ""
@@ -590,4 +595,4 @@ msgid "You currently have no SUSE products selected. Search and add SUSE product
 msgstr ""
 
 msgid "never synced"
-msgstr ""
+msgstr "同期なし"
