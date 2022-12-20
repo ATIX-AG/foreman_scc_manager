@@ -5,9 +5,9 @@ class AddPermissions < ActiveRecord::Migration[6.0]
   ].freeze
 
   def up
-    Permission.create!(:name => 'test_connection_scc_accounts', :resource_type => 'SccAccount')
+    Permission.find_or_create_by!(:name => 'test_connection_scc_accounts', :resource_type => 'SccAccount')
     PRODUCT_PERMISSION_NAMES.each do |p|
-      Permission.create!(:name => p, :resource_type => SccProduct)
+      Permission.find_or_create_by!(:name => p, :resource_type => 'SccProduct')
     end
   end
 
