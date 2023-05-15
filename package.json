@@ -47,8 +47,4 @@
     "url": "https://github.com/ATIX-AG/foreman_scc_manager/issues"
   },
   "homepage": "https://github.com/ATIX-AG/foreman_scc_manager#readme",
-  "dependencies": {
-    "react-native-elements": "^3.4.2",
-    "react-native-vector-icons": "^9.0.0"
-  }
 }
