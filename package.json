@@ -16,18 +16,18 @@
     "url": "git+ssh://git@github.com/ATIX-AG/foreman_scc_manager.git"
   },
   "peerDependencies": {
-    "@theforeman/vendor": ">=4.14.0"
+    "@theforeman/vendor": ">= 4.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.0",
     "babel-eslint": "^10.0.0",
     "babel-loader": "^8.0.0",
-    "@theforeman/builder": ">=4.14.0",
-    "@theforeman/eslint-plugin-foreman": ">=8.16.0",
-    "@theforeman/find-foreman": ">=4.14.0",
-    "@theforeman/stories": ">=4.14.0",
-    "@theforeman/test": ">=4.14.0",
-    "@theforeman/vendor-dev": ">=4.14.0",
+    "@theforeman/builder": ">= 4.14.0",
+    "@theforeman/eslint-plugin-foreman": ">= 8.16.0",
+    "@theforeman/find-foreman": ">= 4.14.0",
+    "@theforeman/stories": ">= 4.14.0",
+    "@theforeman/test": ">= 4.14.0",
+    "@theforeman/vendor-dev": ">= 4.14.0",
     "eslint": "^6.7.2",
     "eslint-plugin-spellcheck": "0.0.17",
     "eslint-plugin-react": "^7.27.1",
