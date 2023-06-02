@@ -33,11 +33,11 @@ const addParentToTree = (tree, par) => {
 
 const addSCCRepoPickerToTree = (
   tree,
-  disableRepos,
   activateDebugFilter,
   setSelectedReposFromChild
 ) => {
-  tree.customBadgeContent[0] = (
+  tree.customBadgeContent = [];
+  tree.customBadgeContent.push(
     <Tooltip content={__('Filter repositories')}>
       <SCCRepoPicker
         sccRepos={tree.scc_repositories}
@@ -47,7 +47,7 @@ const addSCCRepoPickerToTree = (
         sccProductId={tree.id}
         sccProductName={tree.name}
         setSelectedReposFromChild={setSelectedReposFromChild}
-      />{' '}
+      />
     </Tooltip>
   );
   return tree;
@@ -59,14 +59,8 @@ const setupTreeViewListItem = (
   activateDebugFilter,
   setSelectedReposFromChild
 ) => {
-  tree.customBadgeContent = [];
   addCheckBoxToTree(tree);
-  addSCCRepoPickerToTree(
-    tree,
-    tree.product_id === null,
-    activateDebugFilter,
-    setSelectedReposFromChild
-  );
+  addSCCRepoPickerToTree(tree, activateDebugFilter, setSelectedReposFromChild);
   if ('children' in tree) {
     tree.children = tree.children.map((p) =>
       setupTreeViewListItem(
@@ -90,7 +84,6 @@ const checkAllParents = (
     tree.checkProps.checked = true;
     addSCCRepoPickerToTree(
       tree,
-      false,
       activateDebugFilter,
       setSelectedReposFromChild
     );
@@ -114,7 +107,6 @@ const uncheckAllChildren = (
     tree.checkProps.checked = false;
     addSCCRepoPickerToTree(
       tree,
-      true,
       activateDebugFilter,
       setSelectedReposFromChild
     );
