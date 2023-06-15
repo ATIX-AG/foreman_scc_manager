@@ -17,7 +17,7 @@ foreman-installer --scenario katello --enable-foreman-plugin-scc-manager
 You can also install it manually:
 
 ```sh
-yum install tfm-rubygem-foreman_scc_manager
+dnf install rubygem-foreman_scc_manager
 
 foreman-installer
 ```
@@ -51,7 +51,7 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2022 ATIX AG - https://atix.de
+Copyright (c) 2023 ATIX AG - https://atix.de
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
