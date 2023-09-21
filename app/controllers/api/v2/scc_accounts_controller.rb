@@ -23,12 +23,10 @@ module Api
 
       api :GET, '/scc_accounts/:id/', N_('Show scc_account')
       param :id, :identifier_dottable, :required => true
-      param :organization_id, :identifier, :required => true
       def show; end
 
       def_param_group :scc_account do
         param :scc_account, Hash, :required => true, :action_aware => true do
-          param :organization_id, :identifier, :required => true
           param :name, String, :required => true, :desc => N_('Name of the scc_account')
           param :login, String, :required => true, :desc => N_('Login id of scc_account')
           param :password, String, :required => true, :desc => N_('Password of scc_account')
@@ -49,6 +47,7 @@ module Api
 
       api :POST, '/scc_accounts/', N_('Create an scc_account')
       param_group :scc_account, :as => :create
+      param :organization_id, :identifier, :required => true
       def create
         @scc_account = resource_class.new(scc_account_params)
         process_response @scc_account.save_with_logic!

@@ -28,7 +28,6 @@ module Api
       def index
         scope = resource_scope
         scope = scope.where.not(:product_id => nil) if ::Foreman::Cast.to_bool(params[:subscribed_only])
-        scope = scope.where(:organization => params[:organization_id]) if params[:organization_id].present?
         @scc_products = scope.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page])
       end
 
