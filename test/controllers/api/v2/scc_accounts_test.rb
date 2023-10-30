@@ -13,7 +13,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
-          'Host' => 'scc.example.com'
+          'Host' => 'scc.example.com',
         }
       ).to_return(
         status: 200,
@@ -35,12 +35,12 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
           cache_control: 'max-age=0, private, must-revalidate',
           set_cookie: [
             'XSRF-TOKEN=TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBp%0Ac2NpbmcgZWxpdCwgc2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2l; path=/; secure',
-            'Uy#u~osh#oh3ahv.op0OII; Expires=Fri, 02-Mar-2029 15:07:20 GMT; Path=/'
+            'Uy#u~osh#oh3ahv.op0OII; Expires=Fri, 02-Mar-2029 15:07:20 GMT; Path=/',
           ],
           x_request_id: '67450237-e4aa-4994-a47d-ed3ce142555b',
           x_runtime: '0.144083',
           strict_transport_security: 'max-age=15552000, max-age=300',
-          content_encoding: 'gzip'
+          content_encoding: 'gzip',
         }
       )
 
@@ -52,7 +52,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
-          'Host' => 'scc.example.com'
+          'Host' => 'scc.example.com',
         }
       ).to_return(
         status: 200,
@@ -74,12 +74,12 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
           cache_control: 'max-age=0, private, must-revalidate',
           set_cookie: [
             'XSRF-TOKEN=SEZSwgerzOHlW5vYxxcVxrRQ3J4lKMmwGAIXpDyuTyCtcgQqrkMDlSdlxhU6rQp71%2Fdic6jiKgVbJB6vCeAJ2A%3D%3D; path=/; secure',
-            'TbBx+jfg=v1XitvAA@@ncY; Expires=Thu, 04-Oct-2029 13:14:57 GMT; Path=/'
+            'TbBx+jfg=v1XitvAA@@ncY; Expires=Thu, 04-Oct-2029 13:14:57 GMT; Path=/',
           ],
           x_request_id: '2418bd69-efab-4d78-9a73-63570744d2cb',
           x_runtime: '0.645444',
           strict_transport_security: 'max-age=15552000, max-age=300',
-          content_encoding: 'gzip'
+          content_encoding: 'gzip',
         }
       )
     ############
@@ -91,7 +91,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
-          'Host' => 'scc.example.com'
+          'Host' => 'scc.example.com',
         }
       ).to_return(
         status: 200,
@@ -114,12 +114,12 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
           cache_control: 'max-age=0, private, must-revalidate',
           set_cookie: [
             'XSRF-TOKEN=EABKsiefcpa7dMNEXRixmihKeUfIvXF4AwmNQt2wZG5Fm%2FPKvR0%2FMBDVV5lZJ3p4waUAcds2xWv42vbKg9GQhg%3D%3D; path=/; secure',
-            'TbBx+jfg=v1jitvAA@@UII; Expires=Thu, 08-Mar-2029 15:37:15 GMT; Path=/'
+            'TbBx+jfg=v1jitvAA@@UII; Expires=Thu, 08-Mar-2029 15:37:15 GMT; Path=/',
           ],
           x_request_id: 'd2797941-1aed-499c-8e06-b4cb52515443',
           x_runtime: '6.671012',
           strict_transport_security: 'max-age=15552000, max-age=300',
-          content_encoding: 'gzip'
+          content_encoding: 'gzip',
         }
       )
     # products page2
@@ -128,7 +128,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
-          'Host' => 'scc.example.com'
+          'Host' => 'scc.example.com',
         }
       ).to_return(
         status: 200,
@@ -151,12 +151,12 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
           cache_control: 'max-age=0, private, must-revalidate',
           set_cookie: [
             'XSRF-TOKEN=z3bGc45lQxf%2FXq7qN7cwzJrK1zcw4e7uuskVCPejeN0zv3ExUcb8ev3jhGnDGJaSz3ZwV7Dk0SdLII%2FOcI2eEw%3D%3D; path=/; secure',
-            'TbBx+jfg=v1oytvAA@@I73; Expires=Thu, 08-Mar-2029 15:37:23 GMT; Path=/'
+            'TbBx+jfg=v1oytvAA@@I73; Expires=Thu, 08-Mar-2029 15:37:23 GMT; Path=/',
           ],
           x_request_id: '17e6707a-1134-403d-a49c-7344442446c1',
           x_runtime: '6.671012',
           strict_transport_security: 'max-age=15552000, max-age=300',
-          content_encoding: 'gzip'
+          content_encoding: 'gzip',
         }
       )
   end
@@ -203,28 +203,28 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
 
   test 'should update scc_account' do
     account = scc_accounts(:two)
-    put :update, params: { id: account.id, :scc_account => { :interval => 'weekly' } }
+    put :update, params: { id: account.id, scc_account: { :interval => 'weekly' } }
     assert_equal 'weekly', assigns(:scc_account).interval
     assert_response :ok
   end
 
   test 'should refuse update scc_account with invalid interval' do
     account = scc_accounts(:two)
-    put :update, params: { id: account.id, :scc_account => { :interval => 'yearly' } }
+    put :update, params: { id: account.id, scc_account: { :interval => 'yearly' } }
     assert_equal 'yearly', assigns(:scc_account).interval
     assert_response :unprocessable_entity
   end
 
   test 'should refuse update scc_account with empty date' do
     account = scc_accounts(:two)
-    put :update, params: { id: account.id, :scc_account => { :interval => 'weekly', :sync_date => '' } }
+    put :update, params: { id: account.id, scc_account: { :interval => 'weekly', :sync_date => '' } }
     assert_response :unprocessable_entity
     assert_error_message 'Sync date must be a valid datetime'
   end
 
   test 'should fail to update scc_account with interval set and invalid date' do
     account = scc_accounts(:two)
-    put :update, params: { id: account.id, :scc_account => { :sync_date => 'invalid_date', :interval => 'weekly' } }
+    put :update, params: { id: account.id, scc_account: { :sync_date => 'invalid_date', :interval => 'weekly' } }
 
     assert_response :unprocessable_entity
     assert_error_message 'Sync date must be a valid datetime'
@@ -232,7 +232,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
 
   test 'should fail to update scc_account with empty name' do
     account = scc_accounts(:two)
-    put :update, params: { id: account.id, :scc_account => { :name => '', :sync_date => Time.now, :interval => 'weekly' } }
+    put :update, params: { id: account.id, scc_account: { :name => '', :sync_date => Time.now, :interval => 'weekly' } }
 
     assert_response :unprocessable_entity
     assert_error_message "Name can't be blank"
@@ -240,7 +240,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
 
   test 'should fail to update scc_account with empty login' do
     account = scc_accounts(:two)
-    put :update, params: { id: account.id, :scc_account => { :login => '', :sync_date => Time.now, :interval => 'weekly' } }
+    put :update, params: { id: account.id, scc_account: { :login => '', :sync_date => Time.now, :interval => 'weekly' } }
 
     assert_response :unprocessable_entity
     assert_error_message "Login can't be blank"
@@ -248,7 +248,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
 
   test 'should fail to update scc_account with empty base_url' do
     account = scc_accounts(:two)
-    put :update, params: { id: account.id, :scc_account => { :base_url => '', :sync_date => Time.now, :interval => 'weekly' } }
+    put :update, params: { id: account.id, scc_account: { :base_url => '', :sync_date => Time.now, :interval => 'weekly' } }
 
     assert_response :unprocessable_entity
     assert_error_message "Base url can't be blank"
@@ -268,7 +268,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
-          'Host' => 'scc.example.com'
+          'Host' => 'scc.example.com',
         }
       ).to_return(status: 404)
     account = scc_accounts(:one)
@@ -294,7 +294,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
-          'Host' => 'scc.example.com'
+          'Host' => 'scc.example.com',
         }
       ).to_return(status: 404)
     account = scc_accounts(:one)

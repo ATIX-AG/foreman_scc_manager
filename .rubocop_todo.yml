@@ -1,11 +1,39 @@
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: strict, flexible
-Rails/Date:
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ConditionalAssignment:
   Enabled: false
 
 # Configuration parameters: EnforcedStyle.
-# SupportedStyles: slashes, arguments
-Rails/FilePath:
+# SupportedStyles: strict, flexible
+Rails/Date:
   Enabled: false
 
 # Configuration parameters: Include.
@@ -36,3 +64,4 @@ Rails/BulkChangeTable:
   Exclude: 
     - db/migrate/20180321000000_change_sync_status_to_sync_task.rb
     - db/migrate/20190417202427_add_recurring_sync.foreman_scc_manager.rb
+    - db/migrate/20221013214310_add_sync_options_to_scc_account.rb

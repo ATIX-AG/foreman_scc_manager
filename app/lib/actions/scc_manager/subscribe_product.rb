@@ -17,10 +17,10 @@ module Actions
         sequence do
           if scc_product.product_id.nil?
             product_create_action = plan_action(CreateProduct,
-                                                :product_name => scc_product.pretty_name,
-                                                :product_description => scc_product.pretty_description,
-                                                :organization_id => scc_product.organization.id,
-                                                :gpg_key => scc_product.scc_account.katello_gpg_key_id)
+              :product_name => scc_product.pretty_name,
+              :product_description => scc_product.pretty_description,
+              :organization_id => scc_product.organization.id,
+              :gpg_key => scc_product.scc_account.katello_gpg_key_id)
           end
           katello_repos = {}
           # we need to set the repositories to subscribe to
@@ -48,14 +48,14 @@ module Actions
           scc_repos.each do |repo|
             arch = scc_product.arch || 'noarch'
             repo_create_action = plan_action(CreateRepository,
-                                             :product_id => scc_product.product_id || product_create_action.output[:product_id],
-                                             :uniq_name => repo.uniq_name(scc_product),
-                                             :pretty_repo_name => repo.pretty_name,
-                                             :url => repo.url,
-                                             :token => repo.token,
-                                             :arch => arch,
-                                             :download_policy => scc_product.scc_account.download_policy,
-                                             :mirroring_policy => scc_product.scc_account.mirroring_policy)
+              :product_id => scc_product.product_id || product_create_action.output[:product_id],
+              :uniq_name => repo.uniq_name(scc_product),
+              :pretty_repo_name => repo.pretty_name,
+              :url => repo.url,
+              :token => repo.token,
+              :arch => arch,
+              :download_policy => scc_product.scc_account.download_policy,
+              :mirroring_policy => scc_product.scc_account.mirroring_policy)
             katello_repos[repo.id] = repo_create_action.output[:katello_root_repository_id]
           end
 
@@ -99,8 +99,8 @@ module Actions
         end
         product.description = input[:product_description]
         trigger(::Actions::Katello::Product::Create,
-                product,
-                Organization.find(input[:organization_id])).tap do
+          product,
+          Organization.find(input[:organization_id])).tap do
           output[:product_id] = product.id
         end
       end

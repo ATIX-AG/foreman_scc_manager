@@ -13,9 +13,9 @@ module Actions
 
       def run
         output[:data] = ::SccManager.get_scc_data(input[:base_url],
-                                                  '/connect/organizations/repositories',
-                                                  input[:login],
-                                                  decrypt_field(input[:password]))
+          '/connect/organizations/repositories',
+          input[:login],
+          decrypt_field(input[:password]))
       rescue StandardError => e
         ::Foreman::Logging.logger('foreman_scc_manager').error "Error while syncronizing SCC-Repositories: #{e}"
         error! e.to_s

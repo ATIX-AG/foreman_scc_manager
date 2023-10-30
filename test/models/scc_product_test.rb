@@ -22,7 +22,7 @@ class SccProductCreateTest < ActiveSupport::TestCase
 
   test 'pretty_description' do
     assert_equal @product_with_normal_description.description,
-                 @product_with_normal_description.pretty_description
+      @product_with_normal_description.pretty_description
     assert_equal @product.pretty_description, 'lorem ipsum dolor sit amet'
     assert_equal @product_with_ugly_description.pretty_description, 'lorem ipsum dolor sit amet'
   end

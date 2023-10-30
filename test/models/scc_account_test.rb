@@ -24,7 +24,7 @@ class SccAccountCreateTest < ActiveSupport::TestCase
       # base_url has a default value set in DB
       # base_url: 'https://scc.example.org',
       login: 'account1',
-      password: 'secret'
+      password: 'secret',
     }
 
     # for every key in hash try to create account without it set
