@@ -114,8 +114,8 @@ end
 class SccAccountUpdateReposTest < ActiveSupport::TestCase
   def setup
     @account = scc_accounts(:one)
-    test_repo = scc_repositories(:repo_9)
-    @account.scc_repositories = SccProduct.where(name: 'repo_9')
+    test_repo = scc_repositories(:repo9)
+    @account.scc_repositories = SccProduct.where(name: 'repo9')
     # generate test data
     @repo_data = { 'name' => test_repo.name,
                    'id' => test_repo.scc_id,

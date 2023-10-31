@@ -7,9 +7,9 @@ module Actions
         action_subject(scc_account)
         password = encrypt_field(scc_account.password)
         plan_self(id: scc_account.id,
-                  base_url: scc_account.base_url,
-                  login: scc_account.login,
-                  password: password)
+          base_url: scc_account.base_url,
+          login: scc_account.login,
+          password: password)
       end
 
       def run

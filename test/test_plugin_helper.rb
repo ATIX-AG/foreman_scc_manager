@@ -27,9 +27,9 @@ module FixtureTestCase
     FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/controllers/*"), self.fixture_path)
     FileUtils.cp(Dir.glob(Rails.root.join('test/fixtures/*')), self.fixture_path)
     fixtures(:all)
-    FIXTURES = load_fixtures(ActiveRecord::Base)
+    fixtures_loaded = load_fixtures(ActiveRecord::Base)
 
-    User.current = ::User.unscoped.find(FIXTURES['users']['admin']['id'])
+    User.current = ::User.unscoped.find(fixtures_loaded['users']['admin']['id'])
   end
 end
 
