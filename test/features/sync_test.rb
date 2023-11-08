@@ -9,7 +9,7 @@ class SccAccountSyncTest < ActiveSupport::TestCase
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
-          'Host' => 'scc.example.com'
+          'Host' => 'scc.example.com',
         }
       ).to_return(
         status: 200,
@@ -31,12 +31,12 @@ class SccAccountSyncTest < ActiveSupport::TestCase
           cache_control: 'max-age=0, private, must-revalidate',
           set_cookie: [
             'XSRF-TOKEN=TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBp%0Ac2NpbmcgZWxpdCwgc2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2l; path=/; secure',
-            'Uy#u~osh#oh3ahv.op0OII; Expires=Fri, 02-Mar-2029 15:07:20 GMT; Path=/'
+            'Uy#u~osh#oh3ahv.op0OII; Expires=Fri, 02-Mar-2029 15:07:20 GMT; Path=/',
           ],
           x_request_id: '67450237-e4aa-4994-a47d-ed3ce142555b',
           x_runtime: '0.144083',
           strict_transport_security: 'max-age=15552000, max-age=300',
-          content_encoding: 'gzip'
+          content_encoding: 'gzip',
         }
       )
     ############
@@ -48,7 +48,7 @@ class SccAccountSyncTest < ActiveSupport::TestCase
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
-          'Host' => 'scc.example.com'
+          'Host' => 'scc.example.com',
         }
       ).to_return(
         status: 200,
@@ -71,12 +71,12 @@ class SccAccountSyncTest < ActiveSupport::TestCase
           cache_control: 'max-age=0, private, must-revalidate',
           set_cookie: [
             'XSRF-TOKEN=EABKsiefcpa7dMNEXRixmihKeUfIvXF4AwmNQt2wZG5Fm%2FPKvR0%2FMBDVV5lZJ3p4waUAcds2xWv42vbKg9GQhg%3D%3D; path=/; secure',
-            'TbBx+jfg=v1jitvAA@@UII; Expires=Thu, 08-Mar-2029 15:37:15 GMT; Path=/'
+            'TbBx+jfg=v1jitvAA@@UII; Expires=Thu, 08-Mar-2029 15:37:15 GMT; Path=/',
           ],
           x_request_id: 'd2797941-1aed-499c-8e06-b4cb52515443',
           x_runtime: '6.671012',
           strict_transport_security: 'max-age=15552000, max-age=300',
-          content_encoding: 'gzip'
+          content_encoding: 'gzip',
         }
       )
     # products page2
@@ -85,7 +85,7 @@ class SccAccountSyncTest < ActiveSupport::TestCase
         headers: {
           'Accept' => 'application/vnd.scc.suse.com.v4+json',
           'Authorization' => 'Basic b25ldXNlcjpvbmVwYXNz',
-          'Host' => 'scc.example.com'
+          'Host' => 'scc.example.com',
         }
       ).to_return(
         status: 200,
@@ -108,12 +108,12 @@ class SccAccountSyncTest < ActiveSupport::TestCase
           cache_control: 'max-age=0, private, must-revalidate',
           set_cookie: [
             'XSRF-TOKEN=z3bGc45lQxf%2FXq7qN7cwzJrK1zcw4e7uuskVCPejeN0zv3ExUcb8ev3jhGnDGJaSz3ZwV7Dk0SdLII%2FOcI2eEw%3D%3D; path=/; secure',
-            'TbBx+jfg=v1oytvAA@@I73; Expires=Thu, 08-Mar-2029 15:37:23 GMT; Path=/'
+            'TbBx+jfg=v1oytvAA@@I73; Expires=Thu, 08-Mar-2029 15:37:23 GMT; Path=/',
           ],
           x_request_id: '17e6707a-1134-403d-a49c-7344442446c1',
           x_runtime: '6.671012',
           strict_transport_security: 'max-age=15552000, max-age=300',
-          content_encoding: 'gzip'
+          content_encoding: 'gzip',
         }
       )
   end

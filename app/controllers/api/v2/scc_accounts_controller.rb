@@ -23,7 +23,8 @@ module Api
 
       api :GET, '/scc_accounts/:id/', N_('Show scc_account')
       param :id, :identifier_dottable, :required => true
-      def show; end
+      def show
+      end
 
       def_param_group :scc_account do
         param :scc_account, Hash, :required => true, :action_aware => true do
@@ -33,13 +34,13 @@ module Api
           param :base_url, String, :required => false, :desc => N_('URL of SUSE for scc_account')
           param :interval, ['never', 'daily', 'weekly', 'monthly'], :desc => N_('Interval for syncing scc_account')
           param :download_policy,
-                ::Katello::RootRepository::DOWNLOAD_POLICIES,
-                :required => false,
-                :desc => N_('The default download policy for repositories which were created using this SCC Account.')
+            ::Katello::RootRepository::DOWNLOAD_POLICIES,
+            :required => false,
+            :desc => N_('The default download policy for repositories which were created using this SCC Account.')
           param :mirroring_policy,
-                SccAccount::SCC_MIRRORING_POLICIES,
-                :required => false,
-                :desc => N_('The default mirroring policy for repositories which were created using this SCC Account.')
+            SccAccount::SCC_MIRRORING_POLICIES,
+            :required => false,
+            :desc => N_('The default mirroring policy for repositories which were created using this SCC Account.')
           param :sync_date, String, :desc => N_('Date and time relative to which the sync interval is run')
           param :katello_gpg_key_id, :identifier, :required => false, :desc => N_('Associated GPG key of scc_account')
         end
@@ -119,9 +120,9 @@ module Api
             # if the id array is empty, all repositories will be subscribed to
             scc_products = @scc_account.scc_products.where(:id => params[:scc_subscribe_product_ids])
             subscribe_task = ForemanTasks.async_task(::Actions::BulkAction,
-                                                     ::Actions::SccManager::SubscribeProduct,
-                                                     scc_products,
-                                                     {})
+              ::Actions::SccManager::SubscribeProduct,
+              scc_products,
+              {})
             format.json { render json: subscribe_task.to_json, status: :ok }
           else
             format.json { render json: { error: 'No Product selected' }, status: :expectation_failed }
@@ -136,8 +137,8 @@ module Api
       def_param_group :scc_product_data do
         param :scc_product_data, Array, :required => true, :desc => 'Array of Hash elements. One hash element contains an scc_product_id and a repository_list.' do
           param :scc_product_id, Integer, :required => true, :desc => 'Product ID of SCC product'
-          param :repository_list, Array, of: Integer, :required => false,
-                                         :desc => 'List of SCC repositories belonging to the SCC product. If the list is empty, all repositories will be subscribed to.'
+          param :repository_list, Array, of: Integer, required: false,
+                                         desc: 'List of SCC repositories belonging to the SCC product. If the list is empty, all repositories will be subscribed to.'
         end
       end
 
@@ -155,9 +156,9 @@ module Api
             else
               action_args = params[:scc_product_data].map { |p| { p['scc_product_id'] => p['repository_list'] } }.inject(:merge)
               subscribe_task = ForemanTasks.async_task(::Actions::BulkAction,
-                                                       ::Actions::SccManager::SubscribeProduct,
-                                                       scc_products,
-                                                       action_args)
+                ::Actions::SccManager::SubscribeProduct,
+                scc_products,
+                action_args)
               format.json { render json: subscribe_task.to_json, status: :ok }
             end
           else

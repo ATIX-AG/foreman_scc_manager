@@ -23,5 +23,5 @@ begin
     end
   end
 rescue LoadError
-  puts 'Rubocop not loaded.'
+  # 'Rubocop not loaded.'
 end

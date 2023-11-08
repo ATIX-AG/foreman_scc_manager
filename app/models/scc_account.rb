@@ -289,7 +289,7 @@ class SccAccount < ApplicationRecord
   def self.download_policy_selection_values
     names = {
       ::Katello::RootRepository::DOWNLOAD_ON_DEMAND => _('On Demand'),
-      ::Katello::RootRepository::DOWNLOAD_IMMEDIATE => _('Immediate')
+      ::Katello::RootRepository::DOWNLOAD_IMMEDIATE => _('Immediate'),
     }
 
     ::Katello::RootRepository::DOWNLOAD_POLICIES.map do |p|
@@ -300,7 +300,7 @@ class SccAccount < ApplicationRecord
   def self.mirroring_policy_selection_values
     names = {
       ::Katello::RootRepository::MIRRORING_POLICY_ADDITIVE => _('Additive'),
-      ::Katello::RootRepository::MIRRORING_POLICY_CONTENT => _('Content Only')
+      ::Katello::RootRepository::MIRRORING_POLICY_CONTENT => _('Content Only'),
     }
 
     ::Katello::RootRepository::MIRRORING_POLICIES.map do |p|

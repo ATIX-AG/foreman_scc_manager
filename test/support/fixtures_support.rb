@@ -5,7 +5,7 @@ module ForemanSccManager
       scc_products: ::SccProduct,
       scc_repositories: ::SccRepository,
       katello_root_repositories: ::Katello::RootRepository,
-      scc_katello_repositories: SccKatelloRepository
+      scc_katello_repositories: SccKatelloRepository,
     }.freeze
 
     def self.set_fixture_classes(test_class)

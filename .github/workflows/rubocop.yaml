@@ -16,8 +16,7 @@ jobs:
         with:
           ruby-version: 2.7
       - run: |
-          gem install rubocop -v 0.89
-          gem install rubocop-rails -v 2.8.1
+          gem install theforeman-rubocop -v 0.1.0
       - name: Execute rubocop
         run: |
           rubocop

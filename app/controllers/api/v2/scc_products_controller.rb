@@ -34,7 +34,8 @@ module Api
       api :GET, '/scc_accounts/:scc_account_id/scc_products/:id/', N_('Show an scc_account product')
       param :id, :identifier_dottable, :required => true
       param :scc_account_id, :identifier_dottable, :required => true
-      def show; end
+      def show
+      end
 
       api :PUT, '/scc_accounts/:scc_account_id/scc_products/:id/subscribe/', N_('Subscribe product')
       param :id, :identifier_dottable, :required => true

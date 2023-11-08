@@ -13,7 +13,7 @@ repo_<%= i %>:
   installer_updates: false
 <% end %>
 
-repo_9:
+repo9:
   id: 9
   scc_account_id: 1
   scc_id: 63

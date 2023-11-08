@@ -19,17 +19,17 @@ module FixtureTestCase
 
     # Fixtures are copied into a separate path to combine with Foreman fixtures. This directory
     # is kept out of version control.
-    self.fixture_path = "#{Rails.root}/tmp/combined_fixtures/"
+    self.fixture_path = Rails.root.join('tmp/combined_fixtures/')
     FileUtils.rm_rf(self.fixture_path) if File.directory?(self.fixture_path)
     Dir.mkdir(self.fixture_path)
     FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/models/*"), self.fixture_path)
     FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/files/*"), self.fixture_path)
     FileUtils.cp(Dir.glob("#{ForemanSccManager::Engine.root}/test/fixtures/controllers/*"), self.fixture_path)
-    FileUtils.cp(Dir.glob("#{Rails.root}/test/fixtures/*"), self.fixture_path)
+    FileUtils.cp(Dir.glob(Rails.root.join('test/fixtures/*')), self.fixture_path)
     fixtures(:all)
-    FIXTURES = load_fixtures(ActiveRecord::Base)
+    fixtures_loaded = load_fixtures(ActiveRecord::Base)
 
-    User.current = ::User.unscoped.find(FIXTURES['users']['admin']['id'])
+    User.current = ::User.unscoped.find(fixtures_loaded['users']['admin']['id'])
   end
 end
 

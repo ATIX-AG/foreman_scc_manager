@@ -1,7 +1,7 @@
 class AddPermissions < ActiveRecord::Migration[6.0]
   PRODUCT_PERMISSION_NAMES = [
     'view_scc_products',
-    'subscribe_scc_products'
+    'subscribe_scc_products',
   ].freeze
 
   def up

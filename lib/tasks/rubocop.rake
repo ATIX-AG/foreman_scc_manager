@@ -9,7 +9,7 @@ begin
     "#{ForemanSccManager::Engine.root}/db/**/*.rb",
     "#{ForemanSccManager::Engine.root}/lib/**/*.rake",
     "#{ForemanSccManager::Engine.root}/lib/**/*.rb",
-    "#{ForemanSccManager::Engine.root}/test/**/*.rb"
+    "#{ForemanSccManager::Engine.root}/test/**/*.rb",
   ]
 
   namespace :foreman_scc_manager do
@@ -27,5 +27,5 @@ begin
     end
   end
 rescue LoadError
-  puts 'Rubocop not loaded.'
+  # 'Rubocop not loaded.'
 end
