@@ -9,6 +9,7 @@ locale/*.mo
 locale/*/*.edit.po
 locale/*/*.po.time_stamp
 locale/*/*.pox
+locale/action_names.rb
 *.gem
 Gemfile.lock
 *.swp
