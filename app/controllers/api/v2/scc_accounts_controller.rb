@@ -28,6 +28,7 @@ module Api
 
       def_param_group :scc_account do
         param :scc_account, Hash, :required => true, :action_aware => true do
+          param :organization_id, :identifier, :required => true
           param :name, String, :required => true, :desc => N_('Name of the scc_account')
           param :login, String, :required => true, :desc => N_('Login id of scc_account')
           param :password, String, :required => true, :desc => N_('Password of scc_account')
@@ -48,7 +49,6 @@ module Api
 
       api :POST, '/scc_accounts/', N_('Create an scc_account')
       param_group :scc_account, :as => :create
-      param :organization_id, :identifier, :required => true
       def create
         @scc_account = resource_class.new(scc_account_params)
         process_response @scc_account.save_with_logic!
@@ -58,7 +58,11 @@ module Api
       param :id, :identifier_dottable, :required => true
       param_group :scc_account
       def update
-        process_response @scc_account.update(scc_account_params)
+        if params[:scc_account].present?
+          process_response @scc_account.update(scc_account_params)
+        else
+          render json: { error: 'No input data provided for changing the SCC account.', status: :expectation_failed }
+        end
       end
 
       api :DELETE, '/scc_accounts/:id', N_('Delete scc_account')
