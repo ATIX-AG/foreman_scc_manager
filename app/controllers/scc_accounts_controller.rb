@@ -118,14 +118,19 @@ class SccAccountsController < ApplicationController
       :include => { :scc_repositories => { :only => [:id, :name, :subscription_valid] } })
                                   .merge('name' => scc_product.pretty_name, 'product_category' => scc_product.product_category)
     # find if and which Katello root repository is associated with this SCC product
-    repo_ids_katello = scc_product.product.blank? || scc_product.product.root_repository_ids.blank? ? nil : scc_product.product.root_repository_ids
+    repo_ids_katello = scc_product&.product&.root_repository_ids
     scc_product_json['scc_repositories'].each do |repo|
-      # byebug
       if repo_ids_katello.blank?
-        repo['katello_root_repository_id'] = nil
+        repo['katello_repository_id'] = nil
       else
         repo_ids_scc = scc_product.scc_repositories.find(repo['id']).katello_root_repository_ids
-        repo['katello_root_repository_id'] = repo_ids_scc.blank? ? nil : (repo_ids_scc & repo_ids_katello).first
+        if repo_ids_scc.blank?
+          repo['katello_repository_id'] = nil
+        else
+          # we need to extract the library instance id for the correct repo link in the UI
+          root_repo_id = (repo_ids_scc & repo_ids_katello).first
+          repo['katello_repository_id'] = ::Katello::Repository.where({ root_id: root_repo_id, library_instance: nil }).pick(:id)
+        end
       end
     end
     scc_product_json
