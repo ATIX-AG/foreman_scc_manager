@@ -8,7 +8,7 @@ import './styles.scss';
 const createRepoSelectOption = (repo, disableRepos) => (
   <SelectOption
     key={repo.id}
-    isDisabled={repo.katello_root_repository_id !== null || disableRepos}
+    isDisabled={repo.katello_repository_id !== null || disableRepos}
     value={repo.name}
   />
 );
@@ -30,14 +30,14 @@ const setRepoSelection = (
         (repo) =>
           (!repo.name.includes('Debug') &&
             !repo.name.includes('Source-Pool') &&
-            repo.katello_root_repository_id === null) ||
-          repo.katello_root_repository_id !== null
+            repo.katello_repository_id === null) ||
+          repo.katello_repository_id !== null
       );
     } else {
       res = sccRepos;
     }
   } else {
-    res = sccRepos.filter((repo) => repo.katello_root_repository_id !== null);
+    res = sccRepos.filter((repo) => repo.katello_repository_id !== null);
   }
   return res.map((repo) => repo.name);
 };
@@ -83,7 +83,7 @@ const SCCRepoPicker = ({
         .filter(
           (repo) =>
             selectedRepos.includes(repo.name) &&
-            repo.katello_root_repository_id === null
+            repo.katello_repository_id === null
         )
         .map((repo) => repo.id),
       sccRepos
@@ -91,7 +91,7 @@ const SCCRepoPicker = ({
         .filter(
           (repo) =>
             selectedRepos.includes(repo.name) &&
-            repo.katello_root_repository_id === null
+            repo.katello_repository_id === null
         )
         .map((repo) => repo.name)
     );
@@ -120,7 +120,7 @@ const SCCRepoPicker = ({
         .filter(
           (repo) =>
             selectedRepos.includes(repo.name) &&
-            repo.katello_root_repository_id === null
+            repo.katello_repository_id === null
         )
         .map((repo) => repo.id),
       sccRepos
@@ -128,7 +128,7 @@ const SCCRepoPicker = ({
         .filter(
           (repo) =>
             selectedRepos.includes(repo.name) &&
-            repo.katello_root_repository_id === null
+            repo.katello_repository_id === null
         )
         .map((repo) => repo.name)
     );

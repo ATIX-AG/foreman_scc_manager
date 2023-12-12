@@ -16,7 +16,7 @@ import './styles.scss';
 
 const createKatelloRepoLink = (repo, sccProductId) => {
   const url = foremanUrl(
-    `/products/${sccProductId}/repositories/${repo.katello_root_repository_id}`
+    `/products/${sccProductId}/repositories/${repo.katello_repository_id}`
   );
   return (
     <Tooltip content={__('Go to Repository page')}>
@@ -35,7 +35,7 @@ const createRepoDropDownItem = (repo, sccProductId) => (
     component="button"
     icon={
       repo.subscription_valid ? (
-        repo.katello_root_repository_id !== null ? (
+        repo.katello_repository_id !== null ? (
           <Icon name="check" type="fa" />
         ) : (
           <Tooltip content={__('Repository not imported')}>
@@ -49,7 +49,7 @@ const createRepoDropDownItem = (repo, sccProductId) => (
       )
     }
   >
-    {repo.katello_root_repository_id !== null
+    {repo.katello_repository_id !== null
       ? createKatelloRepoLink(repo, sccProductId)
       : repo.name}
   </DropdownItem>
@@ -88,7 +88,7 @@ const SCCRepoView = ({ sccRepos, sccProductId }) => {
         >
           {sprintf(
             __('Repositories (%s/%s)'),
-            sccRepos.filter((r) => r.katello_root_repository_id !== null)
+            sccRepos.filter((r) => r.katello_repository_id !== null)
               .length,
             sccRepos.length
           )}
