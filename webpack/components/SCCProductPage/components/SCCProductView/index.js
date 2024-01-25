@@ -129,7 +129,7 @@ const SCCProductView = ({
   };
   const sccProductsClone = cloneDeep(sccProducts);
   // wrap actual iterator function into anonymous function to pass extra parameters
-  const [allProducts, setAllProducts] = useState(
+  const [allProducts] = useState(
     sccProductsClone.map((tree) =>
       setupTreeViewListItem(tree, true, editProductTree)
     )

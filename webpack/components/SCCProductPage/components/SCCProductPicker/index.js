@@ -50,7 +50,7 @@ const SCCProductPicker = ({
   editProductId,
   handleSubscribeCallback,
 }) => {
-  const [productItems, setProductItems] = useState(
+  const [productItems] = useState(
     uniq(sccProducts.map((p) => p.product_category))
   );
   const [selectedProduct, setSelectedProduct] = useState('');

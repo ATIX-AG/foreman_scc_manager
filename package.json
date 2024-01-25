@@ -8,6 +8,7 @@
     "test": "test"
   },
   "scripts": {
+    "lint": "tfm-lint --plugin -d /webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "create-react-component": "yo react-domain"
   },
