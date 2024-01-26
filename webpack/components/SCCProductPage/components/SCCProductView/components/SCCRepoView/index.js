@@ -1,3 +1,4 @@
+/* eslint no-nested-ternary: "off" */
 import { foremanUrl } from 'foremanReact/common/helpers';
 import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 
@@ -88,8 +89,7 @@ const SCCRepoView = ({ sccRepos, sccProductId }) => {
         >
           {sprintf(
             __('Repositories (%s/%s)'),
-            sccRepos.filter((r) => r.katello_repository_id !== null)
-              .length,
+            sccRepos.filter((r) => r.katello_repository_id !== null).length,
             sccRepos.length
           )}
         </BadgeToggle>

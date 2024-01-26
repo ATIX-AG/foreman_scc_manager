@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { translate as __ } from 'foremanReact/common/I18n';
 import { useForemanModal } from 'foremanReact/components/ForemanModal/ForemanModalHooks';
 import SCCProductView from './components/SCCProductView';
-import EmptySccProducts from './EmptySccProducts';
+import { EmptySccProducts } from './EmptySccProducts';
 import SCCProductPicker from './components/SCCProductPicker';
 import SCCProductPickerModal from './components/SCCProductPickerModal';
 import { SCCPRODUCTPAGE_SUMMARY_MODAL_ID } from './SCCProductPageConstants';
@@ -26,7 +26,7 @@ const SCCProductPage = ({
     setProductToEdit(productId);
   };
 
-  const { setModalOpen, setModalClosed } = useForemanModal({
+  const { setModalOpen } = useForemanModal({
     id: SCCPRODUCTPAGE_SUMMARY_MODAL_ID,
   });
 
