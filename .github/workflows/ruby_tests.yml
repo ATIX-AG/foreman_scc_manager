@@ -1,0 +1,27 @@
+---
+name: Ruby Tests
+"on":
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ${{ github.ref_name }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  rubocop:
+    uses: theforeman/actions/.github/workflows/rubocop.yml@v0
+    with:
+      command: bundle exec rubocop --parallel
+
+  test:
+    name: Ruby
+    needs: rubocop
+    uses: theforeman/actions/.github/workflows/foreman_plugin.yml@v0
+    with:
+      plugin: foreman_scc_manager
+      matrix_exclude: '[{"ruby": "3.0", "node": "14"}]'
+      postgresql_container: ghcr.io/theforeman/postgresql-evr
+      test_existing_database: false
