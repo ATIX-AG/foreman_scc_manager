@@ -19,7 +19,7 @@ class SccAccountsControllerTest < ActionController::TestCase
           'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
           'Authorization' => auth,
           'Host' => host,
-          'User-Agent' => "rest-client/2.1.0 (linux x86_64) ruby/#{RUBY_VERSION}p#{RUBY_PATCHLEVEL}",
+          'User-Agent' => /rest-client\/2.1.0 \(linux(-gnu)? x86_64\) ruby\/#{RUBY_VERSION}p#{RUBY_PATCHLEVEL}/,
         }
       )
       .to_return(status: 200, body: '', headers: {})
