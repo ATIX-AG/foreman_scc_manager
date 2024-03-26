@@ -2,27 +2,21 @@ name: JavaScript Testing
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     paths:
       - 'webpack/**'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/js_tests.yml'
+
+concurrency:
+  group: ${{ github.ref_name }}-${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
-  test_js:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [12, 14]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Npm install
-        run: npm install
-      - name: Run plugin linter
-        run: npm run lint
+  test:
+    name: JavaScript
+    uses: theforeman/actions/.github/workflows/foreman_plugin_js.yml@v0
+    with:
+      plugin: foreman_scc_manager
