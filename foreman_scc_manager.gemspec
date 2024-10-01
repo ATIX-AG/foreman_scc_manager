@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'webmock'
 
   s.add_runtime_dependency 'katello', '>= 3.16'
+  s.add_dependency 'coffee-rails', '~> 5.0.0'
 end
