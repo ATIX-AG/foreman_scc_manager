@@ -26,14 +26,11 @@ foreman-installer
 
 | Foreman Version | Katello Version | Plugin Version |
 | --------------- | --------------- | -------------- |
+| 3.13            | 4.15            | ~> 4.0.0       |
+| 3.7             | 4.9             | ~> 3.0.0       |
 | 3.3             | 4.5             | ~> 2.0.0       |
 | 3.1             | 4.3             | ~> 1.8.20\*    |
 | 3.0             | 4.2             | ~> 1.8.20      |
-| 2.5             | 4.1             | ~> 1.8.20      |
-| 2.3             | 3.18            | ~> 1.8.9       |
-| 2.1             | 3.16            | ~> 1.8.5       |
-| 2.0             | 3.16            | ~> 1.8.4       |
-| 1.24            | 3.14            | ~> 1.8.0       |
 
 \* If you are using foreman_scc_manager in version 1.8.20 and then upgrade to Katello 4.3, you need to manually run the following rake task on your Foreman instance: `foreman-rake foreman_scc_manager:setup_authentication_tokens`.
 
@@ -51,7 +48,7 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2023 ATIX AG - https://atix.de
+Copyright (c) 2024 ATIX AG - https://atix.de
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
