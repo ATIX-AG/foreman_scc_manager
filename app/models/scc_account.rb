@@ -38,6 +38,8 @@ class SccAccount < ApplicationRecord
   validates :mirroring_policy, :inclusion => { :in => SCC_MIRRORING_POLICIES }, :allow_blank => false
   validate :sync_date_is_valid_datetime
 
+  alias_attribute :recurring_logic_id, :foreman_tasks_recurring_logic_id
+
   after_initialize :init
   before_destroy :cancel_recurring_logic
 
