@@ -4,11 +4,6 @@ module ForemanSccManager
   class Engine < ::Rails::Engine
     engine_name 'foreman_scc_manager'
 
-    config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/overrides"]
-
     config.to_prepare do
       ForemanTasks::RecurringLogic.include RecurringLogicExtensions
     end
@@ -23,7 +18,7 @@ module ForemanSccManager
     initializer 'foreman_scc_manager.register_plugin', :before => :finisher_hook do |app|
       app.reloader.to_prepare do
         Foreman::Plugin.register :foreman_scc_manager do
-          requires_foreman '>= 3.7'
+          requires_foreman '>= 3.13'
           requires_foreman_plugin 'katello', '>= 3.16.0'
           register_gettext
 
