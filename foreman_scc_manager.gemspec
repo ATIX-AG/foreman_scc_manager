@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
   # Testing
   s.add_development_dependency 'webmock'
 
-  s.add_dependency 'katello', '>= 3.16'
+  s.add_runtime_dependency 'katello', '>= 3.16'
 end

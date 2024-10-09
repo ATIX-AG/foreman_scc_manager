@@ -35,7 +35,6 @@ jobs:
           - http://yum.theforeman.org/plugins/nightly/el8/x86_64/
           - http://yum.theforeman.org/katello/nightly/katello/el8/x86_64/
       rhel-9:
-        additional_modules: "foreman-devel:el9"
         additional_repos:
           - http://yum.theforeman.org/releases/nightly/el9/x86_64/
           - http://yum.theforeman.org/plugins/nightly/el9/x86_64/
