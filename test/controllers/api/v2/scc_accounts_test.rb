@@ -251,7 +251,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     put :update, params: { id: account.id, scc_account: { :base_url => '', :sync_date => Time.now, :interval => 'weekly' } }
 
     assert_response :unprocessable_entity
-    assert_error_message "Base url can't be blank"
+    assert_error_message "Base URL can't be blank"
   end
 
   test 'new account SCC server connection-test' do
