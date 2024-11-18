@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name        = 'foreman_scc_manager'
   s.version     = ForemanSccManager::VERSION
   s.date        = Date.today.to_s
-  s.license     = 'GPL-3.0'
+  s.license     = 'GPL-3.0-only'
   s.authors     = ['ATIX AG']
   s.email       = ['info@atix.de']
   s.homepage    = 'https://www.orcharhino.com/'
