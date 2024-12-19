@@ -1,5 +1,4 @@
-![Rubocop](https://github.com/ATIX-AG/foreman_scc_manager/actions/workflows/rubocop.yaml/badge.svg)
-![Unit Tests](https://github.com/ATIX-AG/foreman_scc_manager/actions/workflows/unit_tests.yaml/badge.svg)
+[![Ruby Tests](https://github.com/ATIX-AG/foreman_scc_manager/actions/workflows/ruby_tests.yml/badge.svg)](https://github.com/ATIX-AG/foreman_scc_manager/actions/workflows/ruby_tests.yml)
 [![Gem Version](https://badge.fury.io/rb/foreman_scc_manager.svg)](https://badge.fury.io/rb/foreman_scc_manager)
 
 # Foreman SCC Manager
