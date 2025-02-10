@@ -4,17 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Bryan Kearney <bryan.kearney@gmail.com>, 2019
 # tim123, 2019
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2022
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 1.0.0\n"
+"Project-Id-Version: foreman_scc_manager 4.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
 "Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/foreman/teams/114/zh"
+"Language-Team: Chinese (China) (https://app.transifex.com/foreman/teams/114/zh"
 "_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,13 +39,13 @@ msgid "%s/%s"
 msgstr ""
 
 msgid "Abstract"
-msgstr ""
+msgstr "摘要"
 
 msgid "Abstract async task"
-msgstr ""
+msgstr "抽象 async 任务"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "有子计划的操作"
 
 msgid "Actions"
 msgstr "操作"
@@ -62,25 +63,25 @@ msgid "Add product(s)"
 msgstr ""
 
 msgid "Additive"
-msgstr ""
+msgstr "Additive"
 
 msgid "Agent action"
-msgstr ""
+msgstr "代理操作"
 
 msgid "Associated GPG key of scc_account"
 msgstr "scc_account 的关联 GPG 密钥"
 
 msgid "Attach subscriptions"
-msgstr ""
+msgstr "附加订阅"
 
 msgid "Auto attach subscriptions"
-msgstr ""
+msgstr "自动附加订阅"
 
 msgid "Base URL"
 msgstr "基本 URL"
 
 msgid "Bulk generate applicability for hosts"
-msgstr ""
+msgstr "批量生成主机的适用性"
 
 msgid "Bulk subscription of scc_products for scc_account"
 msgstr "scc_account 的批量 scc_products 订阅"
@@ -95,31 +96,31 @@ msgid "Collapse/Expand"
 msgstr ""
 
 msgid "Combined Profile Update"
-msgstr ""
+msgstr "组合的配置集更新"
 
 msgid "Content Only"
-msgstr ""
+msgstr "只包括内容"
 
 msgid "Copy version units to library"
-msgstr ""
+msgstr "将版本单位复制到库"
 
 msgid "Create"
-msgstr ""
+msgstr "创建"
 
 msgid "Create Alternate Content Source"
-msgstr ""
+msgstr "创建备用内容源"
 
 msgid "Create Export History"
-msgstr ""
+msgstr "创建导出历史记录"
 
 msgid "Create Import History"
-msgstr ""
+msgstr "创建导入历史记录"
 
 msgid "Create Package Group"
-msgstr ""
+msgstr "创建软件包组"
 
 msgid "Create Syncable Export History"
-msgstr ""
+msgstr "创建可同步的导出历史记录"
 
 msgid "Create an scc_account"
 msgstr "创建 scc_account"
@@ -131,61 +132,61 @@ msgid "Date and time relative to which the sync interval is run"
 msgstr "运行同步间隔的日期和时间"
 
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 msgid "Delete Activation Key"
-msgstr ""
+msgstr "删除激活码"
 
 msgid "Delete Lifecycle Environment"
-msgstr ""
+msgstr "删除生命周期环境"
 
 msgid "Delete Package Group"
-msgstr ""
+msgstr "删除软件包组"
 
 msgid "Delete Product"
-msgstr ""
+msgstr "删除产品"
 
 msgid "Delete scc_account"
 msgstr "删除 scc_account"
 
 msgid "Destroy"
-msgstr ""
+msgstr "销毁"
 
 msgid "Destroy Alternate Content Source"
-msgstr ""
+msgstr "销毁备用内容源"
 
 msgid "Destroy Content Host"
-msgstr ""
+msgstr "销毁内容主机"
 
 msgid "Disable"
-msgstr ""
+msgstr "禁用"
 
 msgid "Discover"
-msgstr ""
+msgstr "发现"
 
 msgid "Download Policy"
-msgstr ""
+msgstr "下载政策"
 
 msgid "Edit %s"
 msgstr "编辑 %s"
 
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 msgid "Errata mail"
-msgstr ""
+msgstr "勘误邮件"
 
 msgid "Expand products"
 msgstr ""
 
 msgid "Export"
-msgstr ""
+msgstr "导出"
 
 msgid "Export Library"
-msgstr ""
+msgstr "导出库"
 
 msgid "Export Repository"
-msgstr ""
+msgstr "导出仓库"
 
 msgid "Failed to add task to queue."
 msgstr ""
@@ -194,22 +195,22 @@ msgid "Failed to add task to queue: %s"
 msgstr "向队列添加任务失败：%s"
 
 msgid "Fetch pxe files"
-msgstr ""
+msgstr "获取 pxe 文件"
 
 msgid "Filter repositories"
 msgstr ""
 
 msgid "Filtered index content"
-msgstr ""
+msgstr "已过滤的索引内容"
 
 msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
 msgstr "Foreman 插件，将 SUSE 客户中心产品和存储库同步到 Katello。"
 
 msgid "Generate host applicability"
-msgstr ""
+msgstr "产生主机适用性"
 
 msgid "Generate repository applicability"
-msgstr ""
+msgstr "生成仓库适用性"
 
 msgid "Go to Product page"
 msgstr ""
@@ -218,61 +219,61 @@ msgid "Go to Repository page"
 msgstr ""
 
 msgid "Hypervisors"
-msgstr ""
+msgstr "Hypervisor"
 
 msgid "Hypervisors update"
-msgstr ""
+msgstr "Hypervisor 更新"
 
 msgid "If this option is enabled, debug and source pool repositories are automatically selected if you select a product. This option is disabled by default. It applies for unselected products, only. Already selected products are not filtered."
 msgstr ""
 
 msgid "Immediate"
-msgstr ""
+msgstr "立即"
 
 msgid "Import"
-msgstr ""
+msgstr "导入"
 
 msgid "Import Content View Version"
-msgstr ""
+msgstr "导入内容视图版本"
 
 msgid "Import Default Content View"
-msgstr ""
+msgstr "导入默认内容视图"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "导入 Puppet 类"
 
 msgid "Import Repository"
-msgstr ""
+msgstr "导入仓库"
 
 msgid "Import facts"
-msgstr ""
+msgstr "导入事实"
 
 msgid "Include Debug and Source Pool repositories"
 msgstr ""
 
 msgid "Incremental Update"
-msgstr ""
+msgstr "增量更新"
 
 msgid "Incremental Update of  Content View Version(s) "
-msgstr ""
+msgstr "内容视图版本的增量更新"
 
 msgid "Index content"
-msgstr ""
+msgstr "索引內容"
 
 msgid "Index errata"
-msgstr ""
+msgstr "索引勘误"
 
 msgid "Index module streams"
-msgstr ""
+msgstr "索引模块流"
 
 msgid "Index package groups"
-msgstr ""
+msgstr "索引软件包组"
 
 msgid "Install Applicable Errata"
-msgstr ""
+msgstr "安装适用的勘误"
 
 msgid "Instance update"
-msgstr ""
+msgstr "实例更新"
 
 msgid "Interval cannot be nil"
 msgstr "间隔不能为零"
@@ -299,7 +300,7 @@ msgid "Login id of scc_account"
 msgstr "scc_account 的登录 ID"
 
 msgid "Mirroring Policy"
-msgstr ""
+msgstr "镜像策略"
 
 msgid "Name of the scc_account"
 msgstr "scc_account 的名称"
@@ -311,10 +312,10 @@ msgid "None"
 msgstr "没有"
 
 msgid "On Demand"
-msgstr ""
+msgstr "按需"
 
 msgid "Package Profile Update"
-msgstr ""
+msgstr "软件包配置集更新"
 
 msgid "Password of scc_account"
 msgstr "scc_account 的密码"
@@ -326,7 +327,7 @@ msgid "Please synchronize your SUSE account before you can subscribe to SUSE pro
 msgstr ""
 
 msgid "Product Create"
-msgstr ""
+msgstr "产品创建"
 
 msgid "Product Selection for Account %s"
 msgstr "为帐户 %s 选择产品"
@@ -335,37 +336,37 @@ msgid "Products"
 msgstr "产品"
 
 msgid "Promote"
-msgstr ""
+msgstr "升级"
 
 msgid "Promotion to Environment"
-msgstr ""
+msgstr "升级到环境"
 
 msgid "Publish"
-msgstr ""
+msgstr "发布"
 
 msgid "Publish Lifecycle Environment Repositories"
-msgstr ""
+msgstr "发布生命周期环境仓库"
 
 msgid "Refresh Alternate Content Source"
-msgstr ""
+msgstr "刷新备用内容源"
 
 msgid "Reindex subscriptions"
-msgstr ""
+msgstr "重新索引订阅"
 
 msgid "Remove Content"
-msgstr ""
+msgstr "删除内容"
 
 msgid "Remove Version"
-msgstr ""
+msgstr "移除版本"
 
 msgid "Remove Versions and Associations"
-msgstr ""
+msgstr "删除版本和关联"
 
 msgid "Remove from Environment"
-msgstr ""
+msgstr "从环境中移除"
 
 msgid "Remove subscriptions"
-msgstr ""
+msgstr "删除订阅"
 
 msgid "Repositories (%s/%s)"
 msgstr ""
@@ -374,13 +375,13 @@ msgid "Repository not imported"
 msgstr ""
 
 msgid "Republish Version Repositories"
-msgstr ""
+msgstr "发布版本库"
 
 msgid "Reset Selection"
 msgstr ""
 
 msgid "Run Sync Plan:"
-msgstr ""
+msgstr "运行同步计划："
 
 msgid "SUSE Customer Center"
 msgstr "SUSE 客户中心"
@@ -467,7 +468,7 @@ msgid "Sync SUSE subscriptions (Repositories)"
 msgstr "同步 SUSE 订阅（仓库）"
 
 msgid "Sync capsule"
-msgstr ""
+msgstr "同步 capsule"
 
 msgid "Sync interval"
 msgstr "同步间隔"
@@ -479,16 +480,16 @@ msgid "Sync task started."
 msgstr "同步任务已启动。"
 
 msgid "Syncable export"
-msgstr ""
+msgstr "可同步导出"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "同步"
 
 msgid "Synchronize SUSE Account"
 msgstr ""
 
 msgid "Synchronize smart proxy"
-msgstr ""
+msgstr "同步智能代理服务器"
 
 msgid "Task to subscribe products started."
 msgstr "订阅产品的任务已开始。"
@@ -527,16 +528,16 @@ msgid "Unknown"
 msgstr "未知"
 
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 msgid "Update Alternate Content Source"
-msgstr ""
+msgstr "更新备用内容源"
 
 msgid "Update CDN Configuration"
-msgstr ""
+msgstr "更新 CDN 配置"
 
 msgid "Update Content Overrides"
-msgstr ""
+msgstr "更新内容覆盖"
 
 msgid "Update SUSE repositories"
 msgstr "创建 SUSE 仓库"
@@ -545,31 +546,31 @@ msgid "Update SUSE repositories %s"
 msgstr "更新 SUSE 仓库 %s"
 
 msgid "Update content urls"
-msgstr ""
+msgstr "更新内容 url"
 
 msgid "Update for host"
-msgstr ""
+msgstr "对主机的更新"
 
 msgid "Update http proxy"
-msgstr ""
+msgstr "更新 HTTP 代理"
 
 msgid "Update http proxy details"
-msgstr ""
+msgstr "更新 http 代理详情"
 
 msgid "Update redhat repository"
-msgstr ""
+msgstr "更新 redhat 仓库"
 
 msgid "Update release version for host"
-msgstr ""
+msgstr "为主机更新发行版本"
 
 msgid "Update scc_account"
 msgstr "更新 scc_account"
 
 msgid "Updating System Purpose for host"
-msgstr ""
+msgstr "主机更新系统目的"
 
 msgid "Upload into"
-msgstr ""
+msgstr "上传到"
 
 msgid "Use GPG key for SUSE products"
 msgstr "将 GPG 密钥用于 SUSE 产品"
@@ -581,7 +582,7 @@ msgid "Use your 'Organization credentials' obtained from the SUSE Customer Cente
 msgstr "使用从 SUSE 客户中心获取的\"组织凭据\"。"
 
 msgid "Verify checksum"
-msgstr ""
+msgstr "验证校验和"
 
 msgid ""
 "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"

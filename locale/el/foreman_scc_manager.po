@@ -4,15 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Efstathios Iosifidis <iefstathios@gmail.com>, 2021
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2022
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 1.0.0\n"
+"Project-Id-Version: foreman_scc_manager 4.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
-"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>, 2021\n"
-"Language-Team: Greek (https://www.transifex.com/foreman/teams/114/el/)\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>, 2022\n"
+"Language-Team: Greek (https://app.transifex.com/foreman/teams/114/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -101,7 +102,7 @@ msgid "Copy version units to library"
 msgstr ""
 
 msgid "Create"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Create Alternate Content Source"
 msgstr ""
@@ -128,10 +129,10 @@ msgid "Date and time relative to which the sync interval is run"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Διαγραφή"
 
 msgid "Delete Activation Key"
-msgstr ""
+msgstr "Διαγραφή κλειδιού ενεργοποίησης"
 
 msgid "Delete Lifecycle Environment"
 msgstr ""
@@ -140,13 +141,13 @@ msgid "Delete Package Group"
 msgstr ""
 
 msgid "Delete Product"
-msgstr ""
+msgstr "Διαγραφή προϊόντος"
 
 msgid "Delete scc_account"
 msgstr "Διαγραφή scc_account"
 
 msgid "Destroy"
-msgstr ""
+msgstr "Καταστροφή"
 
 msgid "Destroy Alternate Content Source"
 msgstr ""
@@ -155,19 +156,19 @@ msgid "Destroy Content Host"
 msgstr ""
 
 msgid "Disable"
-msgstr ""
+msgstr "Απενεργοποίηση"
 
 msgid "Discover"
 msgstr ""
 
 msgid "Download Policy"
-msgstr ""
+msgstr "Πολιτική λήψης"
 
 msgid "Edit %s"
 msgstr "Επεξεργασία %s"
 
 msgid "Enable"
-msgstr ""
+msgstr "Ενεργοποίηση"
 
 msgid "Errata mail"
 msgstr ""
@@ -176,7 +177,7 @@ msgid "Expand products"
 msgstr ""
 
 msgid "Export"
-msgstr ""
+msgstr "Εξαγωγή"
 
 msgid "Export Library"
 msgstr ""
@@ -227,7 +228,7 @@ msgid "Immediate"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Εισαγωγή"
 
 msgid "Import Content View Version"
 msgstr ""
@@ -236,7 +237,7 @@ msgid "Import Default Content View"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Εισαγωγή κλάσεων Puppet"
 
 msgid "Import Repository"
 msgstr ""
@@ -254,7 +255,7 @@ msgid "Incremental Update of  Content View Version(s) "
 msgstr ""
 
 msgid "Index content"
-msgstr ""
+msgstr "Περιεχόμενο ευρετηρίου"
 
 msgid "Index errata"
 msgstr ""
@@ -338,7 +339,7 @@ msgid "Promotion to Environment"
 msgstr ""
 
 msgid "Publish"
-msgstr ""
+msgstr "Δημοσίευση"
 
 msgid "Publish Lifecycle Environment Repositories"
 msgstr ""
@@ -350,10 +351,10 @@ msgid "Reindex subscriptions"
 msgstr ""
 
 msgid "Remove Content"
-msgstr ""
+msgstr "Αφαίρεση περιεχομένου"
 
 msgid "Remove Version"
-msgstr ""
+msgstr "Αφαίρεση έκδοσης"
 
 msgid "Remove Versions and Associations"
 msgstr ""
@@ -377,7 +378,7 @@ msgid "Reset Selection"
 msgstr ""
 
 msgid "Run Sync Plan:"
-msgstr ""
+msgstr "Εκκίνηση πλάνου συγχρονισμού:"
 
 msgid "SUSE Customer Center"
 msgstr "Κέντρο πελατών SUSE"
@@ -398,7 +399,7 @@ msgid "SUSE subscriptions"
 msgstr "Συνδρομές SUSE"
 
 msgid "Search"
-msgstr ""
+msgstr "Αναζήτηση"
 
 msgid "Select SUSE products"
 msgstr ""
@@ -479,7 +480,7 @@ msgid "Syncable export"
 msgstr ""
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Συγχρονισμός"
 
 msgid "Synchronize SUSE Account"
 msgstr ""
@@ -524,7 +525,7 @@ msgid "Unknown"
 msgstr "Άγνωστο"
 
 msgid "Update"
-msgstr ""
+msgstr "Ενημέρωση"
 
 msgid "Update Alternate Content Source"
 msgstr ""
@@ -566,7 +567,7 @@ msgid "Updating System Purpose for host"
 msgstr ""
 
 msgid "Upload into"
-msgstr ""
+msgstr "Μεταφόρτωση σε"
 
 msgid "Use GPG key for SUSE products"
 msgstr ""
