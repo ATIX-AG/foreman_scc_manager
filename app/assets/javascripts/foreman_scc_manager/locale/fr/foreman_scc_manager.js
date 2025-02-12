@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 1.0.0",
+        "Project-Id-Version": "foreman_scc_manager 4.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
         "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2023",

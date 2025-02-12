@@ -4,26 +4,25 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Baptiste Agasse <baptiste.agasse@gmail.com>, 2019
-# 21966816214bc546c1fc8a185e75ca1c, 2019
-# Claer <transiblu@claer.hammock.fr>, 2019
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
-# Amit Upadhye <aupadhye@redhat.com>, 2023
+# 진선재, 2022
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 4.0.0\n"
+"Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2023\n"
-"Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2024\n"
+"Language-Team: Korean (https://app.transifex.com/foreman/teams/114/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 100000"
-"0 == 0 ? 1 : 2;\n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " -- Select Architecture --"
 msgstr ""
@@ -41,22 +40,22 @@ msgid "%s/%s"
 msgstr ""
 
 msgid "Abstract"
-msgstr "Résumé"
+msgstr "개요"
 
 msgid "Abstract async task"
-msgstr "Tâche async abstraite"
+msgstr "비동기 작업 개요"
 
 msgid "Action with sub plans"
-msgstr "Action avec sous-plans"
+msgstr "하위 계획이 있는 작업"
 
 msgid "Actions"
-msgstr "Actions"
+msgstr "동작 "
 
 msgid "Add SCC account"
-msgstr "Ajouter un compte SCC"
+msgstr ""
 
 msgid "Add SUSE Customer Center Account"
-msgstr "Ajouter un compte au Portail Client SUSE"
+msgstr ""
 
 msgid "Add more sub products to Product tree"
 msgstr ""
@@ -65,28 +64,28 @@ msgid "Add product(s)"
 msgstr ""
 
 msgid "Additive"
-msgstr "Addition"
+msgstr "추가"
 
 msgid "Agent action"
-msgstr "Action de l'agent"
+msgstr "에이전트 작업"
 
 msgid "Associated GPG key of scc_account"
-msgstr "Clé GPG associée de scc_account"
+msgstr ""
 
 msgid "Attach subscriptions"
-msgstr "Attacher abonnements"
+msgstr "서브스크립션 연결"
 
 msgid "Auto attach subscriptions"
-msgstr "Attacher automatiquement des abonnements"
+msgstr "서브스크립션 자동 첨부"
 
 msgid "Base URL"
-msgstr "URL de base"
+msgstr "기본 URL"
 
 msgid "Bulk generate applicability for hosts"
-msgstr "La masse génère l'applicabilité pour les hôtes"
+msgstr "호스트에 대한 대량 적용 가능성 생성"
 
 msgid "Bulk subscription of scc_products for scc_account"
-msgstr "Abonnement groupé de scc_products pour scc_account"
+msgstr ""
 
 msgid "Bulk subscription of scc_products with individual repository selection for scc_account."
 msgstr ""
@@ -98,121 +97,121 @@ msgid "Collapse/Expand"
 msgstr ""
 
 msgid "Combined Profile Update"
-msgstr "Mise à jour de profil combiné"
+msgstr "결합된 프로필 업데이트"
 
 msgid "Content Only"
-msgstr "Contenu uniquement"
+msgstr "컨텐츠만"
 
 msgid "Copy version units to library"
-msgstr "Copier les unités de version dans la bibliothèque"
+msgstr "버전 유닛을 라이브러리에 복사"
 
 msgid "Create"
-msgstr "Créer"
+msgstr "생성 "
 
 msgid "Create Alternate Content Source"
-msgstr "Créer une autre source de contenu"
+msgstr "대체 콘텐츠 소스 생성"
 
 msgid "Create Export History"
-msgstr "Créer un historique des exportations"
+msgstr "내보내기 기록 생성"
 
 msgid "Create Import History"
-msgstr "Créer un historique des importations"
+msgstr "가져오기 기록 생성"
 
 msgid "Create Package Group"
-msgstr "Créer un groupe de packages"
+msgstr "패키지 그룹 생성"
 
 msgid "Create Syncable Export History"
-msgstr "Créer un historique d'exportation synchronisable"
+msgstr "동기화 가능한 내보내기 기록 생성"
 
 msgid "Create an scc_account"
-msgstr "Créer un compte scc_account"
+msgstr ""
 
 msgid "Cron expression is not valid!"
-msgstr "L'expression cron n'est pas acceptée!"
+msgstr "Cron 표현식이 잘못되었습니다!"
 
 msgid "Date and time relative to which the sync interval is run"
-msgstr "Date et heure par rapport auxquelles l'intervalle de synchronisation est exécuté"
+msgstr ""
 
 msgid "Delete"
-msgstr "Supprimer"
+msgstr "삭제"
 
 msgid "Delete Activation Key"
-msgstr "Supprimer la clé d'activation"
+msgstr "활성키 삭제 "
 
 msgid "Delete Lifecycle Environment"
-msgstr "Supprimer l'environnement de cycle de vie"
+msgstr "라이프사이클 환경 삭제 "
 
 msgid "Delete Package Group"
-msgstr "Supprimer le groupe de packages"
+msgstr "패키지 그룹 삭제"
 
 msgid "Delete Product"
-msgstr "Supprimer le produit"
+msgstr "제품 삭제 "
 
 msgid "Delete scc_account"
-msgstr "Supprimer scc_account"
+msgstr ""
 
 msgid "Destroy"
-msgstr "Détruire"
+msgstr "삭제 "
 
 msgid "Destroy Alternate Content Source"
-msgstr "Détruire la source de contenu alternatif"
+msgstr "대체 콘텐츠 소스 삭제"
 
 msgid "Destroy Content Host"
-msgstr "Détruire l'hôte du contenu"
+msgstr "컨텐츠 호스트 삭제 "
 
 msgid "Disable"
-msgstr "Désactiver"
+msgstr "비활성화"
 
 msgid "Discover"
-msgstr "Discover"
+msgstr "검색"
 
 msgid "Download Policy"
-msgstr "Télécharger la politique"
+msgstr "다운로드 정책"
 
 msgid "Edit %s"
-msgstr "Modifier %s"
+msgstr "%s 편집 "
 
 msgid "Enable"
-msgstr "Activer"
+msgstr "활성화"
 
 msgid "Errata mail"
-msgstr "Courrier d'errata"
+msgstr "에라타 메일"
 
 msgid "Expand products"
 msgstr ""
 
 msgid "Export"
-msgstr "Exporter"
+msgstr "내보내기 "
 
 msgid "Export Library"
-msgstr "Exporter Bibliothèque"
+msgstr "라이브러리 내보내기"
 
 msgid "Export Repository"
-msgstr "Référentiel d'exportation"
+msgstr "리포지터리 내보내기"
 
 msgid "Failed to add task to queue."
 msgstr ""
 
 msgid "Failed to add task to queue: %s"
-msgstr "Impossible d'ajouter une tâche à la file d'attente : %s"
+msgstr "대기열에 태스크를 추가하지 못했습니다: %s"
 
 msgid "Fetch pxe files"
-msgstr "Récupérer les fichiers pxe"
+msgstr "pxe 파일 가져오기"
 
 msgid "Filter repositories"
 msgstr ""
 
 msgid "Filtered index content"
-msgstr "Contenu d'index filtré"
+msgstr "필터링된 인덱스 컨텐츠"
 
 msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
-msgstr "Plugin Foreman pour synchroniser les produits et les référentiels du Portail Client SUSE dans Katello."
+msgstr ""
 
 msgid "Generate host applicability"
-msgstr "Générer l'applicabilité à l'hôte"
+msgstr "호스트 적용성 생성"
 
 msgid "Generate repository applicability"
-msgstr "Générer l'applicabilité du référentiel"
+msgstr "저장소 적용성 생성"
 
 msgid "Go to Product page"
 msgstr ""
@@ -221,106 +220,106 @@ msgid "Go to Repository page"
 msgstr ""
 
 msgid "Hypervisors"
-msgstr "Hyperviseurs"
+msgstr "하이퍼바이저"
 
 msgid "Hypervisors update"
-msgstr "Mise à jour des hyperviseurs"
+msgstr "하이퍼바이저 업데이트"
 
 msgid "If this option is enabled, debug and source pool repositories are automatically selected if you select a product. This option is disabled by default. It applies for unselected products, only. Already selected products are not filtered."
 msgstr ""
 
 msgid "Immediate"
-msgstr "Immédiat"
+msgstr "즉시"
 
 msgid "Import"
-msgstr "Importation"
+msgstr "불러오기"
 
 msgid "Import Content View Version"
-msgstr "Supprimer la version de l'affichage du contenu"
+msgstr "콘텐츠 보기 버전 가져오기"
 
 msgid "Import Default Content View"
-msgstr "Importer la vue du contenu par défaut"
+msgstr "기본 콘텐츠 보기 가져오기"
 
 msgid "Import Puppet classes"
-msgstr "Importer des classes Puppet"
+msgstr "Puppet 클래스 가져오기"
 
 msgid "Import Repository"
-msgstr "Importation du référentiel"
+msgstr "리포지터리 가져오기"
 
 msgid "Import facts"
-msgstr "Importer des faits"
+msgstr "팩트 불러오기"
 
 msgid "Include Debug and Source Pool repositories"
 msgstr ""
 
 msgid "Incremental Update"
-msgstr "Mise à jour croissante"
+msgstr "증분 업데이트 "
 
 msgid "Incremental Update of  Content View Version(s) "
-msgstr "Mise à jour incrémentielle Version(s) d'affichage de contenu"
+msgstr "콘텐츠 보기 버전의 증분 업데이트 "
 
 msgid "Index content"
-msgstr "Contenu d'index"
+msgstr "컨텐츠 인덱싱"
 
 msgid "Index errata"
-msgstr "Errata d'index"
+msgstr "에라타 인덱스"
 
 msgid "Index module streams"
-msgstr "Indexer les flux de module"
+msgstr "모듈 스트림 인덱스"
 
 msgid "Index package groups"
-msgstr "Indexer les groupes de packages"
+msgstr "패키지 그룹 인덱싱"
 
 msgid "Install Applicable Errata"
-msgstr "Installer des errata applicables"
+msgstr "적용 가능한 에라타 설치 "
 
 msgid "Instance update"
-msgstr "Mise à jour de l'instance"
+msgstr "인스턴스 업데이트"
 
 msgid "Interval cannot be nil"
-msgstr "L'intervalle ne peut être nul"
+msgstr "간격은 nil이 될 수 없습니다."
 
 msgid "Interval for syncing scc_account"
-msgstr "Intervalle pour la synchronisation scc_account"
+msgstr ""
 
 msgid "Interval not set correctly"
-msgstr "Intervalle mal défini"
+msgstr "간격이 올바르게 설정되지 않았습니다"
 
 msgid "Last synced"
-msgstr "Dernière synchronisation"
+msgstr "마지막으로 동기화됨"
 
 msgid "List all scc_accounts"
-msgstr "Lister tous les scc_accounts"
+msgstr ""
 
 msgid "List products for an scc_account"
 msgstr ""
 
 msgid "Lock on SCC account already taken: %s"
-msgstr "Verrouillage du compte SCC déjà pris : %s"
+msgstr ""
 
 msgid "Login id of scc_account"
-msgstr "Id de connexion de scc_account"
+msgstr ""
 
 msgid "Mirroring Policy"
-msgstr "Politique de mise en miroir"
+msgstr "미러링 정책"
 
 msgid "Name of the scc_account"
-msgstr "Nom du compte scc_account"
+msgstr ""
 
 msgid "No products selected."
-msgstr "Aucun produit n'a été sélectionné."
+msgstr ""
 
 msgid "None"
-msgstr "Aucun(e)"
+msgstr "없음 "
 
 msgid "On Demand"
-msgstr "Sur demande"
+msgstr "주문형"
 
 msgid "Package Profile Update"
-msgstr "Mise à jour du profil du package"
+msgstr "패키지 프로파일 업데이트"
 
 msgid "Password of scc_account"
-msgstr "Mot de passe de scc_account"
+msgstr ""
 
 msgid "Please check your SUSE subscription"
 msgstr ""
@@ -329,46 +328,46 @@ msgid "Please synchronize your SUSE account before you can subscribe to SUSE pro
 msgstr ""
 
 msgid "Product Create"
-msgstr "Créer Produit"
+msgstr "제품 생성"
 
 msgid "Product Selection for Account %s"
-msgstr "Sélection de produits pour le compte %s"
+msgstr ""
 
 msgid "Products"
-msgstr "Produits"
+msgstr "제품 "
 
 msgid "Promote"
-msgstr "Promouvoir"
+msgstr "승격 "
 
 msgid "Promotion to Environment"
-msgstr "Promotion à Environnement"
+msgstr "환경 승격"
 
 msgid "Publish"
-msgstr "Publier"
+msgstr "공개 "
 
 msgid "Publish Lifecycle Environment Repositories"
-msgstr "Publier les référentiels d'environnements de cycles de vie"
+msgstr "라이프사이클 환경 리포지토리 게시"
 
 msgid "Refresh Alternate Content Source"
-msgstr "Réactualisation de la source de contenu alternatif"
+msgstr "대체 콘텐츠 소스 새로 고침"
 
 msgid "Reindex subscriptions"
-msgstr "Ré-indexer les abonnements"
+msgstr "서브스크립션 다시 인덱싱"
 
 msgid "Remove Content"
-msgstr "Supprimer le contenu"
+msgstr "컨텐츠 삭제 "
 
 msgid "Remove Version"
-msgstr "Supprimer la version "
+msgstr "버전 삭제 "
 
 msgid "Remove Versions and Associations"
-msgstr "Supprimer les versions et les associations"
+msgstr "버전 및 연결 삭제 "
 
 msgid "Remove from Environment"
-msgstr "Supprimer les environnements"
+msgstr "환경에서 삭제 "
 
 msgid "Remove subscriptions"
-msgstr "Supprimer les abonnements"
+msgstr "서브스크립션 삭제"
 
 msgid "Repositories (%s/%s)"
 msgstr ""
@@ -377,40 +376,40 @@ msgid "Repository not imported"
 msgstr ""
 
 msgid "Republish Version Repositories"
-msgstr "Publier de nouveau les référentiels de version"
+msgstr "버전 리포지토리 재게시"
 
 msgid "Reset Selection"
 msgstr ""
 
 msgid "Run Sync Plan:"
-msgstr "Exécuter Plan Sync :"
+msgstr "동기화 계획 실행:"
 
 msgid "SUSE Customer Center"
-msgstr "Portail Client SUSE"
+msgstr ""
 
 msgid "SUSE Customer Center account"
-msgstr "Compte du Portail Client SUSE"
+msgstr ""
 
 msgid "SUSE Subscription"
-msgstr "Abonnement SUSE"
+msgstr ""
 
 msgid "SUSE Subscription: "
-msgstr "Abonnement SUSE : "
+msgstr ""
 
 msgid "SUSE Subscriptions"
-msgstr "Abonnements SUSE"
+msgstr ""
 
 msgid "SUSE subscriptions"
-msgstr "Abonnements SUSE"
+msgstr ""
 
 msgid "Search"
-msgstr "Recherche"
+msgstr "검색 "
 
 msgid "Select SUSE products"
 msgstr ""
 
 msgid "Select products"
-msgstr "Sélectionnez les produits"
+msgstr "제품 선택"
 
 msgid "Selected SUSE Products"
 msgstr ""
@@ -422,7 +421,7 @@ msgid "Show all subscription tasks"
 msgstr ""
 
 msgid "Show an scc_account product"
-msgstr "Afficher un produit scc_account"
+msgstr ""
 
 msgid "Show currently added repositories"
 msgstr ""
@@ -434,7 +433,7 @@ msgid "Show only subscribed products"
 msgstr ""
 
 msgid "Show scc_account"
-msgstr "Afficher scc_account"
+msgstr ""
 
 msgid "Show subscribed products only"
 msgstr ""
@@ -446,61 +445,61 @@ msgid "Starting the subscription task failed."
 msgstr ""
 
 msgid "Subscribe SCC Product"
-msgstr "S'abonner au produit SCC"
+msgstr ""
 
 msgid "Subscribe product"
-msgstr "Souscrire un produit"
+msgstr ""
 
 msgid "Summary of SCC product subscription"
 msgstr ""
 
 msgid "Sync"
-msgstr "Sync"
+msgstr "동기화 "
 
 msgid "Sync Date"
-msgstr "Dernière date de sync"
+msgstr ""
 
 msgid "Sync SUSE subscriptions"
-msgstr "Sync des abonnements SUSE"
+msgstr ""
 
 msgid "Sync SUSE subscriptions (Products)"
-msgstr "Synchronisation des abonnements SUSE (Produits)"
+msgstr ""
 
 msgid "Sync SUSE subscriptions (Repositories)"
-msgstr "Synchronisation des abonnements SUSE (Référentiels)"
+msgstr ""
 
 msgid "Sync capsule"
-msgstr "Sync capsule"
+msgstr "캡슐 동기화"
 
 msgid "Sync interval"
-msgstr "Sync Intervalle"
+msgstr ""
 
 msgid "Sync scc_account"
-msgstr "Sync scc_account"
+msgstr ""
 
 msgid "Sync task started."
-msgstr "La tâche de synchronisation a commencé."
+msgstr ""
 
 msgid "Syncable export"
-msgstr "Exportation synchronisable"
+msgstr "동기화 가능한 내보내기"
 
 msgid "Synchronize"
-msgstr "Synchroniser"
+msgstr "동기화 "
 
 msgid "Synchronize SUSE Account"
 msgstr ""
 
 msgid "Synchronize smart proxy"
-msgstr "Synchroniser le smart proxy"
+msgstr "스마트 프록시 동기화"
 
 msgid "Task to subscribe products started."
-msgstr "La tâche de souscription des produits a commencé."
+msgstr ""
 
 msgid "Test Connection"
-msgstr "Test de connexion"
+msgstr "연결 테스트 "
 
 msgid "Test connection for scc_account"
-msgstr "Test de connexion pour scc_account"
+msgstr ""
 
 msgid "The default download policy for repositories which were created using this SCC Account."
 msgstr ""
@@ -521,70 +520,70 @@ msgid "The subscription task with id "
 msgstr ""
 
 msgid "The sync interval is used to periodically update the SCC authentication tokens of any imported products."
-msgstr "L'intervalle de synchronisation est utilisé pour mettre à jour périodiquement les jetons d'authentification SCC de tout produit importé."
+msgstr ""
 
 msgid "URL of SUSE for scc_account"
-msgstr "URL de SUSE pour scc_account"
+msgstr ""
 
 msgid "Unknown"
-msgstr "Inconnu"
+msgstr "알 수 없음 "
 
 msgid "Update"
-msgstr "Mise à jour"
+msgstr "업데이트 "
 
 msgid "Update Alternate Content Source"
-msgstr "Mise à jour de la source de contenu alternatif"
+msgstr "대체 콘텐츠 소스 업데이트"
 
 msgid "Update CDN Configuration"
-msgstr "Mise à jour de la configuration CDN"
+msgstr "CDN 구성 업데이트"
 
 msgid "Update Content Overrides"
-msgstr "Mettre à jour les substitutions de contenu"
+msgstr "콘텐츠 재정의 업데이트"
 
 msgid "Update SUSE repositories"
-msgstr "Mettre à jour les référentiels SUSE"
+msgstr ""
 
 msgid "Update SUSE repositories %s"
-msgstr "Mettre à jour les référentiels SUSE %s"
+msgstr ""
 
 msgid "Update content urls"
-msgstr "Mettre à jour les urls de contenu"
+msgstr "콘텐츠 URL 업데이트"
 
 msgid "Update for host"
-msgstr "Mise à jour de l'hôte"
+msgstr "호스트에 대한 업데이트"
 
 msgid "Update http proxy"
-msgstr "Mettre à jour proxy http"
+msgstr "http 프록시 업데이트"
 
 msgid "Update http proxy details"
-msgstr "Mise à jour des détails du proxy http"
+msgstr "http 프록시 세부 정보 업데이트"
 
 msgid "Update redhat repository"
-msgstr "Mettre à jour le référentiel de données Red Hat"
+msgstr "Redhat 리포지토리 업데이트"
 
 msgid "Update release version for host"
-msgstr "Mettre à jour la version de publication pour l'hôte"
+msgstr "호스트에 대한 릴리스 버전 업데이트"
 
 msgid "Update scc_account"
-msgstr "Mise à jour de scc_account"
+msgstr ""
 
 msgid "Updating System Purpose for host"
-msgstr "Mise à jour Objectif système pour l'hôte"
+msgstr "호스트의 시스템 목적 업데이트"
 
 msgid "Upload into"
-msgstr "Téléverser vers"
+msgstr "업로드 "
 
 msgid "Use GPG key for SUSE products"
-msgstr "Utiliser la clé GPG pour les produits SUSE"
+msgstr ""
 
 msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
-msgstr "Utilisez ce paramètre si vous souhaitez ajouter automatiquement une clé GPG à vos produits SUSE lors de l'abonnement. Vous pouvez modifier ce paramètre dans le menu \"Contenu\" > \"Produits\", plus tard."
+msgstr ""
 
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
-msgstr "Utilisez vos \"informations d'identification de l'organisation\" obtenues auprès du Portail Client SUSE."
+msgstr ""
 
 msgid "Verify checksum"
-msgstr "Vérifier la somme de contrôle"
+msgstr "체크섬 확인"
 
 msgid ""
 "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
@@ -598,4 +597,4 @@ msgid "You currently have no SUSE products selected. Search and add SUSE product
 msgstr ""
 
 msgid "never synced"
-msgstr "jamais synchronisé"
+msgstr ""
