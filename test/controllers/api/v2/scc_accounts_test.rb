@@ -17,7 +17,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         }
       ).to_return(
         status: 200,
-        body: fixture_file_upload('data_subscriptions.json').read,
+        body: scc_fixture_file('data_subscriptions.json'),
         headers: {
           server: 'nginx',
           date: 'Tue, 05 Mar 2019 15:07:38 GMT',
@@ -56,7 +56,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         }
       ).to_return(
         status: 200,
-        body: fixture_file_upload('data_repositories.json').read,
+        body: scc_fixture_file('data_repositories.json'),
         headers: {
           server: 'nginx',
           date: 'Mon, 07 Oct 2019 13:14:31 GMT',
@@ -95,7 +95,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         }
       ).to_return(
         status: 200,
-        body: fixture_file_upload('data_products_page1.json').read,
+        body: scc_fixture_file('data_products_page1.json'),
         headers: {
           server: 'nginx',
           date: 'Mon, 11 Mar 2019 15:37:00 GMT',
@@ -132,7 +132,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
         }
       ).to_return(
         status: 200,
-        body: fixture_file_upload('data_products_page2.json').read,
+        body: scc_fixture_file('data_products_page2.json'),
         headers: {
           server: 'nginx',
           date: 'Mon, 11 Mar 2019 15:37:19 GMT',
