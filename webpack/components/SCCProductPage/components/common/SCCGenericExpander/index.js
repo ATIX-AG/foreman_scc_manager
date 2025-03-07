@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Flex, FlexItem, Select, SelectOption } from '@patternfly/react-core';
+import { Flex, FlexItem } from '@patternfly/react-core';
+import { Select, SelectOption } from '@patternfly/react-core/deprecated';
 
 const SCCGenericExpander = ({
   setInParent,
@@ -26,7 +27,7 @@ const SCCGenericExpander = ({
     setIsOpen(false);
   };
 
-  const onToggle = (isOpenSelect) => {
+  const onToggle = (_event, isOpenSelect) => {
     setIsOpen(isOpenSelect);
   };
 
