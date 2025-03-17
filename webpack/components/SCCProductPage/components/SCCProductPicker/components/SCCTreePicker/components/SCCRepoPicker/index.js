@@ -67,7 +67,7 @@ const SCCRepoPicker = ({
       productAlreadySynced
     )
   );
-  const onToggle = (toggle) => {
+  const onToggle = (_event, toggle) => {
     setIsOpen(toggle);
   };
 
