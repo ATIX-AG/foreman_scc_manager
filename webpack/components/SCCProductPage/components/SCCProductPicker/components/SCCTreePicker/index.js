@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate as __ } from 'foremanReact/common/I18n';
@@ -139,25 +139,23 @@ const SCCTreePicker = ({
   // the debug filter is actually a 'includeDebugRepos' setting which should not be active by default
   const [activateDebugFilter, setActivateDebugFilter] = useState(false);
 
-  const setSelectedReposFromChild = (
-    productId,
-    productName,
-    repoIds,
-    repoNames
-  ) => {
-    if (repoIds.length !== 0) {
-      selectedRepos[productId] = {};
-      selectedRepos[productId].repoIds = repoIds;
-      selectedRepos[productId].productName = productName;
-      selectedRepos[productId].repoNames = repoNames;
-      const newSelectedRepos = clone(selectedRepos);
-      setSelectedRepos(newSelectedRepos);
-    } else if (selectedRepos !== {} && productId in selectedRepos) {
-      delete selectedRepos[productId];
-      const newSelectedRepos = clone(selectedRepos);
-      setSelectedRepos(newSelectedRepos);
-    }
-  };
+  const setSelectedReposFromChild = useCallback(
+    (productId, productName, repoIds, repoNames) => {
+      if (repoIds.length !== 0) {
+        selectedRepos[productId] = {};
+        selectedRepos[productId].repoIds = repoIds;
+        selectedRepos[productId].productName = productName;
+        selectedRepos[productId].repoNames = repoNames;
+        const newSelectedRepos = clone(selectedRepos);
+        setSelectedRepos(newSelectedRepos);
+      } else if (selectedRepos !== {} && productId in selectedRepos) {
+        delete selectedRepos[productId];
+        const newSelectedRepos = clone(selectedRepos);
+        setSelectedRepos(newSelectedRepos);
+      }
+    },
+    []
+  );
 
   const [sccProductTree, setSccProductTree] = useState(
     cloneDeep(sccProducts).map((p) =>
@@ -183,7 +181,12 @@ const SCCTreePicker = ({
     );
     // some thorough cleaning is required for hash maps
     Object.keys(selectedRepos).forEach((k) => delete selectedRepos[k]);
-  }, [sccProducts]);
+  }, [
+    sccProducts,
+    activateDebugFilter,
+    selectedRepos,
+    setSelectedReposFromChild,
+  ]);
 
   const setExpandAllFromChild = (expandAllFromChild) => {
     setExpandAll(expandAllFromChild);
