@@ -6,6 +6,10 @@ Dynflow::Testing.logger_adapter.level = 1
 require 'foreman_tasks/test_helpers'
 require "#{ForemanSccManager::Engine.root}/test/support/fixtures_support"
 
+# Add plugin to FactoryBot's paths
+FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
+FactoryBot.reload
+
 module FixtureTestCase
   extend ActiveSupport::Concern
 

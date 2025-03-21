@@ -4,7 +4,7 @@ module SccManager
     RestClient.proxy = ::HttpProxy.default_global_content_proxy.full_url if ::HttpProxy.default_global_content_proxy
 
     url = base_url + rest_url
-    credentials = Base64.encode64("#{login}:#{password}").chomp
+    credentials = Base64.strict_encode64("#{login}:#{password}").chomp
     auth_header = { Authorization: "Basic #{credentials}",
                     Accept: 'application/vnd.scc.suse.com.v4+json' }
     results = []
@@ -22,6 +22,23 @@ module SccManager
       break unless url
     end
     results
+  ensure
+    RestClient.proxy = ''
+  end
+
+  def self.post_scc_data(base_url, rest_url, auth_header, payload)
+    RestClient.proxy = ::HttpProxy.default_global_content_proxy.full_url if ::HttpProxy.default_global_content_proxy
+
+    url = base_url + rest_url
+    header = {
+      Accept: 'application/vnd.scc.suse.com.v4+json',
+      content_type: 'application/json',
+    }
+    RestClient.post url, payload, header.merge(auth_header)
+  rescue RestClient::Exception => e
+    raise "Something went wrong while connecting to the SCC: #{e.message}" unless e.response
+
+    raise "Something went wrong while connecting to the SCC: Return code: #{e.response.code}, Error: #{JSON.parse(e.response.body)['error']}"
   ensure
     RestClient.proxy = ''
   end
