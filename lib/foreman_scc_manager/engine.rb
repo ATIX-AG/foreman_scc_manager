@@ -6,6 +6,7 @@ module ForemanSccManager
 
     config.to_prepare do
       ForemanTasks::RecurringLogic.include RecurringLogicExtensions
+      Host::Managed.include HostManagedExtensions
     end
 
     # Add any db migrations

@@ -230,6 +230,7 @@ class SccAccount < ApplicationRecord
         scc_repositories.where(scc_id: up['repositories'].map { |repo| repo['id'] })
       cached_product.name = cached_product.pretty_name
       cached_product.product_category = up['name']
+      cached_product.suse_identifier = up['identifier']
       cached_product.description = cached_product.pretty_description
       cached_product.subscription_valid = true
       cached_product.save!
