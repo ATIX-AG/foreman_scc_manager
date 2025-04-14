@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ContextSelector, ContextSelectorItem } from '@patternfly/react-core';
+import {
+  ContextSelector,
+  ContextSelectorItem,
+} from '@patternfly/react-core/deprecated';
 
 const GenericSelector = ({
   selectionItems,

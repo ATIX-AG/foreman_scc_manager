@@ -1,8 +1,8 @@
-@import '~@theforeman/vendor/scss/variables';
+@import 'foremanReact/common/variables';
 
-.pf-c-tile {
-  --pf-c-tile--PaddingTop: var(--pf-global--spacer--xs);
-  --pf-c-tile--PaddingRight: var(--pf-global--spacer--xs);
-  --pf-c-tile--PaddingBottom: var(--pf-global--spacer--xs);
-  --pf-c-tile--PaddingLeft: var(--pf-global--spacer--xs);
+.pf-v5-c-tile {
+  --pf-v5-c-tile--PaddingTop: var(--pf-global--spacer--xs);
+  --pf-v5-c-tile--PaddingRight: var(--pf-global--spacer--xs);
+  --pf-v5-c-tile--PaddingBottom: var(--pf-global--spacer--xs);
+  --pf-v5-c-tile--PaddingLeft: var(--pf-global--spacer--xs);
 }
