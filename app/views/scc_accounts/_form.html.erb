@@ -15,8 +15,8 @@
         <%= password_f f, :password %>
         <%= text_f f, :base_url, label: _('Base URL') %>
         <%= selectable_f f, :interval, SccAccount::TYPES, {},
-            { :label => _('Sync interval'), :help_block => _("The sync interval is used to periodically update the SCC authentication tokens of any imported products.") } %>
-        <%= field f, :sync_date, label: _('Sync Date') do
+            { :label => _('Token refresh interval'), :help_block => _("The token refresh interval is used to periodically update the SCC authentication tokens of any imported products.") } %>
+        <%= field f, :sync_date, label: _('Token refresh time'), :help_block => _("Specifies the daily time when the SCC authentication token refresh process starts. Set this to a time outside of business hours (e.g., during the night) to minimize disruption.") do
           f.datetime_field :sync_date, placeholder: Time.now
         end %>
        <%= selectable_f f, :katello_gpg_key_id, @selectable_gpg_keys, {},
