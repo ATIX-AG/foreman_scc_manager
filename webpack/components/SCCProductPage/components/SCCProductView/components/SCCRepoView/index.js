@@ -5,10 +5,11 @@ import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {
+  Tooltip,
   Dropdown,
   DropdownItem,
-  BadgeToggle,
-  Tooltip,
+  DropdownList,
+  MenuToggle,
 } from '@patternfly/react-core';
 import { Icon } from 'patternfly-react';
 import { BrowserRouter, Link } from 'react-router-dom';
@@ -20,7 +21,10 @@ const createKatelloRepoLink = (repo, sccProductId) => {
     `/products/${sccProductId}/repositories/${repo.katello_repository_id}`
   );
   return (
-    <Tooltip content={__('Go to Repository page')}>
+    <Tooltip
+      key={'scc-manager-repo-view-tooltip-'.concat(repo.id)}
+      content={__('Go to Repository page')}
+    >
       <BrowserRouter>
         <Link to={url} target="_blank">
           {repo.name}
@@ -33,18 +37,25 @@ const createKatelloRepoLink = (repo, sccProductId) => {
 const createRepoDropDownItem = (repo, sccProductId) => (
   <DropdownItem
     key={repo.id}
+    ouiaId={repo.id}
     component="button"
     icon={
       repo.subscription_valid ? (
         repo.katello_repository_id !== null ? (
           <Icon name="check" type="fa" />
         ) : (
-          <Tooltip content={__('Repository not imported')}>
+          <Tooltip
+            key={'scc-manager-repo-link-tooltip-'.concat(repo.id)}
+            content={__('Repository not imported')}
+          >
             <Icon name="ban" type="fa" />
           </Tooltip>
         )
       ) : (
-        <Tooltip content={__('Please check your SUSE subscription')}>
+        <Tooltip
+          key={'scc-manager-repo-link-tooltip-'.concat(repo.id)}
+          content={__('Please check your SUSE subscription')}
+        >
           <Icon name="warning-triangle-o" type="pf" size="2x" />
         </Tooltip>
       )
@@ -58,8 +69,8 @@ const createRepoDropDownItem = (repo, sccProductId) => (
 
 const SCCRepoView = ({ sccRepos, sccProductId }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const onToggle = (toggle) => {
-    setIsOpen(toggle);
+  const onToggleClick = () => {
+    setIsOpen(!isOpen);
   };
 
   const onFocus = () => {
@@ -70,7 +81,7 @@ const SCCRepoView = ({ sccRepos, sccProductId }) => {
   };
 
   const onSelect = (event) => {
-    setIsOpen(!isOpen);
+    setIsOpen(false);
     onFocus();
   };
 
@@ -78,25 +89,27 @@ const SCCRepoView = ({ sccRepos, sccProductId }) => {
     createRepoDropDownItem(repo, sccProductId)
   );
 
+  const toggle = (toggleRef) => (
+    <MenuToggle ref={toggleRef} onClick={onToggleClick} isExpanded={isOpen}>
+      {sprintf(
+        __('Repositories (%s/%s)'),
+        sccRepos.filter((r) => r.katello_repository_id !== null).length,
+        sccRepos.length
+      )}
+    </MenuToggle>
+  );
+
   return (
     <Dropdown
+      ouiaId={sccProductId?.toString().concat('scc-manager-repo-view')}
+      onClick={onToggleClick}
       onSelect={onSelect}
-      toggle={
-        <BadgeToggle
-          id={sprintf('scc-repo-show-toggle-id-%s', sccProductId)}
-          key={sprintf('scc-repo-show-toggle-id-%s', sccProductId)}
-          onToggle={onToggle}
-        >
-          {sprintf(
-            __('Repositories (%s/%s)'),
-            sccRepos.filter((r) => r.katello_repository_id !== null).length,
-            sccRepos.length
-          )}
-        </BadgeToggle>
-      }
+      toggle={toggle}
       isOpen={isOpen}
-      dropdownItems={dropdownItems}
-    />
+      onOpenChange={(isOpenMenu) => setIsOpen(isOpenMenu)}
+    >
+      <DropdownList>{dropdownItems}</DropdownList>
+    </Dropdown>
   );
 };
 

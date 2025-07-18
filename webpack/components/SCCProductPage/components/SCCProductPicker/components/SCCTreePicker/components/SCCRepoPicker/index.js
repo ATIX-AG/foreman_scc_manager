@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { sprintf, translate as __ } from 'foremanReact/common/I18n';
-import { Select, SelectOption, SelectVariant } from '@patternfly/react-core';
+import {
+  Select,
+  SelectOption,
+  SelectList,
+  MenuToggle,
+} from '@patternfly/react-core';
 
 import './styles.scss';
 
-const createRepoSelectOption = (repo, disableRepos) => (
+const createRepoSelectOption = (repo, disableRepos, selectedItems) => (
   <SelectOption
+    hasCheckbox
     key={repo.id}
     isDisabled={repo.katello_repository_id !== null || disableRepos}
     value={repo.name}
-  />
+    isSelected={selectedItems.includes(repo.name)}
+  >
+    {repo.name}
+  </SelectOption>
 );
 
 const setRepoSelection = (
@@ -63,8 +72,9 @@ const SCCRepoPicker = ({
       productAlreadySynced
     )
   );
-  const onToggle = (toggle) => {
-    setIsOpen(toggle);
+
+  const onToggleClick = () => {
+    setIsOpen(!isOpen);
   };
 
   useEffect(() => {
@@ -135,21 +145,25 @@ const SCCRepoPicker = ({
   };
 
   const selectOptions = sccRepos.map((repo) =>
-    createRepoSelectOption(repo, disableRepos)
+    createRepoSelectOption(repo, disableRepos, selected)
+  );
+
+  const toggle = (toggleRef) => (
+    <MenuToggle ref={toggleRef} onClick={onToggleClick} isExpanded={isOpen}>
+      {sprintf(__('%s/%s'), selected.length, sccRepos.length)}
+    </MenuToggle>
   );
 
   return (
     <Select
-      variant={SelectVariant.checkbox}
-      isCheckboxSelectionBadgeHidden
-      onToggle={onToggle}
+      ouiaId={sccProductId.toString().concat('scc-manager-repo-picker')}
+      toggle={toggle}
       onSelect={onSelect}
       selections={selected}
       isOpen={isOpen}
-      isDisabled={disableRepos}
-      placeholderText={sprintf(__('%s/%s'), selected.length, sccRepos.length)}
+      onOpenChange={(nextOpen) => setIsOpen(nextOpen)}
     >
-      {selectOptions}
+      <SelectList>{selectOptions}</SelectList>
     </Select>
   );
 };

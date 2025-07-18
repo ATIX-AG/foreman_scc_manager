@@ -26,7 +26,11 @@ export const EmptySccProducts = ({ canCreate, sccAccountId }) => {
           url: 'https://docs.orcharhino.com/or/docs/sources/usage_guides/managing_sles_systems_guide.html#mssg_adding_scc_accounts',
         }}
       />
-      <Button onClick={onSyncStart} className="btn btn-primary">
+      <Button
+        onClick={onSyncStart}
+        ouiaId="scc-manager-welcome-sync-products"
+        className="btn btn-primary"
+      >
         {__('Synchronize SUSE Account')}
       </Button>
     </>

@@ -33,7 +33,13 @@ const addKatelloLinkToTree = (tree) => {
     <BrowserRouter>
       <Link to={url} target="_blank">
         <Tooltip content={__('Go to Product page')}>
-          <Button variant="plain" id="tt-ref">
+          <Button
+            ouiaId={tree.product_id
+              .toString()
+              .concat('scc-manager-product-page-link')}
+            variant="plain"
+            id="tt-ref"
+          >
             <Icon name="external-link" type="fa" />
           </Button>
         </Tooltip>
@@ -45,8 +51,14 @@ const addKatelloLinkToTree = (tree) => {
 
 const addEditIcon = (tree, editProductTree) => {
   tree.customBadgeContent.push(
-    <Tooltip content={__('Add more sub products to Product tree')}>
+    <Tooltip
+      key={'scc-manager-add-sub-tooltip'.concat(tree.id.toString())}
+      content={__('Add more sub products to Product tree')}
+    >
       <Button
+        ouiaId={tree.id
+          .toString()
+          .concat('scc-manager-add-sub-products-button')}
         variant="plain"
         id={tree.id.toString()}
         onClick={(evt) => editProductTree(evt, tree.id)}
@@ -61,7 +73,10 @@ const addEditIcon = (tree, editProductTree) => {
 
 const addReposToTree = (tree) => {
   tree.customBadgeContent.push(
-    <Tooltip content={__('Show currently added repositories')}>
+    <Tooltip
+      key="scc-manager-repoview-show-repos-tooltip"
+      content={__('Show currently added repositories')}
+    >
       <SCCRepoView
         sccRepos={tree.scc_repositories}
         sccProductId={tree.product_id}
@@ -74,7 +89,10 @@ const addReposToTree = (tree) => {
 const addValidationStatusToTree = (tree) => {
   tree.customBadgeContent.push(
     <Tooltip content={__('Please check your SUSE subscription')}>
-      <Button variant="plain">
+      <Button
+        ouiaId="scc-manager-check-suse-subscription-button"
+        variant="plain"
+      >
         <Icon name="warning-triangle-o" type="pf" size="2x" />
       </Button>
     </Tooltip>
@@ -157,7 +175,7 @@ const SCCProductView = ({
   };
 
   return (
-    <Card>
+    <Card ouiaId="scc-manager-select-suse-products-card">
       <CardTitle>{__('Selected SUSE Products')}</CardTitle>
       {sccProducts.length > 0 && (
         <CardBody>
@@ -173,7 +191,7 @@ const SCCProductView = ({
             <TreeView
               data={showAll ? allProducts : subscribedProducts}
               allExpanded={expandAll}
-              hasChecks
+              hasCheckboxes
               hasBadges
               hasGuides
             />
@@ -190,7 +208,7 @@ const SCCProductView = ({
       <Flex>
         {sccProducts.length > 0 && (
           <FlexItem>
-            <Button variant="link">
+            <Button ouiaId="scc-manager-show-all-tasks-button" variant="link">
               <BrowserRouter>
                 <Link
                   to="/foreman_tasks/tasks/?search=Subscribe+SCC+Product"
@@ -204,7 +222,7 @@ const SCCProductView = ({
         )}
         {subscriptionTaskId !== '' && (
           <FlexItem>
-            <Button variant="link">
+            <Button ouiaId="scc-manager-show-last-task-button" variant="link">
               <BrowserRouter>
                 <Link
                   to={sprintf('/foreman_tasks/tasks/%s', subscriptionTaskId)}
