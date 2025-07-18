@@ -38,7 +38,7 @@ const addSCCRepoPickerToTree = (
 ) => {
   tree.customBadgeContent = [];
   tree.customBadgeContent.push(
-    <Tooltip content={__('Filter repositories')}>
+    <Tooltip aria="none" aria-live="polite" content={__('Filter repositories')}>
       <SCCRepoPicker
         sccRepos={tree.scc_repositories}
         disableRepos={tree.product_id === null && !tree.checkProps.checked}
@@ -234,7 +234,7 @@ const SCCTreePicker = ({
   };
 
   return (
-    <Card>
+    <Card ouiaId="scc-manager-product-picker-card">
       <CardBody>
         <Flex direction={{ default: 'column' }}>
           <Flex>
@@ -249,6 +249,7 @@ const SCCTreePicker = ({
               >
                 <Switch
                   id="filter-debug-switch"
+                  ouiaId="scc-manager-filter-debug-switch"
                   onChange={debugFilterChange}
                   isChecked={activateDebugFilter}
                   label={__('Include Debug and Source Pool repositories')}
@@ -261,13 +262,14 @@ const SCCTreePicker = ({
               data={sccProductTree}
               allExpanded={expandAll}
               onCheck={onCheck}
-              hasChecks
+              hasCheckboxes
               hasBadges
               hasGuides
             />
           </Flex>
           <Flex>
             <Button
+              ouiaId="scc-manager-add-products-button"
               variant="primary"
               onClick={submitForm}
               isDisabled={Object.keys(selectedRepos).length === 0}

@@ -1,14 +1,14 @@
-.pf-c-button.pf-m-plain {
-  --pf-c-button--PaddingTop: var(--pf-global--spacer--xs);
-  --pf-c-button--PaddingRight: var(--pf-global--spacer--sm);
-  --pf-c-button--PaddingBottom: var(--pf-global--spacer--xs);
-  --pf-c-button--PaddingLeft: var(--pf-global--spacer--sm);
+.pf-v5-c-button.pf-m-plain {
+  --pf-v5-c-button--PaddingTop: var(--pf-v5-global--spacer--xs);
+  --pf-v5-c-button--PaddingRight: var(--pf-v5-global--spacer--sm);
+  --pf-v5-c-button--PaddingBottom: var(--pf-v5-global--spacer--xs);
+  --pf-v5-c-button--PaddingLeft: var(--pf-v5-global--spacer--sm);
 }
 
-.pf-c-dropdown__toggle::before {
-  --pf-c-button--PaddingTop: var(--pf-global--spacer--xs);
-  --pf-c-button--PaddingRight: var(--pf-global--spacer--xs);
-  --pf-c-button--PaddingBottom: var(--pf-global--spacer--xs);
-  --pf-c-button--PaddingLeft: var(--pf-global--spacer--xs);
+.pf-v5-c-dropdown__toggle::before {
+  --pf-v5-c-button--PaddingTop: var(--pf-v5-global--spacer--xs);
+  --pf-v5-c-button--PaddingRight: var(--pf-v5-global--spacer--xs);
+  --pf-v5-c-button--PaddingBottom: var(--pf-v5-global--spacer--xs);
+  --pf-v5-c-button--PaddingLeft: var(--pf-v5-global--spacer--xs);
 }
 
