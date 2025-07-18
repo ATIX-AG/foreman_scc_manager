@@ -24,9 +24,6 @@ const resetSelectionStringArch = __(' -- Select Architecture --');
 const genericFilter = (object, comparator) =>
   // we can have architectures that are not set
   comparator === '' ||
-  comparator === resetSelectionStringProduct ||
-  comparator === resetSelectionStringVersion ||
-  comparator === resetSelectionStringArch ||
   object === comparator ||
   (object === null && comparator === 'no arch');
 
@@ -61,6 +58,9 @@ const SCCProductPicker = ({
   const [filteredSccProducts, setFilteredSccProducts] = useState([]);
   const [showSearchTree, setShowSearchTree] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [searchInputProduct, setSearchInputProduct] = useState('');
+  const [searchInputVersion, setSearchInputVersion] = useState('');
+  const [searchInputArch, setSearchInputArch] = useState('');
 
   useEffect(() => {
     if (editProductId !== 0) {
@@ -78,10 +78,12 @@ const SCCProductPicker = ({
   }, [editProductId, sccProducts]);
 
   const onProductSelectionChange = (value) => {
-    if (value !== resetSelectionStringProduct) {
-      setVersionItems(filterVersionByProduct(sccProducts, value));
-    } else {
+    if (value === '') {
       setVersionItems([]);
+      setSearchInputVersion('');
+      setSearchInputArch('');
+    } else {
+      setVersionItems(filterVersionByProduct(sccProducts, value));
     }
     setSelectedProduct(value);
     setArchItems([]);
@@ -90,8 +92,9 @@ const SCCProductPicker = ({
   };
 
   const onVersionSelectionChange = (value) => {
-    if (value === resetSelectionStringVersion) {
+    if (value === '') {
       setArchItems([]);
+      setSearchInputArch('');
     } else {
       setArchItems(
         filterArchByVersionAndProduct(sccProducts, selectedProduct, value)
@@ -102,6 +105,9 @@ const SCCProductPicker = ({
   };
 
   const onArchSelectionChange = (value) => {
+    if (value === '') {
+      setArchItems([]);
+    }
     setSelectedArch(value);
   };
 
@@ -126,10 +132,20 @@ const SCCProductPicker = ({
     setSelectedProduct('');
     setSelectedVersion('');
     setSelectedArch('');
+    setVersionItems([]);
+    setArchItems([]);
+    setSearchInputProduct('');
+    setSearchInputVersion('');
+    setSearchInputArch('');
   };
 
   return (
-    <Card border="dark" id="product-selection-card" isExpanded={isExpanded}>
+    <Card
+      border="dark"
+      ouiaId="scc-manager-product-selection-card"
+      id="product-selection-card"
+      isExpanded={isExpanded}
+    >
       <CardHeader onExpand={onExpand}>
         <CardTitle>{__('Select SUSE products')}</CardTitle>
       </CardHeader>
@@ -139,62 +155,61 @@ const SCCProductPicker = ({
             <Flex>
               <FlexItem>
                 <SCCGenericPicker
-                  key="prod-select"
-                  selectionItems={
-                    selectedProduct === ''
-                      ? productItems
-                      : [resetSelectionStringProduct].concat(productItems)
-                  }
-                  setGlobalSelected={onProductSelectionChange}
-                  screenReaderLabel={resetSelectionStringProduct}
+                  key="scc-prod-select"
+                  initialSelectOptions={productItems}
+                  setSelected={onProductSelectionChange}
                   initialLabel={
                     selectedProduct === ''
                       ? resetSelectionStringProduct
                       : selectedProduct
                   }
+                  selected={selectedProduct}
+                  inputValue={searchInputProduct}
+                  setInputValue={setSearchInputProduct}
                 />
               </FlexItem>
               <FlexItem>
                 <SCCGenericPicker
-                  key="vers-select"
-                  selectionItems={
-                    selectedVersion === ''
-                      ? versionItems
-                      : [resetSelectionStringVersion].concat(versionItems)
-                  }
-                  setGlobalSelected={onVersionSelectionChange}
-                  screenReaderLabel={resetSelectionStringVersion}
+                  key="scc-vers-select"
+                  initialSelectOptions={versionItems}
+                  setSelected={onVersionSelectionChange}
                   initialLabel={
                     selectedVersion === ''
                       ? resetSelectionStringVersion
                       : selectedVersion
                   }
+                  selected={selectedVersion}
+                  inputValue={searchInputVersion}
+                  setInputValue={setSearchInputVersion}
                 />
               </FlexItem>
               <FlexItem>
                 <SCCGenericPicker
-                  key="arch-select"
-                  selectionItems={
-                    selectedArch === ''
-                      ? archItems
-                      : [resetSelectionStringArch].concat(archItems)
-                  }
-                  setGlobalSelected={onArchSelectionChange}
-                  screenReaderLabel={resetSelectionStringArch}
+                  key="scc-arch-select"
+                  initialSelectOptions={archItems}
+                  setSelected={onArchSelectionChange}
                   initialLabel={
                     selectedArch === ''
                       ? resetSelectionStringArch
                       : selectedArch
                   }
+                  selected={selectedArch}
+                  inputValue={searchInputArch}
+                  setInputValue={setSearchInputArch}
                 />
               </FlexItem>
               <FlexItem>
-                <Button variant="primary" onClick={filterProducts}>
+                <Button
+                  ouiaId="scc-manager-product-search-button"
+                  variant="primary"
+                  onClick={filterProducts}
+                >
                   {__('Search')}
                 </Button>
               </FlexItem>
               <FlexItem>
                 <Button
+                  ouiaId="scc-manager-product-search-reset-button"
                   variant="link"
                   icon={<TimesIcon />}
                   onClick={resetTreeForm}
