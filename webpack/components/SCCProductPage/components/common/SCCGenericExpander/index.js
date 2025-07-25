@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Flex, FlexItem, Select, SelectOption } from '@patternfly/react-core';
+import {
+  Flex,
+  FlexItem,
+  Select,
+  SelectList,
+  MenuToggle,
+  SelectOption,
+} from '@patternfly/react-core';
 
 const SCCGenericExpander = ({
   setInParent,
@@ -11,12 +18,14 @@ const SCCGenericExpander = ({
   const [label, setLabel] = useState(initLabel);
   const [isOpen, setIsOpen] = useState(false);
 
-  const options = [
-    <SelectOption key={0} value={selectOptionOpen} />,
-    <SelectOption key={1} value={selectOptionClose} />,
-  ];
+  const options = (
+    <SelectList>
+      <SelectOption value={selectOptionOpen}>{selectOptionOpen}</SelectOption>
+      <SelectOption value={selectOptionClose}>{selectOptionClose}</SelectOption>
+    </SelectList>
+  );
 
-  const onSelect = (evt, selection) => {
+  const onSelect = (_evt, selection) => {
     if (selection === selectOptionOpen) {
       setInParent(true);
     } else {
@@ -26,18 +35,27 @@ const SCCGenericExpander = ({
     setIsOpen(false);
   };
 
-  const onToggle = (isOpenSelect) => {
-    setIsOpen(isOpenSelect);
+  const onToggleClick = () => {
+    setIsOpen(!isOpen);
   };
+
+  const toggle = (toggleRef) => (
+    <MenuToggle ref={toggleRef} onClick={onToggleClick} isExpanded={isOpen}>
+      {label}
+    </MenuToggle>
+  );
 
   return (
     <Flex>
       <FlexItem>
         <Select
-          onToggle={onToggle}
+          ouiaId={initLabel.concat('scc-manager-generic-expander-select')}
+          toggle={toggle}
           onSelect={onSelect}
-          selections={label}
+          selected={label}
           isOpen={isOpen}
+          onOpenChange={(nextOpen) => setIsOpen(isOpen)}
+          shouldFocusToggleOnSelect
         >
           {options}
         </Select>

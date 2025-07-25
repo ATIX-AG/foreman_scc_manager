@@ -1,10 +1,10 @@
 @import '~@theforeman/vendor/scss/variables';
 
-.pf-c-select__toggle {
-  font-size: var(--pf-global--FontSize--xs);
-  font-weight: var(--pf-global--FontWeight--bold);
+.pf-v5-c-select__toggle {
+  font-size: var(--pf-v5-global--FontSize--xs);
+  font-weight: var(--pf-v5-global--FontWeight--bold);
 };
 
-.pf-c-switch__input ~ .pf-c-switch__label {
-    font-size: var(--pf-global--FontSize--xs);
+.pf-v5-c-switch__input ~ .pf-v5-c-switch__label {
+    font-size: var(--pf-v5-global--FontSize--xs);
 };

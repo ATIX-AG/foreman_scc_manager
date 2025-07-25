@@ -34,8 +34,8 @@ describe('SCCGenericExpander', () => {
     // Select
     const select = wrapper.find('Select');
     expect(select.exists()).toBe(true);
-    expect(select.props()).toHaveProperty('selections');
-    expect(select.prop('selections')).toContain('open/close');
+    expect(select.props()).toHaveProperty('selected');
+    expect(select.prop('selected')).toContain('open/close');
 
     // SelectOptions
     const selectOptions = wrapper.find('SelectOption');
