@@ -91,9 +91,8 @@ const GenericSelector = ({
   };
   const onSelect = (_event, value) => {
     if (value && value !== NO_RESULTS) {
-      const optionText = selectOptions.find(
-        (option) => option.value === value
-      )?.children;
+      const optionText = selectOptions.find((option) => option.value === value)
+        ?.children;
       selectOption(value, optionText);
     }
   };
