@@ -8,6 +8,8 @@ module Api
         resource_id 'scc_products'
         api_version 'v2'
         api_base_url '/api/v2'
+        param :location_id, Integer, :show => false
+        param :organization_id, Integer, :show => false
       end
 
       before_action :find_resource, :only => [:show, :subscribe]
