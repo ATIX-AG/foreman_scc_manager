@@ -2,7 +2,7 @@ class SccAccountsController < ApplicationController
   helper_method :scc_filtered_products
   helper_method :create_nested_product_tree
   before_action :find_organization
-  before_action :find_resource, only: %i[show edit update destroy sync bulk_subscribe]
+  before_action :find_resource, only: %i[show edit update destroy sync]
   before_action :find_available_gpg_keys, only: %i[new edit update create]
   include Foreman::Controller::AutoCompleteSearch
 
@@ -71,26 +71,6 @@ class SccAccountsController < ApplicationController
     sync_task = ForemanTasks.async_task(::Actions::SccManager::Sync, @scc_account)
     @scc_account.update! sync_task: sync_task
     success _('Sync task started.')
-  rescue ::Foreman::Exception => e
-    error _('Failed to add task to queue: %s') % e.to_s
-  rescue ForemanTasks::Lock::LockConflict => e
-    error _('Lock on SCC account already taken: %s') % e.to_s
-  ensure
-    redirect_to scc_accounts_path
-  end
-
-  def bulk_subscribe
-    scc_products_to_subscribe =
-      @scc_account.scc_products.where(id: scc_bulk_subscribe_params[:scc_subscribe_product_ids])
-
-    if scc_products_to_subscribe.count > 0
-      ForemanTasks.async_task(::Actions::BulkAction,
-        ::Actions::SccManager::SubscribeProduct,
-        scc_products_to_subscribe)
-      success _('Task to subscribe products started.')
-    else
-      warning _('No products selected.')
-    end
   rescue ::Foreman::Exception => e
     error _('Failed to add task to queue: %s') % e.to_s
   rescue ForemanTasks::Lock::LockConflict => e
@@ -184,16 +164,10 @@ class SccAccountsController < ApplicationController
     )
   end
 
-  def scc_bulk_subscribe_params
-    params.require(:scc_account).permit(:scc_subscribe_product_ids => [])
-  end
-
   def action_permission
     case params[:action]
     when 'sync', 'test_connection'
       :sync
-    when 'bulk_subscribe'
-      :use
     else
       super
     end

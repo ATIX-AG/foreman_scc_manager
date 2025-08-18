@@ -139,18 +139,6 @@ class SccAccountsControllerTest < ActionController::TestCase
     assert_redirected_to '/scc_accounts'
   end
 
-  test 'SCC server bulk subscribe products' do
-    stub_custom_request('https://scc.example.com/connect/organizations/repositories')
-
-    account = scc_accounts(:one)
-    product1 = scc_products(:one)
-    product2 = scc_products(:two)
-    account.scc_products = [product1, product2]
-    put :bulk_subscribe, params: { :id => account.id, :scc_account => { :scc_subscribe_product_ids => [product1.id, product2.id] } }, session: set_session_user
-
-    assert_redirected_to '/scc_accounts'
-  end
-
   test 'should delete scc_account' do
     account = scc_accounts(:two)
     assert_difference 'SccAccount.count', -1 do
