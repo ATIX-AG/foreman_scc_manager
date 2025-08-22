@@ -26,11 +26,12 @@ module Api
       param :scc_account_id, :identifier_dottable, :required => true
       param :subscribed_only, :bool, :required => false, :desc => N_('Show subscribed products only')
       param_group :search_and_pagination, ::Api::V2::BaseController
+      add_scoped_search_description_for(SccProduct)
 
       def index
-        scope = resource_scope
+        scope = resource_scope_for_index
         scope = scope.where.not(:product_id => nil) if ::Foreman::Cast.to_bool(params[:subscribed_only])
-        @scc_products = scope.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page])
+        @scc_products = scope
       end
 
       api :GET, '/scc_accounts/:scc_account_id/scc_products/:id/', N_('Show an scc_account product')
