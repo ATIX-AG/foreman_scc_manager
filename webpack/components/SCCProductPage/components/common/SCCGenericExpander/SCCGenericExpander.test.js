@@ -1,6 +1,6 @@
 /* eslint-disable promise/prefer-await-to-then */
 // Configure Enzyme
-import { mount, shallow } from '@theforeman/test';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 import SCCGenericExpander from './index';
 
