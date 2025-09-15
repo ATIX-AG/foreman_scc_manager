@@ -12,7 +12,7 @@ import {
   TextInputGroupUtilities,
   Button,
 } from '@patternfly/react-core';
-import TimesIcon from '@patternfly/react-icons';
+import { TimesIcon } from '@patternfly/react-icons';
 import { translate as __ } from 'foremanReact/common/I18n';
 
 const GenericSelector = ({
