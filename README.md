@@ -25,6 +25,7 @@ foreman-installer
 
 | Foreman Version | Katello Version | Plugin Version |
 | --------------- | --------------- | -------------- |
+| 3.15            | 4.17            | ~> 5.0.0       |
 | 3.13            | 4.15            | ~> 4.0.0       |
 | 3.7             | 4.9             | ~> 3.0.0       |
 | 3.3             | 4.5             | ~> 2.0.0       |
@@ -47,7 +48,7 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2024 ATIX AG - https://atix.de
+Copyright (c) 2025 ATIX AG - https://atix.de
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
