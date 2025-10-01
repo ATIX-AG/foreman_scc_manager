@@ -61,7 +61,7 @@ module Api
       param_group :scc_account
       def update
         if params[:scc_account].present?
-          process_response @scc_account.update(scc_account_params)
+          process_response @scc_account.update_attributes_with_logic!(scc_account_params)
         else
           render json: { error: 'No input data provided for changing the SCC account.', status: :expectation_failed }
         end
