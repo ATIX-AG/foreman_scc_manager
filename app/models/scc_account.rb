@@ -305,7 +305,7 @@ class SccAccount < ApplicationRecord
       ::Katello::RootRepository::MIRRORING_POLICY_CONTENT => _('Content Only'),
     }
 
-    ::Katello::RootRepository::MIRRORING_POLICIES.map do |p|
+    SCC_MIRRORING_POLICIES.map do |p|
       [names.fetch(p, p), p]
     end
   end
