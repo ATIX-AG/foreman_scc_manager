@@ -61,10 +61,12 @@ module Api
       param_group :scc_account
       def update
         if params[:scc_account].present?
-          process_response @scc_account.update(scc_account_params)
+          process_response @scc_account.update_attributes_with_logic!(scc_account_params)
         else
-          render json: { error: 'No input data provided for changing the SCC account.', status: :expectation_failed }
+          render json: { error: 'No input data provided for changing the SCC account.' }, status: :expectation_failed
         end
+      rescue ActiveRecord::RecordInvalid => e
+        render json: { error: e.to_s }, status: :unprocessable_entity
       end
 
       api :DELETE, '/scc_accounts/:id', N_('Delete scc_account')

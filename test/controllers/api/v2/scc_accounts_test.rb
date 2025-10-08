@@ -219,7 +219,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     account = scc_accounts(:two)
     put :update, params: { id: account.id, scc_account: { :interval => 'weekly', :sync_date => '' } }
     assert_response :unprocessable_entity
-    assert_error_message 'Sync date must be a valid datetime'
+    assert_equal 'Validation failed: Sync date must be a valid datetime', JSON.parse(response.body)['error']
   end
 
   test 'should fail to update scc_account with interval set and invalid date' do
@@ -227,7 +227,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     put :update, params: { id: account.id, scc_account: { :sync_date => 'invalid_date', :interval => 'weekly' } }
 
     assert_response :unprocessable_entity
-    assert_error_message 'Sync date must be a valid datetime'
+    assert_equal 'Validation failed: Sync date must be a valid datetime', JSON.parse(response.body)['error']
   end
 
   test 'should fail to update scc_account with empty name' do
@@ -235,7 +235,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     put :update, params: { id: account.id, scc_account: { :name => '', :sync_date => Time.now, :interval => 'weekly' } }
 
     assert_response :unprocessable_entity
-    assert_error_message "Name can't be blank"
+    assert_equal "Validation failed: Name can't be blank", JSON.parse(response.body)['error']
   end
 
   test 'should fail to update scc_account with empty login' do
@@ -243,7 +243,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     put :update, params: { id: account.id, scc_account: { :login => '', :sync_date => Time.now, :interval => 'weekly' } }
 
     assert_response :unprocessable_entity
-    assert_error_message "Login can't be blank"
+    assert_equal "Validation failed: Login can't be blank", JSON.parse(response.body)['error']
   end
 
   test 'should fail to update scc_account with empty base_url' do
@@ -251,7 +251,7 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     put :update, params: { id: account.id, scc_account: { :base_url => '', :sync_date => Time.now, :interval => 'weekly' } }
 
     assert_response :unprocessable_entity
-    assert_error_message "Base URL can't be blank"
+    assert_equal "Validation failed: Base URL can't be blank", JSON.parse(response.body)['error']
   end
 
   test 'new account SCC server connection-test' do
