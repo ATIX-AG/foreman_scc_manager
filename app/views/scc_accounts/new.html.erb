@@ -1,3 +1,14 @@
 <% title _("Add SUSE Customer Center Account") %>
 
-<%= render partial: 'form' %>
+<%= webpacked_plugins_js_for :foreman_scc_manager %>
+<%= webpacked_plugins_css_for :foreman_scc_manager %>
+
+<%= react_component('SCCAccountForm', {
+  organizationId: @scc_account.organization_id,
+  intervalOptions: SccAccount::TYPES,
+  downloadPolicyOptions: SccAccount::download_policy_selection_values,
+  mirroringPolicyOptions: SccAccount::mirroring_policy_selection_values,
+  gpgKeyOptions: @selectable_gpg_keys,
+  selectedGpgKeyId: @scc_account.katello_gpg_key_id
+}) %>
+
