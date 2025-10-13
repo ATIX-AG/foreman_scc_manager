@@ -14,3 +14,4 @@ locale/action_names.rb
 Gemfile.lock
 *.swp
 vendor/
+node_modules

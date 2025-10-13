@@ -1,3 +1,25 @@
-<% title(_("Edit %s") % @scc_account) %>
+<% title (_("Edit %s") % @scc_account) %>
 
-<%= render partial: 'form' %>
+<%= webpacked_plugins_js_for :foreman_scc_manager %>
+<%= webpacked_plugins_css_for :foreman_scc_manager %>
+
+<%= react_component('SCCAccountForm', {       
+  organizationId: @scc_account.organization_id,
+  intervalOptions: SccAccount::TYPES,
+  downloadPolicyOptions: SccAccount::download_policy_selection_values,
+  mirroringPolicyOptions: SccAccount::mirroring_policy_selection_values,
+  gpgKeyOptions: @selectable_gpg_keys,                                     
+  selectedGpgKeyId: @scc_account.katello_gpg_key_id,
+  initial: {
+    id: @scc_account.id,
+    name: @scc_account.name,
+    login: @scc_account.login,
+    baseUrl: @scc_account.base_url,
+    interval: @scc_account.interval,
+    downloadPolicy: (SccAccount::download_policy_selection_values.detect{|l,v| v==@scc_account.download_policy}&.first),
+    mirroringPolicy: (SccAccount::mirroring_policy_selection_values.detect{|l,v| v==@scc_account.mirroring_policy}&.first),
+    gpgKey: (@selectable_gpg_keys.detect{|l,v| v==@scc_account.katello_gpg_key_id}&.first),
+    refreshDate: (@scc_account.sync_date&.to_date&.iso8601),   
+    refreshTime: (@scc_account.sync_date&.in_time_zone&.strftime("%I:%M %p")) 
+  }
+}) %>
