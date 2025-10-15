@@ -1,0 +1,392 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_scc_manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_scc_manager 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-10-15 10:50+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid " -- Select Architecture --"
+msgstr ""
+
+msgid " -- Select Product --"
+msgstr ""
+
+msgid " -- Select Version --"
+msgstr ""
+
+msgid " has started successfully."
+msgstr ""
+
+msgid "%s/%s"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Add SCC account"
+msgstr ""
+
+msgid "Add SUSE Customer Center Account"
+msgstr ""
+
+msgid "Add more sub products to Product tree"
+msgstr ""
+
+msgid "Add product(s)"
+msgstr ""
+
+msgid "Additive"
+msgstr ""
+
+msgid "Associated GPG key of scc_account"
+msgstr ""
+
+msgid "Base URL"
+msgstr ""
+
+msgid "Bulk subscription of scc_products for scc_account"
+msgstr ""
+
+msgid "Bulk subscription of scc_products with individual repository selection for scc_account."
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Collapse products"
+msgstr ""
+
+msgid "Collapse/Expand"
+msgstr ""
+
+msgid "Connection OK"
+msgstr ""
+
+msgid "Connection test failed."
+msgstr ""
+
+msgid "Content Only"
+msgstr ""
+
+msgid "Create an scc_account"
+msgstr ""
+
+msgid "Cron expression is not valid!"
+msgstr ""
+
+msgid "Date and time relative to which the sync interval is run"
+msgstr ""
+
+msgid "Delete scc_account"
+msgstr ""
+
+msgid "Download Policy"
+msgstr ""
+
+msgid "Edit %s"
+msgstr ""
+
+msgid "Expand products"
+msgstr ""
+
+msgid "Failed to add task to queue."
+msgstr ""
+
+msgid "Failed to add task to queue: %s"
+msgstr ""
+
+msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to update SCC account."
+msgstr ""
+
+msgid "Filter repositories"
+msgstr ""
+
+msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
+msgstr ""
+
+msgid "GPG key for SUSE products"
+msgstr ""
+
+msgid "Go to Product page"
+msgstr ""
+
+msgid "Go to Repository page"
+msgstr ""
+
+msgid "HH:MM AM"
+msgstr ""
+
+msgid "If this option is enabled, debug and source pool repositories are automatically selected if you select a product. This option is disabled by default. It applies for unselected products, only. Already selected products are not filtered."
+msgstr ""
+
+msgid "Immediate"
+msgstr ""
+
+msgid "Include Debug and Source Pool repositories"
+msgstr ""
+
+msgid "Interval cannot be nil"
+msgstr ""
+
+msgid "Interval for syncing scc_account"
+msgstr ""
+
+msgid "Interval not set correctly"
+msgstr ""
+
+msgid "Last synced"
+msgstr ""
+
+msgid "List all scc_accounts"
+msgstr ""
+
+msgid "List products for an scc_account"
+msgstr ""
+
+msgid "Lock on SCC account already taken: %s"
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "Login id of scc_account"
+msgstr ""
+
+msgid "Mirroring Policy"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Name of the scc_account"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "On Demand"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Password of scc_account"
+msgstr ""
+
+msgid "Please check your SUSE subscription"
+msgstr ""
+
+msgid "Please synchronize your SUSE account before you can subscribe to SUSE products."
+msgstr ""
+
+msgid "Product Selection for Account %s"
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "Refresh interval"
+msgstr ""
+
+msgid "Refresh time"
+msgstr ""
+
+msgid "Repositories (%s/%s)"
+msgstr ""
+
+msgid "Repository Sync Settings"
+msgstr ""
+
+msgid "Repository not imported"
+msgstr ""
+
+msgid "Reset Selection"
+msgstr ""
+
+msgid "SCC Account Credentials"
+msgstr ""
+
+msgid "SCC account created successfully."
+msgstr ""
+
+msgid "SCC account updated successfully."
+msgstr ""
+
+msgid "SUSE Customer Center"
+msgstr ""
+
+msgid "SUSE Subscription"
+msgstr ""
+
+msgid "SUSE Subscription: "
+msgstr ""
+
+msgid "SUSE Subscriptions"
+msgstr ""
+
+msgid "SUSE subscriptions"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Select SUSE products"
+msgstr ""
+
+msgid "Select products"
+msgstr ""
+
+msgid "Selected SUSE Products"
+msgstr ""
+
+msgid "Show all products"
+msgstr ""
+
+msgid "Show all subscription tasks"
+msgstr ""
+
+msgid "Show an scc_account product"
+msgstr ""
+
+msgid "Show currently added repositories"
+msgstr ""
+
+msgid "Show last product subscription task"
+msgstr ""
+
+msgid "Show only subscribed products"
+msgstr ""
+
+msgid "Show scc_account"
+msgstr ""
+
+msgid "Show subscribed products only"
+msgstr ""
+
+msgid "Show/Hide unsubscribed"
+msgstr ""
+
+msgid "Specifies the daily time when the SCC authentication token refresh process starts. Set this to a time outside of business hours (e.g., during the night) to minimize disruption."
+msgstr ""
+
+msgid "Starting the subscription task failed."
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Subscribe SCC Product"
+msgstr ""
+
+msgid "Subscribe product"
+msgstr ""
+
+msgid "Summary of SCC product subscription"
+msgstr ""
+
+msgid "Sync"
+msgstr ""
+
+msgid "Sync SUSE subscriptions"
+msgstr ""
+
+msgid "Sync SUSE subscriptions (Products)"
+msgstr ""
+
+msgid "Sync SUSE subscriptions (Repositories)"
+msgstr ""
+
+msgid "Sync scc_account"
+msgstr ""
+
+msgid "Sync task started."
+msgstr ""
+
+msgid "Synchronize SUSE Account"
+msgstr ""
+
+msgid "Test Connection"
+msgstr ""
+
+msgid "Test connection for scc_account"
+msgstr ""
+
+msgid "The default download policy for repositories which were created using this SCC Account."
+msgstr ""
+
+msgid "The default mirroring policy for repositories which were created using this SCC Account."
+msgstr ""
+
+msgid "The following products will be imported:"
+msgstr ""
+
+msgid "The selected products cannot be found for this SCC account."
+msgstr ""
+
+msgid "The subscription task has been started successfully"
+msgstr ""
+
+msgid "The subscription task with id "
+msgstr ""
+
+msgid "The token refresh interval is used to periodically update the SCC authentication tokens of any imported products."
+msgstr ""
+
+msgid "Token Refresh Settings"
+msgstr ""
+
+msgid "URL of SUSE for scc_account"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Update SUSE repositories"
+msgstr ""
+
+msgid "Update SUSE repositories %s"
+msgstr ""
+
+msgid "Update scc_account"
+msgstr ""
+
+msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
+msgstr ""
+
+msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
+msgstr ""
+
+msgid ""
+"WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
+"\n"
+"If you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\n"
+"\n"
+"Really delete SCC account %s?"
+msgstr ""
+
+msgid "YYYY-MM-DD"
+msgstr ""
+
+msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
+msgstr ""
+
+msgid "never synced"
+msgstr ""
+
+msgid "no results"
+msgstr ""
