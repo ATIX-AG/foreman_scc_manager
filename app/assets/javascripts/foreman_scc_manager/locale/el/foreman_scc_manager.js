@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 4.0.0",
+        "Project-Id-Version": "foreman_scc_manager 5.0.4",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
         "Last-Translator": "Efstathios Iosifidis <iefstathios@gmail.com>, 2022",
@@ -32,15 +32,6 @@
       "%s/%s": [
         ""
       ],
-      "Abstract": [
-        ""
-      ],
-      "Abstract async task": [
-        ""
-      ],
-      "Action with sub plans": [
-        ""
-      ],
       "Actions": [
         "Ενέργειες"
       ],
@@ -59,28 +50,19 @@
       "Additive": [
         ""
       ],
-      "Agent action": [
-        ""
-      ],
       "Associated GPG key of scc_account": [
-        ""
-      ],
-      "Attach subscriptions": [
-        ""
-      ],
-      "Auto attach subscriptions": [
         ""
       ],
       "Base URL": [
         "Βασική URL"
       ],
-      "Bulk generate applicability for hosts": [
-        ""
-      ],
       "Bulk subscription of scc_products for scc_account": [
         ""
       ],
       "Bulk subscription of scc_products with individual repository selection for scc_account.": [
+        ""
+      ],
+      "Cancel": [
         ""
       ],
       "Collapse products": [
@@ -89,31 +71,13 @@
       "Collapse/Expand": [
         ""
       ],
-      "Combined Profile Update": [
+      "Connection OK": [
+        ""
+      ],
+      "Connection test failed.": [
         ""
       ],
       "Content Only": [
-        ""
-      ],
-      "Copy version units to library": [
-        ""
-      ],
-      "Create": [
-        "Δημιουργία"
-      ],
-      "Create Alternate Content Source": [
-        ""
-      ],
-      "Create Export History": [
-        ""
-      ],
-      "Create Import History": [
-        ""
-      ],
-      "Create Package Group": [
-        ""
-      ],
-      "Create Syncable Export History": [
         ""
       ],
       "Create an scc_account": [
@@ -125,38 +89,8 @@
       "Date and time relative to which the sync interval is run": [
         ""
       ],
-      "Delete": [
-        "Διαγραφή"
-      ],
-      "Delete Activation Key": [
-        "Διαγραφή κλειδιού ενεργοποίησης"
-      ],
-      "Delete Lifecycle Environment": [
-        ""
-      ],
-      "Delete Package Group": [
-        ""
-      ],
-      "Delete Product": [
-        "Διαγραφή προϊόντος"
-      ],
       "Delete scc_account": [
         "Διαγραφή scc_account"
-      ],
-      "Destroy": [
-        "Καταστροφή"
-      ],
-      "Destroy Alternate Content Source": [
-        ""
-      ],
-      "Destroy Content Host": [
-        ""
-      ],
-      "Disable": [
-        "Απενεργοποίηση"
-      ],
-      "Discover": [
-        ""
       ],
       "Download Policy": [
         "Πολιτική λήψης"
@@ -164,22 +98,7 @@
       "Edit %s": [
         "Επεξεργασία %s"
       ],
-      "Enable": [
-        "Ενεργοποίηση"
-      ],
-      "Errata mail": [
-        ""
-      ],
       "Expand products": [
-        ""
-      ],
-      "Export": [
-        "Εξαγωγή"
-      ],
-      "Export Library": [
-        ""
-      ],
-      "Export Repository": [
         ""
       ],
       "Failed to add task to queue.": [
@@ -188,22 +107,19 @@
       "Failed to add task to queue: %s": [
         ""
       ],
-      "Fetch pxe files": [
+      "Failed to create SCC account.": [
+        ""
+      ],
+      "Failed to update SCC account.": [
         ""
       ],
       "Filter repositories": [
         ""
       ],
-      "Filtered index content": [
-        ""
-      ],
       "Foreman plugin to sync SUSE Customer Center products and repositories into Katello.": [
         ""
       ],
-      "Generate host applicability": [
-        ""
-      ],
-      "Generate repository applicability": [
+      "GPG key for SUSE products": [
         ""
       ],
       "Go to Product page": [
@@ -212,10 +128,7 @@
       "Go to Repository page": [
         ""
       ],
-      "Hypervisors": [
-        ""
-      ],
-      "Hypervisors update": [
+      "HH:MM AM": [
         ""
       ],
       "If this option is enabled, debug and source pool repositories are automatically selected if you select a product. This option is disabled by default. It applies for unselected products, only. Already selected products are not filtered.": [
@@ -224,49 +137,7 @@
       "Immediate": [
         ""
       ],
-      "Import": [
-        "Εισαγωγή"
-      ],
-      "Import Content View Version": [
-        ""
-      ],
-      "Import Default Content View": [
-        ""
-      ],
-      "Import Puppet classes": [
-        "Εισαγωγή κλάσεων Puppet"
-      ],
-      "Import Repository": [
-        ""
-      ],
-      "Import facts": [
-        ""
-      ],
       "Include Debug and Source Pool repositories": [
-        ""
-      ],
-      "Incremental Update": [
-        ""
-      ],
-      "Incremental Update of  Content View Version(s) ": [
-        ""
-      ],
-      "Index content": [
-        "Περιεχόμενο ευρετηρίου"
-      ],
-      "Index errata": [
-        ""
-      ],
-      "Index module streams": [
-        ""
-      ],
-      "Index package groups": [
-        ""
-      ],
-      "Install Applicable Errata": [
-        ""
-      ],
-      "Instance update": [
         ""
       ],
       "Interval cannot be nil": [
@@ -290,17 +161,20 @@
       "Lock on SCC account already taken: %s": [
         ""
       ],
+      "Login": [
+        ""
+      ],
       "Login id of scc_account": [
         "Αναγνωριστικό εισόδου scc_account"
       ],
       "Mirroring Policy": [
         ""
       ],
+      "Name": [
+        ""
+      ],
       "Name of the scc_account": [
         "Όνομα του scc_account"
-      ],
-      "No products selected.": [
-        "Δεν επιλέχθηκαν προϊόντα."
       ],
       "None": [
         "Κανένα"
@@ -308,7 +182,7 @@
       "On Demand": [
         ""
       ],
-      "Package Profile Update": [
+      "Password": [
         ""
       ],
       "Password of scc_account": [
@@ -320,68 +194,41 @@
       "Please synchronize your SUSE account before you can subscribe to SUSE products.": [
         ""
       ],
-      "Product Create": [
-        ""
-      ],
       "Product Selection for Account %s": [
         ""
       ],
       "Products": [
         "Προϊόντα"
       ],
-      "Promote": [
+      "Refresh interval": [
         ""
       ],
-      "Promotion to Environment": [
-        ""
-      ],
-      "Publish": [
-        "Δημοσίευση"
-      ],
-      "Publish Lifecycle Environment Repositories": [
-        ""
-      ],
-      "Refresh Alternate Content Source": [
-        ""
-      ],
-      "Reindex subscriptions": [
-        ""
-      ],
-      "Remove Content": [
-        "Αφαίρεση περιεχομένου"
-      ],
-      "Remove Version": [
-        "Αφαίρεση έκδοσης"
-      ],
-      "Remove Versions and Associations": [
-        ""
-      ],
-      "Remove from Environment": [
-        ""
-      ],
-      "Remove subscriptions": [
+      "Refresh time": [
         ""
       ],
       "Repositories (%s/%s)": [
         ""
       ],
-      "Repository not imported": [
+      "Repository Sync Settings": [
         ""
       ],
-      "Republish Version Repositories": [
+      "Repository not imported": [
         ""
       ],
       "Reset Selection": [
         ""
       ],
-      "Run Sync Plan:": [
-        "Εκκίνηση πλάνου συγχρονισμού:"
+      "SCC Account Credentials": [
+        ""
+      ],
+      "SCC account created successfully.": [
+        ""
+      ],
+      "SCC account updated successfully.": [
+        ""
       ],
       "SUSE Customer Center": [
         "Κέντρο πελατών SUSE"
-      ],
-      "SUSE Customer Center account": [
-        "Λογαριασμός κέντρου πελατών SUSE"
       ],
       "SUSE Subscription": [
         "Συνδρομή SUSE"
@@ -434,7 +281,13 @@
       "Show/Hide unsubscribed": [
         ""
       ],
+      "Specifies the daily time when the SCC authentication token refresh process starts. Set this to a time outside of business hours (e.g., during the night) to minimize disruption.": [
+        ""
+      ],
       "Starting the subscription task failed.": [
+        ""
+      ],
+      "Submit": [
         ""
       ],
       "Subscribe SCC Product": [
@@ -449,9 +302,6 @@
       "Sync": [
         "Συγχρονισμός"
       ],
-      "Sync Date": [
-        "Ημερομηνία συγχρονισμού"
-      ],
       "Sync SUSE subscriptions": [
         "Συγχρονισμός συνδρομών SUSE"
       ],
@@ -461,32 +311,14 @@
       "Sync SUSE subscriptions (Repositories)": [
         "Συγχρονισμός συνδρομών SUSE (Αποθετήρια)"
       ],
-      "Sync capsule": [
-        ""
-      ],
-      "Sync interval": [
-        ""
-      ],
       "Sync scc_account": [
         "Συγχρονισμός scc_account"
       ],
       "Sync task started.": [
         "Η εργασία συγχρονισμού εκκίνησε."
       ],
-      "Syncable export": [
-        ""
-      ],
-      "Synchronize": [
-        "Συγχρονισμός"
-      ],
       "Synchronize SUSE Account": [
         ""
-      ],
-      "Synchronize smart proxy": [
-        ""
-      ],
-      "Task to subscribe products started.": [
-        "Εκκίνησε η εργασία για συνδρομή των προϊόντων."
       ],
       "Test Connection": [
         "Δοκιμή σύνδεσης"
@@ -512,7 +344,10 @@
       "The subscription task with id ": [
         ""
       ],
-      "The sync interval is used to periodically update the SCC authentication tokens of any imported products.": [
+      "The token refresh interval is used to periodically update the SCC authentication tokens of any imported products.": [
+        ""
+      ],
+      "Token Refresh Settings": [
         ""
       ],
       "URL of SUSE for scc_account": [
@@ -521,53 +356,14 @@
       "Unknown": [
         "Άγνωστο"
       ],
-      "Update": [
-        "Ενημέρωση"
-      ],
-      "Update Alternate Content Source": [
-        ""
-      ],
-      "Update CDN Configuration": [
-        ""
-      ],
-      "Update Content Overrides": [
-        ""
-      ],
       "Update SUSE repositories": [
         "Ενημέρωση αποθετηρίων SUSE"
       ],
       "Update SUSE repositories %s": [
         "Ενημέρωση αποθετηρίων SUSE %s"
       ],
-      "Update content urls": [
-        ""
-      ],
-      "Update for host": [
-        ""
-      ],
-      "Update http proxy": [
-        ""
-      ],
-      "Update http proxy details": [
-        ""
-      ],
-      "Update redhat repository": [
-        ""
-      ],
-      "Update release version for host": [
-        ""
-      ],
       "Update scc_account": [
         "Ενημέρωση scc_account"
-      ],
-      "Updating System Purpose for host": [
-        ""
-      ],
-      "Upload into": [
-        "Μεταφόρτωση σε"
-      ],
-      "Use GPG key for SUSE products": [
-        ""
       ],
       "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later.": [
         ""
@@ -575,10 +371,10 @@
       "Use your 'Organization credentials' obtained from the SUSE Customer Center.": [
         ""
       ],
-      "Verify checksum": [
+      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\nReally delete SCC account %s?": [
         ""
       ],
-      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\nReally delete SCC account %s?": [
+      "YYYY-MM-DD": [
         ""
       ],
       "You currently have no SUSE products selected. Search and add SUSE products in the section below.": [
@@ -586,6 +382,9 @@
       ],
       "never synced": [
         "δεν συγχρονίστηκε ποτέ"
+      ],
+      "no results": [
+        ""
       ]
     }
   }

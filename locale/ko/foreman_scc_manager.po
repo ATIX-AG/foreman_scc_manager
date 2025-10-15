@@ -9,10 +9,9 @@
 # 진선재, 2022
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 1.0.0\n"
+"Project-Id-Version: foreman_scc_manager 5.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -39,15 +38,6 @@ msgstr ""
 msgid "%s/%s"
 msgstr ""
 
-msgid "Abstract"
-msgstr "개요"
-
-msgid "Abstract async task"
-msgstr "비동기 작업 개요"
-
-msgid "Action with sub plans"
-msgstr "하위 계획이 있는 작업"
-
 msgid "Actions"
 msgstr "동작 "
 
@@ -66,28 +56,19 @@ msgstr ""
 msgid "Additive"
 msgstr "추가"
 
-msgid "Agent action"
-msgstr "에이전트 작업"
-
 msgid "Associated GPG key of scc_account"
 msgstr ""
 
-msgid "Attach subscriptions"
-msgstr "서브스크립션 연결"
-
-msgid "Auto attach subscriptions"
-msgstr "서브스크립션 자동 첨부"
-
 msgid "Base URL"
 msgstr "기본 URL"
-
-msgid "Bulk generate applicability for hosts"
-msgstr "호스트에 대한 대량 적용 가능성 생성"
 
 msgid "Bulk subscription of scc_products for scc_account"
 msgstr ""
 
 msgid "Bulk subscription of scc_products with individual repository selection for scc_account."
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Collapse products"
@@ -96,32 +77,14 @@ msgstr ""
 msgid "Collapse/Expand"
 msgstr ""
 
-msgid "Combined Profile Update"
-msgstr "결합된 프로필 업데이트"
+msgid "Connection OK"
+msgstr ""
+
+msgid "Connection test failed."
+msgstr ""
 
 msgid "Content Only"
 msgstr "컨텐츠만"
-
-msgid "Copy version units to library"
-msgstr "버전 유닛을 라이브러리에 복사"
-
-msgid "Create"
-msgstr "생성 "
-
-msgid "Create Alternate Content Source"
-msgstr "대체 콘텐츠 소스 생성"
-
-msgid "Create Export History"
-msgstr "내보내기 기록 생성"
-
-msgid "Create Import History"
-msgstr "가져오기 기록 생성"
-
-msgid "Create Package Group"
-msgstr "패키지 그룹 생성"
-
-msgid "Create Syncable Export History"
-msgstr "동기화 가능한 내보내기 기록 생성"
 
 msgid "Create an scc_account"
 msgstr ""
@@ -132,38 +95,8 @@ msgstr "Cron 표현식이 잘못되었습니다!"
 msgid "Date and time relative to which the sync interval is run"
 msgstr ""
 
-msgid "Delete"
-msgstr "삭제"
-
-msgid "Delete Activation Key"
-msgstr "활성키 삭제 "
-
-msgid "Delete Lifecycle Environment"
-msgstr "라이프사이클 환경 삭제 "
-
-msgid "Delete Package Group"
-msgstr "패키지 그룹 삭제"
-
-msgid "Delete Product"
-msgstr "제품 삭제 "
-
 msgid "Delete scc_account"
 msgstr ""
-
-msgid "Destroy"
-msgstr "삭제 "
-
-msgid "Destroy Alternate Content Source"
-msgstr "대체 콘텐츠 소스 삭제"
-
-msgid "Destroy Content Host"
-msgstr "컨텐츠 호스트 삭제 "
-
-msgid "Disable"
-msgstr "비활성화"
-
-msgid "Discover"
-msgstr "검색"
 
 msgid "Download Policy"
 msgstr "다운로드 정책"
@@ -171,23 +104,8 @@ msgstr "다운로드 정책"
 msgid "Edit %s"
 msgstr "%s 편집 "
 
-msgid "Enable"
-msgstr "활성화"
-
-msgid "Errata mail"
-msgstr "에라타 메일"
-
 msgid "Expand products"
 msgstr ""
-
-msgid "Export"
-msgstr "내보내기 "
-
-msgid "Export Library"
-msgstr "라이브러리 내보내기"
-
-msgid "Export Repository"
-msgstr "리포지터리 내보내기"
 
 msgid "Failed to add task to queue."
 msgstr ""
@@ -195,23 +113,20 @@ msgstr ""
 msgid "Failed to add task to queue: %s"
 msgstr "대기열에 태스크를 추가하지 못했습니다: %s"
 
-msgid "Fetch pxe files"
-msgstr "pxe 파일 가져오기"
+msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to update SCC account."
+msgstr ""
 
 msgid "Filter repositories"
 msgstr ""
 
-msgid "Filtered index content"
-msgstr "필터링된 인덱스 컨텐츠"
-
 msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
 msgstr ""
 
-msgid "Generate host applicability"
-msgstr "호스트 적용성 생성"
-
-msgid "Generate repository applicability"
-msgstr "저장소 적용성 생성"
+msgid "GPG key for SUSE products"
+msgstr ""
 
 msgid "Go to Product page"
 msgstr ""
@@ -219,11 +134,8 @@ msgstr ""
 msgid "Go to Repository page"
 msgstr ""
 
-msgid "Hypervisors"
-msgstr "하이퍼바이저"
-
-msgid "Hypervisors update"
-msgstr "하이퍼바이저 업데이트"
+msgid "HH:MM AM"
+msgstr ""
 
 msgid "If this option is enabled, debug and source pool repositories are automatically selected if you select a product. This option is disabled by default. It applies for unselected products, only. Already selected products are not filtered."
 msgstr ""
@@ -231,50 +143,8 @@ msgstr ""
 msgid "Immediate"
 msgstr "즉시"
 
-msgid "Import"
-msgstr "불러오기"
-
-msgid "Import Content View Version"
-msgstr "콘텐츠 보기 버전 가져오기"
-
-msgid "Import Default Content View"
-msgstr "기본 콘텐츠 보기 가져오기"
-
-msgid "Import Puppet classes"
-msgstr "Puppet 클래스 가져오기"
-
-msgid "Import Repository"
-msgstr "리포지터리 가져오기"
-
-msgid "Import facts"
-msgstr "팩트 불러오기"
-
 msgid "Include Debug and Source Pool repositories"
 msgstr ""
-
-msgid "Incremental Update"
-msgstr "증분 업데이트 "
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr "콘텐츠 보기 버전의 증분 업데이트 "
-
-msgid "Index content"
-msgstr "컨텐츠 인덱싱"
-
-msgid "Index errata"
-msgstr "에라타 인덱스"
-
-msgid "Index module streams"
-msgstr "모듈 스트림 인덱스"
-
-msgid "Index package groups"
-msgstr "패키지 그룹 인덱싱"
-
-msgid "Install Applicable Errata"
-msgstr "적용 가능한 에라타 설치 "
-
-msgid "Instance update"
-msgstr "인스턴스 업데이트"
 
 msgid "Interval cannot be nil"
 msgstr "간격은 nil이 될 수 없습니다."
@@ -297,16 +167,19 @@ msgstr ""
 msgid "Lock on SCC account already taken: %s"
 msgstr ""
 
+msgid "Login"
+msgstr ""
+
 msgid "Login id of scc_account"
 msgstr ""
 
 msgid "Mirroring Policy"
 msgstr "미러링 정책"
 
-msgid "Name of the scc_account"
+msgid "Name"
 msgstr ""
 
-msgid "No products selected."
+msgid "Name of the scc_account"
 msgstr ""
 
 msgid "None"
@@ -315,8 +188,8 @@ msgstr "없음 "
 msgid "On Demand"
 msgstr "주문형"
 
-msgid "Package Profile Update"
-msgstr "패키지 프로파일 업데이트"
+msgid "Password"
+msgstr ""
 
 msgid "Password of scc_account"
 msgstr ""
@@ -327,67 +200,40 @@ msgstr ""
 msgid "Please synchronize your SUSE account before you can subscribe to SUSE products."
 msgstr ""
 
-msgid "Product Create"
-msgstr "제품 생성"
-
 msgid "Product Selection for Account %s"
 msgstr ""
 
 msgid "Products"
 msgstr "제품 "
 
-msgid "Promote"
-msgstr "승격 "
+msgid "Refresh interval"
+msgstr ""
 
-msgid "Promotion to Environment"
-msgstr "환경 승격"
-
-msgid "Publish"
-msgstr "공개 "
-
-msgid "Publish Lifecycle Environment Repositories"
-msgstr "라이프사이클 환경 리포지토리 게시"
-
-msgid "Refresh Alternate Content Source"
-msgstr "대체 콘텐츠 소스 새로 고침"
-
-msgid "Reindex subscriptions"
-msgstr "서브스크립션 다시 인덱싱"
-
-msgid "Remove Content"
-msgstr "컨텐츠 삭제 "
-
-msgid "Remove Version"
-msgstr "버전 삭제 "
-
-msgid "Remove Versions and Associations"
-msgstr "버전 및 연결 삭제 "
-
-msgid "Remove from Environment"
-msgstr "환경에서 삭제 "
-
-msgid "Remove subscriptions"
-msgstr "서브스크립션 삭제"
+msgid "Refresh time"
+msgstr ""
 
 msgid "Repositories (%s/%s)"
+msgstr ""
+
+msgid "Repository Sync Settings"
 msgstr ""
 
 msgid "Repository not imported"
 msgstr ""
 
-msgid "Republish Version Repositories"
-msgstr "버전 리포지토리 재게시"
-
 msgid "Reset Selection"
 msgstr ""
 
-msgid "Run Sync Plan:"
-msgstr "동기화 계획 실행:"
-
-msgid "SUSE Customer Center"
+msgid "SCC Account Credentials"
 msgstr ""
 
-msgid "SUSE Customer Center account"
+msgid "SCC account created successfully."
+msgstr ""
+
+msgid "SCC account updated successfully."
+msgstr ""
+
+msgid "SUSE Customer Center"
 msgstr ""
 
 msgid "SUSE Subscription"
@@ -441,7 +287,13 @@ msgstr ""
 msgid "Show/Hide unsubscribed"
 msgstr ""
 
+msgid "Specifies the daily time when the SCC authentication token refresh process starts. Set this to a time outside of business hours (e.g., during the night) to minimize disruption."
+msgstr ""
+
 msgid "Starting the subscription task failed."
+msgstr ""
+
+msgid "Submit"
 msgstr ""
 
 msgid "Subscribe SCC Product"
@@ -456,9 +308,6 @@ msgstr ""
 msgid "Sync"
 msgstr "동기화 "
 
-msgid "Sync Date"
-msgstr ""
-
 msgid "Sync SUSE subscriptions"
 msgstr ""
 
@@ -468,31 +317,13 @@ msgstr ""
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr ""
 
-msgid "Sync capsule"
-msgstr "캡슐 동기화"
-
-msgid "Sync interval"
-msgstr ""
-
 msgid "Sync scc_account"
 msgstr ""
 
 msgid "Sync task started."
 msgstr ""
 
-msgid "Syncable export"
-msgstr "동기화 가능한 내보내기"
-
-msgid "Synchronize"
-msgstr "동기화 "
-
 msgid "Synchronize SUSE Account"
-msgstr ""
-
-msgid "Synchronize smart proxy"
-msgstr "스마트 프록시 동기화"
-
-msgid "Task to subscribe products started."
 msgstr ""
 
 msgid "Test Connection"
@@ -519,7 +350,10 @@ msgstr ""
 msgid "The subscription task with id "
 msgstr ""
 
-msgid "The sync interval is used to periodically update the SCC authentication tokens of any imported products."
+msgid "The token refresh interval is used to periodically update the SCC authentication tokens of any imported products."
+msgstr ""
+
+msgid "Token Refresh Settings"
 msgstr ""
 
 msgid "URL of SUSE for scc_account"
@@ -528,52 +362,13 @@ msgstr ""
 msgid "Unknown"
 msgstr "알 수 없음 "
 
-msgid "Update"
-msgstr "업데이트 "
-
-msgid "Update Alternate Content Source"
-msgstr "대체 콘텐츠 소스 업데이트"
-
-msgid "Update CDN Configuration"
-msgstr "CDN 구성 업데이트"
-
-msgid "Update Content Overrides"
-msgstr "콘텐츠 재정의 업데이트"
-
 msgid "Update SUSE repositories"
 msgstr ""
 
 msgid "Update SUSE repositories %s"
 msgstr ""
 
-msgid "Update content urls"
-msgstr "콘텐츠 URL 업데이트"
-
-msgid "Update for host"
-msgstr "호스트에 대한 업데이트"
-
-msgid "Update http proxy"
-msgstr "http 프록시 업데이트"
-
-msgid "Update http proxy details"
-msgstr "http 프록시 세부 정보 업데이트"
-
-msgid "Update redhat repository"
-msgstr "Redhat 리포지토리 업데이트"
-
-msgid "Update release version for host"
-msgstr "호스트에 대한 릴리스 버전 업데이트"
-
 msgid "Update scc_account"
-msgstr ""
-
-msgid "Updating System Purpose for host"
-msgstr "호스트의 시스템 목적 업데이트"
-
-msgid "Upload into"
-msgstr "업로드 "
-
-msgid "Use GPG key for SUSE products"
 msgstr ""
 
 msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
@@ -581,9 +376,6 @@ msgstr ""
 
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr ""
-
-msgid "Verify checksum"
-msgstr "체크섬 확인"
 
 msgid ""
 "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
@@ -593,8 +385,14 @@ msgid ""
 "Really delete SCC account %s?"
 msgstr ""
 
+msgid "YYYY-MM-DD"
+msgstr ""
+
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
 msgid "never synced"
+msgstr ""
+
+msgid "no results"
 msgstr ""

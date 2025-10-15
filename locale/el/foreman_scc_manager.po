@@ -6,10 +6,9 @@
 # Translators:
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 4.0.0\n"
+"Project-Id-Version: foreman_scc_manager 5.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
 "Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>, 2022\n"
@@ -35,15 +34,6 @@ msgstr ""
 msgid "%s/%s"
 msgstr ""
 
-msgid "Abstract"
-msgstr ""
-
-msgid "Abstract async task"
-msgstr ""
-
-msgid "Action with sub plans"
-msgstr ""
-
 msgid "Actions"
 msgstr "Ενέργειες"
 
@@ -62,28 +52,19 @@ msgstr ""
 msgid "Additive"
 msgstr ""
 
-msgid "Agent action"
-msgstr ""
-
 msgid "Associated GPG key of scc_account"
-msgstr ""
-
-msgid "Attach subscriptions"
-msgstr ""
-
-msgid "Auto attach subscriptions"
 msgstr ""
 
 msgid "Base URL"
 msgstr "Βασική URL"
 
-msgid "Bulk generate applicability for hosts"
-msgstr ""
-
 msgid "Bulk subscription of scc_products for scc_account"
 msgstr ""
 
 msgid "Bulk subscription of scc_products with individual repository selection for scc_account."
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Collapse products"
@@ -92,31 +73,13 @@ msgstr ""
 msgid "Collapse/Expand"
 msgstr ""
 
-msgid "Combined Profile Update"
+msgid "Connection OK"
+msgstr ""
+
+msgid "Connection test failed."
 msgstr ""
 
 msgid "Content Only"
-msgstr ""
-
-msgid "Copy version units to library"
-msgstr ""
-
-msgid "Create"
-msgstr "Δημιουργία"
-
-msgid "Create Alternate Content Source"
-msgstr ""
-
-msgid "Create Export History"
-msgstr ""
-
-msgid "Create Import History"
-msgstr ""
-
-msgid "Create Package Group"
-msgstr ""
-
-msgid "Create Syncable Export History"
 msgstr ""
 
 msgid "Create an scc_account"
@@ -128,38 +91,8 @@ msgstr "Μη έγκυρη έκφραση cron!"
 msgid "Date and time relative to which the sync interval is run"
 msgstr ""
 
-msgid "Delete"
-msgstr "Διαγραφή"
-
-msgid "Delete Activation Key"
-msgstr "Διαγραφή κλειδιού ενεργοποίησης"
-
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-msgid "Delete Package Group"
-msgstr ""
-
-msgid "Delete Product"
-msgstr "Διαγραφή προϊόντος"
-
 msgid "Delete scc_account"
 msgstr "Διαγραφή scc_account"
-
-msgid "Destroy"
-msgstr "Καταστροφή"
-
-msgid "Destroy Alternate Content Source"
-msgstr ""
-
-msgid "Destroy Content Host"
-msgstr ""
-
-msgid "Disable"
-msgstr "Απενεργοποίηση"
-
-msgid "Discover"
-msgstr ""
 
 msgid "Download Policy"
 msgstr "Πολιτική λήψης"
@@ -167,22 +100,7 @@ msgstr "Πολιτική λήψης"
 msgid "Edit %s"
 msgstr "Επεξεργασία %s"
 
-msgid "Enable"
-msgstr "Ενεργοποίηση"
-
-msgid "Errata mail"
-msgstr ""
-
 msgid "Expand products"
-msgstr ""
-
-msgid "Export"
-msgstr "Εξαγωγή"
-
-msgid "Export Library"
-msgstr ""
-
-msgid "Export Repository"
 msgstr ""
 
 msgid "Failed to add task to queue."
@@ -191,22 +109,19 @@ msgstr ""
 msgid "Failed to add task to queue: %s"
 msgstr ""
 
-msgid "Fetch pxe files"
+msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to update SCC account."
 msgstr ""
 
 msgid "Filter repositories"
 msgstr ""
 
-msgid "Filtered index content"
-msgstr ""
-
 msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
 msgstr ""
 
-msgid "Generate host applicability"
-msgstr ""
-
-msgid "Generate repository applicability"
+msgid "GPG key for SUSE products"
 msgstr ""
 
 msgid "Go to Product page"
@@ -215,10 +130,7 @@ msgstr ""
 msgid "Go to Repository page"
 msgstr ""
 
-msgid "Hypervisors"
-msgstr ""
-
-msgid "Hypervisors update"
+msgid "HH:MM AM"
 msgstr ""
 
 msgid "If this option is enabled, debug and source pool repositories are automatically selected if you select a product. This option is disabled by default. It applies for unselected products, only. Already selected products are not filtered."
@@ -227,49 +139,7 @@ msgstr ""
 msgid "Immediate"
 msgstr ""
 
-msgid "Import"
-msgstr "Εισαγωγή"
-
-msgid "Import Content View Version"
-msgstr ""
-
-msgid "Import Default Content View"
-msgstr ""
-
-msgid "Import Puppet classes"
-msgstr "Εισαγωγή κλάσεων Puppet"
-
-msgid "Import Repository"
-msgstr ""
-
-msgid "Import facts"
-msgstr ""
-
 msgid "Include Debug and Source Pool repositories"
-msgstr ""
-
-msgid "Incremental Update"
-msgstr ""
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr ""
-
-msgid "Index content"
-msgstr "Περιεχόμενο ευρετηρίου"
-
-msgid "Index errata"
-msgstr ""
-
-msgid "Index module streams"
-msgstr ""
-
-msgid "Index package groups"
-msgstr ""
-
-msgid "Install Applicable Errata"
-msgstr ""
-
-msgid "Instance update"
 msgstr ""
 
 msgid "Interval cannot be nil"
@@ -293,17 +163,20 @@ msgstr ""
 msgid "Lock on SCC account already taken: %s"
 msgstr ""
 
+msgid "Login"
+msgstr ""
+
 msgid "Login id of scc_account"
 msgstr "Αναγνωριστικό εισόδου scc_account"
 
 msgid "Mirroring Policy"
 msgstr ""
 
+msgid "Name"
+msgstr ""
+
 msgid "Name of the scc_account"
 msgstr "Όνομα του scc_account"
-
-msgid "No products selected."
-msgstr "Δεν επιλέχθηκαν προϊόντα."
 
 msgid "None"
 msgstr "Κανένα"
@@ -311,7 +184,7 @@ msgstr "Κανένα"
 msgid "On Demand"
 msgstr ""
 
-msgid "Package Profile Update"
+msgid "Password"
 msgstr ""
 
 msgid "Password of scc_account"
@@ -323,68 +196,41 @@ msgstr ""
 msgid "Please synchronize your SUSE account before you can subscribe to SUSE products."
 msgstr ""
 
-msgid "Product Create"
-msgstr ""
-
 msgid "Product Selection for Account %s"
 msgstr ""
 
 msgid "Products"
 msgstr "Προϊόντα"
 
-msgid "Promote"
+msgid "Refresh interval"
 msgstr ""
 
-msgid "Promotion to Environment"
-msgstr ""
-
-msgid "Publish"
-msgstr "Δημοσίευση"
-
-msgid "Publish Lifecycle Environment Repositories"
-msgstr ""
-
-msgid "Refresh Alternate Content Source"
-msgstr ""
-
-msgid "Reindex subscriptions"
-msgstr ""
-
-msgid "Remove Content"
-msgstr "Αφαίρεση περιεχομένου"
-
-msgid "Remove Version"
-msgstr "Αφαίρεση έκδοσης"
-
-msgid "Remove Versions and Associations"
-msgstr ""
-
-msgid "Remove from Environment"
-msgstr ""
-
-msgid "Remove subscriptions"
+msgid "Refresh time"
 msgstr ""
 
 msgid "Repositories (%s/%s)"
 msgstr ""
 
-msgid "Repository not imported"
+msgid "Repository Sync Settings"
 msgstr ""
 
-msgid "Republish Version Repositories"
+msgid "Repository not imported"
 msgstr ""
 
 msgid "Reset Selection"
 msgstr ""
 
-msgid "Run Sync Plan:"
-msgstr "Εκκίνηση πλάνου συγχρονισμού:"
+msgid "SCC Account Credentials"
+msgstr ""
+
+msgid "SCC account created successfully."
+msgstr ""
+
+msgid "SCC account updated successfully."
+msgstr ""
 
 msgid "SUSE Customer Center"
 msgstr "Κέντρο πελατών SUSE"
-
-msgid "SUSE Customer Center account"
-msgstr "Λογαριασμός κέντρου πελατών SUSE"
 
 msgid "SUSE Subscription"
 msgstr "Συνδρομή SUSE"
@@ -437,7 +283,13 @@ msgstr ""
 msgid "Show/Hide unsubscribed"
 msgstr ""
 
+msgid "Specifies the daily time when the SCC authentication token refresh process starts. Set this to a time outside of business hours (e.g., during the night) to minimize disruption."
+msgstr ""
+
 msgid "Starting the subscription task failed."
+msgstr ""
+
+msgid "Submit"
 msgstr ""
 
 msgid "Subscribe SCC Product"
@@ -452,9 +304,6 @@ msgstr ""
 msgid "Sync"
 msgstr "Συγχρονισμός"
 
-msgid "Sync Date"
-msgstr "Ημερομηνία συγχρονισμού"
-
 msgid "Sync SUSE subscriptions"
 msgstr "Συγχρονισμός συνδρομών SUSE"
 
@@ -464,32 +313,14 @@ msgstr "Συγχρονισμός συνδρομών SUSE (Προϊόντα)"
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr "Συγχρονισμός συνδρομών SUSE (Αποθετήρια)"
 
-msgid "Sync capsule"
-msgstr ""
-
-msgid "Sync interval"
-msgstr ""
-
 msgid "Sync scc_account"
 msgstr "Συγχρονισμός scc_account"
 
 msgid "Sync task started."
 msgstr "Η εργασία συγχρονισμού εκκίνησε."
 
-msgid "Syncable export"
-msgstr ""
-
-msgid "Synchronize"
-msgstr "Συγχρονισμός"
-
 msgid "Synchronize SUSE Account"
 msgstr ""
-
-msgid "Synchronize smart proxy"
-msgstr ""
-
-msgid "Task to subscribe products started."
-msgstr "Εκκίνησε η εργασία για συνδρομή των προϊόντων."
 
 msgid "Test Connection"
 msgstr "Δοκιμή σύνδεσης"
@@ -515,7 +346,10 @@ msgstr ""
 msgid "The subscription task with id "
 msgstr ""
 
-msgid "The sync interval is used to periodically update the SCC authentication tokens of any imported products."
+msgid "The token refresh interval is used to periodically update the SCC authentication tokens of any imported products."
+msgstr ""
+
+msgid "Token Refresh Settings"
 msgstr ""
 
 msgid "URL of SUSE for scc_account"
@@ -524,61 +358,19 @@ msgstr "URL του SUSE για το scc_account"
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-msgid "Update"
-msgstr "Ενημέρωση"
-
-msgid "Update Alternate Content Source"
-msgstr ""
-
-msgid "Update CDN Configuration"
-msgstr ""
-
-msgid "Update Content Overrides"
-msgstr ""
-
 msgid "Update SUSE repositories"
 msgstr "Ενημέρωση αποθετηρίων SUSE"
 
 msgid "Update SUSE repositories %s"
 msgstr "Ενημέρωση αποθετηρίων SUSE %s"
 
-msgid "Update content urls"
-msgstr ""
-
-msgid "Update for host"
-msgstr ""
-
-msgid "Update http proxy"
-msgstr ""
-
-msgid "Update http proxy details"
-msgstr ""
-
-msgid "Update redhat repository"
-msgstr ""
-
-msgid "Update release version for host"
-msgstr ""
-
 msgid "Update scc_account"
 msgstr "Ενημέρωση scc_account"
-
-msgid "Updating System Purpose for host"
-msgstr ""
-
-msgid "Upload into"
-msgstr "Μεταφόρτωση σε"
-
-msgid "Use GPG key for SUSE products"
-msgstr ""
 
 msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
 msgstr ""
 
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
-msgstr ""
-
-msgid "Verify checksum"
 msgstr ""
 
 msgid ""
@@ -589,8 +381,14 @@ msgid ""
 "Really delete SCC account %s?"
 msgstr ""
 
+msgid "YYYY-MM-DD"
+msgstr ""
+
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
 msgid "never synced"
 msgstr "δεν συγχρονίστηκε ποτέ"
+
+msgid "no results"
+msgstr ""

@@ -10,10 +10,9 @@
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 4.0.0\n"
+"Project-Id-Version: foreman_scc_manager 5.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
 "Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
@@ -39,15 +38,6 @@ msgstr ""
 msgid "%s/%s"
 msgstr ""
 
-msgid "Abstract"
-msgstr "概要"
-
-msgid "Abstract async task"
-msgstr "非同期タスクの抽象化"
-
-msgid "Action with sub plans"
-msgstr "サブプランによるアクション"
-
 msgid "Actions"
 msgstr "アクション"
 
@@ -66,28 +56,19 @@ msgstr ""
 msgid "Additive"
 msgstr "付加"
 
-msgid "Agent action"
-msgstr "エージェントのアクション"
-
 msgid "Associated GPG key of scc_account"
 msgstr "scc_account の関連付けられた GPG キー"
 
-msgid "Attach subscriptions"
-msgstr "サブスクリプションの割り当て"
-
-msgid "Auto attach subscriptions"
-msgstr "サブスクリプションの自動割り当て"
-
 msgid "Base URL"
 msgstr "ベース URL"
-
-msgid "Bulk generate applicability for hosts"
-msgstr "ホストに適用可能なエラータを一括生成します"
 
 msgid "Bulk subscription of scc_products for scc_account"
 msgstr "scc_account の scc_products の一括サブスクリプション"
 
 msgid "Bulk subscription of scc_products with individual repository selection for scc_account."
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Collapse products"
@@ -96,32 +77,14 @@ msgstr ""
 msgid "Collapse/Expand"
 msgstr ""
 
-msgid "Combined Profile Update"
-msgstr "統合プロファイルの更新"
+msgid "Connection OK"
+msgstr ""
+
+msgid "Connection test failed."
+msgstr ""
 
 msgid "Content Only"
 msgstr "コンテンツのみ"
-
-msgid "Copy version units to library"
-msgstr "バージョンユニットのライブラリーへのコピー"
-
-msgid "Create"
-msgstr "作成"
-
-msgid "Create Alternate Content Source"
-msgstr "代替コンテンツソースの作成"
-
-msgid "Create Export History"
-msgstr "エクスポート履歴の作成"
-
-msgid "Create Import History"
-msgstr "インポート履歴の作成"
-
-msgid "Create Package Group"
-msgstr "パッケージグループの作成"
-
-msgid "Create Syncable Export History"
-msgstr "同期可能なエクスポート履歴の作成"
 
 msgid "Create an scc_account"
 msgstr "scc_account の作成"
@@ -132,38 +95,8 @@ msgstr "cron 式が無効です!"
 msgid "Date and time relative to which the sync interval is run"
 msgstr "同期の実行関連の日時"
 
-msgid "Delete"
-msgstr "削除"
-
-msgid "Delete Activation Key"
-msgstr "アクティベーションキーの削除"
-
-msgid "Delete Lifecycle Environment"
-msgstr "ライフサイクル環境の削除"
-
-msgid "Delete Package Group"
-msgstr "パッケージグループの削除"
-
-msgid "Delete Product"
-msgstr "製品の削除"
-
 msgid "Delete scc_account"
 msgstr "scc_account の削除"
-
-msgid "Destroy"
-msgstr "破棄"
-
-msgid "Destroy Alternate Content Source"
-msgstr "大体コンテンツソースの破棄"
-
-msgid "Destroy Content Host"
-msgstr "コンテンツホストの破棄"
-
-msgid "Disable"
-msgstr "無効化"
-
-msgid "Discover"
-msgstr "検出"
 
 msgid "Download Policy"
 msgstr "ダウンロードポリシー"
@@ -171,23 +104,8 @@ msgstr "ダウンロードポリシー"
 msgid "Edit %s"
 msgstr "%s の編集"
 
-msgid "Enable"
-msgstr "有効化"
-
-msgid "Errata mail"
-msgstr "エラータメール"
-
 msgid "Expand products"
 msgstr ""
-
-msgid "Export"
-msgstr "エクスポート"
-
-msgid "Export Library"
-msgstr "ライブラリーのエクスポート"
-
-msgid "Export Repository"
-msgstr "リポジトリーのエクスポート"
 
 msgid "Failed to add task to queue."
 msgstr ""
@@ -195,23 +113,20 @@ msgstr ""
 msgid "Failed to add task to queue: %s"
 msgstr "タスクをキューに追加できませんでした: %s"
 
-msgid "Fetch pxe files"
-msgstr "PXE ファイルの取得"
+msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to update SCC account."
+msgstr ""
 
 msgid "Filter repositories"
 msgstr ""
 
-msgid "Filtered index content"
-msgstr "フィルタリングしたインデックスコンテンツ"
-
 msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
 msgstr "Foreman プラグインで SUSE Customer Center の製品およびリポジトリーを Katello に同期します。"
 
-msgid "Generate host applicability"
-msgstr "ホストに適用可能なエラータを生成します"
-
-msgid "Generate repository applicability"
-msgstr "リポジトリーに適用可能なエラータを生成します"
+msgid "GPG key for SUSE products"
+msgstr ""
 
 msgid "Go to Product page"
 msgstr ""
@@ -219,11 +134,8 @@ msgstr ""
 msgid "Go to Repository page"
 msgstr ""
 
-msgid "Hypervisors"
-msgstr "ハイパーバイザー"
-
-msgid "Hypervisors update"
-msgstr "ハイパーバイザーの更新"
+msgid "HH:MM AM"
+msgstr ""
 
 msgid "If this option is enabled, debug and source pool repositories are automatically selected if you select a product. This option is disabled by default. It applies for unselected products, only. Already selected products are not filtered."
 msgstr ""
@@ -231,50 +143,8 @@ msgstr ""
 msgid "Immediate"
 msgstr "即時"
 
-msgid "Import"
-msgstr "インポート"
-
-msgid "Import Content View Version"
-msgstr "コンテンツビューバージョンのインポート"
-
-msgid "Import Default Content View"
-msgstr "デフォルトのコンテンツビューのインポート"
-
-msgid "Import Puppet classes"
-msgstr "Puppet クラスのインポート"
-
-msgid "Import Repository"
-msgstr "リポジトリーのインポート"
-
-msgid "Import facts"
-msgstr "ファクトのインポート"
-
 msgid "Include Debug and Source Pool repositories"
 msgstr ""
-
-msgid "Incremental Update"
-msgstr "増分更新"
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr "コンテンツビューバージョンの増分更新 "
-
-msgid "Index content"
-msgstr "コンテンツのインデックス作成"
-
-msgid "Index errata"
-msgstr "エラータのインデックス作成"
-
-msgid "Index module streams"
-msgstr "モジュールストリームのインデックス作成"
-
-msgid "Index package groups"
-msgstr "パッケージグループのインデックス作成"
-
-msgid "Install Applicable Errata"
-msgstr "適用可能なエラータのインストール"
-
-msgid "Instance update"
-msgstr "インスタンスの更新"
 
 msgid "Interval cannot be nil"
 msgstr "間隔を nil にすることはできません"
@@ -297,17 +167,20 @@ msgstr ""
 msgid "Lock on SCC account already taken: %s"
 msgstr "すでに取得されている SCC アカウントのロック: %s"
 
+msgid "Login"
+msgstr ""
+
 msgid "Login id of scc_account"
 msgstr "scc_account のログイン ID"
 
 msgid "Mirroring Policy"
 msgstr "ミラーリングポリシー"
 
+msgid "Name"
+msgstr ""
+
 msgid "Name of the scc_account"
 msgstr "scc_account の名前"
-
-msgid "No products selected."
-msgstr "製品が選択されていません。"
 
 msgid "None"
 msgstr "なし"
@@ -315,8 +188,8 @@ msgstr "なし"
 msgid "On Demand"
 msgstr "オンデマンド"
 
-msgid "Package Profile Update"
-msgstr "パッケージプロファイルの更新"
+msgid "Password"
+msgstr ""
 
 msgid "Password of scc_account"
 msgstr "scc_account のパスワード"
@@ -327,68 +200,41 @@ msgstr ""
 msgid "Please synchronize your SUSE account before you can subscribe to SUSE products."
 msgstr ""
 
-msgid "Product Create"
-msgstr "製品の作成"
-
 msgid "Product Selection for Account %s"
 msgstr "アカウントの製品選択 %s"
 
 msgid "Products"
 msgstr "製品"
 
-msgid "Promote"
-msgstr "プロモート"
+msgid "Refresh interval"
+msgstr ""
 
-msgid "Promotion to Environment"
-msgstr "環境へのプロモート"
-
-msgid "Publish"
-msgstr "公開"
-
-msgid "Publish Lifecycle Environment Repositories"
-msgstr "ライフサイクル環境リポジトリーの公開"
-
-msgid "Refresh Alternate Content Source"
-msgstr "代替コンテンツソースの更新"
-
-msgid "Reindex subscriptions"
-msgstr "サブスクリプションのインデックス再作成"
-
-msgid "Remove Content"
-msgstr "コンテンツの削除"
-
-msgid "Remove Version"
-msgstr "バージョンの削除"
-
-msgid "Remove Versions and Associations"
-msgstr "バージョンおよび関連付けの削除"
-
-msgid "Remove from Environment"
-msgstr "環境からの削除"
-
-msgid "Remove subscriptions"
-msgstr "サブスクリプションの削除"
+msgid "Refresh time"
+msgstr ""
 
 msgid "Repositories (%s/%s)"
+msgstr ""
+
+msgid "Repository Sync Settings"
 msgstr ""
 
 msgid "Repository not imported"
 msgstr ""
 
-msgid "Republish Version Repositories"
-msgstr "バージョンリポジトリーの再公開"
-
 msgid "Reset Selection"
 msgstr ""
 
-msgid "Run Sync Plan:"
-msgstr "同期プランの実行:"
+msgid "SCC Account Credentials"
+msgstr ""
+
+msgid "SCC account created successfully."
+msgstr ""
+
+msgid "SCC account updated successfully."
+msgstr ""
 
 msgid "SUSE Customer Center"
 msgstr "SUSE Customer Center"
-
-msgid "SUSE Customer Center account"
-msgstr "SUSE Customer Center アカウント"
 
 msgid "SUSE Subscription"
 msgstr "SUSE サブスクリプション"
@@ -441,7 +287,13 @@ msgstr ""
 msgid "Show/Hide unsubscribed"
 msgstr ""
 
+msgid "Specifies the daily time when the SCC authentication token refresh process starts. Set this to a time outside of business hours (e.g., during the night) to minimize disruption."
+msgstr ""
+
 msgid "Starting the subscription task failed."
+msgstr ""
+
+msgid "Submit"
 msgstr ""
 
 msgid "Subscribe SCC Product"
@@ -456,9 +308,6 @@ msgstr ""
 msgid "Sync"
 msgstr "同期"
 
-msgid "Sync Date"
-msgstr "同期日"
-
 msgid "Sync SUSE subscriptions"
 msgstr "SUSE サブスクリプションの同期"
 
@@ -468,32 +317,14 @@ msgstr "SUSE サブスクリプションの同期 (製品)"
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr "SUSE サブスクリプションの同期 (リポジトリー)"
 
-msgid "Sync capsule"
-msgstr "Capsule の同期"
-
-msgid "Sync interval"
-msgstr "同期間隔"
-
 msgid "Sync scc_account"
 msgstr "scc_account の同期"
 
 msgid "Sync task started."
 msgstr "同期タスクが開始されました。"
 
-msgid "Syncable export"
-msgstr "同期可能なエクスポート"
-
-msgid "Synchronize"
-msgstr "同期"
-
 msgid "Synchronize SUSE Account"
 msgstr ""
-
-msgid "Synchronize smart proxy"
-msgstr "Smart Proxy の同期"
-
-msgid "Task to subscribe products started."
-msgstr "製品サブスクライブのタスクを開始しました。"
 
 msgid "Test Connection"
 msgstr "テスト接続"
@@ -519,8 +350,11 @@ msgstr ""
 msgid "The subscription task with id "
 msgstr ""
 
-msgid "The sync interval is used to periodically update the SCC authentication tokens of any imported products."
-msgstr "同期の間隔は、インポートされた製品の SCC 認証トークンを定期更新するのに使用されます。"
+msgid "The token refresh interval is used to periodically update the SCC authentication tokens of any imported products."
+msgstr ""
+
+msgid "Token Refresh Settings"
+msgstr ""
 
 msgid "URL of SUSE for scc_account"
 msgstr "scc_account の SUSE の URL"
@@ -528,62 +362,20 @@ msgstr "scc_account の SUSE の URL"
 msgid "Unknown"
 msgstr "不明"
 
-msgid "Update"
-msgstr "更新"
-
-msgid "Update Alternate Content Source"
-msgstr "代替コンテンツソースの更新"
-
-msgid "Update CDN Configuration"
-msgstr "CDN 設定の更新"
-
-msgid "Update Content Overrides"
-msgstr "コンテンツ上書きの更新"
-
 msgid "Update SUSE repositories"
 msgstr "SUSE リポジトリーの更新"
 
 msgid "Update SUSE repositories %s"
 msgstr "SUSE リポジトリー %s の更新"
 
-msgid "Update content urls"
-msgstr "コンテンツ url の更新"
-
-msgid "Update for host"
-msgstr "ホストの更新"
-
-msgid "Update http proxy"
-msgstr "http プロキシーの更新"
-
-msgid "Update http proxy details"
-msgstr "HTTP プロキシーの詳細更新"
-
-msgid "Update redhat repository"
-msgstr "redhat リポジトリーの更新"
-
-msgid "Update release version for host"
-msgstr "ホストのリリースバージョンの更新"
-
 msgid "Update scc_account"
 msgstr "scc_account の更新"
-
-msgid "Updating System Purpose for host"
-msgstr "ホストのシステム目的を更新中"
-
-msgid "Upload into"
-msgstr "アップロード先"
-
-msgid "Use GPG key for SUSE products"
-msgstr "SUSE 製品に GPG キーを使用する"
 
 msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
 msgstr "サブスクリプション時に SUSE 製品に自動追加する場合は、この設定を使用します。この設定は、後で「Content」 >「Products」メニューから変更できます。"
 
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr "SUSE Customer Center から取得した「組織の認証情報」を使用します。"
-
-msgid "Verify checksum"
-msgstr "チェックサムの確認"
 
 msgid ""
 "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
@@ -593,8 +385,14 @@ msgid ""
 "Really delete SCC account %s?"
 msgstr ""
 
+msgid "YYYY-MM-DD"
+msgstr ""
+
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
 msgid "never synced"
 msgstr "同期なし"
+
+msgid "no results"
+msgstr ""

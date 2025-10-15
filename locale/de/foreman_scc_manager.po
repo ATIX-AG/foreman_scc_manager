@@ -15,10 +15,9 @@
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # Ettore Atalan <atalanttore@googlemail.com>, 2023
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 4.0.0\n"
+"Project-Id-Version: foreman_scc_manager 5.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>, 2023\n"
@@ -44,15 +43,6 @@ msgstr ""
 msgid "%s/%s"
 msgstr ""
 
-msgid "Abstract"
-msgstr ""
-
-msgid "Abstract async task"
-msgstr "Übersicht asynchrone Aufgabe"
-
-msgid "Action with sub plans"
-msgstr "Aktion mit Unterplänen"
-
 msgid "Actions"
 msgstr "Aktionen"
 
@@ -71,28 +61,19 @@ msgstr ""
 msgid "Additive"
 msgstr ""
 
-msgid "Agent action"
-msgstr "Agentenaktion"
-
 msgid "Associated GPG key of scc_account"
 msgstr "Mit SCC Konto assoziierter GPG-Schlüssel"
 
-msgid "Attach subscriptions"
-msgstr "Subskriptionen verknüpfen"
-
-msgid "Auto attach subscriptions"
-msgstr "Subskriptionen automatisch verknüpfen"
-
 msgid "Base URL"
 msgstr "Basis URL"
-
-msgid "Bulk generate applicability for hosts"
-msgstr "Anwendbarkeit von Massengenerierung für Hosts"
 
 msgid "Bulk subscription of scc_products for scc_account"
 msgstr "Abonnieren mehrere SCC Produkte für ein SCC Konto"
 
 msgid "Bulk subscription of scc_products with individual repository selection for scc_account."
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Collapse products"
@@ -101,31 +82,13 @@ msgstr ""
 msgid "Collapse/Expand"
 msgstr ""
 
-msgid "Combined Profile Update"
-msgstr "Kombiniertes Profil-Update"
+msgid "Connection OK"
+msgstr ""
+
+msgid "Connection test failed."
+msgstr ""
 
 msgid "Content Only"
-msgstr ""
-
-msgid "Copy version units to library"
-msgstr "Versionseinheiten in Bibliothek kopieren"
-
-msgid "Create"
-msgstr "Erstellen"
-
-msgid "Create Alternate Content Source"
-msgstr ""
-
-msgid "Create Export History"
-msgstr "Exportverlauf erstellen"
-
-msgid "Create Import History"
-msgstr "Importverlauf erstellen"
-
-msgid "Create Package Group"
-msgstr "Paketgruppe erstellen"
-
-msgid "Create Syncable Export History"
 msgstr ""
 
 msgid "Create an scc_account"
@@ -137,38 +100,8 @@ msgstr "Cron-Ausdruck ungültig!"
 msgid "Date and time relative to which the sync interval is run"
 msgstr "Relativ zu diesem Zeitpunkt wird die Synchronisation ausgeführt"
 
-msgid "Delete"
-msgstr "Löschen"
-
-msgid "Delete Activation Key"
-msgstr "Aktivierungsschlüssel löschen"
-
-msgid "Delete Lifecycle Environment"
-msgstr "Lebenszyklusumgebung löschen"
-
-msgid "Delete Package Group"
-msgstr "Paketgruppe löschen"
-
-msgid "Delete Product"
-msgstr "Produkt löschen"
-
 msgid "Delete scc_account"
 msgstr "SCC Konto löschen"
-
-msgid "Destroy"
-msgstr "Löschen"
-
-msgid "Destroy Alternate Content Source"
-msgstr ""
-
-msgid "Destroy Content Host"
-msgstr "Inhaltshost löschen"
-
-msgid "Disable"
-msgstr "Deaktivieren"
-
-msgid "Discover"
-msgstr "Suchen"
 
 msgid "Download Policy"
 msgstr "Richtlinie herunterladen"
@@ -176,22 +109,7 @@ msgstr "Richtlinie herunterladen"
 msgid "Edit %s"
 msgstr "%s bearbeiten"
 
-msgid "Enable"
-msgstr "Aktivieren"
-
-msgid "Errata mail"
-msgstr "Errata-E-Mail"
-
 msgid "Expand products"
-msgstr ""
-
-msgid "Export"
-msgstr "Export"
-
-msgid "Export Library"
-msgstr "Bibliothek exportieren"
-
-msgid "Export Repository"
 msgstr ""
 
 msgid "Failed to add task to queue."
@@ -200,23 +118,20 @@ msgstr ""
 msgid "Failed to add task to queue: %s"
 msgstr "Aufgabe konnte nicht in die Warteschlange gestellt werden: %s"
 
-msgid "Fetch pxe files"
-msgstr "pxe-Dateien abrufen"
+msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to update SCC account."
+msgstr ""
 
 msgid "Filter repositories"
 msgstr ""
 
-msgid "Filtered index content"
-msgstr "Indexinhalt gefiltert"
-
 msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
 msgstr "Foreman Plugin um SUSE Customer Center Produkte und Repositorien in Katello zu importieren."
 
-msgid "Generate host applicability"
-msgstr "Hostanwendbarkeit generieren"
-
-msgid "Generate repository applicability"
-msgstr "Repository-Anwendbarkeit generieren"
+msgid "GPG key for SUSE products"
+msgstr ""
 
 msgid "Go to Product page"
 msgstr ""
@@ -224,11 +139,8 @@ msgstr ""
 msgid "Go to Repository page"
 msgstr ""
 
-msgid "Hypervisors"
-msgstr "Hypervisoren"
-
-msgid "Hypervisors update"
-msgstr "Hypervisoren aktualisieren"
+msgid "HH:MM AM"
+msgstr ""
 
 msgid "If this option is enabled, debug and source pool repositories are automatically selected if you select a product. This option is disabled by default. It applies for unselected products, only. Already selected products are not filtered."
 msgstr ""
@@ -236,50 +148,8 @@ msgstr ""
 msgid "Immediate"
 msgstr "Sofort"
 
-msgid "Import"
-msgstr "Import"
-
-msgid "Import Content View Version"
-msgstr "Inhaltsansichtsversion importieren"
-
-msgid "Import Default Content View"
-msgstr "Standardinhaltsansicht importieren"
-
-msgid "Import Puppet classes"
-msgstr "Puppet-Klassen importieren"
-
-msgid "Import Repository"
-msgstr ""
-
-msgid "Import facts"
-msgstr "Fakten importieren"
-
 msgid "Include Debug and Source Pool repositories"
 msgstr ""
-
-msgid "Incremental Update"
-msgstr "Inkrementelle Aktualisierung"
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr "Inkrementelle Aktualisierung der Inhaltsansichtsversion(en)"
-
-msgid "Index content"
-msgstr "Inhalt indizieren"
-
-msgid "Index errata"
-msgstr "Errata indizieren"
-
-msgid "Index module streams"
-msgstr "Modulströme indexieren"
-
-msgid "Index package groups"
-msgstr "Paketgruppen indizieren"
-
-msgid "Install Applicable Errata"
-msgstr "Relevante Errata installieren"
-
-msgid "Instance update"
-msgstr "Instanz-Update"
 
 msgid "Interval cannot be nil"
 msgstr "Intervall darf nicht Null sein"
@@ -302,17 +172,20 @@ msgstr ""
 msgid "Lock on SCC account already taken: %s"
 msgstr "Lock für SCC Zugang bereits vergeben: %s"
 
+msgid "Login"
+msgstr ""
+
 msgid "Login id of scc_account"
 msgstr "Benutzername des SCC Kontos"
 
 msgid "Mirroring Policy"
 msgstr ""
 
+msgid "Name"
+msgstr ""
+
 msgid "Name of the scc_account"
 msgstr "Name des SCC Kontos"
-
-msgid "No products selected."
-msgstr "Keine Produkte ausgewählt."
 
 msgid "None"
 msgstr "Keine"
@@ -320,8 +193,8 @@ msgstr "Keine"
 msgid "On Demand"
 msgstr "Auf Nachfrage"
 
-msgid "Package Profile Update"
-msgstr "Paketprofil-Update"
+msgid "Password"
+msgstr ""
 
 msgid "Password of scc_account"
 msgstr "Passwort des SCC Kontos"
@@ -332,68 +205,41 @@ msgstr ""
 msgid "Please synchronize your SUSE account before you can subscribe to SUSE products."
 msgstr ""
 
-msgid "Product Create"
-msgstr "Produkt erstellen"
-
 msgid "Product Selection for Account %s"
 msgstr "Produktauswahl für Konto %s"
 
 msgid "Products"
 msgstr "Produkte"
 
-msgid "Promote"
-msgstr "Fördern"
-
-msgid "Promotion to Environment"
-msgstr "Promotion des Environments"
-
-msgid "Publish"
-msgstr "Veröffentlichen"
-
-msgid "Publish Lifecycle Environment Repositories"
-msgstr "Lebenszyklusumgebungs-Repositorys veröffentlichen"
-
-msgid "Refresh Alternate Content Source"
+msgid "Refresh interval"
 msgstr ""
 
-msgid "Reindex subscriptions"
-msgstr "Subskriptionen neu indizieren"
-
-msgid "Remove Content"
-msgstr "Inhalt entfernen"
-
-msgid "Remove Version"
-msgstr "Version entfernen"
-
-msgid "Remove Versions and Associations"
-msgstr "Versionen und Verknüpfungen entfernen"
-
-msgid "Remove from Environment"
-msgstr "Aus Umgebung entfernen"
-
-msgid "Remove subscriptions"
-msgstr "Subskriptionen entfernen"
+msgid "Refresh time"
+msgstr ""
 
 msgid "Repositories (%s/%s)"
+msgstr ""
+
+msgid "Repository Sync Settings"
 msgstr ""
 
 msgid "Repository not imported"
 msgstr ""
 
-msgid "Republish Version Repositories"
-msgstr "Versions-Repositorys erneut veröffentlichen"
-
 msgid "Reset Selection"
 msgstr ""
 
-msgid "Run Sync Plan:"
-msgstr "Synchronisierungsplan ausführen:"
+msgid "SCC Account Credentials"
+msgstr ""
+
+msgid "SCC account created successfully."
+msgstr ""
+
+msgid "SCC account updated successfully."
+msgstr ""
 
 msgid "SUSE Customer Center"
 msgstr "SUSE Customer Center"
-
-msgid "SUSE Customer Center account"
-msgstr "SUSE Customer Center Konto"
 
 msgid "SUSE Subscription"
 msgstr "SUSE Abonnement"
@@ -446,7 +292,13 @@ msgstr ""
 msgid "Show/Hide unsubscribed"
 msgstr ""
 
+msgid "Specifies the daily time when the SCC authentication token refresh process starts. Set this to a time outside of business hours (e.g., during the night) to minimize disruption."
+msgstr ""
+
 msgid "Starting the subscription task failed."
+msgstr ""
+
+msgid "Submit"
 msgstr ""
 
 msgid "Subscribe SCC Product"
@@ -461,9 +313,6 @@ msgstr ""
 msgid "Sync"
 msgstr "Synchronisation"
 
-msgid "Sync Date"
-msgstr "Synchronisationsdatum"
-
 msgid "Sync SUSE subscriptions"
 msgstr "SUSE Abonnements synchronisieren"
 
@@ -473,32 +322,14 @@ msgstr "SUSE Abonnements (Produkte) synchronisieren"
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr "SUSE Abonnements (Repositorien) synchronisieren"
 
-msgid "Sync capsule"
-msgstr "Kapsel synchronisieren"
-
-msgid "Sync interval"
-msgstr "Synchronisationsintervall"
-
 msgid "Sync scc_account"
 msgstr "SCC Konto synchronisieren"
 
 msgid "Sync task started."
 msgstr "Synchronisierungsaufgabe gestartet."
 
-msgid "Syncable export"
-msgstr ""
-
-msgid "Synchronize"
-msgstr "Synchronisieren"
-
 msgid "Synchronize SUSE Account"
 msgstr ""
-
-msgid "Synchronize smart proxy"
-msgstr "Smart-Proxy synchronisieren"
-
-msgid "Task to subscribe products started."
-msgstr "Aufgabe zum Abonnieren von Produkten gestartet."
 
 msgid "Test Connection"
 msgstr "Verbindung testen"
@@ -524,8 +355,11 @@ msgstr ""
 msgid "The subscription task with id "
 msgstr ""
 
-msgid "The sync interval is used to periodically update the SCC authentication tokens of any imported products."
-msgstr "Das Synchronisationsintervall ist die Zeit, nach der automatisch das Autorisierungstoken erneuert wird."
+msgid "The token refresh interval is used to periodically update the SCC authentication tokens of any imported products."
+msgstr ""
+
+msgid "Token Refresh Settings"
+msgstr ""
 
 msgid "URL of SUSE for scc_account"
 msgstr "SUSE URL des SCC Kontos"
@@ -533,62 +367,20 @@ msgstr "SUSE URL des SCC Kontos"
 msgid "Unknown"
 msgstr "Unbekannt"
 
-msgid "Update"
-msgstr "Aktualisieren"
-
-msgid "Update Alternate Content Source"
-msgstr ""
-
-msgid "Update CDN Configuration"
-msgstr ""
-
-msgid "Update Content Overrides"
-msgstr "Inhaltsüberschreibungen aktualisieren"
-
 msgid "Update SUSE repositories"
 msgstr "SUSE Repositorien aktualisieren"
 
 msgid "Update SUSE repositories %s"
 msgstr "SUSE Repositorien %s aktualisieren"
 
-msgid "Update content urls"
-msgstr "Inhalts-URLs aktualisieren"
-
-msgid "Update for host"
-msgstr "Update für Host"
-
-msgid "Update http proxy"
-msgstr "HTTP-Proxy aktualisieren"
-
-msgid "Update http proxy details"
-msgstr "HTTP-Proxy-Details aktualisieren"
-
-msgid "Update redhat repository"
-msgstr "Redhat-Repository aktualisieren"
-
-msgid "Update release version for host"
-msgstr "Release-Version für Host aktualisieren"
-
 msgid "Update scc_account"
 msgstr "SCC Konto aktualisieren"
-
-msgid "Updating System Purpose for host"
-msgstr "Aktualisieren des Systemzwecks für den Host"
-
-msgid "Upload into"
-msgstr "Hochgeladen in"
-
-msgid "Use GPG key for SUSE products"
-msgstr "GPG-Schlüssel mit SUSE Produkten assoziieren"
 
 msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
 msgstr "Verwenden Sie diese Einstellung, wenn Sie beim Abonnieren automatisch einen GPG-Schlüssel zu Ihren SUSE Produkten hinzufügen wollen. Diese Einstellung kann später unter 'Inhalt' > 'Produkte' wieder geändert werden."
 
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr "Verwenden Sie die \"Organisationszugangsdaten\" aus dem SUSE Customer Center."
-
-msgid "Verify checksum"
-msgstr "Prüfsumme überprüfen"
 
 msgid ""
 "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
@@ -598,8 +390,14 @@ msgid ""
 "Really delete SCC account %s?"
 msgstr ""
 
+msgid "YYYY-MM-DD"
+msgstr ""
+
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
 msgid "never synced"
 msgstr "Nie synchronisiert"
+
+msgid "no results"
+msgstr ""

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 20:05+0100\n"
-"PO-Revision-Date: 2022-12-13 20:05+0100\n"
+"POT-Creation-Date: 2025-10-15 10:50+0200\n"
+"PO-Revision-Date: 2025-10-15 10:50+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,138 +18,128 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:15
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:17
 msgid "List all scc_accounts"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:24
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:26
 msgid "Show scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:32
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:34
 msgid "Name of the scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:33
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:73
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:35
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:81
 msgid "Login id of scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:34
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:74
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:36
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:82
 msgid "Password of scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:35
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:75
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:37
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:83
 msgid "URL of SUSE for scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:36
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:38
 msgid "Interval for syncing scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:40
-#: ../app/views/scc_accounts/_form.html.erb:28
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:42
+#: ../webpack/components/SCCAccountForm/components/SCCSyncSettingsCard.js:110
 msgid ""
 "The default download policy for repositories which were created using this SCC"
 " Account."
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:44
-#: ../app/views/scc_accounts/_form.html.erb:30
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:46
+#: ../webpack/components/SCCAccountForm/components/SCCSyncSettingsCard.js:162
 msgid ""
 "The default mirroring policy for repositories which were created using this SC"
 "C Account."
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:45
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:47
 msgid "Date and time relative to which the sync interval is run"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:46
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:48
 msgid "Associated GPG key of scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:50
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:52
 msgid "Create an scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:57
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:59
 msgid "Update scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:64
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:72
 msgid "Delete scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:70
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:71
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:78
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:79
 msgid "Test connection for scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:98
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:106
 msgid "Sync scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:112
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:120
 msgid "Bulk subscription of scc_products for scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:145
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:153
 msgid ""
 "Bulk subscription of scc_products with individual repository selection for scc"
 "_account."
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_accounts_controller.rb:155
+#: ../app/controllers/api/v2/scc_accounts_controller.rb:163
 msgid "The selected products cannot be found for this SCC account."
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_products_controller.rb:23
+#: ../app/controllers/api/v2/scc_products_controller.rb:25
 msgid "List products for an scc_account"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_products_controller.rb:25
+#: ../app/controllers/api/v2/scc_products_controller.rb:27
 msgid "Show subscribed products only"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_products_controller.rb:35
+#: ../app/controllers/api/v2/scc_products_controller.rb:37
 msgid "Show an scc_account product"
 msgstr ""
 
-#: ../app/controllers/api/v2/scc_products_controller.rb:40
+#: ../app/controllers/api/v2/scc_products_controller.rb:43
 msgid "Subscribe product"
 msgstr ""
 
-#: ../app/controllers/scc_accounts_controller.rb:72
+#: ../app/controllers/scc_accounts_controller.rb:73
 #: ../webpack/components/SCCProductPage/SCCProductPageActions.js:25
 msgid "Sync task started."
 msgstr ""
 
-#: ../app/controllers/scc_accounts_controller.rb:74
-#: ../app/controllers/scc_accounts_controller.rb:94
+#: ../app/controllers/scc_accounts_controller.rb:75
 msgid "Failed to add task to queue: %s"
 msgstr ""
 
-#: ../app/controllers/scc_accounts_controller.rb:76
-#: ../app/controllers/scc_accounts_controller.rb:96
+#: ../app/controllers/scc_accounts_controller.rb:77
 msgid "Lock on SCC account already taken: %s"
 msgstr ""
 
-#: ../app/controllers/scc_accounts_controller.rb:89
-msgid "Task to subscribe products started."
-msgstr ""
-
-#: ../app/controllers/scc_accounts_controller.rb:91
-msgid "No products selected."
-msgstr ""
-
-#: ../app/lib/actions/scc_manager/subscribe_product.rb:84 action_names.rb:88
+#: ../app/lib/actions/scc_manager/subscribe_product.rb:84
 msgid "Subscribe SCC Product"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync.rb:27 action_names.rb:87
+#: ../app/lib/actions/scc_manager/sync.rb:27
 msgid "Sync SUSE subscriptions"
 msgstr ""
 
@@ -162,47 +152,46 @@ msgid "Unknown"
 msgstr ""
 
 #: ../app/lib/actions/scc_manager/sync_plan_account_repositories.rb:33
-#: action_names.rb:86
 msgid "Update SUSE repositories"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_products.rb:36 action_names.rb:85
+#: ../app/lib/actions/scc_manager/sync_products.rb:36
 msgid "Sync SUSE subscriptions (Products)"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_repositories.rb:34 action_names.rb:84
+#: ../app/lib/actions/scc_manager/sync_repositories.rb:34
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr ""
 
-#: ../app/models/scc_account.rb:64
+#: ../app/models/scc_account.rb:66
 msgid "never synced"
 msgstr ""
 
-#: ../app/models/scc_account.rb:111
+#: ../app/models/scc_account.rb:113
 msgid "Interval cannot be nil"
 msgstr ""
 
-#: ../app/models/scc_account.rb:118
+#: ../app/models/scc_account.rb:120
 msgid "Interval not set correctly"
 msgstr ""
 
-#: ../app/models/scc_account.rb:123
+#: ../app/models/scc_account.rb:125
 msgid "Cron expression is not valid!"
 msgstr ""
 
-#: ../app/models/scc_account.rb:290
+#: ../app/models/scc_account.rb:293
 msgid "On Demand"
 msgstr ""
 
-#: ../app/models/scc_account.rb:290
+#: ../app/models/scc_account.rb:294
 msgid "Immediate"
 msgstr ""
 
-#: ../app/models/scc_account.rb:297
+#: ../app/models/scc_account.rb:304
 msgid "Additive"
 msgstr ""
 
-#: ../app/models/scc_account.rb:297
+#: ../app/models/scc_account.rb:305
 msgid "Content Only"
 msgstr ""
 
@@ -213,59 +202,6 @@ msgstr ""
 #:
 #: ../app/views/scc_account_sync_plan_task_groups/_scc_account_sync_plan_task_groups.html.erb:1
 msgid "SUSE Subscription: "
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:7
-msgid "SUSE Customer Center account"
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:14
-msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:16
-msgid "Base URL"
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:18
-msgid "Sync interval"
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:18
-msgid ""
-"The sync interval is used to periodically update the SCC authentication tokens"
-" of any imported products."
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:19
-msgid "Sync Date"
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:23
-msgid "None"
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:24
-msgid "Use GPG key for SUSE products"
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:26
-msgid ""
-"Use this setting if you want to automatically add a GPG key to your SUSE produ"
-"cts upon subscription. You can change this setting in the 'Content' > 'Product"
-"s' menu, later."
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:28
-msgid "Download Policy"
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:30
-msgid "Mirroring Policy"
-msgstr ""
-
-#: ../app/views/scc_accounts/_form.html.erb:35
-msgid "Test Connection"
 msgstr ""
 
 #: ../app/views/scc_accounts/edit.html.erb:1
@@ -320,8 +256,129 @@ msgstr ""
 msgid "Product Selection for Account %s"
 msgstr ""
 
-#: ../lib/foreman_scc_manager/engine.rb:97
+#: ../lib/foreman_scc_manager/engine.rb:94
 msgid "SUSE Subscriptions"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/SCCAccountFormActions.js:25
+msgid "Connection OK"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/SCCAccountFormActions.js:26
+msgid "Connection test failed."
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/SCCAccountFormActions.js:65
+msgid "SCC account updated successfully."
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/SCCAccountFormActions.js:66
+msgid "SCC account created successfully."
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/SCCAccountFormActions.js:69
+msgid "Failed to update SCC account."
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/SCCAccountFormActions.js:70
+msgid "Failed to create SCC account."
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/DateTimeField.js:49
+msgid "YYYY-MM-DD"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/DateTimeField.js:56
+msgid "HH:MM AM"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCCredentialsCard.js:36
+msgid "SCC Account Credentials"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCCredentialsCard.js:43
+msgid "Name"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCCredentialsCard.js:62
+msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCCredentialsCard.js:67
+msgid "Login"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCCredentialsCard.js:86
+msgid "Password"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCCredentialsCard.js:104
+msgid "Base URL"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCCredentialsCard.js:128
+msgid "Test Connection"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCSyncSettingsCard.js:43
+msgid "Repository Sync Settings"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCSyncSettingsCard.js:52
+msgid ""
+"Use this setting if you want to automatically add a GPG key to your SUSE produ"
+"cts upon subscription. You can change this setting in the 'Content' > 'Product"
+"s' menu, later."
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCSyncSettingsCard.js:57
+msgid "GPG key for SUSE products"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCSyncSettingsCard.js:81
+#: ../webpack/components/SCCAccountForm/components/SCCSyncSettingsCard.js:98
+msgid "None"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCSyncSettingsCard.js:115
+msgid "Download Policy"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCSyncSettingsCard.js:167
+msgid "Mirroring Policy"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCTokenRefreshCard.js:38
+msgid "Token Refresh Settings"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCTokenRefreshCard.js:47
+msgid ""
+"The token refresh interval is used to periodically update the SCC authenticati"
+"on tokens of any imported products."
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCTokenRefreshCard.js:52
+msgid "Refresh interval"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCTokenRefreshCard.js:101
+msgid ""
+"Specifies the daily time when the SCC authentication token refresh process sta"
+"rts. Set this to a time outside of business hours (e.g., during the night) to "
+"minimize disruption."
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/components/SCCTokenRefreshCard.js:106
+msgid "Refresh time"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/index.js:232
+msgid "Submit"
+msgstr ""
+
+#: ../webpack/components/SCCAccountForm/index.js:241
+msgid "Cancel"
 msgstr ""
 
 #: ../webpack/components/SCCProductPage/EmptySccProducts.js:15
@@ -334,7 +391,7 @@ msgstr ""
 msgid "SUSE Customer Center"
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/EmptySccProducts.js:30
+#: ../webpack/components/SCCProductPage/EmptySccProducts.js:35
 msgid "Synchronize SUSE Account"
 msgstr ""
 
@@ -351,7 +408,12 @@ msgid "Failed to add task to queue."
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCTreePicker/components/SCCRepoPicker/index.js:150
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCGenericPicker/index.js:36
+msgid "no results"
+msgstr ""
+
+#:
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCTreePicker/components/SCCRepoPicker/index.js:153
 msgid "%s/%s"
 msgstr ""
 
@@ -361,7 +423,7 @@ msgid "Filter repositories"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCTreePicker/index.js:254
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCTreePicker/index.js:246
 msgid ""
 "If this option is enabled, debug and source pool repositories are automaticall"
 "y selected if you select a product. This option is disabled by default. It app"
@@ -370,12 +432,12 @@ msgid ""
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCTreePicker/index.js:262
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCTreePicker/index.js:255
 msgid "Include Debug and Source Pool repositories"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCTreePicker/index.js:283
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCTreePicker/index.js:277
 msgid "Add product(s)"
 msgstr ""
 
@@ -392,17 +454,17 @@ msgid " -- Select Architecture --"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPicker/index.js:134
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/index.js:150
 msgid "Select SUSE products"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPicker/index.js:193
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/index.js:207
 msgid "Search"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPicker/index.js:202
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/index.js:217
 msgid "Reset Selection"
 msgstr ""
 
@@ -412,38 +474,38 @@ msgid "Summary of SCC product subscription"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPickerModal/index.js:48
+#: ../webpack/components/SCCProductPage/components/SCCProductPickerModal/index.js:51
 msgid "The subscription task with id "
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPickerModal/index.js:57
+#: ../webpack/components/SCCProductPage/components/SCCProductPickerModal/index.js:61
 msgid " has started successfully."
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPickerModal/index.js:60
+#: ../webpack/components/SCCProductPage/components/SCCProductPickerModal/index.js:67
 msgid "The following products will be imported:"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductView/components/SCCRepoView/index.js:22
+#: ../webpack/components/SCCProductPage/components/SCCProductView/components/SCCRepoView/index.js:26
 msgid "Go to Repository page"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductView/components/SCCRepoView/index.js:41
+#: ../webpack/components/SCCProductPage/components/SCCProductView/components/SCCRepoView/index.js:49
 msgid "Repository not imported"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductView/components/SCCRepoView/index.js:46
-#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:76
+#: ../webpack/components/SCCProductPage/components/SCCProductView/components/SCCRepoView/index.js:57
+#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:91
 msgid "Please check your SUSE subscription"
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductView/components/SCCRepoView/index.js:90
+#: ../webpack/components/SCCProductPage/components/SCCProductView/components/SCCRepoView/index.js:95
 msgid "Repositories (%s/%s)"
 msgstr ""
 
@@ -451,29 +513,29 @@ msgstr ""
 msgid "Go to Product page"
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:48
+#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:56
 msgid "Add more sub products to Product tree"
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:64
+#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:78
 msgid "Show currently added repositories"
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:161
+#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:179
 msgid "Selected SUSE Products"
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:185
+#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:203
 msgid ""
 "You currently have no SUSE products selected. Search and add SUSE products in "
 "the section below."
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:199
+#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:217
 msgid "Show all subscription tasks"
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:213
+#: ../webpack/components/SCCProductPage/components/SCCProductView/index.js:231
 msgid "Show last product subscription task"
 msgstr ""
 
@@ -505,334 +567,6 @@ msgstr ""
 #:
 #: ../webpack/components/SCCProductPage/components/common/SCCSubscribedProductsExpander/index.js:11
 msgid "Show/Hide unsubscribed"
-msgstr ""
-
-#: action_names.rb:2
-msgid "Import"
-msgstr ""
-
-#: action_names.rb:3
-msgid "Export Repository"
-msgstr ""
-
-#: action_names.rb:4
-msgid "Export Library"
-msgstr ""
-
-#: action_names.rb:5
-msgid "Generate host applicability"
-msgstr ""
-
-#: action_names.rb:6
-msgid "Bulk generate applicability for hosts"
-msgstr ""
-
-#: action_names.rb:7
-msgid "Generate repository applicability"
-msgstr ""
-
-#: action_names.rb:8
-msgid "Synchronize smart proxy"
-msgstr ""
-
-#: action_names.rb:9
-msgid "Sync capsule"
-msgstr ""
-
-#: action_names.rb:10
-msgid "Update CDN Configuration"
-msgstr ""
-
-#: action_names.rb:11
-msgid "Update"
-msgstr ""
-
-#: action_names.rb:12
-msgid "Delete"
-msgstr ""
-
-#: action_names.rb:13
-msgid "Errata mail"
-msgstr ""
-
-#: action_names.rb:14
-msgid "Incremental Update of  Content View Version(s) "
-msgstr ""
-
-#: action_names.rb:15
-msgid "Import facts"
-msgstr ""
-
-#: action_names.rb:16
-msgid "Import Puppet classes"
-msgstr ""
-
-#: action_names.rb:17
-msgid "Abstract async task"
-msgstr ""
-
-#: action_names.rb:18
-msgid "Syncable export"
-msgstr ""
-
-#: action_names.rb:19
-msgid "Export"
-msgstr ""
-
-#: action_names.rb:20
-msgid "Copy version units to library"
-msgstr ""
-
-#: action_names.rb:21
-msgid "Create Syncable Export History"
-msgstr ""
-
-#: action_names.rb:22
-msgid "Create Import History"
-msgstr ""
-
-#: action_names.rb:23
-msgid "Create"
-msgstr ""
-
-#: action_names.rb:24
-msgid "Delete Activation Key"
-msgstr ""
-
-#: action_names.rb:25
-msgid "Create Export History"
-msgstr ""
-
-#: action_names.rb:26
-msgid "Agent action"
-msgstr ""
-
-#: action_names.rb:27
-msgid "Create Alternate Content Source"
-msgstr ""
-
-#: action_names.rb:28
-msgid "Destroy Alternate Content Source"
-msgstr ""
-
-#: action_names.rb:29
-msgid "Refresh Alternate Content Source"
-msgstr ""
-
-#: action_names.rb:30
-msgid "Update Alternate Content Source"
-msgstr ""
-
-#: action_names.rb:31
-msgid "Action with sub plans"
-msgstr ""
-
-#: action_names.rb:32
-msgid "Abstract"
-msgstr ""
-
-#: action_names.rb:33
-msgid "Remove from Environment"
-msgstr ""
-
-#: action_names.rb:34
-msgid "Promote"
-msgstr ""
-
-#: action_names.rb:35
-msgid "Promotion to Environment"
-msgstr ""
-
-#: action_names.rb:36
-msgid "Publish"
-msgstr ""
-
-#: action_names.rb:37
-msgid "Remove Versions and Associations"
-msgstr ""
-
-#: action_names.rb:38
-msgid "Remove Version"
-msgstr ""
-
-#: action_names.rb:39
-msgid "Import Content View Version"
-msgstr ""
-
-#: action_names.rb:40
-msgid "Import Default Content View"
-msgstr ""
-
-#: action_names.rb:41
-msgid "Import Repository"
-msgstr ""
-
-#: action_names.rb:42
-msgid "Incremental Update"
-msgstr ""
-
-#: action_names.rb:43
-msgid "Republish Version Repositories"
-msgstr ""
-
-#: action_names.rb:44
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-#: action_names.rb:45
-msgid "Publish Lifecycle Environment Repositories"
-msgstr ""
-
-#: action_names.rb:46
-msgid "Attach subscriptions"
-msgstr ""
-
-#: action_names.rb:47
-msgid "Auto attach subscriptions"
-msgstr ""
-
-#: action_names.rb:48
-msgid "Destroy Content Host"
-msgstr ""
-
-#: action_names.rb:49
-msgid "Install Applicable Errata"
-msgstr ""
-
-#: action_names.rb:50
-msgid "Hypervisors"
-msgstr ""
-
-#: action_names.rb:51
-msgid "Hypervisors update"
-msgstr ""
-
-#: action_names.rb:52
-msgid "Remove subscriptions"
-msgstr ""
-
-#: action_names.rb:53
-msgid "Combined Profile Update"
-msgstr ""
-
-#: action_names.rb:54
-msgid "Update Content Overrides"
-msgstr ""
-
-#: action_names.rb:55
-msgid "Update for host"
-msgstr ""
-
-#: action_names.rb:56
-msgid "Update release version for host"
-msgstr ""
-
-#: action_names.rb:57
-msgid "Updating System Purpose for host"
-msgstr ""
-
-#: action_names.rb:58
-msgid "Package Profile Update"
-msgstr ""
-
-#: action_names.rb:59
-msgid "Destroy"
-msgstr ""
-
-#: action_names.rb:60
-msgid "Run Sync Plan:"
-msgstr ""
-
-#: action_names.rb:61
-msgid "Enable"
-msgstr ""
-
-#: action_names.rb:62
-msgid "Disable"
-msgstr ""
-
-#: action_names.rb:63
-msgid "Verify checksum"
-msgstr ""
-
-#: action_names.rb:64
-msgid "Create Package Group"
-msgstr ""
-
-#: action_names.rb:65
-msgid "Upload into"
-msgstr ""
-
-#: action_names.rb:66
-msgid "Update redhat repository"
-msgstr ""
-
-#: action_names.rb:67
-msgid "Update http proxy details"
-msgstr ""
-
-#: action_names.rb:68
-msgid "Update content urls"
-msgstr ""
-
-#: action_names.rb:69
-msgid "Discover"
-msgstr ""
-
-#: action_names.rb:70
-msgid "Synchronize"
-msgstr ""
-
-#: action_names.rb:71
-msgid "Remove Content"
-msgstr ""
-
-#: action_names.rb:72
-msgid "Instance update"
-msgstr ""
-
-#: action_names.rb:73
-msgid "Index package groups"
-msgstr ""
-
-#: action_names.rb:74
-msgid "Index module streams"
-msgstr ""
-
-#: action_names.rb:75
-msgid "Index errata"
-msgstr ""
-
-#: action_names.rb:76
-msgid "Index content"
-msgstr ""
-
-#: action_names.rb:77
-msgid "Filtered index content"
-msgstr ""
-
-#: action_names.rb:78
-msgid "Fetch pxe files"
-msgstr ""
-
-#: action_names.rb:79
-msgid "Delete Package Group"
-msgstr ""
-
-#: action_names.rb:80
-msgid "Update http proxy"
-msgstr ""
-
-#: action_names.rb:81
-msgid "Reindex subscriptions"
-msgstr ""
-
-#: action_names.rb:82
-msgid "Delete Product"
-msgstr ""
-
-#: action_names.rb:83
-msgid "Product Create"
 msgstr ""
 
 #: gemspec.rb:2

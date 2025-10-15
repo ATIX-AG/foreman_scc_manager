@@ -6,10 +6,9 @@
 # Translators:
 # Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 4.0.0\n"
+"Project-Id-Version: foreman_scc_manager 5.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022\n"
@@ -35,15 +34,6 @@ msgstr " წარმატებით გაეშვა."
 msgid "%s/%s"
 msgstr "%s/%s"
 
-msgid "Abstract"
-msgstr "ანოტაცია"
-
-msgid "Abstract async task"
-msgstr "ასინქრონული ამოცანის აბსტრაქცია"
-
-msgid "Action with sub plans"
-msgstr "ქმედება ქვე-გეგმებით"
-
 msgid "Actions"
 msgstr "ქმედებები"
 
@@ -62,23 +52,11 @@ msgstr "პროდუქტ(ებ)ის დამატება"
 msgid "Additive"
 msgstr "დანამატი"
 
-msgid "Agent action"
-msgstr "აგენტის ქმედება"
-
 msgid "Associated GPG key of scc_account"
 msgstr "SCC_accounts-თან ასოცირებული GPG გასაღბი"
 
-msgid "Attach subscriptions"
-msgstr "გამოწერების მიმაგრება"
-
-msgid "Auto attach subscriptions"
-msgstr "გამოწერების ავტომატური მიმაგრება"
-
 msgid "Base URL"
 msgstr "ძირითადი URL"
-
-msgid "Bulk generate applicability for hosts"
-msgstr "გამოყენებადობის ერთდროულად მრავალი ჰოსტისთვის შექმნა"
 
 msgid "Bulk subscription of scc_products for scc_account"
 msgstr "SCC_account-სთვის მრავალი SCC_product-ების გამოწერა"
@@ -86,38 +64,23 @@ msgstr "SCC_account-სთვის მრავალი SCC_product-ები�
 msgid "Bulk subscription of scc_products with individual repository selection for scc_account."
 msgstr "Scc_account-ისთვის scc_products-ების მრავალი მინიჭება."
 
+msgid "Cancel"
+msgstr ""
+
 msgid "Collapse products"
 msgstr "პროდუქტების ჩაკეცვა"
 
 msgid "Collapse/Expand"
 msgstr "ჩაკეცვა/ამოკეცვა"
 
-msgid "Combined Profile Update"
-msgstr "პროფილის კომბინირებული განახლება"
+msgid "Connection OK"
+msgstr ""
+
+msgid "Connection test failed."
+msgstr ""
 
 msgid "Content Only"
 msgstr "მხოლოდ შემცველობა"
-
-msgid "Copy version units to library"
-msgstr "ვერსიის ერთეულების ბიბლიოთეკაში კოპირება"
-
-msgid "Create"
-msgstr "შექმნა"
-
-msgid "Create Alternate Content Source"
-msgstr "შემცველობის ალტერნატიული წყაროს შექმნა"
-
-msgid "Create Export History"
-msgstr "გატანის ისტორიის შექმნა"
-
-msgid "Create Import History"
-msgstr "შემოტანის ისტორიის შექმნა"
-
-msgid "Create Package Group"
-msgstr "პაკეტების ჯგუფის შექმნა"
-
-msgid "Create Syncable Export History"
-msgstr "სინქრონიზებადი გატანის ისტორიის შექმნა"
 
 msgid "Create an scc_account"
 msgstr "SCC_account-ის შექმნა"
@@ -128,38 +91,8 @@ msgstr "Cron-ის გამოსახულება არასწორ�
 msgid "Date and time relative to which the sync interval is run"
 msgstr "თარიღი და დრო იმ მომენტიდან, როცა სინქი ბოლოს გაეშვა"
 
-msgid "Delete"
-msgstr "წაშლა"
-
-msgid "Delete Activation Key"
-msgstr "აქტივაციის გასაღების წაშლა"
-
-msgid "Delete Lifecycle Environment"
-msgstr "ცხოვრების ციკლის გარემოს წაშლა"
-
-msgid "Delete Package Group"
-msgstr "პაკეტების ჯგუფის წაშლა"
-
-msgid "Delete Product"
-msgstr "პროდუქტის წაშლა"
-
 msgid "Delete scc_account"
 msgstr "SCC_account-ის წაშლა"
-
-msgid "Destroy"
-msgstr "განადგურება"
-
-msgid "Destroy Alternate Content Source"
-msgstr "შემცველობის ალტერნატიული წყაროს  განადგურება"
-
-msgid "Destroy Content Host"
-msgstr "შემცველობის ჰოსტის განადგურება"
-
-msgid "Disable"
-msgstr "გამორთვა"
-
-msgid "Discover"
-msgstr "აღმოაჩინეთ"
 
 msgid "Download Policy"
 msgstr "გადმოწერის წესები"
@@ -167,23 +100,8 @@ msgstr "გადმოწერის წესები"
 msgid "Edit %s"
 msgstr "%s-ის ჩასწორება"
 
-msgid "Enable"
-msgstr "ჩართვა"
-
-msgid "Errata mail"
-msgstr "მორჩენილი ელფოსტა"
-
 msgid "Expand products"
 msgstr "პროდუქტების ამოკეცვა"
-
-msgid "Export"
-msgstr "გატანა"
-
-msgid "Export Library"
-msgstr "ბიბლიოთეკის გატანა"
-
-msgid "Export Repository"
-msgstr "რეპოზიტორიის გატანა"
 
 msgid "Failed to add task to queue."
 msgstr "ამოცანის რიგში ჩამატების შეცდომა."
@@ -191,23 +109,20 @@ msgstr "ამოცანის რიგში ჩამატების შ
 msgid "Failed to add task to queue: %s"
 msgstr "ამოცანის რიგში ჩამატების შეცდომა: %s"
 
-msgid "Fetch pxe files"
-msgstr "PXE ფაილების გამოთხოვა"
+msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to update SCC account."
+msgstr ""
 
 msgid "Filter repositories"
 msgstr "რეპოზიტორიების გაფილტვრა"
 
-msgid "Filtered index content"
-msgstr "გაფილტრული ინდექსის შემცველობა"
-
 msgid "Foreman plugin to sync SUSE Customer Center products and repositories into Katello."
 msgstr "Foreman-ის მოდული SUSE-ის მხარდაჭერის გუნდის პროდუქტებისა და რეპოზიტორიების Katello-ში სინქრონიზაციისთვის."
 
-msgid "Generate host applicability"
-msgstr "ჰოსტის გამოყენებადობის გენერაცია"
-
-msgid "Generate repository applicability"
-msgstr "ჰოსტის გამოყენებადობის გენერაცია"
+msgid "GPG key for SUSE products"
+msgstr ""
 
 msgid "Go to Product page"
 msgstr "პროდუქტის გვერდზე გადასვლა"
@@ -215,11 +130,8 @@ msgstr "პროდუქტის გვერდზე გადასვლ�
 msgid "Go to Repository page"
 msgstr "რეპოზიტორიის გვერდზე გადასვლა"
 
-msgid "Hypervisors"
-msgstr "ჰაიპერვაიზორები"
-
-msgid "Hypervisors update"
-msgstr "ჰაიპერვაიზორის განახლება"
+msgid "HH:MM AM"
+msgstr ""
 
 msgid "If this option is enabled, debug and source pool repositories are automatically selected if you select a product. This option is disabled by default. It applies for unselected products, only. Already selected products are not filtered."
 msgstr "თუ ეს პარამეტრი ჩართულია, გამართვისა და კოდის პულის რეპოზიტორიები ავტომატურად მოინიშნება, თუ პროდუქტს აირჩევთ. ეს პარამეტრი ნაგულისხმებად გათიშულია. ის მუშაობს მხოლოდ მოუნიშნავ პროდუქტებზე. უკვე მონიშნული პროდუქტები არ გაიფილტრება."
@@ -227,50 +139,8 @@ msgstr "თუ ეს პარამეტრი ჩართულია, გ�
 msgid "Immediate"
 msgstr "უეცარი"
 
-msgid "Import"
-msgstr "შემოტანა"
-
-msgid "Import Content View Version"
-msgstr "შემცველობის ხედის ვერსიის შემოტანა"
-
-msgid "Import Default Content View"
-msgstr "ნაგულისხმები შემცველობის ხედის შემოტანა"
-
-msgid "Import Puppet classes"
-msgstr "Puppet-ის კლასების შემოტანა"
-
-msgid "Import Repository"
-msgstr "რეპოზიტორიის შემოტანა"
-
-msgid "Import facts"
-msgstr "ფაქტების შემოტანა"
-
 msgid "Include Debug and Source Pool repositories"
 msgstr "გამართვისა და კოდის პულის რეპოზიტორიების ჩათვლით"
-
-msgid "Incremental Update"
-msgstr "ინკრემენტული განახლება"
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr "შემცველობის ხედის ვერსიების ინკრემენტული განახლება "
-
-msgid "Index content"
-msgstr "შემცველობის ინდექსი"
-
-msgid "Index errata"
-msgstr "მორჩენილების ინდექსი"
-
-msgid "Index module streams"
-msgstr "მოდულების ნაკადების ინდექსი"
-
-msgid "Index package groups"
-msgstr "პაკეტის ჯგუფების ინდექსი"
-
-msgid "Install Applicable Errata"
-msgstr "განკუთვნილი მორჩენილი პაჩების დაყენება"
-
-msgid "Instance update"
-msgstr "გაშვებული ასლის განახლება"
 
 msgid "Interval cannot be nil"
 msgstr "ინტერვალ ნული არ შეძლება იყოს"
@@ -293,17 +163,20 @@ msgstr "პროდუქტების სია scc_accounts-სთვის
 msgid "Lock on SCC account already taken: %s"
 msgstr "SCC_account უკვე დაბლოკილია: %s"
 
+msgid "Login"
+msgstr ""
+
 msgid "Login id of scc_account"
 msgstr "SCC_account-ის მომხმარებლის სახელი"
 
 msgid "Mirroring Policy"
 msgstr "სარკისებრი ასლის წესი"
 
+msgid "Name"
+msgstr ""
+
 msgid "Name of the scc_account"
 msgstr "SCC_account-ის სახელი"
-
-msgid "No products selected."
-msgstr "პროდუქტები არჩეული არაა."
 
 msgid "None"
 msgstr "არაფერი"
@@ -311,8 +184,8 @@ msgstr "არაფერი"
 msgid "On Demand"
 msgstr "საჭიროებისამებრ"
 
-msgid "Package Profile Update"
-msgstr "პაკეტის პროფილის განახლება"
+msgid "Password"
+msgstr ""
 
 msgid "Password of scc_account"
 msgstr "SCC_account-ის პაროლი"
@@ -323,68 +196,41 @@ msgstr "შეამოწმეთ SUSE-ის თქვენი გამო�
 msgid "Please synchronize your SUSE account before you can subscribe to SUSE products."
 msgstr "SUSE-ის პროდუქტების გამოწერამდე თქვენი SUSE-ის ანგარიშის სინქრონიზაციაა საჭირო."
 
-msgid "Product Create"
-msgstr "პროდუქტის შექმნა"
-
 msgid "Product Selection for Account %s"
 msgstr "პროდუქტების არჩევანი ანგარიშისთვის %s"
 
 msgid "Products"
 msgstr "პროდუქტები"
 
-msgid "Promote"
-msgstr "დაწინაურება"
+msgid "Refresh interval"
+msgstr ""
 
-msgid "Promotion to Environment"
-msgstr "გარემოს წინ წაწევა"
-
-msgid "Publish"
-msgstr "გამოქვეყნება"
-
-msgid "Publish Lifecycle Environment Repositories"
-msgstr "ცხოვრების ციკლის გარემოს რეპოზიტორიების გასაჯაროება"
-
-msgid "Refresh Alternate Content Source"
-msgstr "შემცველობის ალტერნატიული წყაროს განახლება"
-
-msgid "Reindex subscriptions"
-msgstr "გამოწერების თავიდან ინდექსირება"
-
-msgid "Remove Content"
-msgstr "შემცველობის წაშლა"
-
-msgid "Remove Version"
-msgstr "ვერსიის წაშლა"
-
-msgid "Remove Versions and Associations"
-msgstr "ვერსიებისა და ასოციაციების წაშლა"
-
-msgid "Remove from Environment"
-msgstr "გარემოდან წაშლა"
-
-msgid "Remove subscriptions"
-msgstr "გამოწერის წაშლა"
+msgid "Refresh time"
+msgstr ""
 
 msgid "Repositories (%s/%s)"
 msgstr "რეპოზიტორიები (%s/%s)"
 
+msgid "Repository Sync Settings"
+msgstr ""
+
 msgid "Repository not imported"
 msgstr "რეპოზიტორია შემოტანილი არაა"
-
-msgid "Republish Version Repositories"
-msgstr "ვერსიების რეპოზიტორიების თავიდან გამოჩენა"
 
 msgid "Reset Selection"
 msgstr "მონიშვნის გაუქმება"
 
-msgid "Run Sync Plan:"
-msgstr "სინქრონიზაციის გეგმის გაშვება:"
+msgid "SCC Account Credentials"
+msgstr ""
+
+msgid "SCC account created successfully."
+msgstr ""
+
+msgid "SCC account updated successfully."
+msgstr ""
 
 msgid "SUSE Customer Center"
 msgstr "SUSE-ის მხარდაჭერის გუნდი"
-
-msgid "SUSE Customer Center account"
-msgstr "SUSE-ის მხარდაჭერის გუნდის ანგარიში (Customer Center Account)"
 
 msgid "SUSE Subscription"
 msgstr "SUSE-ის გამოწერა"
@@ -437,8 +283,14 @@ msgstr "მხოლოდ გამოწერილი პროდუქტ�
 msgid "Show/Hide unsubscribed"
 msgstr "გამოუწერლების დამალვა/ჩვენება"
 
+msgid "Specifies the daily time when the SCC authentication token refresh process starts. Set this to a time outside of business hours (e.g., during the night) to minimize disruption."
+msgstr ""
+
 msgid "Starting the subscription task failed."
 msgstr "გამოწერის ამოცანის გაშვების შეცდომა."
+
+msgid "Submit"
+msgstr ""
 
 msgid "Subscribe SCC Product"
 msgstr "SCC პროდუქტის გამოწერა"
@@ -452,9 +304,6 @@ msgstr "SCC პროდუქტის გამოწერის მიმო
 msgid "Sync"
 msgstr "სინქრონიზაცია"
 
-msgid "Sync Date"
-msgstr "სინქის თარიღი"
-
 msgid "Sync SUSE subscriptions"
 msgstr "SUSE-ის გამოწერების სინქი"
 
@@ -464,32 +313,14 @@ msgstr "SUSE-ის გამოწერების სინქი (პრო
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr "SUSE-ის გამოწერების სინქი (რეპოზიტორიები)"
 
-msgid "Sync capsule"
-msgstr "სინქრონიზაციის კაპსულა"
-
-msgid "Sync interval"
-msgstr "სინქის ინტერვალი"
-
 msgid "Sync scc_account"
 msgstr "SCC_account-ის სინქრონიზაცია"
 
 msgid "Sync task started."
 msgstr "სინქის ამოცანა გაეშვა."
 
-msgid "Syncable export"
-msgstr "სინქრონიზებადი გატანა"
-
-msgid "Synchronize"
-msgstr "სინქრონიზაცია"
-
 msgid "Synchronize SUSE Account"
 msgstr "SUSE-ის ანგარიშის სინქრონიზაცია"
-
-msgid "Synchronize smart proxy"
-msgstr "ჭკვიან პროქსისთან სინქრონიზაცია"
-
-msgid "Task to subscribe products started."
-msgstr "პროდუქტების გამოწერის ამოცანა გაეშვა."
 
 msgid "Test Connection"
 msgstr "შეერთების შემოწმება"
@@ -515,8 +346,11 @@ msgstr "გამოწერის ამოცანა წარმატე�
 msgid "The subscription task with id "
 msgstr "გამოწერის ამოცანა ID-ით "
 
-msgid "The sync interval is used to periodically update the SCC authentication tokens of any imported products."
-msgstr "სინქის ინტერვალი შემოტანილ პროდუქტებზე SCC-ის ავტორიზაციის კოდების პეროდული განახლებისთვის გამოიყენება."
+msgid "The token refresh interval is used to periodically update the SCC authentication tokens of any imported products."
+msgstr ""
+
+msgid "Token Refresh Settings"
+msgstr ""
 
 msgid "URL of SUSE for scc_account"
 msgstr "SUSE-ის URL scc_account-სთვის"
@@ -524,62 +358,20 @@ msgstr "SUSE-ის URL scc_account-სთვის"
 msgid "Unknown"
 msgstr "უცნობი"
 
-msgid "Update"
-msgstr "განახლება"
-
-msgid "Update Alternate Content Source"
-msgstr "შემცველობის ალტერნატიული წყაროს განახლება"
-
-msgid "Update CDN Configuration"
-msgstr "CDN-ის კონფიგურაციის განახლება"
-
-msgid "Update Content Overrides"
-msgstr "შემცველობის გადაფარვის განახლება"
-
 msgid "Update SUSE repositories"
 msgstr "SUSE-ის რეპოზიტორიების განახლება"
 
 msgid "Update SUSE repositories %s"
 msgstr "SUSE-ის რეპოზიტორიების განახლება: %s"
 
-msgid "Update content urls"
-msgstr "შემცველობის URL-ების განახლება"
-
-msgid "Update for host"
-msgstr "განახლება ჰოსტისთვის"
-
-msgid "Update http proxy"
-msgstr "HTTP პროქსის განახლება"
-
-msgid "Update http proxy details"
-msgstr "HTTP პროქსის დეტალების განახლება"
-
-msgid "Update redhat repository"
-msgstr "RH-ის რეპოზიტორიის განახლება"
-
-msgid "Update release version for host"
-msgstr "ჰოსტის რელიზის ვერსიის განახლება"
-
 msgid "Update scc_account"
 msgstr "SCC_account-ის განახლება"
-
-msgid "Updating System Purpose for host"
-msgstr "ჰოსტის სისტემური დანიშნულების განახლება"
-
-msgid "Upload into"
-msgstr "ატვირთვის სამიზნე"
-
-msgid "Use GPG key for SUSE products"
-msgstr "SUSE-ის პროდუქტების GPG გასაღები"
 
 msgid "Use this setting if you want to automatically add a GPG key to your SUSE products upon subscription. You can change this setting in the 'Content' > 'Products' menu, later."
 msgstr "გამოიყენეთ ეს პარამეტრი, თუ გსურთ ავტომატურად დაამატოთ GPG გასაღები თქვენს SUSE პროდუქტებს გამოწერისთანავე. თქვენ შეგიძლიათ შეცვალოთ ეს პარამეტრი მოგვიანებით მენიუში „შემცველობა“ > „პროდუქტები“."
 
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr "გამოიყენეთ თქვენი 'ორგანიზაციის მომხმარებელი და პაროლი', რომელიც SUSE-ის მხარდაჭერის ცენტრიდან მიიღეთ."
-
-msgid "Verify checksum"
-msgstr "საკონტროლო ჯამის შემოწმება"
 
 msgid ""
 "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
@@ -594,8 +386,14 @@ msgstr ""
 "\n"
 "მართლა წავშალო SCC ანგარიში %s?"
 
+msgid "YYYY-MM-DD"
+msgstr ""
+
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr "ამჟამად SUSE-ის პროდუქტები არჩეული არ გაქვთ. მოძებნეთ და დაამატეთ SUSE-ის პროდუქტები ქვედა სექციაში."
 
 msgid "never synced"
 msgstr "სინქრონიზაცია არ მომხდარა"
+
+msgid "no results"
+msgstr ""
