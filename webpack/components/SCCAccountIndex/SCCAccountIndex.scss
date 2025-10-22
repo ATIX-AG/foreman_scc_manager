@@ -1,0 +1,26 @@
+.scc-account-add-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
+
+.scc-account-delete-warning {
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  padding: 12px 16px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  max-height: 300px;
+}
+
+.scc-account-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pf-v5-c-page__main-section.pf-m-light {
+  margin-top: -1rem;
+}
