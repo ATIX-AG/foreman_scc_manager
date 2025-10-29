@@ -3,8 +3,13 @@
 .pf-v5-c-select__toggle {
   font-size: var(--pf-v5-global--FontSize--xs);
   font-weight: var(--pf-v5-global--FontWeight--bold);
-};
+}
 
 .pf-v5-c-switch__input ~ .pf-v5-c-switch__label {
-    font-size: var(--pf-v5-global--FontSize--xs);
-};
+  font-size: var(--pf-v5-global--FontSize--xs);
+}
+
+.product-picker__select-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
