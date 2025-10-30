@@ -14,6 +14,7 @@ import {
 } from '@patternfly/react-core';
 import { TimesIcon } from '@patternfly/react-icons';
 import { translate as __ } from 'foremanReact/common/I18n';
+import '../../../SCCProductPicker/styles.scss';
 
 const GenericSelector = ({
   initialSelectOptions,
@@ -234,18 +235,31 @@ const GenericSelector = ({
       }}
       toggle={toggle}
       shouldFocusFirstItemOnOpen={false}
+      popperProps={{
+        direction: 'down',
+        appendTo: () => document.body,
+      }}
     >
-      <SelectList id={initialLabel.concat('select-typeahead-listbox')}>
-        {selectOptions.map((option, index) => (
-          <SelectOption
-            key={option.value || option.children}
-            isFocused={focusedItemIndex === index}
-            id={createItemId(option.value)}
-            className={option.className}
-            {...option}
-            ref={null}
-          />
-        ))}
+      <SelectList
+        id={initialLabel.concat('select-typeahead-listbox')}
+        isAriaMultiselectable={false}
+        className="product-picker__select-list"
+      >
+        {selectOptions.length > 0 ? (
+          selectOptions.map((option, index) => (
+            <SelectOption
+              key={option.value || option.children}
+              isFocused={focusedItemIndex === index}
+              id={createItemId(option.value)}
+              className={option.className}
+              {...option}
+            />
+          ))
+        ) : (
+          <SelectOption isDisabled key="no-options">
+            {__('No options available')}
+          </SelectOption>
+        )}
       </SelectList>
     </Select>
   );
