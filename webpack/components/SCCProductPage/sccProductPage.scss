@@ -6,3 +6,8 @@
   --pf-v5-c-tile--PaddingBottom: var(--pf-v5-global--spacer--xs);
   --pf-v5-c-tile--PaddingLeft: var(--pf-v5-global--spacer--xs);
 }
+
+.scc-sync-button-container {
+  display: flex;
+  justify-content: center;
+}
