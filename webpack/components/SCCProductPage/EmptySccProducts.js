@@ -5,6 +5,7 @@ import { Button } from '@patternfly/react-core';
 import { translate as __ } from 'foremanReact/common/I18n';
 import EmptyState from 'foremanReact/components/common/EmptyState';
 import { syncSccAccountAction } from './SCCProductPageActions';
+import './sccProductPage.scss';
 
 export const EmptySccProducts = ({ canCreate, sccAccountId }) => {
   const dispatch = useDispatch();
@@ -27,13 +28,15 @@ export const EmptySccProducts = ({ canCreate, sccAccountId }) => {
             'https://docs.orcharhino.com/or/docs/sources/usage_guides/managing_sles_systems_guide.html#mssg_adding_scc_accounts',
         }}
       />
-      <Button
-        onClick={onSyncStart}
-        ouiaId="scc-manager-welcome-sync-products"
-        className="btn btn-primary"
-      >
-        {__('Synchronize SUSE Account')}
-      </Button>
+      <div className="scc-sync-button-container">
+        <Button
+          onClick={onSyncStart}
+          ouiaId="scc-manager-welcome-sync-products"
+          className="btn btn-primary"
+        >
+          {__('Synchronize SUSE Account')}
+        </Button>
+      </div>
     </>
   );
 };
