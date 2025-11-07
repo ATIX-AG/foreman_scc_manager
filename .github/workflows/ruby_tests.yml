@@ -23,4 +23,3 @@ jobs:
     with:
       plugin: foreman_scc_manager
       matrix_exclude: '[{"ruby": "3.0", "node": "14"}]'
-      test_existing_database: false
