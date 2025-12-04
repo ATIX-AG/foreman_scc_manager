@@ -38,7 +38,7 @@ const setRepoSelection = (
       res = sccRepos.filter(
         (repo) =>
           (!repo.name.includes('Debug') &&
-            !repo.name.includes('Source-Pool') &&
+            !repo.name.includes('-Source') &&
             repo.katello_repository_id === null) ||
           repo.katello_repository_id !== null
       );
