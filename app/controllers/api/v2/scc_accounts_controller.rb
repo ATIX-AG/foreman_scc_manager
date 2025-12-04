@@ -191,6 +191,8 @@ module Api
           :interval,
           :sync_date,
           :organization_id,
+          :mirroring_policy,
+          :download_policy,
           :katello_gpg_key_id
         )
       end

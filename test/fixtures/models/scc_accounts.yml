@@ -7,6 +7,8 @@ one:
   interval: never
   organization_id: <%= ActiveRecord::FixtureSet.identify(:empty_organization) %>
   sync_date: Time.now
+  download_policy: 'on_demand'
+  mirroring_policy: 'mirror_content_only'
 
 two:
   login: twouser
