@@ -208,6 +208,36 @@ class Api::V2::SccAccountsControllerTest < ActionController::TestCase
     assert_response :ok
   end
 
+  test 'should update mirroring policy' do
+    account = scc_accounts(:one)
+    assert_equal 'mirror_content_only', account.mirroring_policy
+    put :update, params: { id: account.id, scc_account: { :mirroring_policy => 'additive' } }
+    assert_equal 'additive', assigns(:scc_account).mirroring_policy
+    assert_response :ok
+  end
+
+  test 'should refuse invalid mirroring policy' do
+    account = scc_accounts(:one)
+    put :update, params: { id: account.id, scc_account: { :mirroring_policy => 'invalid' } }
+    assert_response :unprocessable_entity
+    assert_equal 'Validation failed: Mirroring policy is not included in the list', JSON.parse(response.body)['error']
+  end
+
+  test 'should update download policy' do
+    account = scc_accounts(:one)
+    assert_equal 'on_demand', account.download_policy
+    put :update, params: { id: account.id, scc_account: { :download_policy => 'immediate' } }
+    assert_equal 'immediate', assigns(:scc_account).download_policy
+    assert_response :ok
+  end
+
+  test 'should refuse invalid download policy' do
+    account = scc_accounts(:one)
+    put :update, params: { id: account.id, scc_account: { :download_policy => 'invalid' } }
+    assert_response :unprocessable_entity
+    assert_equal 'Validation failed: Download policy is not included in the list', JSON.parse(response.body)['error']
+  end
+
   test 'should refuse update scc_account with invalid interval' do
     account = scc_accounts(:two)
     put :update, params: { id: account.id, scc_account: { :interval => 'yearly' } }
