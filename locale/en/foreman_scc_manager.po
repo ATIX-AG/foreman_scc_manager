@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the foreman_scc_manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 1.0.0\n"
+"Project-Id-Version: foreman_scc_manager 5.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-10-15 10:50+0200\n"
+"PO-Revision-Date: 2026-02-11 19:29+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -33,6 +32,9 @@ msgid "%s/%s"
 msgstr ""
 
 msgid "Actions"
+msgstr ""
+
+msgid "Actions menu"
 msgstr ""
 
 msgid "Add SCC account"
@@ -89,6 +91,12 @@ msgstr ""
 msgid "Date and time relative to which the sync interval is run"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
+msgid "Delete SCC Account"
+msgstr ""
+
 msgid "Delete scc_account"
 msgstr ""
 
@@ -108,6 +116,12 @@ msgid "Failed to add task to queue: %s"
 msgstr ""
 
 msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to delete SCC account."
+msgstr ""
+
+msgid "Failed to start sync task."
 msgstr ""
 
 msgid "Failed to update SCC account."
@@ -176,6 +190,9 @@ msgstr ""
 msgid "Name of the scc_account"
 msgstr ""
 
+msgid "No options available"
+msgstr ""
+
 msgid "None"
 msgstr ""
 
@@ -224,6 +241,9 @@ msgstr ""
 msgid "SCC account created successfully."
 msgstr ""
 
+msgid "SCC account deleted successfully."
+msgstr ""
+
 msgid "SCC account updated successfully."
 msgstr ""
 
@@ -245,10 +265,10 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-msgid "Select SUSE products"
+msgid "Select Products"
 msgstr ""
 
-msgid "Select products"
+msgid "Select SUSE products"
 msgstr ""
 
 msgid "Selected SUSE Products"
@@ -320,6 +340,9 @@ msgstr ""
 msgid "Synchronize SUSE Account"
 msgstr ""
 
+msgid "Syncing..."
+msgstr ""
+
 msgid "Test Connection"
 msgstr ""
 
@@ -371,12 +394,7 @@ msgstr ""
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr ""
 
-msgid ""
-"WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
-"\n"
-"If you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\n"
-"\n"
-"Really delete SCC account %s?"
+msgid "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\n Do you Really want to delete this SCC account %acc_name?"
 msgstr ""
 
 msgid "YYYY-MM-DD"
@@ -385,8 +403,17 @@ msgstr ""
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
+msgid "error"
+msgstr ""
+
+msgid "finished"
+msgstr ""
+
 msgid "never synced"
 msgstr ""
 
 msgid "no results"
+msgstr ""
+
+msgid "running"
 msgstr ""

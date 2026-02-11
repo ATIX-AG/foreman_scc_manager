@@ -3,9 +3,9 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 1.0.0",
+        "Project-Id-Version": "foreman_scc_manager 5.2.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2025-10-15 10:50+0200",
+        "PO-Revision-Date": "2026-02-11 19:29+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
         "Language-Team": "LANGUAGE <LL@li.org>",
         "Language": "",
@@ -33,6 +33,9 @@
         ""
       ],
       "Actions": [
+        ""
+      ],
+      "Actions menu": [
         ""
       ],
       "Add SCC account": [
@@ -89,6 +92,12 @@
       "Date and time relative to which the sync interval is run": [
         ""
       ],
+      "Delete": [
+        ""
+      ],
+      "Delete SCC Account": [
+        ""
+      ],
       "Delete scc_account": [
         ""
       ],
@@ -108,6 +117,12 @@
         ""
       ],
       "Failed to create SCC account.": [
+        ""
+      ],
+      "Failed to delete SCC account.": [
+        ""
+      ],
+      "Failed to start sync task.": [
         ""
       ],
       "Failed to update SCC account.": [
@@ -176,6 +191,9 @@
       "Name of the scc_account": [
         ""
       ],
+      "No options available": [
+        ""
+      ],
       "None": [
         ""
       ],
@@ -224,6 +242,9 @@
       "SCC account created successfully.": [
         ""
       ],
+      "SCC account deleted successfully.": [
+        ""
+      ],
       "SCC account updated successfully.": [
         ""
       ],
@@ -245,10 +266,10 @@
       "Search": [
         ""
       ],
-      "Select SUSE products": [
+      "Select Products": [
         ""
       ],
-      "Select products": [
+      "Select SUSE products": [
         ""
       ],
       "Selected SUSE Products": [
@@ -320,6 +341,9 @@
       "Synchronize SUSE Account": [
         ""
       ],
+      "Syncing...": [
+        ""
+      ],
       "Test Connection": [
         ""
       ],
@@ -371,7 +395,7 @@
       "Use your 'Organization credentials' obtained from the SUSE Customer Center.": [
         ""
       ],
-      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\nReally delete SCC account %s?": [
+      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\\\n\\\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\\\n\\\\n Do you Really want to delete this SCC account %acc_name?": [
         ""
       ],
       "YYYY-MM-DD": [
@@ -380,10 +404,19 @@
       "You currently have no SUSE products selected. Search and add SUSE products in the section below.": [
         ""
       ],
+      "error": [
+        ""
+      ],
+      "finished": [
+        ""
+      ],
       "never synced": [
         ""
       ],
       "no results": [
+        ""
+      ],
+      "running": [
         ""
       ]
     }

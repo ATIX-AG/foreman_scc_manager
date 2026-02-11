@@ -5,17 +5,17 @@
 #
 # Translators:
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # 진선재, 2022
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
+# Ondřej Gajdušek, 2025
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
+# Bryan Kearney <bryan.kearney@gmail.com>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 5.0.4\n"
+"Project-Id-Version: foreman_scc_manager 5.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
-"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
-"n.nl>, 2024\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2025\n"
 "Language-Team: Korean (https://app.transifex.com/foreman/teams/114/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,6 +40,9 @@ msgstr ""
 
 msgid "Actions"
 msgstr "동작 "
+
+msgid "Actions menu"
+msgstr ""
 
 msgid "Add SCC account"
 msgstr ""
@@ -69,7 +72,7 @@ msgid "Bulk subscription of scc_products with individual repository selection fo
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "취소 "
 
 msgid "Collapse products"
 msgstr ""
@@ -95,6 +98,12 @@ msgstr "Cron 표현식이 잘못되었습니다!"
 msgid "Date and time relative to which the sync interval is run"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
+msgid "Delete SCC Account"
+msgstr ""
+
 msgid "Delete scc_account"
 msgstr ""
 
@@ -114,6 +123,12 @@ msgid "Failed to add task to queue: %s"
 msgstr "대기열에 태스크를 추가하지 못했습니다: %s"
 
 msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to delete SCC account."
+msgstr ""
+
+msgid "Failed to start sync task."
 msgstr ""
 
 msgid "Failed to update SCC account."
@@ -177,9 +192,12 @@ msgid "Mirroring Policy"
 msgstr "미러링 정책"
 
 msgid "Name"
-msgstr ""
+msgstr "이름 "
 
 msgid "Name of the scc_account"
+msgstr ""
+
+msgid "No options available"
 msgstr ""
 
 msgid "None"
@@ -189,7 +207,7 @@ msgid "On Demand"
 msgstr "주문형"
 
 msgid "Password"
-msgstr ""
+msgstr "암호 "
 
 msgid "Password of scc_account"
 msgstr ""
@@ -230,6 +248,9 @@ msgstr ""
 msgid "SCC account created successfully."
 msgstr ""
 
+msgid "SCC account deleted successfully."
+msgstr ""
+
 msgid "SCC account updated successfully."
 msgstr ""
 
@@ -251,11 +272,11 @@ msgstr ""
 msgid "Search"
 msgstr "검색 "
 
-msgid "Select SUSE products"
+msgid "Select Products"
 msgstr ""
 
-msgid "Select products"
-msgstr "제품 선택"
+msgid "Select SUSE products"
+msgstr ""
 
 msgid "Selected SUSE Products"
 msgstr ""
@@ -294,7 +315,7 @@ msgid "Starting the subscription task failed."
 msgstr ""
 
 msgid "Submit"
-msgstr ""
+msgstr "보내기"
 
 msgid "Subscribe SCC Product"
 msgstr ""
@@ -324,6 +345,9 @@ msgid "Sync task started."
 msgstr ""
 
 msgid "Synchronize SUSE Account"
+msgstr ""
+
+msgid "Syncing..."
 msgstr ""
 
 msgid "Test Connection"
@@ -377,12 +401,7 @@ msgstr ""
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr ""
 
-msgid ""
-"WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
-"\n"
-"If you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\n"
-"\n"
-"Really delete SCC account %s?"
+msgid "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\n Do you Really want to delete this SCC account %acc_name?"
 msgstr ""
 
 msgid "YYYY-MM-DD"
@@ -391,8 +410,17 @@ msgstr ""
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
+msgid "error"
+msgstr ""
+
+msgid "finished"
+msgstr ""
+
 msgid "never synced"
 msgstr ""
 
 msgid "no results"
+msgstr ""
+
+msgid "running"
 msgstr ""

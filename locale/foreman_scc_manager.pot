@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_scc_manager 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-15 10:50+0200\n"
-"PO-Revision-Date: 2025-10-15 10:50+0200\n"
+"POT-Creation-Date: 2026-02-11 19:37+0000\n"
+"PO-Revision-Date: 2026-02-11 19:37+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -122,24 +122,25 @@ msgstr ""
 msgid "Subscribe product"
 msgstr ""
 
-#: ../app/controllers/scc_accounts_controller.rb:73
+#: ../app/controllers/scc_accounts_controller.rb:70
+#: ../webpack/components/SCCAccountIndex/SCCAccountIndexActions.js:129
 #: ../webpack/components/SCCProductPage/SCCProductPageActions.js:25
 msgid "Sync task started."
 msgstr ""
 
-#: ../app/controllers/scc_accounts_controller.rb:75
+#: ../app/controllers/scc_accounts_controller.rb:72
 msgid "Failed to add task to queue: %s"
 msgstr ""
 
-#: ../app/controllers/scc_accounts_controller.rb:77
+#: ../app/controllers/scc_accounts_controller.rb:74
 msgid "Lock on SCC account already taken: %s"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/subscribe_product.rb:84
+#: ../app/lib/actions/scc_manager/subscribe_product.rb:84 action_names.rb:2
 msgid "Subscribe SCC Product"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync.rb:27
+#: ../app/lib/actions/scc_manager/sync.rb:27 action_names.rb:5
 msgid "Sync SUSE subscriptions"
 msgstr ""
 
@@ -152,18 +153,20 @@ msgid "Unknown"
 msgstr ""
 
 #: ../app/lib/actions/scc_manager/sync_plan_account_repositories.rb:33
+#: action_names.rb:6
 msgid "Update SUSE repositories"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_products.rb:36
+#: ../app/lib/actions/scc_manager/sync_products.rb:36 action_names.rb:3
 msgid "Sync SUSE subscriptions (Products)"
 msgstr ""
 
-#: ../app/lib/actions/scc_manager/sync_repositories.rb:34
+#: ../app/lib/actions/scc_manager/sync_repositories.rb:34 action_names.rb:4
 msgid "Sync SUSE subscriptions (Repositories)"
 msgstr ""
 
 #: ../app/models/scc_account.rb:66
+#: ../webpack/components/SCCAccountIndex/index.js:104
 msgid "never synced"
 msgstr ""
 
@@ -208,44 +211,9 @@ msgstr ""
 msgid "Edit %s"
 msgstr ""
 
-#: ../app/views/scc_accounts/index.html.erb:2
+#: ../app/views/scc_accounts/index.html.erb:1
+#: ../webpack/components/SCCAccountIndex/index.js:76
 msgid "SUSE subscriptions"
-msgstr ""
-
-#: ../app/views/scc_accounts/index.html.erb:3
-msgid "Add SCC account"
-msgstr ""
-
-#: ../app/views/scc_accounts/index.html.erb:9
-msgid "Products"
-msgstr ""
-
-#: ../app/views/scc_accounts/index.html.erb:10
-msgid "Last synced"
-msgstr ""
-
-#: ../app/views/scc_accounts/index.html.erb:11
-msgid "Actions"
-msgstr ""
-
-#: ../app/views/scc_accounts/index.html.erb:24
-msgid "Select products"
-msgstr ""
-
-#: ../app/views/scc_accounts/index.html.erb:25
-msgid "Sync"
-msgstr ""
-
-#: ../app/views/scc_accounts/index.html.erb:28
-msgid ""
-"WARNING: If you want to switch SCC accounts and retain the synchronized conten"
-"t, DO NOT delete your old SCC account, even if it is expired. Please change th"
-"e login and password of your SCC account, instead.\n"
-"\n"
-"If you delete your old SCC account, you CANNOT reuse existing repositories, pr"
-"oducts, content views, and composite content views.\n"
-"\n"
-"Really delete SCC account %s?"
 msgstr ""
 
 #: ../app/views/scc_accounts/new.html.erb:1
@@ -297,6 +265,8 @@ msgid "SCC Account Credentials"
 msgstr ""
 
 #: ../webpack/components/SCCAccountForm/components/SCCCredentialsCard.js:43
+#: ../webpack/components/SCCAccountIndex/index.js:82
+#: ../webpack/components/SCCAccountIndex/index.js:110
 msgid "Name"
 msgstr ""
 
@@ -378,20 +348,100 @@ msgid "Submit"
 msgstr ""
 
 #: ../webpack/components/SCCAccountForm/index.js:241
+#: ../webpack/components/SCCAccountIndex/index.js:232
 msgid "Cancel"
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/EmptySccProducts.js:15
+#: ../webpack/components/SCCAccountIndex/SCCAccountIndexActions.js:23
+msgid "finished"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/SCCAccountIndexActions.js:23
+#: ../webpack/components/SCCAccountIndex/SCCAccountIndexActions.js:168
+msgid "error"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/SCCAccountIndexActions.js:130
+msgid "Failed to start sync task."
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/SCCAccountIndexActions.js:142
+msgid "running"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/SCCAccountIndexActions.js:192
+msgid "SCC account deleted successfully."
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/SCCAccountIndexActions.js:193
+msgid "Failed to delete SCC account."
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/SCCAccountIndexConstants.js:3
+msgid ""
+"WARNING: If you want to switch SCC accounts and retain the synchronized conten"
+"t, DO NOT delete your old SCC account, even if it is expired. Please change th"
+"e login and password of your SCC account, instead.\\n\\nIf you delete your old S"
+"CC account, you CANNOT reuse existing repositories, products, content views, a"
+"nd composite content views.\\n\\n Do you Really want to delete this SCC account "
+"%acc_name?"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:71
+msgid "Add SCC account"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:83
+#: ../webpack/components/SCCAccountIndex/index.js:116
+msgid "Products"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:85
+#: ../webpack/components/SCCAccountIndex/index.js:123
+msgid "Last synced"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:88
+#: ../webpack/components/SCCAccountIndex/index.js:129
+msgid "Actions"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:141
+msgid "Select Products"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:154
+msgid "Actions menu"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:185
+msgid "Syncing..."
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:186
+msgid "Sync"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:199
+#: ../webpack/components/SCCAccountIndex/index.js:224
+msgid "Delete"
+msgstr ""
+
+#: ../webpack/components/SCCAccountIndex/index.js:212
+msgid "Delete SCC Account"
+msgstr ""
+
+#: ../webpack/components/SCCProductPage/EmptySccProducts.js:16
 msgid ""
 "Please synchronize your SUSE account before you can subscribe to SUSE products"
 "."
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/EmptySccProducts.js:23
+#: ../webpack/components/SCCProductPage/EmptySccProducts.js:24
 msgid "SUSE Customer Center"
 msgstr ""
 
-#: ../webpack/components/SCCProductPage/EmptySccProducts.js:35
+#: ../webpack/components/SCCProductPage/EmptySccProducts.js:37
 msgid "Synchronize SUSE Account"
 msgstr ""
 
@@ -408,8 +458,13 @@ msgid "Failed to add task to queue."
 msgstr ""
 
 #:
-#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCGenericPicker/index.js:36
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCGenericPicker/index.js:37
 msgid "no results"
+msgstr ""
+
+#:
+#: ../webpack/components/SCCProductPage/components/SCCProductPicker/components/SCCGenericPicker/index.js:260
+msgid "No options available"
 msgstr ""
 
 #:

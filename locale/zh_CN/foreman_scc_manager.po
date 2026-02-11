@@ -4,16 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# tim123, 2019
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2022
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
+# Ondřej Gajdušek, 2025
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
+# tim123, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 5.0.4\n"
+"Project-Id-Version: foreman_scc_manager 5.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
+"Last-Translator: tim123, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/foreman/teams/114/zh"
 "_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -39,6 +41,9 @@ msgstr ""
 
 msgid "Actions"
 msgstr "操作"
+
+msgid "Actions menu"
+msgstr ""
 
 msgid "Add SCC account"
 msgstr "添加 SCC 帐户"
@@ -68,7 +73,7 @@ msgid "Bulk subscription of scc_products with individual repository selection fo
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgid "Collapse products"
 msgstr ""
@@ -94,6 +99,12 @@ msgstr "Cron 表达式无效！"
 msgid "Date and time relative to which the sync interval is run"
 msgstr "运行同步间隔的日期和时间"
 
+msgid "Delete"
+msgstr ""
+
+msgid "Delete SCC Account"
+msgstr ""
+
 msgid "Delete scc_account"
 msgstr "删除 scc_account"
 
@@ -113,6 +124,12 @@ msgid "Failed to add task to queue: %s"
 msgstr "向队列添加任务失败：%s"
 
 msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to delete SCC account."
+msgstr ""
+
+msgid "Failed to start sync task."
 msgstr ""
 
 msgid "Failed to update SCC account."
@@ -176,10 +193,13 @@ msgid "Mirroring Policy"
 msgstr "镜像策略"
 
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 msgid "Name of the scc_account"
 msgstr "scc_account 的名称"
+
+msgid "No options available"
+msgstr ""
 
 msgid "None"
 msgstr "没有"
@@ -188,7 +208,7 @@ msgid "On Demand"
 msgstr "按需"
 
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 msgid "Password of scc_account"
 msgstr "scc_account 的密码"
@@ -229,6 +249,9 @@ msgstr ""
 msgid "SCC account created successfully."
 msgstr ""
 
+msgid "SCC account deleted successfully."
+msgstr ""
+
 msgid "SCC account updated successfully."
 msgstr ""
 
@@ -250,11 +273,11 @@ msgstr "SUSE 订阅"
 msgid "Search"
 msgstr ""
 
-msgid "Select SUSE products"
+msgid "Select Products"
 msgstr ""
 
-msgid "Select products"
-msgstr "选择产品"
+msgid "Select SUSE products"
+msgstr ""
 
 msgid "Selected SUSE Products"
 msgstr ""
@@ -293,7 +316,7 @@ msgid "Starting the subscription task failed."
 msgstr ""
 
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 msgid "Subscribe SCC Product"
 msgstr "订阅 SCC 产品"
@@ -323,6 +346,9 @@ msgid "Sync task started."
 msgstr "同步任务已启动。"
 
 msgid "Synchronize SUSE Account"
+msgstr ""
+
+msgid "Syncing..."
 msgstr ""
 
 msgid "Test Connection"
@@ -376,12 +402,7 @@ msgstr "如果要在订阅时自动在 SUSE 产品中添加 GPG 密钥，请使�
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr "使用从 SUSE 客户中心获取的\"组织凭据\"。"
 
-msgid ""
-"WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
-"\n"
-"If you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\n"
-"\n"
-"Really delete SCC account %s?"
+msgid "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\n Do you Really want to delete this SCC account %acc_name?"
 msgstr ""
 
 msgid "YYYY-MM-DD"
@@ -390,8 +411,17 @@ msgstr ""
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
+msgid "error"
+msgstr ""
+
+msgid "finished"
+msgstr ""
+
 msgid "never synced"
 msgstr "从未同步"
 
 msgid "no results"
+msgstr ""
+
+msgid "running"
 msgstr ""

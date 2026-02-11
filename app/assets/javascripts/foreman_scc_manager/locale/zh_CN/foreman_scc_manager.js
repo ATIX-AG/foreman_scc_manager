@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 5.0.4",
+        "Project-Id-Version": "foreman_scc_manager 5.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
-        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2022",
+        "Last-Translator": "tim123, 2025",
         "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -34,6 +34,9 @@
       ],
       "Actions": [
         "操作"
+      ],
+      "Actions menu": [
+        ""
       ],
       "Add SCC account": [
         "添加 SCC 帐户"
@@ -63,7 +66,7 @@
         ""
       ],
       "Cancel": [
-        ""
+        "取消"
       ],
       "Collapse products": [
         ""
@@ -89,6 +92,12 @@
       "Date and time relative to which the sync interval is run": [
         "运行同步间隔的日期和时间"
       ],
+      "Delete": [
+        ""
+      ],
+      "Delete SCC Account": [
+        ""
+      ],
       "Delete scc_account": [
         "删除 scc_account"
       ],
@@ -108,6 +117,12 @@
         "向队列添加任务失败：%s"
       ],
       "Failed to create SCC account.": [
+        ""
+      ],
+      "Failed to delete SCC account.": [
+        ""
+      ],
+      "Failed to start sync task.": [
         ""
       ],
       "Failed to update SCC account.": [
@@ -171,10 +186,13 @@
         "镜像策略"
       ],
       "Name": [
-        ""
+        "名称"
       ],
       "Name of the scc_account": [
         "scc_account 的名称"
+      ],
+      "No options available": [
+        ""
       ],
       "None": [
         "没有"
@@ -183,7 +201,7 @@
         "按需"
       ],
       "Password": [
-        ""
+        "密码"
       ],
       "Password of scc_account": [
         "scc_account 的密码"
@@ -224,6 +242,9 @@
       "SCC account created successfully.": [
         ""
       ],
+      "SCC account deleted successfully.": [
+        ""
+      ],
       "SCC account updated successfully.": [
         ""
       ],
@@ -245,11 +266,11 @@
       "Search": [
         ""
       ],
-      "Select SUSE products": [
+      "Select Products": [
         ""
       ],
-      "Select products": [
-        "选择产品"
+      "Select SUSE products": [
+        ""
       ],
       "Selected SUSE Products": [
         ""
@@ -288,7 +309,7 @@
         ""
       ],
       "Submit": [
-        ""
+        "提交"
       ],
       "Subscribe SCC Product": [
         "订阅 SCC 产品"
@@ -318,6 +339,9 @@
         "同步任务已启动。"
       ],
       "Synchronize SUSE Account": [
+        ""
+      ],
+      "Syncing...": [
         ""
       ],
       "Test Connection": [
@@ -371,7 +395,7 @@
       "Use your 'Organization credentials' obtained from the SUSE Customer Center.": [
         "使用从 SUSE 客户中心获取的\\\"组织凭据\\\"。"
       ],
-      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\nReally delete SCC account %s?": [
+      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\\\n\\\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\\\n\\\\n Do you Really want to delete this SCC account %acc_name?": [
         ""
       ],
       "YYYY-MM-DD": [
@@ -380,10 +404,19 @@
       "You currently have no SUSE products selected. Search and add SUSE products in the section below.": [
         ""
       ],
+      "error": [
+        ""
+      ],
+      "finished": [
+        ""
+      ],
       "never synced": [
         "从未同步"
       ],
       "no results": [
+        ""
+      ],
+      "running": [
         ""
       ]
     }
