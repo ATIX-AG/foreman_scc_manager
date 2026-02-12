@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 5.0.4",
+        "Project-Id-Version": "foreman_scc_manager 5.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
-        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2023",
+        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2025",
         "Language-Team": "French (https://app.transifex.com/foreman/teams/114/fr/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -34,6 +34,9 @@
       ],
       "Actions": [
         "Actions"
+      ],
+      "Actions menu": [
+        ""
       ],
       "Add SCC account": [
         "Ajouter un compte SCC"
@@ -63,7 +66,7 @@
         ""
       ],
       "Cancel": [
-        ""
+        "Annuler"
       ],
       "Collapse products": [
         ""
@@ -89,6 +92,12 @@
       "Date and time relative to which the sync interval is run": [
         "Date et heure par rapport auxquelles l'intervalle de synchronisation est exécuté"
       ],
+      "Delete": [
+        ""
+      ],
+      "Delete SCC Account": [
+        ""
+      ],
       "Delete scc_account": [
         "Supprimer scc_account"
       ],
@@ -108,6 +117,12 @@
         "Impossible d'ajouter une tâche à la file d'attente : %s"
       ],
       "Failed to create SCC account.": [
+        ""
+      ],
+      "Failed to delete SCC account.": [
+        ""
+      ],
+      "Failed to start sync task.": [
         ""
       ],
       "Failed to update SCC account.": [
@@ -171,10 +186,13 @@
         "Politique de mise en miroir"
       ],
       "Name": [
-        ""
+        "Nom"
       ],
       "Name of the scc_account": [
         "Nom du compte scc_account"
+      ],
+      "No options available": [
+        ""
       ],
       "None": [
         "Aucun(e)"
@@ -183,7 +201,7 @@
         "Sur demande"
       ],
       "Password": [
-        ""
+        "Mot de passe"
       ],
       "Password of scc_account": [
         "Mot de passe de scc_account"
@@ -224,6 +242,9 @@
       "SCC account created successfully.": [
         ""
       ],
+      "SCC account deleted successfully.": [
+        ""
+      ],
       "SCC account updated successfully.": [
         ""
       ],
@@ -245,11 +266,11 @@
       "Search": [
         "Recherche"
       ],
-      "Select SUSE products": [
+      "Select Products": [
         ""
       ],
-      "Select products": [
-        "Sélectionnez les produits"
+      "Select SUSE products": [
+        ""
       ],
       "Selected SUSE Products": [
         ""
@@ -288,7 +309,7 @@
         ""
       ],
       "Submit": [
-        ""
+        "Envoyer"
       ],
       "Subscribe SCC Product": [
         "S'abonner au produit SCC"
@@ -318,6 +339,9 @@
         "La tâche de synchronisation a commencé."
       ],
       "Synchronize SUSE Account": [
+        ""
+      ],
+      "Syncing...": [
         ""
       ],
       "Test Connection": [
@@ -371,7 +395,7 @@
       "Use your 'Organization credentials' obtained from the SUSE Customer Center.": [
         "Utilisez vos \\\"informations d'identification de l'organisation\\\" obtenues auprès du Portail Client SUSE."
       ],
-      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\nReally delete SCC account %s?": [
+      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\\\n\\\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\\\n\\\\n Do you Really want to delete this SCC account %acc_name?": [
         ""
       ],
       "YYYY-MM-DD": [
@@ -380,10 +404,19 @@
       "You currently have no SUSE products selected. Search and add SUSE products in the section below.": [
         ""
       ],
+      "error": [
+        ""
+      ],
+      "finished": [
+        ""
+      ],
       "never synced": [
         "jamais synchronisé"
       ],
       "no results": [
+        ""
+      ],
+      "running": [
         ""
       ]
     }

@@ -7,15 +7,18 @@
 # e93ed3aa97dec2eb31063731872555fc_1460a05 <71305a0095156d8e18373a5b7cfeb79e_8587>, 2019
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
 # Transifex Bot <>, 2022
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2022
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
+# Ondřej Gajdušek, 2025
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 5.0.4\n"
+"Project-Id-Version: foreman_scc_manager 5.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/foreman/teams/114/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,6 +43,9 @@ msgstr ""
 
 msgid "Actions"
 msgstr "アクション"
+
+msgid "Actions menu"
+msgstr ""
 
 msgid "Add SCC account"
 msgstr "SCC アカウントの追加"
@@ -69,7 +75,7 @@ msgid "Bulk subscription of scc_products with individual repository selection fo
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "取り消し"
 
 msgid "Collapse products"
 msgstr ""
@@ -95,6 +101,12 @@ msgstr "cron 式が無効です!"
 msgid "Date and time relative to which the sync interval is run"
 msgstr "同期の実行関連の日時"
 
+msgid "Delete"
+msgstr ""
+
+msgid "Delete SCC Account"
+msgstr ""
+
 msgid "Delete scc_account"
 msgstr "scc_account の削除"
 
@@ -114,6 +126,12 @@ msgid "Failed to add task to queue: %s"
 msgstr "タスクをキューに追加できませんでした: %s"
 
 msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to delete SCC account."
+msgstr ""
+
+msgid "Failed to start sync task."
 msgstr ""
 
 msgid "Failed to update SCC account."
@@ -177,10 +195,13 @@ msgid "Mirroring Policy"
 msgstr "ミラーリングポリシー"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgid "Name of the scc_account"
 msgstr "scc_account の名前"
+
+msgid "No options available"
+msgstr ""
 
 msgid "None"
 msgstr "なし"
@@ -189,7 +210,7 @@ msgid "On Demand"
 msgstr "オンデマンド"
 
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
 msgid "Password of scc_account"
 msgstr "scc_account のパスワード"
@@ -230,6 +251,9 @@ msgstr ""
 msgid "SCC account created successfully."
 msgstr ""
 
+msgid "SCC account deleted successfully."
+msgstr ""
+
 msgid "SCC account updated successfully."
 msgstr ""
 
@@ -251,11 +275,11 @@ msgstr "SUSE サブスクリプション"
 msgid "Search"
 msgstr "検索"
 
-msgid "Select SUSE products"
+msgid "Select Products"
 msgstr ""
 
-msgid "Select products"
-msgstr "製品の選択"
+msgid "Select SUSE products"
+msgstr ""
 
 msgid "Selected SUSE Products"
 msgstr ""
@@ -294,7 +318,7 @@ msgid "Starting the subscription task failed."
 msgstr ""
 
 msgid "Submit"
-msgstr ""
+msgstr "送信"
 
 msgid "Subscribe SCC Product"
 msgstr "SCC 製品のサブスクライブ"
@@ -324,6 +348,9 @@ msgid "Sync task started."
 msgstr "同期タスクが開始されました。"
 
 msgid "Synchronize SUSE Account"
+msgstr ""
+
+msgid "Syncing..."
 msgstr ""
 
 msgid "Test Connection"
@@ -377,12 +404,7 @@ msgstr "サブスクリプション時に SUSE 製品に自動追加する場合
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr "SUSE Customer Center から取得した「組織の認証情報」を使用します。"
 
-msgid ""
-"WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
-"\n"
-"If you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\n"
-"\n"
-"Really delete SCC account %s?"
+msgid "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\n Do you Really want to delete this SCC account %acc_name?"
 msgstr ""
 
 msgid "YYYY-MM-DD"
@@ -391,8 +413,17 @@ msgstr ""
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
+msgid "error"
+msgstr ""
+
+msgid "finished"
+msgstr ""
+
 msgid "never synced"
 msgstr "同期なし"
 
 msgid "no results"
+msgstr ""
+
+msgid "running"
 msgstr ""

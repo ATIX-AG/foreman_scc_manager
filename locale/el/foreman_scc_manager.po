@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Efstathios Iosifidis <iefstathios@gmail.com>, 2022
+# Efstathios Iosifidis <eiosifidis@gmail.com>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 5.0.4\n"
+"Project-Id-Version: foreman_scc_manager 5.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
-"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>, 2022\n"
+"Last-Translator: Efstathios Iosifidis <eiosifidis@gmail.com>, 2025\n"
 "Language-Team: Greek (https://app.transifex.com/foreman/teams/114/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,6 +36,9 @@ msgstr ""
 
 msgid "Actions"
 msgstr "Ενέργειες"
+
+msgid "Actions menu"
+msgstr ""
 
 msgid "Add SCC account"
 msgstr "Προσθήκη λογαριασμού SCC"
@@ -65,7 +68,7 @@ msgid "Bulk subscription of scc_products with individual repository selection fo
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Ακύρωση"
 
 msgid "Collapse products"
 msgstr ""
@@ -91,6 +94,12 @@ msgstr "Μη έγκυρη έκφραση cron!"
 msgid "Date and time relative to which the sync interval is run"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
+msgid "Delete SCC Account"
+msgstr ""
+
 msgid "Delete scc_account"
 msgstr "Διαγραφή scc_account"
 
@@ -110,6 +119,12 @@ msgid "Failed to add task to queue: %s"
 msgstr ""
 
 msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to delete SCC account."
+msgstr ""
+
+msgid "Failed to start sync task."
 msgstr ""
 
 msgid "Failed to update SCC account."
@@ -173,10 +188,13 @@ msgid "Mirroring Policy"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgid "Name of the scc_account"
 msgstr "Όνομα του scc_account"
+
+msgid "No options available"
+msgstr ""
 
 msgid "None"
 msgstr "Κανένα"
@@ -226,6 +244,9 @@ msgstr ""
 msgid "SCC account created successfully."
 msgstr ""
 
+msgid "SCC account deleted successfully."
+msgstr ""
+
 msgid "SCC account updated successfully."
 msgstr ""
 
@@ -247,11 +268,11 @@ msgstr "Συνδρομές SUSE"
 msgid "Search"
 msgstr "Αναζήτηση"
 
-msgid "Select SUSE products"
+msgid "Select Products"
 msgstr ""
 
-msgid "Select products"
-msgstr "Επιλογή προϊόντων"
+msgid "Select SUSE products"
+msgstr ""
 
 msgid "Selected SUSE Products"
 msgstr ""
@@ -290,7 +311,7 @@ msgid "Starting the subscription task failed."
 msgstr ""
 
 msgid "Submit"
-msgstr ""
+msgstr "Υποβολή"
 
 msgid "Subscribe SCC Product"
 msgstr "Συνδρομή προϊόντος SCC"
@@ -320,6 +341,9 @@ msgid "Sync task started."
 msgstr "Η εργασία συγχρονισμού εκκίνησε."
 
 msgid "Synchronize SUSE Account"
+msgstr ""
+
+msgid "Syncing..."
 msgstr ""
 
 msgid "Test Connection"
@@ -373,12 +397,7 @@ msgstr ""
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr ""
 
-msgid ""
-"WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
-"\n"
-"If you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\n"
-"\n"
-"Really delete SCC account %s?"
+msgid "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\n Do you Really want to delete this SCC account %acc_name?"
 msgstr ""
 
 msgid "YYYY-MM-DD"
@@ -387,8 +406,17 @@ msgstr ""
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
+msgid "error"
+msgstr ""
+
+msgid "finished"
+msgstr ""
+
 msgid "never synced"
 msgstr "δεν συγχρονίστηκε ποτέ"
 
 msgid "no results"
+msgstr ""
+
+msgid "running"
 msgstr ""

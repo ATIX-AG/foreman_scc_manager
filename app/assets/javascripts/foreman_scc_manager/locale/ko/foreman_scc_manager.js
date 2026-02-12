@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 5.0.4",
+        "Project-Id-Version": "foreman_scc_manager 5.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
+        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2025",
         "Language-Team": "Korean (https://app.transifex.com/foreman/teams/114/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -34,6 +34,9 @@
       ],
       "Actions": [
         "동작 "
+      ],
+      "Actions menu": [
+        ""
       ],
       "Add SCC account": [
         ""
@@ -63,7 +66,7 @@
         ""
       ],
       "Cancel": [
-        ""
+        "취소 "
       ],
       "Collapse products": [
         ""
@@ -89,6 +92,12 @@
       "Date and time relative to which the sync interval is run": [
         ""
       ],
+      "Delete": [
+        ""
+      ],
+      "Delete SCC Account": [
+        ""
+      ],
       "Delete scc_account": [
         ""
       ],
@@ -108,6 +117,12 @@
         "대기열에 태스크를 추가하지 못했습니다: %s"
       ],
       "Failed to create SCC account.": [
+        ""
+      ],
+      "Failed to delete SCC account.": [
+        ""
+      ],
+      "Failed to start sync task.": [
         ""
       ],
       "Failed to update SCC account.": [
@@ -171,9 +186,12 @@
         "미러링 정책"
       ],
       "Name": [
-        ""
+        "이름 "
       ],
       "Name of the scc_account": [
+        ""
+      ],
+      "No options available": [
         ""
       ],
       "None": [
@@ -183,7 +201,7 @@
         "주문형"
       ],
       "Password": [
-        ""
+        "암호 "
       ],
       "Password of scc_account": [
         ""
@@ -224,6 +242,9 @@
       "SCC account created successfully.": [
         ""
       ],
+      "SCC account deleted successfully.": [
+        ""
+      ],
       "SCC account updated successfully.": [
         ""
       ],
@@ -245,11 +266,11 @@
       "Search": [
         "검색 "
       ],
-      "Select SUSE products": [
+      "Select Products": [
         ""
       ],
-      "Select products": [
-        "제품 선택"
+      "Select SUSE products": [
+        ""
       ],
       "Selected SUSE Products": [
         ""
@@ -288,7 +309,7 @@
         ""
       ],
       "Submit": [
-        ""
+        "보내기"
       ],
       "Subscribe SCC Product": [
         ""
@@ -318,6 +339,9 @@
         ""
       ],
       "Synchronize SUSE Account": [
+        ""
+      ],
+      "Syncing...": [
         ""
       ],
       "Test Connection": [
@@ -371,7 +395,7 @@
       "Use your 'Organization credentials' obtained from the SUSE Customer Center.": [
         ""
       ],
-      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\nReally delete SCC account %s?": [
+      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\\\n\\\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\\\n\\\\n Do you Really want to delete this SCC account %acc_name?": [
         ""
       ],
       "YYYY-MM-DD": [
@@ -380,10 +404,19 @@
       "You currently have no SUSE products selected. Search and add SUSE products in the section below.": [
         ""
       ],
+      "error": [
+        ""
+      ],
+      "finished": [
+        ""
+      ],
       "never synced": [
         ""
       ],
       "no results": [
+        ""
+      ],
+      "running": [
         ""
       ]
     }

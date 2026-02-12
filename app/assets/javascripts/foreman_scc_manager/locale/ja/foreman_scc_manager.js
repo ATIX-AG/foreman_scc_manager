@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 5.0.4",
+        "Project-Id-Version": "foreman_scc_manager 5.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
-        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2022",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
         "Language-Team": "Japanese (https://app.transifex.com/foreman/teams/114/ja/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -34,6 +34,9 @@
       ],
       "Actions": [
         "アクション"
+      ],
+      "Actions menu": [
+        ""
       ],
       "Add SCC account": [
         "SCC アカウントの追加"
@@ -63,7 +66,7 @@
         ""
       ],
       "Cancel": [
-        ""
+        "取り消し"
       ],
       "Collapse products": [
         ""
@@ -89,6 +92,12 @@
       "Date and time relative to which the sync interval is run": [
         "同期の実行関連の日時"
       ],
+      "Delete": [
+        ""
+      ],
+      "Delete SCC Account": [
+        ""
+      ],
       "Delete scc_account": [
         "scc_account の削除"
       ],
@@ -108,6 +117,12 @@
         "タスクをキューに追加できませんでした: %s"
       ],
       "Failed to create SCC account.": [
+        ""
+      ],
+      "Failed to delete SCC account.": [
+        ""
+      ],
+      "Failed to start sync task.": [
         ""
       ],
       "Failed to update SCC account.": [
@@ -171,10 +186,13 @@
         "ミラーリングポリシー"
       ],
       "Name": [
-        ""
+        "名前"
       ],
       "Name of the scc_account": [
         "scc_account の名前"
+      ],
+      "No options available": [
+        ""
       ],
       "None": [
         "なし"
@@ -183,7 +201,7 @@
         "オンデマンド"
       ],
       "Password": [
-        ""
+        "パスワード"
       ],
       "Password of scc_account": [
         "scc_account のパスワード"
@@ -224,6 +242,9 @@
       "SCC account created successfully.": [
         ""
       ],
+      "SCC account deleted successfully.": [
+        ""
+      ],
       "SCC account updated successfully.": [
         ""
       ],
@@ -245,11 +266,11 @@
       "Search": [
         "検索"
       ],
-      "Select SUSE products": [
+      "Select Products": [
         ""
       ],
-      "Select products": [
-        "製品の選択"
+      "Select SUSE products": [
+        ""
       ],
       "Selected SUSE Products": [
         ""
@@ -288,7 +309,7 @@
         ""
       ],
       "Submit": [
-        ""
+        "送信"
       ],
       "Subscribe SCC Product": [
         "SCC 製品のサブスクライブ"
@@ -318,6 +339,9 @@
         "同期タスクが開始されました。"
       ],
       "Synchronize SUSE Account": [
+        ""
+      ],
+      "Syncing...": [
         ""
       ],
       "Test Connection": [
@@ -371,7 +395,7 @@
       "Use your 'Organization credentials' obtained from the SUSE Customer Center.": [
         "SUSE Customer Center から取得した「組織の認証情報」を使用します。"
       ],
-      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\nReally delete SCC account %s?": [
+      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\\\n\\\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\\\n\\\\n Do you Really want to delete this SCC account %acc_name?": [
         ""
       ],
       "YYYY-MM-DD": [
@@ -380,10 +404,19 @@
       "You currently have no SUSE products selected. Search and add SUSE products in the section below.": [
         ""
       ],
+      "error": [
+        ""
+      ],
+      "finished": [
+        ""
+      ],
       "never synced": [
         "同期なし"
       ],
       "no results": [
+        ""
+      ],
+      "running": [
         ""
       ]
     }

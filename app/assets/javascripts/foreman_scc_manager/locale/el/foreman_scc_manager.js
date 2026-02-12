@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 5.0.4",
+        "Project-Id-Version": "foreman_scc_manager 5.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
-        "Last-Translator": "Efstathios Iosifidis <iefstathios@gmail.com>, 2022",
+        "Last-Translator": "Efstathios Iosifidis <eiosifidis@gmail.com>, 2025",
         "Language-Team": "Greek (https://app.transifex.com/foreman/teams/114/el/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -34,6 +34,9 @@
       ],
       "Actions": [
         "Ενέργειες"
+      ],
+      "Actions menu": [
+        ""
       ],
       "Add SCC account": [
         "Προσθήκη λογαριασμού SCC"
@@ -63,7 +66,7 @@
         ""
       ],
       "Cancel": [
-        ""
+        "Ακύρωση"
       ],
       "Collapse products": [
         ""
@@ -89,6 +92,12 @@
       "Date and time relative to which the sync interval is run": [
         ""
       ],
+      "Delete": [
+        ""
+      ],
+      "Delete SCC Account": [
+        ""
+      ],
       "Delete scc_account": [
         "Διαγραφή scc_account"
       ],
@@ -108,6 +117,12 @@
         ""
       ],
       "Failed to create SCC account.": [
+        ""
+      ],
+      "Failed to delete SCC account.": [
+        ""
+      ],
+      "Failed to start sync task.": [
         ""
       ],
       "Failed to update SCC account.": [
@@ -171,10 +186,13 @@
         ""
       ],
       "Name": [
-        ""
+        "Όνομα"
       ],
       "Name of the scc_account": [
         "Όνομα του scc_account"
+      ],
+      "No options available": [
+        ""
       ],
       "None": [
         "Κανένα"
@@ -224,6 +242,9 @@
       "SCC account created successfully.": [
         ""
       ],
+      "SCC account deleted successfully.": [
+        ""
+      ],
       "SCC account updated successfully.": [
         ""
       ],
@@ -245,11 +266,11 @@
       "Search": [
         "Αναζήτηση"
       ],
-      "Select SUSE products": [
+      "Select Products": [
         ""
       ],
-      "Select products": [
-        "Επιλογή προϊόντων"
+      "Select SUSE products": [
+        ""
       ],
       "Selected SUSE Products": [
         ""
@@ -288,7 +309,7 @@
         ""
       ],
       "Submit": [
-        ""
+        "Υποβολή"
       ],
       "Subscribe SCC Product": [
         "Συνδρομή προϊόντος SCC"
@@ -318,6 +339,9 @@
         "Η εργασία συγχρονισμού εκκίνησε."
       ],
       "Synchronize SUSE Account": [
+        ""
+      ],
+      "Syncing...": [
         ""
       ],
       "Test Connection": [
@@ -371,7 +395,7 @@
       "Use your 'Organization credentials' obtained from the SUSE Customer Center.": [
         ""
       ],
-      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\nReally delete SCC account %s?": [
+      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\\\n\\\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\\\n\\\\n Do you Really want to delete this SCC account %acc_name?": [
         ""
       ],
       "YYYY-MM-DD": [
@@ -380,10 +404,19 @@
       "You currently have no SUSE products selected. Search and add SUSE products in the section below.": [
         ""
       ],
+      "error": [
+        ""
+      ],
+      "finished": [
+        ""
+      ],
       "never synced": [
         "δεν συγχρονίστηκε ποτέ"
       ],
       "no results": [
+        ""
+      ],
+      "running": [
         ""
       ]
     }

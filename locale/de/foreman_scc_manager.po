@@ -4,23 +4,23 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Wiederoder <stefanwiederoder@googlemail.com>, 2019
 # simon11 <transifex@stieger.co>, 2019
 # Michael Moll, 2019
 # Bernhard Suttner <bernhard.suttner@atix.de>, 2019
 # Nadja Heitmann <nadjah@atix.de>, 2021
-# Crited <Alexander.Stoll@netways.de>, 2022
-# Markus Bucher <bucher@atix.de>, 2022
-# pdolinic, 2022
+# Alexander Stoll <Alexander.Stoll@netways.de>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
+# Markus Bucher <bucher@atix.de>, 2022
 # Ettore Atalan <atalanttore@googlemail.com>, 2023
+# pdolinic, 2025
+# Wiederoder <stefanwiederoder@googlemail.com>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 5.0.4\n"
+"Project-Id-Version: foreman_scc_manager 5.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>, 2023\n"
+"Last-Translator: Wiederoder <stefanwiederoder@googlemail.com>, 2025\n"
 "Language-Team: German (https://app.transifex.com/foreman/teams/114/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,6 +45,9 @@ msgstr ""
 
 msgid "Actions"
 msgstr "Aktionen"
+
+msgid "Actions menu"
+msgstr ""
 
 msgid "Add SCC account"
 msgstr "SCC Konto hinzufügen"
@@ -74,7 +77,7 @@ msgid "Bulk subscription of scc_products with individual repository selection fo
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 msgid "Collapse products"
 msgstr ""
@@ -100,6 +103,12 @@ msgstr "Cron-Ausdruck ungültig!"
 msgid "Date and time relative to which the sync interval is run"
 msgstr "Relativ zu diesem Zeitpunkt wird die Synchronisation ausgeführt"
 
+msgid "Delete"
+msgstr ""
+
+msgid "Delete SCC Account"
+msgstr ""
+
 msgid "Delete scc_account"
 msgstr "SCC Konto löschen"
 
@@ -119,6 +128,12 @@ msgid "Failed to add task to queue: %s"
 msgstr "Aufgabe konnte nicht in die Warteschlange gestellt werden: %s"
 
 msgid "Failed to create SCC account."
+msgstr ""
+
+msgid "Failed to delete SCC account."
+msgstr ""
+
+msgid "Failed to start sync task."
 msgstr ""
 
 msgid "Failed to update SCC account."
@@ -182,10 +197,13 @@ msgid "Mirroring Policy"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Name of the scc_account"
 msgstr "Name des SCC Kontos"
+
+msgid "No options available"
+msgstr ""
 
 msgid "None"
 msgstr "Keine"
@@ -235,6 +253,9 @@ msgstr ""
 msgid "SCC account created successfully."
 msgstr ""
 
+msgid "SCC account deleted successfully."
+msgstr ""
+
 msgid "SCC account updated successfully."
 msgstr ""
 
@@ -256,11 +277,11 @@ msgstr "SUSE Abonnements"
 msgid "Search"
 msgstr "Suche"
 
-msgid "Select SUSE products"
+msgid "Select Products"
 msgstr ""
 
-msgid "Select products"
-msgstr "Produkte auswählen"
+msgid "Select SUSE products"
+msgstr ""
 
 msgid "Selected SUSE Products"
 msgstr ""
@@ -299,7 +320,7 @@ msgid "Starting the subscription task failed."
 msgstr ""
 
 msgid "Submit"
-msgstr ""
+msgstr "Absenden"
 
 msgid "Subscribe SCC Product"
 msgstr "SCC Produkt abonnieren"
@@ -329,6 +350,9 @@ msgid "Sync task started."
 msgstr "Synchronisierungsaufgabe gestartet."
 
 msgid "Synchronize SUSE Account"
+msgstr ""
+
+msgid "Syncing..."
 msgstr ""
 
 msgid "Test Connection"
@@ -382,12 +406,7 @@ msgstr "Verwenden Sie diese Einstellung, wenn Sie beim Abonnieren automatisch ei
 msgid "Use your 'Organization credentials' obtained from the SUSE Customer Center."
 msgstr "Verwenden Sie die \"Organisationszugangsdaten\" aus dem SUSE Customer Center."
 
-msgid ""
-"WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\n"
-"\n"
-"If you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\n"
-"\n"
-"Really delete SCC account %s?"
+msgid "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\n Do you Really want to delete this SCC account %acc_name?"
 msgstr ""
 
 msgid "YYYY-MM-DD"
@@ -396,8 +415,17 @@ msgstr ""
 msgid "You currently have no SUSE products selected. Search and add SUSE products in the section below."
 msgstr ""
 
+msgid "error"
+msgstr ""
+
+msgid "finished"
+msgstr ""
+
 msgid "never synced"
 msgstr "Nie synchronisiert"
 
 msgid "no results"
+msgstr ""
+
+msgid "running"
 msgstr ""

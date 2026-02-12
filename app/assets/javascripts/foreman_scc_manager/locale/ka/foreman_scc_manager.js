@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 5.0.4",
+        "Project-Id-Version": "foreman_scc_manager 5.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
-        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022",
+        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2025",
         "Language-Team": "Georgian (https://app.transifex.com/foreman/teams/114/ka/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -34,6 +34,9 @@
       ],
       "Actions": [
         "ქმედებები"
+      ],
+      "Actions menu": [
+        ""
       ],
       "Add SCC account": [
         "SCC ანგარიშის დამატება"
@@ -63,7 +66,7 @@
         "Scc_account-ისთვის scc_products-ების მრავალი მინიჭება."
       ],
       "Cancel": [
-        ""
+        "გაუქმება"
       ],
       "Collapse products": [
         "პროდუქტების ჩაკეცვა"
@@ -89,6 +92,12 @@
       "Date and time relative to which the sync interval is run": [
         "თარიღი და დრო იმ მომენტიდან, როცა სინქი ბოლოს გაეშვა"
       ],
+      "Delete": [
+        ""
+      ],
+      "Delete SCC Account": [
+        ""
+      ],
       "Delete scc_account": [
         "SCC_account-ის წაშლა"
       ],
@@ -108,6 +117,12 @@
         "ამოცანის რიგში ჩამატების შეცდომა: %s"
       ],
       "Failed to create SCC account.": [
+        ""
+      ],
+      "Failed to delete SCC account.": [
+        ""
+      ],
+      "Failed to start sync task.": [
         ""
       ],
       "Failed to update SCC account.": [
@@ -171,10 +186,13 @@
         "სარკისებრი ასლის წესი"
       ],
       "Name": [
-        ""
+        "სახელი"
       ],
       "Name of the scc_account": [
         "SCC_account-ის სახელი"
+      ],
+      "No options available": [
+        ""
       ],
       "None": [
         "არაფერი"
@@ -183,7 +201,7 @@
         "საჭიროებისამებრ"
       ],
       "Password": [
-        ""
+        "პაროლი"
       ],
       "Password of scc_account": [
         "SCC_account-ის პაროლი"
@@ -224,6 +242,9 @@
       "SCC account created successfully.": [
         ""
       ],
+      "SCC account deleted successfully.": [
+        ""
+      ],
       "SCC account updated successfully.": [
         ""
       ],
@@ -245,11 +266,11 @@
       "Search": [
         "ძებნა"
       ],
+      "Select Products": [
+        ""
+      ],
       "Select SUSE products": [
         "აირჩიეთ SUSE-ის პროდუქტები"
-      ],
-      "Select products": [
-        "აირჩიეთ პროდუქტები"
       ],
       "Selected SUSE Products": [
         "არჩეული SUSE-ის პროდუქტები"
@@ -320,6 +341,9 @@
       "Synchronize SUSE Account": [
         "SUSE-ის ანგარიშის სინქრონიზაცია"
       ],
+      "Syncing...": [
+        ""
+      ],
       "Test Connection": [
         "შეერთების შემოწმება"
       ],
@@ -371,8 +395,8 @@
       "Use your 'Organization credentials' obtained from the SUSE Customer Center.": [
         "გამოიყენეთ თქვენი 'ორგანიზაციის მომხმარებელი და პაროლი', რომელიც SUSE-ის მხარდაჭერის ცენტრიდან მიიღეთ."
       ],
-      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\n\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\n\\nReally delete SCC account %s?": [
-        "გაფრთხილება: თუ გნებავთ, გადართოთ SCC ანგარიშები და შეინარჩუნოთ დასინქრონებული შემცველობა, არ წაშალოთ თქვენი ძველი SCC ანგარიში მაშინაც კი, როცა მას ვადა გაუვა. სჯობს მისი მომხმარებელი და პაროლი შეცვალოთ.\\n\\nთუ თქვენს ძველ SCC ანგარიშს წაშლით, არსებულ რეპოზიტორიებს, პროდუქტებს, შემცველობის ხედებს და კომპოზიტურ შემცველობის ხედებს ვეღარ გამოიყენებთ.\\n\\nმართლა წავშალო SCC ანგარიში %s?"
+      "WARNING: If you want to switch SCC accounts and retain the synchronized content, DO NOT delete your old SCC account, even if it is expired. Please change the login and password of your SCC account, instead.\\\\n\\\\nIf you delete your old SCC account, you CANNOT reuse existing repositories, products, content views, and composite content views.\\\\n\\\\n Do you Really want to delete this SCC account %acc_name?": [
+        ""
       ],
       "YYYY-MM-DD": [
         ""
@@ -380,10 +404,19 @@
       "You currently have no SUSE products selected. Search and add SUSE products in the section below.": [
         "ამჟამად SUSE-ის პროდუქტები არჩეული არ გაქვთ. მოძებნეთ და დაამატეთ SUSE-ის პროდუქტები ქვედა სექციაში."
       ],
+      "error": [
+        ""
+      ],
+      "finished": [
+        ""
+      ],
       "never synced": [
         "სინქრონიზაცია არ მომხდარა"
       ],
       "no results": [
+        ""
+      ],
+      "running": [
         ""
       ]
     }
