@@ -7,15 +7,15 @@
 # Claer <transiblu@claer.hammock.fr>, 2019
 # Baptiste Agasse <baptiste.agasse@gmail.com>, 2025
 # 21966816214bc546c1fc8a185e75ca1c, 2025
-# Bryan Kearney <bryan.kearney@gmail.com>, 2025
 # Amit Upadhye <aupadhye@redhat.com>, 2025
+# Bryan Kearney <bryan.kearney@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 5.2.0\n"
+"Project-Id-Version: foreman_scc_manager 5.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2025\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2026\n"
 "Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +100,7 @@ msgid "Date and time relative to which the sync interval is run"
 msgstr "Date et heure par rapport auxquelles l'intervalle de synchronisation est exécuté"
 
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Delete SCC Account"
 msgstr ""

@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 5.2.0",
+        "Project-Id-Version": "foreman_scc_manager 5.3.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
-        "Last-Translator": "tim123, 2025",
+        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2026",
         "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -93,7 +93,7 @@
         "运行同步间隔的日期和时间"
       ],
       "Delete": [
-        ""
+        "刪除"
       ],
       "Delete SCC Account": [
         ""
