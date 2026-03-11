@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_scc_manager": {
       "": {
-        "Project-Id-Version": "foreman_scc_manager 5.2.0",
+        "Project-Id-Version": "foreman_scc_manager 5.3.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-17 13:28+0000",
-        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2025",
+        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2026",
         "Language-Team": "French (https://app.transifex.com/foreman/teams/114/fr/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -93,7 +93,7 @@
         "Date et heure par rapport auxquelles l'intervalle de synchronisation est exécuté"
       ],
       "Delete": [
-        ""
+        "Supprimer"
       ],
       "Delete SCC Account": [
         ""

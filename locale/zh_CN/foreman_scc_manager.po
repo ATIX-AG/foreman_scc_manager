@@ -4,18 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Amit Upadhye <aupadhye@redhat.com>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # Ondřej Gajdušek, 2025
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 # tim123, 2025
+# Amit Upadhye <aupadhye@redhat.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_scc_manager 5.2.0\n"
+"Project-Id-Version: foreman_scc_manager 5.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-17 13:28+0000\n"
-"Last-Translator: tim123, 2025\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/foreman/teams/114/zh"
 "_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +100,7 @@ msgid "Date and time relative to which the sync interval is run"
 msgstr "运行同步间隔的日期和时间"
 
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 msgid "Delete SCC Account"
 msgstr ""
