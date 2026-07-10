@@ -1,34 +1,21 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Stack, StackItem } from '@patternfly/react-core';
-import { useDispatch } from 'react-redux';
-import { translate as __ } from 'foremanReact/common/I18n';
-import { useForemanModal } from 'foremanReact/components/ForemanModal/ForemanModalHooks';
 import SCCProductView from './components/SCCProductView';
 import { EmptySccProducts } from './EmptySccProducts';
 import SCCProductPicker from './components/SCCProductPicker';
 import SCCProductPickerModal from './components/SCCProductPickerModal';
-import { SCCPRODUCTPAGE_SUMMARY_MODAL_ID } from './SCCProductPageConstants';
 import './sccProductPage.scss';
 
-const SCCProductPage = ({
-  canCreate,
-  sccAccountId,
-  sccProductsInit,
-  ...props
-}) => {
-  const dispatch = useDispatch();
+const SCCProductPage = ({ canCreate, sccAccountId, sccProductsInit }) => {
   const [productToEdit, setProductToEdit] = useState(0);
   const [reposToSubscribe, setReposToSubscribe] = useState([]);
   const [subscriptionTaskId, setSubscriptionTaskId] = useState();
+  const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
 
   const editProductTree = (productId) => {
     setProductToEdit(productId);
   };
-
-  const { setModalOpen } = useForemanModal({
-    id: SCCPRODUCTPAGE_SUMMARY_MODAL_ID,
-  });
 
   const handleSubscribeCallback = (
     subscriptionTaskIdFromAction,
@@ -44,15 +31,15 @@ const SCCProductPage = ({
       newReposToSubscribe.push(repo);
     });
     setReposToSubscribe(newReposToSubscribe);
-    dispatch(setModalOpen({ id: SCCPRODUCTPAGE_SUMMARY_MODAL_ID }));
+    setIsSummaryModalOpen(true);
   };
 
   return sccProductsInit.length > 0 ? (
     <Stack>
       <StackItem>
         <SCCProductPickerModal
-          id={SCCPRODUCTPAGE_SUMMARY_MODAL_ID}
-          title={__('The subscription task has been started successfully')}
+          isOpen={isSummaryModalOpen}
+          onClose={() => setIsSummaryModalOpen(false)}
           taskId={subscriptionTaskId}
           reposToSubscribe={reposToSubscribe}
         />
