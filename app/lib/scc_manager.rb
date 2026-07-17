@@ -1,13 +1,7 @@
 module SccManager
   # adapted from https://github.com/SUSE/connect
   def self.get_scc_data(base_url, rest_url, login, password)
-    if (proxy_config = ::HttpProxy.default_global_content_proxy)
-      uri = URI(proxy_config[:url])
-      uri.user = proxy_config[:username]
-      uri.password = proxy_config[:password] if uri.user.present?
-
-      RestClient.proxy = uri.to_s
-    end
+    RestClient.proxy = ::HttpProxy.default_global_content_proxy.full_url if ::HttpProxy.default_global_content_proxy
 
     url = base_url + rest_url
     credentials = Base64.encode64("#{login}:#{password}").chomp
