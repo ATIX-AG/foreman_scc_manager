@@ -111,6 +111,7 @@ const SCCRepoPicker = ({
     activateDebugFilter,
     productAlreadySynced,
     sccProductId,
+    sccProductName,
     setSelectedReposFromChild,
   ]);
 

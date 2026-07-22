@@ -16,6 +16,8 @@ import { TimesIcon } from '@patternfly/react-icons';
 import { translate as __ } from 'foremanReact/common/I18n';
 import '../../../SCCProductPicker/styles.scss';
 
+const NO_RESULTS = __('no results');
+
 const GenericSelector = ({
   initialSelectOptions,
   setSelected,
@@ -34,7 +36,6 @@ const GenericSelector = ({
   );
   const [focusedItemIndex, setFocusedItemIndex] = useState(null);
   const [activeItemId, setActiveItemId] = useState(null);
-  const NO_RESULTS = __('no results');
 
   useEffect(() => {
     let newSelectOptions = initialSelectOptions.map((option) => ({
@@ -61,7 +62,7 @@ const GenericSelector = ({
       }
     }
     setSelectOptions(newSelectOptions);
-  }, [filterValue, initialSelectOptions]);
+  }, [filterValue, initialSelectOptions, isOpen]);
   const createItemId = (value) =>
     `select-typeahead-${value?.replace(' ', '-')}`;
   const setActiveAndFocusedItem = (itemIndex) => {
