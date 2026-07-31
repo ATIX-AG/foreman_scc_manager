@@ -8,6 +8,8 @@ import {
 } from '@patternfly/react-core';
 import { translate as __ } from 'foremanReact/common/I18n';
 
+const HOURS_DAY_MAX = 12;
+
 export const formatDateTime = (dateStr, timeStr) => {
   if (!dateStr || !timeStr) return undefined;
 
@@ -16,7 +18,8 @@ export const formatDateTime = (dateStr, timeStr) => {
 
   const [, hourStr, minuteStr, ampm] = match;
   const hour24 =
-    (parseInt(hourStr, 10) % 12) + (ampm.toUpperCase() === 'PM' ? 12 : 0);
+    (parseInt(hourStr, 10) % HOURS_DAY_MAX) +
+    (ampm.toUpperCase() === 'PM' ? HOURS_DAY_MAX : 0);
 
   const [year, month, day] = dateStr.split('-').map(Number);
   if (!year || !month || !day) return undefined;

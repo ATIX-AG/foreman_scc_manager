@@ -3,6 +3,8 @@ import { translate as __ } from 'foremanReact/common/I18n';
 
 import { INITIAL_DELAY, MAX_DELAY, BACKOFF } from './SCCAccountIndexConstants';
 
+const TIMEOUT_API_MSEC = 15000;
+
 const isDone = (state, result) =>
   state === 'stopped' || result === 'success' || result === 'error';
 
@@ -157,7 +159,7 @@ export const syncSccAccountAction = (
             taskTimeoutRef,
             lastStateRef
           );
-        }, 15000);
+        }, TIMEOUT_API_MSEC);
       },
       handleError: () => {
         setAccounts((prev) =>
