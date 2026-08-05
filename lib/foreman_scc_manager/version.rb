@@ -1,3 +1,3 @@
 module ForemanSccManager
-  VERSION = '5.3.1'.freeze
+  VERSION = '5.4.0'.freeze
 end
