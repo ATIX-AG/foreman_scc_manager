@@ -1,4 +1,6 @@
 module SccManager
+  REST_TIMEOUT = 180
+  REST_OPEN_TIMEOUT = 180
   # adapted from https://github.com/SUSE/connect
   def self.get_scc_data(base_url, rest_url, login, password)
     RestClient.proxy = ::HttpProxy.default_global_content_proxy.full_url if ::HttpProxy.default_global_content_proxy
@@ -9,7 +11,12 @@ module SccManager
                     Accept: 'application/vnd.scc.suse.com.v4+json' }
     results = []
     loop do
-      response = RestClient.get url, auth_header
+      response = RestClient::Request.execute(
+        method: :get,
+        url: url, timeout: REST_TIMEOUT,
+        headers: auth_header,
+        open_timeout: REST_OPEN_TIMEOUT
+      )
       raise 'Connection to SUSE costomer center failed.' unless response.code == 200
 
       links = (response.headers[:link] || '').split(', ').map do |link|
