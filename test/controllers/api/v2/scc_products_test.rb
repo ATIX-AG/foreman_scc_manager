@@ -57,4 +57,15 @@ class Api::V2::SccProductsControllerTest < ActionController::TestCase
     assert_equal 4, body['results'].count
     assert_equal 4, body['subtotal']
   end
+
+  test 'index lists only products of the given scc_account' do
+    other_product = scc_products(:one).dup
+    other_product.update!(scc_account: scc_accounts(:two), scc_id: 999_999)
+
+    get :index, params: { :scc_account_id => @scc_account.id }
+    assert_response :success
+    ids = ActiveSupport::JSON.decode(@response.body)['results'].map { |product| product['id'] }
+    assert_not_includes ids, other_product.id
+    assert_equal @scc_account.scc_products.pluck(:id).sort, ids.sort
+  end
 end

@@ -29,7 +29,7 @@ module Api
       add_scoped_search_description_for(SccProduct)
 
       def index
-        scope = resource_scope_for_index
+        scope = resource_scope_for_index.where(scc_account_id: params[:scc_account_id])
         scope = scope.where.not(:product_id => nil) if ::Foreman::Cast.to_bool(params[:subscribed_only])
         @scc_products = scope
       end
