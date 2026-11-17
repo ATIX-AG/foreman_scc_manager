@@ -65,9 +65,9 @@ module SccManager
     }
     RestClient.post url, payload, header.merge(auth_header)
   rescue RestClient::Exception => e
-    raise "Something went wrong while connecting to the SCC: #{e.message}" unless e.response
+    raise "Something went wrong while connecting to the SUSE Customer Center: #{e.message}" unless e.response
 
-    raise "Something went wrong while connecting to the SCC: Return code: #{e.response.code}, Error: #{JSON.parse(e.response.body)['error']}"
+    raise "Something went wrong while connecting to the SUSE Customer Center: Return code: #{e.response.code}, Error: #{JSON.parse(e.response.body)['error']}"
   ensure
     RestClient.proxy = ''
   end
@@ -86,7 +86,7 @@ module SccManager
       payload: payload
     )
   rescue RestClient::Exception => e
-    raise "Something went wrong while connecting to the SCC: Return code: #{e.response.code}, Error: #{JSON.parse(e.response.body)['error']}"
+    raise "Something went wrong while connecting to the SUSE Customer Center: Return code: #{e.response.code}, Error: #{JSON.parse(e.response.body)['error']}"
   ensure
     RestClient.proxy = ''
   end

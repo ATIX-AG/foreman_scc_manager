@@ -26,8 +26,8 @@ module Actions
         error! 'There are no SCC credentials available for the host. Product cannot be activated.'
       rescue RestClient::Exception => e
         mark_failed
-        ::Foreman::Logging.logger('foreman_scc_manager').error "Could not connect to SCC portal: #{e}"
-        error! "Could not connect to SCC portal: #{e}"
+        ::Foreman::Logging.logger('foreman_scc_manager').error "Could not connect to SUSE Customer Center: #{e}"
+        error! "Could not connect to SUSE Customer Center: #{e}"
       rescue StandardError => e
         mark_failed
         ::Foreman::Logging.logger('foreman_scc_manager').error "Error activating product for host: #{e}"

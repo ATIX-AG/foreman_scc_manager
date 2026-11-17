@@ -24,14 +24,14 @@ module Actions
         credentials.scc_password = results['password']
         credentials.save!
       rescue RestClient::Exception => e
-        ::Foreman::Logging.logger('foreman_scc_manager').error "Could not connect to SCC portal: #{e}"
-        error! "Could not connect to SCC portal: #{e}"
+        ::Foreman::Logging.logger('foreman_scc_manager').error "Could not connect to SUSE Customer Center: #{e}"
+        error! "Could not connect to SUSE Customer Center: #{e}"
       rescue ActiveRecord::RecordNotFound => e
         ::Foreman::Logging.logger('foreman_scc_manager').error e.to_s
         error! e.to_s
       rescue StandardError => e
-        ::Foreman::Logging.logger('foreman_scc_manager').error "Error while announcing host to SCC: #{e}"
-        error! "Error while announcing host to SCC: #{e}"
+        ::Foreman::Logging.logger('foreman_scc_manager').error "Error while announcing host to SUSE Customer Center: #{e}"
+        error! "Error while announcing host to SUSE Customer Center: #{e}"
       end
 
       def rescue_strategy
@@ -39,11 +39,11 @@ module Actions
       end
 
       def humanized_name
-        _('Announce host to SCC')
+        _('Announce host to SUSE Customer Center')
       end
 
       def humanized_output
-        output.dup.update(message: 'Announced host to SCC')
+        output.dup.update(message: 'Announced host to SUSE Customer Center')
       end
     end
   end

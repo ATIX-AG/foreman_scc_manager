@@ -6,7 +6,7 @@ module Api
       before_action :find_host
 
       api :GET, '/scc_hosts/:scc_host_id/products', N_('List the SCC products activated on a host')
-      param :scc_host_id, String, required: true, desc: N_('The ID or Name of the managed host')
+      param :scc_host_id, String, required: true, desc: N_('ID or name of a host')
       param :search, String, desc: N_('Filter results, e.g. "status = failed" or "product_name ~ Basesystem"')
       def index
         scc_host_products = if @host.scc_facet
@@ -20,7 +20,7 @@ module Api
       end
 
       api :POST, '/scc_hosts/:scc_host_id/products', N_('Activate an SCC product on a host')
-      param :scc_host_id, String, required: true, desc: N_('The ID or Name of the managed host')
+      param :scc_host_id, String, required: true, desc: N_('ID or name of a host')
       param :scc_id, :number, required: true, desc: N_('The SUSE product ID, as shown in brackets in the SCC Manager product list')
       param :reg_code, String, required: true, desc: N_('The SUSE registration code')
       def create
@@ -72,7 +72,7 @@ module Api
       end
 
       api :DELETE, '/scc_hosts/:scc_host_id/products/:scc_id', N_('Deactivate an SCC product on a host')
-      param :scc_host_id, String, required: true, desc: N_('The ID or Name of the managed host')
+      param :scc_host_id, String, required: true, desc: N_('ID or name of a host')
       param :scc_id, :number, required: true, desc: N_('The SUSE product ID of the product to deactivate')
       def destroy
         credentials = @host.scc_host_credentials

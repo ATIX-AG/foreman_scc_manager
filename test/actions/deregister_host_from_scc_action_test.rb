@@ -34,7 +34,7 @@ module ForemanSccManager
       action = create_action(@action_class)
       SccHostCredentials.stubs(:find_by!).returns(@credentials)
       ::SccManager.expects(:delete_scc_data).raises(RestClient::Exception)
-      ::Foreman::Logging.logger('foreman_scc_manager').expects(:error).with('Could not connect to SCC portal: RestClient::Exception')
+      ::Foreman::Logging.logger('foreman_scc_manager').expects(:error).with('Could not connect to SUSE Customer Center: RestClient::Exception')
       assert_raises StandardError do
         run_action plan_action(action, @credentials.id)
       end

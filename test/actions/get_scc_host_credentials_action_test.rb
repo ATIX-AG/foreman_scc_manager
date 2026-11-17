@@ -58,7 +58,7 @@ module ForemanSccManager
     test 'fails if post request to scc fails' do
       action = create_action(@action_class)
       ::SccManager.expects(:post_scc_data).raises(RestClient::Exception)
-      ::Foreman::Logging.logger('foreman_scc_manager').expects(:error).with('Could not connect to SCC portal: RestClient::Exception')
+      ::Foreman::Logging.logger('foreman_scc_manager').expects(:error).with('Could not connect to SUSE Customer Center: RestClient::Exception')
       planned_action = plan_action(action, get_host_data(@host), @host.id, 'dummy-reg=code')
       assert_raises StandardError do
         run_action planned_action
