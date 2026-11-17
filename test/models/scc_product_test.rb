@@ -98,3 +98,28 @@ class SccProductNoRepoTest < ActiveSupport::TestCase
     assert_empty products_with_repos
   end
 end
+
+class SccProductHostsTest < ActiveSupport::TestCase
+  test 'hosts returns hosts that activated the product through their facet' do
+    product = scc_products(:one)
+    host = FactoryBot.create(:host)
+    facet = host.create_scc_facet
+    facet.scc_host_products.create!(scc_product: product, status: SccHostProduct::ACTIVE)
+
+    assert_includes product.hosts, host
+  end
+
+  test 'hosts is empty for a product with no activations' do
+    assert_empty scc_products(:four).hosts
+  end
+
+  test 'destroying a product destroys its scc_host_products' do
+    product = scc_products(:one)
+    facet = FactoryBot.create(:host).create_scc_facet
+    scc_host_product = facet.scc_host_products.create!(scc_product: product, status: SccHostProduct::ACTIVE)
+
+    product.destroy
+
+    assert_empty SccHostProduct.where(id: scc_host_product.id)
+  end
+end

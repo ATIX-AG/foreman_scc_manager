@@ -38,6 +38,31 @@ foreman-installer
 
 [Plugin documentation](https://docs.theforeman.org/nightly/Managing_Content/index-katello.html#Managing_SUSE_Content_content-management)
 
+### API for registering hosts to the SUSE Customer Center (SCC)
+
+The plugin provides API endpoints to register hosts with the SUSE Customer Center (SCC) and to manage the SCC products activated on them. 
+The registration state is stored in Foreman, so it can be queried without contacting SCC. 
+Registering, activating and deactivating run as Foreman tasks, and the response contains the task ID.
+
+| Method | Endpoint | Description |
+| ------ | -------- | ----------- |
+| GET    | `/api/v2/scc_hosts` | List hosts with their SCC registration status. Filter with `registered=true/false` or `search` (e.g. `set? scc_registered`). |
+| GET    | `/api/v2/scc_hosts/:id/registration` | Show the SCC registration status of a host. |
+| PUT    | `/api/v2/scc_hosts/:id/registration` | Register (announce) a host with SCC using a registration code. |
+| DELETE | `/api/v2/scc_hosts/:id/registration` | De-register a host from SCC. |
+| GET    | `/api/v2/scc_hosts/:id/products` | List the SCC products activated on a host. Filter with `search` (e.g. `status = active`, `product_name ~ Basesystem`). |
+| POST   | `/api/v2/scc_hosts/:id/products` | Activate an SCC product on a host, by its SUSE product ID (`scc_id`). |
+| DELETE | `/api/v2/scc_hosts/:id/products/:scc_id` | Deactivate an SCC product on a host. |
+
+Search fields for the `search` parameter:
+
+- `/api/v2/scc_hosts`: `scc_registered`, used with `set?` (registered) or `null?` (not registered)
+- `/api/v2/scc_hosts/:id/products`: `status` (`pending`, `active`, `failed`) and `product_name`, e.g. `status = active and product_name ~ Basesystem`.
+
+The endpoints need the `view_scc_hosts` permission for reading and `edit_scc_hosts` for changes.
+
+For all parameters and responses, see the API documentation of your Foreman instance at `https://<foreman-fqdn>/apidoc/v2.html`.
+
 ## Hammer CLI Extension
 
 [Hammer CLI for Foreman SCC Manager](https://github.com/ATIX-AG/hammer-cli-foreman-scc-manager)
