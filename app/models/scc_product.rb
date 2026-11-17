@@ -18,6 +18,9 @@ class SccProduct < ApplicationRecord
     class_name: :SccExtending,
     foreign_key: :scc_extension_id
   has_many :inverse_scc_extensions, through: :inverse_scc_extendings, source: :scc_product
+  has_many :scc_host_products, dependent: :destroy
+  has_many :scc_facets, through: :scc_host_products
+  has_many :hosts, through: :scc_facets
 
   default_scope -> { order(:name) }
   scoped_search on: :name, complete_value: true

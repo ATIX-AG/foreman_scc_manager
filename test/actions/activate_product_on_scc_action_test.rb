@@ -44,5 +44,37 @@ module ForemanSccManager
         run_action planned_action
       end
     end
+
+    test 'finalize sets status to active on success' do
+      scc_product = scc_products(:one)
+      scc_host_product = @host.scc_host_products.create!(scc_product: scc_product, status: SccHostProduct::PENDING)
+
+      action = create_action(@action_class)
+      SccHostCredentials.stubs(:find_by!).returns(@credentials)
+      ::SccManager.stubs(:post_scc_data).returns('{}')
+
+      planned_action = plan_action(action, @credentials.id, @product_data, scc_host_product.id)
+      run = run_action planned_action
+      finalize_action run
+
+      assert_equal SccHostProduct::ACTIVE, scc_host_product.reload.status
+    end
+
+    test 'sets status to failed when scc call fails' do
+      scc_product = SccProduct.where.not(product_id: nil).first || scc_products(:one)
+      scc_host_product = @host.scc_host_products.create!(scc_product: scc_product, status: SccHostProduct::PENDING)
+
+      action = create_action(@action_class)
+      SccHostCredentials.stubs(:find_by!).returns(@credentials)
+      ::SccManager.expects(:post_scc_data).raises(RestClient::Exception)
+      ::Foreman::Logging.logger('foreman_scc_manager').expects(:error).with('Could not connect to SCC portal: RestClient::Exception')
+
+      planned_action = plan_action(action, @credentials.id, @product_data, scc_host_product.id)
+      assert_raises StandardError do
+        run_action planned_action
+      end
+
+      assert_equal SccHostProduct::FAILED, scc_host_product.reload.status
+    end
   end
 end
