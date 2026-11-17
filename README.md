@@ -40,8 +40,8 @@ foreman-installer
 
 ### API for registering hosts to the SUSE Customer Center (SCC)
 
-The plugin provides API endpoints to register hosts with the SUSE Customer Center (SCC) and to manage the SUSE products activated on them. 
-The registration state is stored in Foreman, so it can be queried without contacting SCC. 
+The plugin provides API endpoints to register hosts with the SUSE Customer Center (SCC) and to manage the SUSE products activated on them.
+The registration state is stored in Foreman, so it can be queried without contacting SCC.
 Registering, activating and deactivating run as Foreman tasks, and the response contains the task ID.
 
 | Method | Endpoint | Description |
