@@ -3,43 +3,40 @@ require 'test_plugin_helper'
 class SccHostCredentialsTest < ActiveSupport::TestCase
   def setup
     @host = FactoryBot.create(:host)
-    @credentials = FactoryBot.create(:scc_host_credentials, host: @host)
+    @facet = @host.create_scc_facet
+    @credentials = FactoryBot.create(:scc_host_credentials, scc_facet: @facet)
   end
 
-  context 'without host' do
-    test 'fail create due to missing host' do
-      @credentials.host = nil
+  context 'without facet' do
+    test 'fail create due to missing facet' do
+      @credentials.scc_facet = nil
       assert_raises ActiveRecord::RecordInvalid do
         @credentials.save!
       end
     end
   end
 
-  context 'with host' do
+  context 'with facet' do
     test 'create' do
       assert @credentials.save
-      assert_not_empty SccHostCredentials.where(:id => @credentials.id)
+      assert_not_empty SccHostCredentials.where(id: @credentials.id)
     end
 
     test 'destroy' do
       credentials_id = @credentials.id
       assert @credentials.destroy
-      assert_empty SccHostCredentials.where(:id => credentials_id)
+      assert_empty SccHostCredentials.where(id: credentials_id)
     end
 
-    test 'host-dependent destroy' do
+    test 'facet-dependent destroy' do
       credentials_id = @credentials.id
-      assert @host.destroy
-      assert_empty SccHostCredentials.where(:id => credentials_id)
+      assert @facet.destroy
+      assert_empty SccHostCredentials.where(id: credentials_id)
     end
 
-    test 'host relation' do
-      second_host = FactoryBot.create(:host)
-      assert_equal @credentials.host.id, @host.id
-      assert @credentials.host = second_host
-      assert @credentials.save
-      assert_equal @credentials.host.id, second_host.id
-      assert_nil @host.scc_host_credentials
+    test 'facet relation' do
+      assert_equal @credentials.scc_facet.id, @facet.id
+      assert_equal @facet.scc_host_credentials.id, @credentials.id
     end
 
     test 'password is saved encrypted when updated' do

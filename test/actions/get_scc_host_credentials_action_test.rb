@@ -10,7 +10,8 @@ module ForemanSccManager
         :on_compute_resource,
         operatingsystem: FactoryBot.create(:suse, :with_archs, :with_media))
       @action_class = ::Actions::SccManager::GetSccHostCredentials
-      @credentials = FactoryBot.create(:scc_host_credentials, host: @host)
+      @facet = @host.create_scc_facet
+      @credentials = FactoryBot.create(:scc_host_credentials, scc_facet: @facet)
       @credentials.scc_login = nil
       @credentials.scc_password = nil
     end
