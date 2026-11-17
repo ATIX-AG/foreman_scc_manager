@@ -51,7 +51,7 @@ Registering, activating and deactivating run as Foreman tasks, and the response 
 | PUT    | `/api/v2/scc_hosts/:id/registration` | Register (announce) a host with SCC using a registration code. |
 | DELETE | `/api/v2/scc_hosts/:id/registration` | Deregister a host from SCC. |
 | GET    | `/api/v2/scc_hosts/:id/products` | List the SUSE products activated on a host. Filter with `search` (e.g. `status = active`, `product_name ~ Basesystem`). |
-| POST   | `/api/v2/scc_hosts/:id/products` | Activate a SUSE product on a host, by its SUSE product ID (`scc_id`). |
+| POST   | `/api/v2/scc_hosts/:id/products` | Activate a SUSE product on a host by its SUSE product ID (`scc_id`). |
 | DELETE | `/api/v2/scc_hosts/:id/products/:scc_id` | Deactivate a SUSE product on a host. |
 
 Search fields for the `search` parameter:
