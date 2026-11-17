@@ -182,6 +182,7 @@ const SCCProductView = ({
           <Flex>
             <SCCProductTreeExpander
               setExpandAllInParent={setExpandAllFromChild}
+              ouiaId="product-view-product-tree-expander-"
             />
             <SCCSubscribedProductsExpander
               setExpandAllInParent={setShowAllFromChild}

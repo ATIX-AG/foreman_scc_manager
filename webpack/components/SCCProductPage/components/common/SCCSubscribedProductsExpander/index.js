@@ -9,6 +9,7 @@ const SCCSubscribedProductsExpander = ({ setExpandAllInParent }) => (
     selectOptionOpen={__('Show all products')}
     selectOptionClose={__('Show only subscribed products')}
     initLabel={__('Show/Hide unsubscribed')}
+    ouiaId="subscribed-products-expander-"
   />
 );
 

@@ -150,7 +150,12 @@ const SCCRepoPicker = ({
   );
 
   const toggle = (toggleRef) => (
-    <MenuToggle ref={toggleRef} onClick={onToggleClick} isExpanded={isOpen}>
+    <MenuToggle
+      ref={toggleRef}
+      ouiaId={sccProductId?.toString().concat('scc-manager-repo-picker-toggle')}
+      onClick={onToggleClick}
+      isExpanded={isOpen}
+    >
       {sprintf(__('%s/%s'), selected.length, sccRepos.length)}
     </MenuToggle>
   );
