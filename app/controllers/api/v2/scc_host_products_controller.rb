@@ -5,7 +5,7 @@ module Api
     class SccHostProductsController < ::Api::V2::BaseController
       before_action :find_host
 
-      api :GET, '/scc_hosts/:scc_host_id/products', N_('List the SCC products activated on a host')
+      api :GET, '/scc_hosts/:scc_host_id/products', N_('List the SUSE products activated on a host')
       param :scc_host_id, String, required: true, desc: N_('ID or name of a host')
       param :search, String, desc: N_('Filter results, e.g. "status = failed" or "product_name ~ Basesystem"')
       def index
@@ -19,7 +19,7 @@ module Api
         }, status: :ok
       end
 
-      api :POST, '/scc_hosts/:scc_host_id/products', N_('Activate an SCC product on a host')
+      api :POST, '/scc_hosts/:scc_host_id/products', N_('Activate an SUSE product on a host')
       param :scc_host_id, String, required: true, desc: N_('ID or name of a host')
       param :scc_id, :number, required: true, desc: N_('The SUSE product ID, as shown in brackets in the SCC Manager product list')
       param :reg_code, String, required: true, desc: N_('The SUSE registration code')
@@ -41,7 +41,7 @@ module Api
                             .where(taxonomies: { id: @host.organization_id })
                             .find_by(scc_id: product_params[:scc_id])
         unless product
-          render json: { error: _('SCC product not found') }, status: :not_found
+          render json: { error: _('SUSE product not found') }, status: :not_found
           return
         end
 
@@ -71,7 +71,7 @@ module Api
         }, status: :accepted
       end
 
-      api :DELETE, '/scc_hosts/:scc_host_id/products/:scc_id', N_('Deactivate an SCC product on a host')
+      api :DELETE, '/scc_hosts/:scc_host_id/products/:scc_id', N_('Deactivate an SUSE product on a host')
       param :scc_host_id, String, required: true, desc: N_('ID or name of a host')
       param :scc_id, :number, required: true, desc: N_('The SUSE product ID of the product to deactivate')
       def destroy
