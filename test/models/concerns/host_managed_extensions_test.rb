@@ -43,5 +43,31 @@ class HostManagedExtensionsTest < ActiveSupport::TestCase
       assert_equal credentials.scc_login, @host.scc_host_credentials.scc_login
       assert_equal credentials.scc_password, @host.scc_host_credentials.scc_password
     end
+
+    test 'set? scc_registered finds registered hosts' do
+      unregistered = FactoryBot.create(:host)
+      results = Host::Managed.search_for('set? scc_registered')
+      assert_includes results, @host
+      assert_not_includes results, unregistered
+    end
+
+    test 'null? scc_registered finds unregistered hosts' do
+      unregistered = FactoryBot.create(:host)
+      results = Host::Managed.search_for('null? scc_registered')
+      assert_includes results, unregistered
+      assert_not_includes results, @host
+    end
+
+    test 'destroying a host destroys its facet, credentials, and products' do
+      facet_id = @host.scc_facet.id
+      credentials_id = @host.scc_host_credentials.id
+      scc_host_product = @host.scc_host_products.create!(scc_product: scc_products(:one), status: SccHostProduct::ACTIVE)
+
+      assert @host.destroy
+
+      assert_empty SccFacet.where(id: facet_id)
+      assert_empty SccHostCredentials.where(id: credentials_id)
+      assert_empty SccHostProduct.where(id: scc_host_product.id)
+    end
   end
 end

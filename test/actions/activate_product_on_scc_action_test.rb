@@ -7,7 +7,7 @@ module ForemanSccManager
     def setup
       @product_data = { identifier: 'SLES', arch: 'x86_64', version: 12, token: 'dummy-reg-token' }
       @host = FactoryBot.create(:host, :with_scc_host_credentials)
-      @credentials = SccHostCredentials.where(host: @host).first
+      @credentials = @host.scc_host_credentials
       @action_class = ::Actions::SccManager::ActivateProductOnScc
     end
 

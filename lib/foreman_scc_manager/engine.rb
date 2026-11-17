@@ -73,18 +73,30 @@ module ForemanSccManager
               { :scc_products => [:subscribe, :unsubscribe],
                 :'api/v2/scc_products' => [:subscribe, :unsibscribe] },
               :resource_type => 'SccProduct'
+
+            permission :view_scc_hosts,
+              { :'api/v2/scc_hosts' => [:show, :index],
+                :'api/v2/scc_host_products' => [:index] },
+              :resource_type => 'Host'
+
+            permission :edit_scc_hosts,
+              { :'api/v2/scc_hosts' => [:update, :destroy],
+                :'api/v2/scc_host_products' => [:create, :destroy] },
+              :resource_type => 'Host'
           end
 
           # Add a new role called 'SccManager' if it doesn't exist
           role 'SccManager',
             %i[view_scc_accounts use_scc_accounts new_scc_accounts edit_scc_accounts
                delete_scc_accounts sync_scc_accounts test_connection_scc_accounts
-               view_scc_products subscribe_scc_products],
+               view_scc_products subscribe_scc_products
+               view_scc_hosts edit_scc_hosts],
             'Role granting permissons to manage SUSE Subscriptions'
 
           role 'SccViewer',
             %i[view_scc_accounts use_scc_accounts sync_scc_accounts
-               create_products view_products subscribe_scc_products view_scc_products],
+               create_products view_products subscribe_scc_products view_scc_products
+               view_scc_hosts],
             'Role granting permissons to view and use SUSE Subscriptions'
 
           add_all_permissions_to_default_roles
@@ -95,6 +107,12 @@ module ForemanSccManager
             caption: _('SUSE Subscriptions'),
             parent: :content_menu,
             after: :red_hat_subscriptions
+
+          register_facet SccFacet, :scc_facet do
+            configure_host do
+              set_dependent_action :destroy
+            end
+          end
         end
       end
     end
@@ -103,6 +121,10 @@ module ForemanSccManager
       ForemanTasks.dynflow.require!
       action_paths = [ForemanSccManager::Engine.root.join('app/lib/actions')]
       ForemanTasks.dynflow.config.eager_load_paths.concat(action_paths)
+    end
+
+    initializer 'foreman_scc_manager.filter_parameters' do |app|
+      app.config.filter_parameters += [:reg_code]
     end
 
     # Precompile any JS or CSS files under app/assets/

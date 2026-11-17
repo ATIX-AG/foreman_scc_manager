@@ -44,6 +44,17 @@ Rails.application.routes.draw do
           end
         end
       end
+      constraints(:id => /[^\/]+/) do
+        resources :scc_hosts, only: [:index] do
+          member do
+            get    'registration', action: :show
+            put    'registration', action: :update
+            delete 'registration', action: :destroy
+          end
+          resources :products, only: %i[index create destroy],
+                    controller: :scc_host_products
+        end
+      end
     end
   end
 end

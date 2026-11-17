@@ -1,8 +1,6 @@
 module Actions
   module SccManager
     class GetSccHostCredentials < Actions::EntryAction
-      include EncryptValue
-
       def plan(host_data, host_id, reg_code)
         plan_self(base_url: 'https://scc.suse.com',
           reg_code: reg_code,
@@ -19,7 +17,9 @@ module Actions
           auth_header,
           payload)
         results = JSON.parse(response)
-        credentials = SccHostCredentials.find_or_create_by(host: ::Host::Managed.find(input[:host_id]))
+        host = ::Host::Managed.find(input[:host_id])
+        scc_facet = host.scc_facet || host.create_scc_facet
+        credentials = SccHostCredentials.find_or_create_by(scc_facet: scc_facet)
         credentials.scc_login = results['login']
         credentials.scc_password = results['password']
         credentials.save!
@@ -43,7 +43,7 @@ module Actions
       end
 
       def humanized_output
-        output.dup.update('Announced host to SCC')
+        output.dup.update(message: 'Announced host to SCC')
       end
     end
   end
