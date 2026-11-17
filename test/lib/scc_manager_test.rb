@@ -107,7 +107,7 @@ class SccManagerTest < ActiveSupport::TestCase
     end
   end
 
-  context 'SCC post reqeust' do
+  context 'SCC post request' do
     def setup
       common_setup
       @dummy_path = '/connect/subscriptions/systems'
