@@ -19,7 +19,7 @@ module Api
         }, status: :ok
       end
 
-      api :POST, '/scc_hosts/:scc_host_id/products', N_('Activate an SUSE product on a host')
+      api :POST, '/scc_hosts/:scc_host_id/products', N_('Activate a SUSE product on a host')
       param :scc_host_id, String, required: true, desc: N_('ID or name of a host')
       param :scc_id, :number, required: true, desc: N_('The SUSE product ID, as shown in brackets in the SCC Manager product list')
       param :reg_code, String, required: true, desc: N_('The SUSE registration code')
@@ -71,7 +71,7 @@ module Api
         }, status: :accepted
       end
 
-      api :DELETE, '/scc_hosts/:scc_host_id/products/:scc_id', N_('Deactivate an SUSE product on a host')
+      api :DELETE, '/scc_hosts/:scc_host_id/products/:scc_id', N_('Deactivate a SUSE product on a host')
       param :scc_host_id, String, required: true, desc: N_('ID or name of a host')
       param :scc_id, :number, required: true, desc: N_('The SUSE product ID of the product to deactivate')
       def destroy
