@@ -14,6 +14,7 @@ const SCCGenericExpander = ({
   selectOptionOpen,
   selectOptionClose,
   initLabel,
+  ouiaId,
 }) => {
   const [label, setLabel] = useState(initLabel);
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +41,12 @@ const SCCGenericExpander = ({
   };
 
   const toggle = (toggleRef) => (
-    <MenuToggle ref={toggleRef} onClick={onToggleClick} isExpanded={isOpen}>
+    <MenuToggle
+      ref={toggleRef}
+      ouiaId={ouiaId.concat('scc-manager-generic-expander-toggle')}
+      onClick={onToggleClick}
+      isExpanded={isOpen}
+    >
       {label}
     </MenuToggle>
   );
@@ -49,7 +55,7 @@ const SCCGenericExpander = ({
     <Flex>
       <FlexItem>
         <Select
-          ouiaId={initLabel.concat('scc-manager-generic-expander-select')}
+          ouiaId={ouiaId.concat('scc-manager-generic-expander-select')}
           toggle={toggle}
           onSelect={onSelect}
           selected={label}
@@ -69,6 +75,7 @@ SCCGenericExpander.propTypes = {
   selectOptionOpen: PropTypes.string.isRequired,
   selectOptionClose: PropTypes.string.isRequired,
   initLabel: PropTypes.string.isRequired,
+  ouiaId: PropTypes.string.isRequired,
 };
 
 SCCGenericExpander.deaultProps = {};

@@ -25,6 +25,7 @@ const GenericSelector = ({
   selected,
   inputValue,
   setInputValue,
+  ouiaId,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [filterValue, setFilterValue] = useState('');
@@ -183,6 +184,7 @@ const GenericSelector = ({
   const toggle = (toggleRef) => (
     <MenuToggle
       ref={toggleRef}
+      ouiaId={ouiaId.concat('scc-product-picker-toggle')}
       variant="typeahead"
       onClick={onToggleClick}
       isExpanded={isOpen}
@@ -194,7 +196,7 @@ const GenericSelector = ({
           onClick={onInputClick}
           onChange={onTextInputChange}
           onKeyDown={onInputKeyDown}
-          id={initialLabel.concat('typeahead-select-input')}
+          id={ouiaId.concat('typeahead-select-input')}
           autoComplete="off"
           placeholder={initialLabel}
           {...(activeItemId && {
@@ -215,7 +217,7 @@ const GenericSelector = ({
         >
           <Button
             variant="plain"
-            ouiaId={initialLabel.concat('scc-product-picker-button')}
+            ouiaId={ouiaId.concat('scc-product-picker-button')}
             onClick={onClearButtonClick}
           >
             <TimesIcon aria-hidden />
@@ -226,8 +228,8 @@ const GenericSelector = ({
   );
   return (
     <Select
-      id={initialLabel}
-      ouiaId={initialLabel.concat('scc-product-picker-select')}
+      id={ouiaId}
+      ouiaId={ouiaId.concat('scc-product-picker-select')}
       isOpen={isOpen}
       selected={selected}
       onSelect={onSelect}
@@ -242,7 +244,7 @@ const GenericSelector = ({
       }}
     >
       <SelectList
-        id={initialLabel.concat('select-typeahead-listbox')}
+        id={ouiaId.concat('select-typeahead-listbox')}
         isAriaMultiselectable={false}
         className="product-picker__select-list"
       >
@@ -273,6 +275,7 @@ GenericSelector.propTypes = {
   setSelected: PropTypes.func.isRequired,
   inputValue: PropTypes.string.isRequired,
   setInputValue: PropTypes.func.isRequired,
+  ouiaId: PropTypes.string.isRequired,
 };
 
 GenericSelector.defaultProps = {

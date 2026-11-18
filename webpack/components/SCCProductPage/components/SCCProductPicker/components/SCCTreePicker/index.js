@@ -240,6 +240,7 @@ const SCCTreePicker = ({
           <Flex>
             <SCCProductTreeExpander
               setExpandAllInParent={setExpandAllFromChild}
+              ouiaId="tree-picker-product-tree-expander-"
             />
             <FlexItem>
               <Tooltip

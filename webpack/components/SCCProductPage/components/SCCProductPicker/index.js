@@ -166,6 +166,7 @@ const SCCProductPicker = ({
                   selected={selectedProduct}
                   inputValue={searchInputProduct}
                   setInputValue={setSearchInputProduct}
+                  ouiaId="product-picker-"
                 />
               </FlexItem>
               <FlexItem>
@@ -181,6 +182,7 @@ const SCCProductPicker = ({
                   selected={selectedVersion}
                   inputValue={searchInputVersion}
                   setInputValue={setSearchInputVersion}
+                  ouiaId="version-picker-"
                 />
               </FlexItem>
               <FlexItem>
@@ -196,6 +198,7 @@ const SCCProductPicker = ({
                   selected={selectedArch}
                   inputValue={searchInputArch}
                   setInputValue={setSearchInputArch}
+                  ouiaId="architecture-picker-"
                 />
               </FlexItem>
               <FlexItem>

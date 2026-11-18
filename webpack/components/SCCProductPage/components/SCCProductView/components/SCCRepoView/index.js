@@ -90,7 +90,12 @@ const SCCRepoView = ({ sccRepos, sccProductId }) => {
   );
 
   const toggle = (toggleRef) => (
-    <MenuToggle ref={toggleRef} onClick={onToggleClick} isExpanded={isOpen}>
+    <MenuToggle
+      ref={toggleRef}
+      ouiaId={sccProductId?.toString().concat('scc-manager-repo-view-toggle')}
+      onClick={onToggleClick}
+      isExpanded={isOpen}
+    >
       {sprintf(
         __('Repositories (%s/%s)'),
         sccRepos.filter((r) => r.katello_repository_id !== null).length,

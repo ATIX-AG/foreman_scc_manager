@@ -1,47 +1,46 @@
-/* eslint-disable promise/prefer-await-to-then */
-// Configure Enzyme
-import { mount, shallow } from 'enzyme';
 import React from 'react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import SCCGenericExpander from './index';
 
 describe('SCCGenericExpander', () => {
-  it('renders default properties', () => {
-    const wrapper = mount(
+  it('renders the toggle and available options', async () => {
+    render(
       <SCCGenericExpander
         setInParent={() => {}}
         selectOptionOpen="open"
         selectOptionClose="close"
         initLabel="open/close"
+        ouiaId="test-"
       />
     );
 
-    expect(wrapper.find('SCCGenericExpander')).toHaveLength(1);
-    expect(wrapper.find('Flex')).toHaveLength(1);
-    expect(wrapper.find('FlexItem')).toHaveLength(1);
-    expect(wrapper.find('Select')).toHaveLength(1);
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'open/close' }));
+    });
+
+    expect(screen.getByText('open', { exact: true })).toBeInTheDocument();
+    expect(screen.getByText('close', { exact: true })).toBeInTheDocument();
   });
 
-  it('passes properties', () => {
-    const wrapper = shallow(
+  it('updates the parent and toggle label when an option is selected', async () => {
+    const setInParent = jest.fn();
+    render(
       <SCCGenericExpander
-        setInParent={() => {}}
+        setInParent={setInParent}
         selectOptionOpen="open"
         selectOptionClose="close"
         initLabel="open/close"
+        ouiaId="test-"
       />
     );
 
-    // Select
-    const select = wrapper.find('Select');
-    expect(select.exists()).toBe(true);
-    expect(select.props()).toHaveProperty('selected');
-    expect(select.prop('selected')).toContain('open/close');
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'open/close' }));
+    });
+    fireEvent.click(screen.getByText('open', { exact: true }));
 
-    // SelectOptions
-    const selectOptions = wrapper.find('SelectOption');
-    expect(selectOptions).toHaveLength(2);
-    const optionValues = selectOptions.map((option) => option.prop('value'));
-    expect(optionValues).toContain('open');
-    expect(optionValues).toContain('close');
+    expect(setInParent).toHaveBeenCalledWith(true);
+    expect(screen.getByRole('button', { name: 'open' })).toBeInTheDocument();
   });
 });
