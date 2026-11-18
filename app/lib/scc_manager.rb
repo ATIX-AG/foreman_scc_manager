@@ -1,4 +1,5 @@
 module SccManager
+  REST_TIMEOUT = 180
   # adapted from https://github.com/SUSE/connect
   def self.build_host_payload(host)
     {
@@ -32,7 +33,12 @@ module SccManager
                     Accept: 'application/vnd.scc.suse.com.v4+json' }
     results = []
     loop do
-      response = RestClient.get url, auth_header
+      response = RestClient::Request.execute(
+        method: :get,
+        url: url,
+        timeout: REST_TIMEOUT,
+        headers: auth_header
+      )
       raise 'Connection to SUSE costomer center failed.' unless response.code == 200
 
       links = (response.headers[:link] || '').split(', ').map do |link|
