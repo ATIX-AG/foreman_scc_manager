@@ -7,11 +7,14 @@ class Api::V2::SccHostsControllerTest < ActionController::TestCase
   end
 
   test 'index returns all hosts with registration status' do
-    get :index
+    get :index, params: { per_page: 1000 }
     assert_response :success
-    body = ActiveSupport::JSON.decode(@response.body)
-    assert body.key?('results')
-    # registered host shows registered: true, unregistered shows false
+    results = ActiveSupport::JSON.decode(@response.body)['results']
+
+    registered = results.find { |h| h['id'] == @host_with_credentials.id }
+    unregistered = results.find { |h| h['id'] == @host_without_credentials.id }
+    assert registered['registered']
+    assert_not unregistered['registered']
   end
 
   test 'index filters to registered hosts with scoped search' do
