@@ -19,8 +19,8 @@ module Actions
           auth_header,
           payload)
       rescue RestClient::Exception => e
-        ::Foreman::Logging.logger('foreman_scc_manager').error "Could not connect to SCC portal: #{e}"
-        error! "Could not connect to SCC portal: #{e}"
+        ::Foreman::Logging.logger('foreman_scc_manager').error "Could not connect to SUSE Customer Center: #{e}"
+        error! "Could not connect to SUSE Customer Center: #{e}"
       rescue StandardError => e
         ::Foreman::Logging.logger('foreman_scc_manager').error "Error while deactivating product for host: #{e}"
         error! "Error while deactivating product for host: #{e}"

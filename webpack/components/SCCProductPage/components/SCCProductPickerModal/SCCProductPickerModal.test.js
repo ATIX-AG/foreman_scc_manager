@@ -31,7 +31,7 @@ describe('SCCProductPickerModal', () => {
 
     expect(
       screen.queryByRole('dialog', {
-        name: 'Summary of SCC product subscription',
+        name: 'Summary of SUSE product subscription',
       })
     ).not.toBeInTheDocument();
   });
@@ -40,7 +40,7 @@ describe('SCCProductPickerModal', () => {
     render(<SCCProductPickerModal {...defaultProps} />);
 
     const dialog = screen.getByRole('dialog', {
-      name: 'Summary of SCC product subscription',
+      name: 'Summary of SUSE product subscription',
     });
 
     expect(

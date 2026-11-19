@@ -42,7 +42,7 @@ const SCCProductPickerModal = ({
 }) => (
   <Modal
     ouiaId="scc-product-picker-modal"
-    title={__('Summary of SCC product subscription')}
+    title={__('Summary of SUSE product subscription')}
     isOpen={isOpen}
     onClose={onClose}
     variant="medium"

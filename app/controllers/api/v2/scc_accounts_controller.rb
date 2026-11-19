@@ -144,9 +144,9 @@ module Api
 
       def_param_group :scc_product_data do
         param :scc_product_data, Array, :required => true, :desc => 'Array of Hash elements. One hash element contains an scc_product_id and a repository_list.' do
-          param :scc_product_id, Integer, :required => true, :desc => 'Product ID of SCC product'
+          param :scc_product_id, Integer, :required => true, :desc => 'Product ID of SUSE product'
           param :repository_list, Array, of: Integer, required: false,
-                                         desc: 'List of SCC repositories belonging to the SCC product. If the list is empty, all repositories will be subscribed to.'
+                                         desc: 'List of repositories belonging to the SUSE product. If the list is empty, all repositories will be subscribed to.'
         end
       end
 

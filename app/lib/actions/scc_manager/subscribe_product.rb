@@ -81,7 +81,7 @@ module Actions
       end
 
       def humanized_name
-        _('Subscribe SCC Product')
+        _('Subscribe SUSE product')
       end
     end
 

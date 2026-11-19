@@ -107,13 +107,13 @@ class SccManagerTest < ActiveSupport::TestCase
     end
   end
 
-  context 'SCC post reqeust' do
+  context 'SCC post request' do
     def setup
       common_setup
       @dummy_path = '/connect/subscriptions/systems'
       @dummy_auth_header = { Authorization: 'Token token=A3FOO21FVXTABAR' }
       @dummy_host_data = {
-        hostname: 'some_host_name.local',
+        hostname: 'host.local',
         hwinfo: {
           uuid: 'sdf-sadf-1231-sadf',
           arch: 'x86_64',
@@ -173,7 +173,7 @@ class SccManagerTest < ActiveSupport::TestCase
       @dummy_path = '/connect/systems/products'
       @dummy_auth_header = { Authorization: 'Token token=A3FOO21FVXTABAR' }
       @dummy_host_data = {
-        hostname: 'some_host_name.local',
+        hostname: 'host.local',
         hwinfo: {
           uuid: 'sdf-sadf-1231-sadf',
           arch: 'x86_64',

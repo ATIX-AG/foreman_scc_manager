@@ -40,8 +40,8 @@ foreman-installer
 
 ### API for registering hosts to the SUSE Customer Center (SCC)
 
-The plugin provides API endpoints to register hosts with the SUSE Customer Center (SCC) and to manage the SCC products activated on them. 
-The registration state is stored in Foreman, so it can be queried without contacting SCC. 
+The plugin provides API endpoints to register hosts with the SUSE Customer Center (SCC) and to manage the SUSE products activated on them.
+The registration state is stored in Foreman, so it can be queried without contacting SCC.
 Registering, activating and deactivating run as Foreman tasks, and the response contains the task ID.
 
 | Method | Endpoint | Description |
@@ -49,10 +49,10 @@ Registering, activating and deactivating run as Foreman tasks, and the response 
 | GET    | `/api/v2/scc_hosts` | List hosts with their SCC registration status. Filter with `registered=true/false` or `search` (e.g. `set? scc_registered`). |
 | GET    | `/api/v2/scc_hosts/:id/registration` | Show the SCC registration status of a host. |
 | PUT    | `/api/v2/scc_hosts/:id/registration` | Register (announce) a host with SCC using a registration code. |
-| DELETE | `/api/v2/scc_hosts/:id/registration` | De-register a host from SCC. |
-| GET    | `/api/v2/scc_hosts/:id/products` | List the SCC products activated on a host. Filter with `search` (e.g. `status = active`, `product_name ~ Basesystem`). |
-| POST   | `/api/v2/scc_hosts/:id/products` | Activate an SCC product on a host, by its SUSE product ID (`scc_id`). |
-| DELETE | `/api/v2/scc_hosts/:id/products/:scc_id` | Deactivate an SCC product on a host. |
+| DELETE | `/api/v2/scc_hosts/:id/registration` | Deregister a host from SCC. |
+| GET    | `/api/v2/scc_hosts/:id/products` | List the SUSE products activated on a host. Filter with `search` (e.g. `status = active`, `product_name ~ Basesystem`). |
+| POST   | `/api/v2/scc_hosts/:id/products` | Activate a SUSE product on a host by its SUSE product ID (`scc_id`). |
+| DELETE | `/api/v2/scc_hosts/:id/products/:scc_id` | Deactivate a SUSE product on a host. |
 
 Search fields for the `search` parameter:
 

@@ -42,7 +42,7 @@ module ForemanSccManager
     test 'host product is kept if the scc deactivation fails' do
       action = create_action(@action_class)
       ::SccManager.expects(:delete_scc_data).raises(RestClient::Exception)
-      ::Foreman::Logging.logger('foreman_scc_manager').expects(:error).with('Could not connect to SCC portal: RestClient::Exception')
+      ::Foreman::Logging.logger('foreman_scc_manager').expects(:error).with('Could not connect to SUSE Customer Center: RestClient::Exception')
 
       planned_action = plan_action(action, @credentials.id, @product_data, @scc_host_product.id)
       assert_raises StandardError do

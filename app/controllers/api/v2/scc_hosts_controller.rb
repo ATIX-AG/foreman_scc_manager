@@ -24,8 +24,8 @@ module Api
         }, status: :ok
       end
 
-      api :GET, '/scc_hosts/:id/registration', N_('Get SCC registration details for a specific host')
-      param :id, String, required: true, desc: N_('The ID or Name of the managed host')
+      api :GET, '/scc_hosts/:id/registration', N_('Get SCC registration details for a host')
+      param :id, String, required: true, desc: N_('ID or name of a host')
       def show
         credentials = @host.scc_host_credentials
         if credentials
@@ -42,7 +42,7 @@ module Api
       end
 
       api :PUT, '/scc_hosts/:id/registration', N_('Announce and register a host to SUSE Customer Center')
-      param :id, String, required: true, desc: N_('The ID or Name of the managed host')
+      param :id, String, required: true, desc: N_('ID or name of a host')
       param :reg_code, String, required: true, desc: N_('The SUSE registration code')
       def update
         if @host.scc_host_credentials
@@ -67,7 +67,7 @@ module Api
       end
 
       api :DELETE, '/scc_hosts/:id/registration', N_('Deregister a host from the SUSE Customer Center and remove its local registration')
-      param :id, String, required: true, desc: N_('The ID or Name of the managed host')
+      param :id, String, required: true, desc: N_('ID or name of a host')
       def destroy
         credentials = @host.scc_host_credentials
         unless credentials
